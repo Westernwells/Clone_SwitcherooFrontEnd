@@ -688,10 +688,10 @@ function GetStarted(props) {
                 )}
             </div>
             <div className="input">
-              <p className="input-lbl">what's their Phone Number?</p>
+              <p className="input-lbl">What's their Phone Number?</p>
               <div className="mysetting">
                 <input
-                  type="text"
+                  type="number"
                   className={
                     questions.phoneSecondApplicant &&
                     questions.phoneSecondApplicantIsValid
@@ -712,17 +712,17 @@ function GetStarted(props) {
         )}
         <Col className="questionme123 ">
           {/* <div className="mysetting"> */}
-          <h6 className="heading2">
+          <h6 style={{fontWeight: 700}} className="heading2 new-heading">
             In the last 6 years, have you or anyone you're applying with
           </h6>
           {/* </div> */}
           <ul className="q1-ul">
             <li>1). filled for bankruptcy</li>
-            <li>2). been issued a county court judgement (CCJ)</li>
-            <li>3). had your home repossesed</li>
-            <li>4). entered into a Debt Relief Notice (DRN)</li>
-            <li>5). entered into a Debt Sattlement Arrangement (DSA)</li>
-            <li>6). entered into a Personal Insolvancy Arrangement (PIA)?</li>
+            {/* <li>2). been issued a county court judgement (CCJ)</li> */}
+            <li>2). had your home repossesed</li>
+            <li>3). entered into a Debt Relief Notice (DRN)</li>
+            <li>4). entered into a Debt Sattlement Arrangement (DSA)</li>
+            <li>5). entered into a Personal Insolvancy Arrangement (PIA)?</li>
           </ul>
           {filedBankruptcyEmpty && (
             <span className="errormissting">* This field cannot be empty</span>

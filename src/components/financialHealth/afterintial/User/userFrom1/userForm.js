@@ -132,7 +132,7 @@ class UserForm extends Component {
           childrenFinanciallyDependent == "5+" ? (
             <div>
               <Col lg={24} className="col2 mysetting">
-                <p className="heading3">Please Provide their age in years</p>
+                <p className="heading3">Please provide their age in years</p>
                 {ageOfChildrenEmpty && (
                   <span className="errormissting">
                     * This field cannot be empty
@@ -167,7 +167,7 @@ class UserForm extends Component {
             </div>
           ) : null}
           <Col lg={24} className="col2 mysetting">
-            <p className="heading3">
+            <p  className="heading3">
               Do you work in the Public or Private sector?
             </p>
             {publicOrPrivateSectorEmpty && (
