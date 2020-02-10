@@ -409,7 +409,7 @@ class Property extends React.Component {
             </Select>
           </Col>
           <Col lg={24} className="col3" style={{ position: "relative" }}>
-            <span className="eruo"> &euro; </span>
+            <span className="eruo my-e"> &euro; </span>
 
             <p className="heading3" style={{marginTop:"10px"}}>
               What is the size of mortgage are you looking for?

@@ -555,7 +555,7 @@ function GetStarted(props) {
         <Col lg={24} className="note-col mysetting">
           <p className="heading2">
             It's ok if the person you're applying with doesn't have an income,
-            they can still ba named on your mortgage. choose option "Two" if
+            they can still be named on your mortgage. choose option "Two" if
             you'd like to own the property together.
           </p>
         </Col>
