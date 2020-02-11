@@ -102,8 +102,8 @@ export default class userForm extends Component {
             onChangeTextSecond={onChangeTextSecond}
             onChangefunc={onChangeSecond}
           >
-            Do you receive a guaranteed allowance ? e.g. car allowance, rent
-            allowance
+            Do you receive a guaranteed allowance  e.g. car allowance, rent 
+            allowance ?
           </Checkbox>
           <Checkbox
             itemName={[

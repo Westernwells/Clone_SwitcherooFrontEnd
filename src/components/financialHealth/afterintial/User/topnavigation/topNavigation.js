@@ -23,7 +23,7 @@ class TopNavigation extends React.Component {
                 className="fi_icon pngicon"
               />
 
-              <p> {this.props.userFirstName} </p>
+              <p style={{textTransform : "capitalize"}}> {this.props.userFirstName} </p>
             </div>
           </Menu.Item>
           {this.props.peopleOnMortgage === "two" && (
@@ -34,7 +34,7 @@ class TopNavigation extends React.Component {
                   className="fi_icon pngicon"
                 />
 
-                <p> {this.props.firstNameSecondApplicant ? this.props.firstNameSecondApplicant :"Applicant 2"} </p>
+                <p style={{textTransform : "capitalize"}}> {this.props.firstNameSecondApplicant ? this.props.firstNameSecondApplicant :"Applicant 2"} </p>
               </div>
             </Menu.Item>
            )}

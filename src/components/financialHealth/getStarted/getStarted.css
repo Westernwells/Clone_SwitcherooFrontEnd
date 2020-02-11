@@ -12,13 +12,15 @@
   font-size: 16px;
   color: #62635d;
 }
+
 .fh-row-gs .q1-ul {
   list-style: none;
   padding: 0;
 }
 .fh-row-gs .q1-ul li {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500 !important;
+  /* color: red; */
 }
 .financial-health .q1 {
   margin: 15px 0 50px 0;
