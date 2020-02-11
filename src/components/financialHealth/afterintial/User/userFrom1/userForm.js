@@ -22,6 +22,7 @@ class UserForm extends Component {
       childrenFinanciallyDependentEmpty,
       dateOfBirth
     } = this.props.allState;
+    const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     return (
       <div className="fo_1_con user_form1">
         <Row className="fh-row-gs">
@@ -100,6 +101,7 @@ class UserForm extends Component {
           <Col lg={24} className="q1">
             <div className="datepic">
               <DatePicker
+              format={dateFormatList}
                 className={
                   dateOfBirth !== ""
                     ? "radio-container container_malta"

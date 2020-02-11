@@ -4,6 +4,9 @@ import { withRouter } from "react-router-dom";
 import "./getStarted.css";
 import Api from "../../../redux/api/financialHealthCheck";
 import { connect } from "react-redux";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 const phoneno = /^\d{10}$/;
 const { Option } = Select;
 const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -649,7 +652,7 @@ function GetStarted(props) {
                   type="email"
                   className={
                     questions.emailSecondApplicant &&
-                    questions.emailSecondApplicantValidation
+                      questions.emailSecondApplicantValidation
                       ? "ifExit"
                       : ""
                   }
@@ -662,7 +665,7 @@ function GetStarted(props) {
                 {emailSecondApplicantEmpty && (
                   <span>* This field cannot be empty</span>
                 )}
-                
+
                 {!emailSecondApplicantValidation && (
                   <span>* You email is not valid</span>
                 )}
@@ -684,17 +687,17 @@ function GetStarted(props) {
                 <span>* This field cannot be empty</span>
               )}
               {!emailSecondApplicantreValidation && (
-                  <span>* You email is not match</span>
-                )}
+                <span>* You email is not match</span>
+              )}
             </div>
             <div className="input">
               <p className="input-lbl">What's their Phone Number?</p>
-              <div className="mysetting">
+              <div className="">
                 <input
                   type="number"
                   className={
                     questions.phoneSecondApplicant &&
-                    questions.phoneSecondApplicantIsValid
+                      questions.phoneSecondApplicantIsValid
                       ? "ifExit"
                       : ""
                   }
@@ -702,6 +705,13 @@ function GetStarted(props) {
                   onChange={handleinput}
                   name="phoneSecondApplicant"
                   placeholder=" ###########"
+                />
+
+                {/* use this phone field instead  */}
+                <PhoneInput
+                  country={'us'}
+                  // value={this.state.phone}
+                  // onChange={phone => this.setState({ phone })}
                 />
                 {phoneSecondApplicantEmpty && (
                   <span>* This field cannot be empty</span>
@@ -712,7 +722,7 @@ function GetStarted(props) {
         )}
         <Col className="questionme123 ">
           {/* <div className="mysetting"> */}
-          <h6 style={{fontWeight: 700}} className="heading2 new-heading">
+          <h6 style={{ fontWeight: 700 }} className="heading2 new-heading">
             In the last 6 years, have you or anyone you're applying with
           </h6>
           {/* </div> */}
