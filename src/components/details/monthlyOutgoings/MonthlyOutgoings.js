@@ -46,7 +46,7 @@ class MonthlyOutgoing extends Component {
             clubSubcriptions: parseInt( clubSubcriptions ),
         }
         this.props.setMonthlyDetails( {
-            userId: "5e407cceb15f780017b0a1b4",
+            userId:this.props.userId,
             monthlyOutgoings: {
                 ...data
             }
@@ -66,7 +66,8 @@ class MonthlyOutgoing extends Component {
                 "Content-Type": "application/json"
             } )
         };
-        fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
+        let url = `${ baseurl }/detailsYouNeed/getDetails/${this.props.userId}`
+        fetch( url, options )
             .then( res => {
                 console.log( "response=====>", res );
                 res.json().then( res => {
@@ -93,7 +94,7 @@ class MonthlyOutgoing extends Component {
             } );
     }
     render() {
-        console.log( "state====>", this.state );
+        console.log( "state====>", this.props.userId );
         const { childMining,
             spousalMaintenance,
             schoolFee,
@@ -166,7 +167,7 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
                         <div className={
-                            this.state.schoolFee !== "" && this.state.schoolFee !==null ? "input maltaback" : "input"
+                            this.state.schoolFee !== "" && this.state.schoolFee !== null ? "input maltaback" : "input"
                         }>
                             <span className="pre">€</span>
                             <input type="text"
@@ -186,7 +187,7 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
                         <div className={
-                            this.state.clubSubcriptions !== "" && this.state.clubSubcriptions !== null? "input maltaback" : "input"
+                            this.state.clubSubcriptions !== "" && this.state.clubSubcriptions !== null ? "input maltaback" : "input"
                         }>
                             <span className="pre">€</span>
                             <input
@@ -225,6 +226,7 @@ class MonthlyOutgoing extends Component {
 }
 const mapStateToProps = ( state ) => {
     return {
+        userId:state.userReducer.user._id,
         newProps: state.detailsReducer.monthlyOutgoings,
         loading: state.detailsReducer.loading,
         error: state.detailsReducer.error,
