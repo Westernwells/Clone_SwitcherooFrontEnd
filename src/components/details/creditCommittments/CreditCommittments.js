@@ -2,26 +2,24 @@ import React, { useState, Component } from "react";
 import { Row, Col, Select, Button, Icon } from "antd";
 import "./CreditCommittments.css";
 import InputMask from 'react-input-mask'
-import { connect } from "react-redux";
-import Api from "../../../redux/api/detailsApi";
 
 const { Option } = Select;
 const banks = [
     "Aib",
     "An Post",
-    "currentAccIns of Ireland",
+    "Bank of Ireland",
     "KBC",
     "PTSB",
-    "Ulster currentAccIns",
+    "Ulster bank",
     "Credit Union",
     "Other"
 ];
 
-const counties = [
+const county = [
     "Carlow",
     "Cavan",
     "Clare",
-    "Cork branchCity",
+    "Cork City",
     "Cork County",
     "Denegal",
     "Dublin 1",
@@ -49,13 +47,13 @@ const counties = [
     "Dublin Country(North)",
     "Dublin Country(South)",
     "Dublin Country(West)",
-    "Galway branchCity",
+    "Galway City",
     "Galway Country",
     "Kerry",
     "Kildare",
     "Kilkenny",
     "Laois",
-    "Leitrim branchCity",
+    "Leitrim City",
     "Limerick Country",
     "Longford",
     "Louth",
@@ -66,7 +64,7 @@ const counties = [
     "Roscommon",
     "Sligo",
     "Tipperary",
-    "Waterford branchCity",
+    "Waterford City",
     "Waterford Country",
     "Westmeath",
     "Wexford",
@@ -80,25 +78,20 @@ class CreditCommittments extends Component {
             q1: ""
         },
         q4: false,
-        currentAccIns: "",
-        sortCode: "",
+        bank: "",
+        sortCode: null,
         counter: 0,
         InputMask: "",
-        credUnionLoc: "",
-        institutionName: "",
-        branchAddress: "",
-        branchCity: "",
-        branchCounty: "",
-        accDuration: "",
+        location: "",
+        name: "",
+        addressLineOne: "",
+        city: "",
+        county: "",
+        years: "",
         eirCode: "",
-        accNum: "",
+        acountNumber: "",
         comments: ""
 
-    }
-    handleDurChange = ( value ) => {
-        this.setState( {
-            accDuration: value
-        } )
     }
 
     clickRadio = ( e ) => {
@@ -147,60 +140,19 @@ class CreditCommittments extends Component {
     };
     handleChange = ( value ) => {
         this.setState( {
-            currentAccIns: value
+            bank: value
         } )
     }
-    handlebranchCounty = ( value ) => {
+    handleCounty = ( value ) => {
         this.setState( {
-            branchCounty: value
+            county: value
         } )
     }
 
     handleRoute = route => {
-        console.log()
-        this.props.changeProfRout( 7 );
+        this.props.history.push( route );
     };
-    handleSubmit = () => {
-        let { currentAccIns,
-            sortCode,
-            credUnionLoc,
-            institutionName,
-            branchAddress,
-            branchCity,
-            branchCounty,
-            accDuration,
-            eirCode,
-            accNum,
-            comments } = this.state
-        let data = {
-            currentAccIns,
-            sortCode,
-            credUnionLoc,
-            institutionName,
-            branchAddress,
-            branchCity,
-            branchCounty,
-            accDuration,
-            eirCode,
-            accNum,
-            comments,
-            firstPaymentAcc: this.state.questions.firstPaymentAcc
-        }
-        this.props.setCreditCommentments( {
-            userId: "5e407cceb15f780017b0a1b4",
-            monthlyOutgoings: {
-                ...this.props.newProps,
-            },
-            creditCommitments: {
-                ...data
-            }
-        } )
-        console.log(this.props.loading );
-        if ( !this.props.loading ) {
-            this.props.changeProfRout( 7 );
-        }
 
-    }
     renderCommentsBox = ( q ) => {
         const { comments } = this.state
         if ( q == "b" ) {
@@ -212,7 +164,7 @@ class CreditCommittments extends Component {
                 </Col>
 
                 <Col lg={24}>
-                    <div className={comments ? "textarea-input maltaback" : "textarea-input"}>
+                    <div className="textarea-input">
                         <textarea
                             placeholder="comments"
                             value={comments}
@@ -223,37 +175,33 @@ class CreditCommittments extends Component {
             </>
         }
     }
-    currentAccInsConditional = () => {
-        const { currentAccIns, credUnionLoc, institutionName } = this.state;
-        if ( currentAccIns === "Credit Union" ) {
+    bankConditional = () => {
+        const { bank, location, name } = this.state;
+        if ( bank === "Credit Union" ) {
             return <React.Fragment><Col lg={24}>
-                <h6 className="h61">please provide Location</h6>
+                <h6 className="h61">please provide location</h6>
             </Col>
                 <Col className="colomn_8" lg={10}>
-                    <div className={
-                        credUnionLoc !== "" ? "input maltaback" : "input"
-                    }>
+                    <div className="input">
                         <input type="text"
-                            name="credUnionLoc"
+                            name="location"
                             placeholder="Location"
-                            value={credUnionLoc}
+                            value={location}
                             onChange={this.handleInputChange}
                         />
                     </div>
                 </Col></React.Fragment>
-        } else if ( currentAccIns === "Other" ) {
+        } else if ( bank === "Other" ) {
             return <React.Fragment><Col lg={24}>
                 <h6 className="h61">please provide name</h6>
             </Col>
                 <Col className="colomn_8" lg={10}>
-                    <div className={
-                        institutionName !== "" ? "input maltaback" : "input"
-                    }>
+                    <div className="input">
                         <input
                             type="text"
-                            name="institutionName"
-                            placeholder="institutionName"
-                            value={institutionName}
+                            name="name"
+                            placeholder="Name"
+                            value={name}
                             onChange={this.handleInputChange}
                         />
                     </div>
@@ -261,7 +209,7 @@ class CreditCommittments extends Component {
         }
     }
     render() {
-        const { questions, sortCode, branchAddress, branchCity, eirCode, accNum } = this.state
+        const { questions, sortCode, addressLineOne, city, eirCode, acountNumber } = this.state
         console.log( this.state )
         return (
             <div className="credit-commitments" >
@@ -275,51 +223,49 @@ class CreditCommittments extends Component {
                         <h6 className="h61">What institution do you have your main current account with?</h6>
                     </Col>
                     <Col className="colomn_8" lg={6}>
-                        <div >
+                        <div>
                             <Select
-                                className={this.state.currentAccIns !== "" ? "select-option1 maltaback" : "select-option1"}
-                                defaultValue="Select currentAccIns"
+                                className="select-option1"
+                                defaultValue="Select bank"
                                 onChange={this.handleChange}
                             >
                                 {banks.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
                             </Select>
                         </div>
                     </Col>
-                    {this.currentAccInsConditional()}
+                    {this.bankConditional()}
                     <Col lg={24}>
                         <h6 className="h61">Address of branch</h6>
                     </Col>
                     <Col lg={24}>
-                        <div className={
-                            branchAddress !== "" ? "input maltaback" : "input"
-                        }>
+                        <div className="input">
                             <input type="text"
-                                name="branchAddress"
-                                value={branchAddress}
+                                name="addressLineOne"
+                                value={addressLineOne}
                                 onChange={this.handleInputChange}
                                 placeholder="Address Line 1" />
                         </div>
                     </Col>
                     <Col lg={24}>
-                        <div className={branchCity !== "" ? "input maltaback" : "input"}>
+                        <div className="input">
                             <input type="text"
-                                name="branchCity"
-                                value={branchCity}
+                                name="city"
+                                value={city}
                                 onChange={this.handleInputChange}
-                                placeholder="branchCity" />
+                                placeholder="City" />
                         </div>
                     </Col>
                     <Col className="colomn_8" lg={15}>
                         <Select
-                            className={this.state.branchCounty !== "" ? "select-option1 maltaback" : "select-option1"}
+                            className="select-option1"
                             defaultValue="County"
-                            onChange={this.handlebranchCounty}
+                            onChange={this.handleCounty}
                         >
-                            {counties.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
+                            {county.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
                         </Select>
                     </Col>
                     <Col lg={24}>
-                        <div className={eirCode !== "" ? "input maltaback" : "input"}>
+                        <div className="input">
                             <input
                                 type="text"
                                 name="eirCode"
@@ -332,11 +278,11 @@ class CreditCommittments extends Component {
                         <h6 className="h61">Account Number</h6>
                     </Col>
                     <Col className="colomn_8" lg={10}>
-                        <div className={accNum !== "" ? "input maltaback" : "input"}>
+                        <div className="input">
                             <input type="text"
-                                name="accNum"
+                                name="acountNumber"
                                 placeholder="Acount Number"
-                                value={accNum}
+                                value={acountNumber}
                                 onChange={this.handleInputChange}
                             />
                         </div>
@@ -345,7 +291,7 @@ class CreditCommittments extends Component {
                         <h6 className="h61">Sort Code</h6>
                     </Col>
                     <Col className="colomn_8" lg={10}>
-                        <div className={sortCode !== "" ? "input maltaback" : "input"}>
+                        <div className="input">
                             <InputMask
                                 {...this.props}
                                 mask="99-99-99"
@@ -362,9 +308,9 @@ class CreditCommittments extends Component {
                     <Col className="colomn_8" lg={6} style={{ width: "27%" }}>
                         <div>
                             <Select
-                                className={this.state.accDuration !== "" ? "select-option1 maltaback" : "select-option1"}
+                                className="select-option1"
                                 defaultValue="Select years"
-                                onChange={this.handleDurChange}
+                                onChange={this.handleChange}
                             >
                                 {years.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
                             </Select>
@@ -387,7 +333,7 @@ class CreditCommittments extends Component {
                             <input
                                 onChange={this.handleQ}
                                 type="radio"
-                                name="firstPaymentAcc"
+                                name="q3"
                                 id="q31"
                                 className=""
                                 // checked={questions.purposeOfMortgage === "a"}
@@ -406,7 +352,7 @@ class CreditCommittments extends Component {
                             <input
                                 onChange={this.handleQ}
                                 type="radio"
-                                name="firstPaymentAcc"
+                                name="q3"
                                 id="q32"
                                 // checked={questions.purposeOfMortgage === "House Mover"}
                                 className=""
@@ -415,25 +361,24 @@ class CreditCommittments extends Component {
                             <label for="q32">No</label>
                         </div>
                     </Col>
-                    {questions.firstPaymentAcc && this.renderCommentsBox( questions.firstPaymentAcc )}
+                    {questions.q3 && this.renderCommentsBox( questions.q3 )}
                     <Col lg={24}>
-                        <h6 className="heading1">
-                            OK, lets add loan/overdraft/credit card details
+                    <h6 className="heading1">
+                       OK, lets add loan/overdraft/credit card details 
                     </h6>
-                    </Col>
+                </Col>
                     <Col lg={10} offset={0}>
                         <div className="btn-div">
                             <Button
                                 style={{ height: "40px" }}
-                                onClick={() => this.props.changeProfRout( 5 )}
+                                onClick={() => window.history.back()}
                                 className="btn1"
                             >
                                 Back
                             </Button>
                             <Button
-                                onClick={() => this.handleSubmit()}
+                                  onClick={() => this.handleRoute("/home/details/bank-details")}
                                 className="btn2"
-                                loading={this.props.loading}
 
                             >
                                 Save & Continue
@@ -445,17 +390,4 @@ class CreditCommittments extends Component {
         );
     }
 }
-const mapStateToProps = ( state ) => {
-    return {
-        newProps: state.detailsReducer.monthlyOutgoings,
-        loading: state.detailsReducer.loading,
-        error: state.detailsReducer.error,
-    }
-}
-
-
-const mapDispatchToProps = dispacth => ( {
-    setCreditCommentments: ( props, callback ) =>
-        dispacth( Api.detailsCreditDataPost( props, callback ) )
-} );
-export default connect( mapStateToProps, mapDispatchToProps )( CreditCommittments );
+export default CreditCommittments;

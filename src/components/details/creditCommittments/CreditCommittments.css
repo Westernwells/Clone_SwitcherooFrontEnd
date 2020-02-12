@@ -126,8 +126,7 @@
     line-height: 37px;
     color: white;
     font-weight: 600;
-    padding: 0 0 0 25px;
-    
+    padding: 0 0 0 12px;
   }
   .credit-commitments .ant-select-arrow {
     color: white;
@@ -223,26 +222,4 @@
   }
   .textarea-input textarea:focus {
     border: none;
-  }
-  .credit-commitments  .maltaback .ant-select-selection{
-    background-color:#fb9500 !important;
-    border: 2PX solid #fb9500;
-
-
-  }
-  .credit-commitments .maltaback{
-    border:#fb9500 solid 0px !important;
-
-  }
-  .credit-commitments .maltaback input{
-    background-color:#fb9500 !important;
-    border:#fb9500 solid 2px !important;
-    padding-left: 25px;
-    color: white;
-  }
-  .credit-commitments .maltaback textarea{
-    background-color:#fb9500 !important;
-    border:#fb9500 solid 2px !important;
-    padding-left: 25px;
-    color: white;
   }

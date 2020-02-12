@@ -77,25 +77,3 @@
   .inputWithEdit .input input {
       width: 100% !important;
   }
-  .monthly-outgoings .maltaback .ant-select-selection{
-    background-color:#fb9500 !important;
-
-
-  }
-  .inputWithEdit .input .pre {
-    position: relative;
-    left:10px;
-    top: 30px;
-    color: #fff;
-  }
-  .monthly-outgoings .maltaback input{
-    background-color:#fb9500 !important;
-    border:#fb9500 solid 2px !important;
-    padding-left: 25px;
-
-    color: white;
-  }
-  .monthly-outgoings .maltaback{
-    border:#fb9500 solid 0px !important;
-
-  }

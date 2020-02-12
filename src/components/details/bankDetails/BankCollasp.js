@@ -16,7 +16,7 @@ function BankCollapse( props ) {
                 </Col>
 
                 <Col lg={24}>
-                    <div className={props.comments ? "textarea-input maltaback" : "textarea-input"}>
+                    <div className="textarea-input">
                         <textarea
                             placeholder="comments"
                             value={props.comments}
@@ -34,9 +34,7 @@ function BankCollapse( props ) {
                 <h6 className="h61">Please provide location/name</h6>
             </Col>
                 <Col className="colomn_8" lg={16}>
-                    <div className={
-                        props.location !== "" ? "input maltaback" : "input"
-                    }>
+                    <div className="input">
                         <input type="text"
                             name="location"
                             placeholder="Location"
@@ -50,9 +48,7 @@ function BankCollapse( props ) {
                 <h6 className="h61">Please provide institution's name</h6>
             </Col>
                 <Col className="colomn_8" lg={16}>
-                    <div className={
-                        props.name !== "" ? "input maltaback" : "input"
-                    }>
+                    <div className="input">
                         <input
                             type="text"
                             name="name"
@@ -111,8 +107,7 @@ function BankCollapse( props ) {
         handlePurposeChange,
         handleQ,
         handleInputChange,
-        onLoanChange,
-        date
+        onLoanChange
 
     } = props;
     console.log( "props====>", lender );
@@ -137,7 +132,7 @@ function BankCollapse( props ) {
                 <Col lg={10} >
                     <div >
                         <Select
-                            className={props.purpose !== "" ? "select-option1 maltaback" : "select-option1"}
+                            className="select-option1"
                             defaultValue="Select from options"
                             onChange={handlePurposeChange}
                         >
@@ -155,7 +150,7 @@ function BankCollapse( props ) {
                 <Col lg={10} >
                     <div >
                         <Select
-                            className={props.lender !== "" ? "select-option1 maltaback" : "select-option1"}
+                            className="select-option1"
                             defaultValue="Select from options"
                             onChange={handleLenderChange}
 
@@ -172,9 +167,7 @@ function BankCollapse( props ) {
                     <h6 className="h61">Whats is the account number?</h6>
                 </Col>
                 <Col lg={16}>
-                    <div className={
-                        accountNo !== "" ? "input maltaback" : "input"
-                    }>
+                    <div className="input">
                         <input
                             type="text"
                             placeholder="########"
@@ -186,9 +179,7 @@ function BankCollapse( props ) {
                 </Col>
                 {balanceRender()}
                 <Col lg={16}>
-                    <div className={
-                        balance !== "" ? "input input2 maltaback" : "input input2"
-                    }>
+                    <div className="input input2">
                         <span className="pre">€</span>
                         <input
                             type="text"
@@ -206,9 +197,7 @@ function BankCollapse( props ) {
                         </h6>
                 </Col>
                 <Col lg={16}>
-                    <div className={
-                        monthlyCharges !== "" ? "input input2 maltaback" : "input input2"
-                    }>
+                    <div className="input input2">
                         <span className="pre">€</span>
                         <input
                             type="text"
@@ -226,9 +215,7 @@ function BankCollapse( props ) {
                         </h6>
                 </Col>
                 <Col lg={16}>
-                    <div className={
-                        arrears !== "" ? "input input2 maltaback" : "input input2"
-                    }>
+                    <div className="input input2">
                         <span className="pre">€</span>
                         <input type="text"
                             placeholder="########"
@@ -246,11 +233,7 @@ function BankCollapse( props ) {
                         </h6>
                 </Col>}
                 {onLoanChange && <Col lg={20}>
-                    <div className="input datepic"
-                        className={
-                            date !== "" ? "input datepic maltaback" : "input datepic"
-                        }
-                    >
+                    <div className="input datepic" >
                         <DatePicker onChange={onLoanChange} />
                     </div>
                 </Col>}
@@ -271,12 +254,12 @@ function BankCollapse( props ) {
                             onChange={handleQ}
                             type="radio"
                             name="clearingMortage"
-                            id="clearingMortage"
+                            id="q31"
                             className=""
-                            checked={questions.clearingMortage === "a"}
+                            // checked={questions.purposeOfMortgage === "a"}
                             value="a"
                         />
-                        <label for="clearingMortage">Yes</label>
+                        <label for="q31">Yes</label>
                     </div>
                     <div
                         // onClick={this.clickRadio}
@@ -290,12 +273,12 @@ function BankCollapse( props ) {
                             onChange={handleQ}
                             type="radio"
                             name="clearingMortage"
-                            id="clearingMortage1"
-                            checked={questions.clearingMortage === "b"}
+                            id="q32"
+                            // checked={questions.purposeOfMortgage === "House Mover"}
                             className=""
                             value="b"
                         />
-                        <label for="clearingMortage1">No</label>
+                        <label for="q32">No</label>
                     </div>
                 </Col>
             </Row>

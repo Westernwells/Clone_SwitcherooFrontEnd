@@ -54,7 +54,7 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="3"
             onClick={() => {
-              this.handleRoute("/home/details");
+              this.handleRoute("/home/details/s1");
             }}
             className="lb"
           >
