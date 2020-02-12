@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Row, Col, Select, Button, Icon } from "antd";
 import "./MonthlyOutgoings.css";
+import { connect } from "react-redux";
+import Api from "../../../redux/api/detailsApi";
 
 class MonthlyOutgoing extends Component {
 
     state = {
-        childMinding: 5000,
-        maintenance: 3000,
-        schoolFess: 8000,
-        sporting: 3500,
+        childMining: 5000,
+        spousalMaintenance: 3000,
+        schoolFee: "",
+        clubSubcriptions: "",
         isDisabledChild: "true",
         isDisabledMaintainance: "true",
 
@@ -31,13 +33,36 @@ class MonthlyOutgoing extends Component {
         } )
     }
     handleRoute = route => {
-        this.props.history.push( route );
+        console.log( "props===>", this.props );
+        this.props.changeProfRout( 6 );
+        // this.props.state.history.push( route );
     };
+    handleSubmit = () => {
+        let { childMining, spousalMaintenance, schoolFee, clubSubcriptions } = this.state
+        let data = {
+            childMining: parseInt( childMining ),
+            spousalMaintenance: parseInt( spousalMaintenance ),
+            schoolFee: parseInt( schoolFee ),
+            clubSubcriptions: parseInt( clubSubcriptions ),
+        }
+        this.props.setMonthlyDetails( {
+            userId: "5e407cceb15f780017b0a1b4",
+            monthlyOutgoings: {
+                ...data
+            }
+        } )
+
+        if ( !this.props.loading ) {
+            this.props.changeProfRout( 6 );
+        }
+
+    }
     render() {
-        const { childMinding,
-            maintenance,
-            schoolFess,
-            sporting,
+        console.log( "state====>", this.props.newProps );
+        const { childMining,
+            spousalMaintenance,
+            schoolFee,
+            clubSubcriptions,
             isDisabledMaintainance,
             isDisabledChild,
         } = this.state
@@ -51,15 +76,21 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col lg={24}>
                         <h6 className="h61">
-                            Do you have monthly childminding costs?
+                            Do you have monthly childMinding costs?
                         </h6>
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
-                        <div className="input">
+                        <div
+                            className={
+                                !isDisabledChild ? this.state.childMining !== "" ? "input maltaback" : "input" : "input"
+                            }
+
+                        >
+                            <span className="pre">€</span>
                             <input type="text"
-                                name="childMinding"
+                                name="childMining"
                                 placeholder="#######"
-                                value={childMinding}
+                                value={childMining}
                                 pattern="[0-9]*"
                                 disabled={isDisabledChild}
                                 onChange={this.handleInputChange} />
@@ -74,12 +105,15 @@ class MonthlyOutgoing extends Component {
                         </h6>
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
-                        <div className="input">
+                        <div className={
+                            !isDisabledMaintainance ? this.state.spousalMaintenance !== "" ? "input maltaback" : "input" : "input"
+                        }>
+                            <span className="pre">€</span>
                             <input type="text"
-                                name="maintenance"
+                                name="spousalMaintenance"
                                 placeholder="#######"
                                 pattern="[0-9]*"
-                                value={maintenance}
+                                value={spousalMaintenance}
                                 disabled={isDisabledMaintainance}
                                 onChange={this.handleInputChange}
 
@@ -96,10 +130,13 @@ class MonthlyOutgoing extends Component {
                      </h6>
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
-                        <div className="input">
+                        <div className={
+                            this.state.schoolFee !== "" ? "input maltaback" : "input"
+                        }>
+                            <span className="pre">€</span>
                             <input type="text"
-                                name="schoolFess"
-                                value={schoolFess}
+                                name="schoolFee"
+                                value={schoolFee}
                                 placeholder="#######"
                                 pattern="[0-9]*"
                                 onChange={this.handleInputChange}
@@ -113,12 +150,15 @@ class MonthlyOutgoing extends Component {
                         </h6>
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
-                        <div className="input">
+                        <div className={
+                            this.state.clubSubcriptions !== "" ? "input maltaback" : "input"
+                        }>
+                            <span className="pre">€</span>
                             <input
                                 type="text"
-                                name="sporting"
+                                name="clubSubcriptions"
                                 pattern="[0-9]*"
-                                value={sporting}
+                                value={clubSubcriptions}
                                 placeholder="#######"
                                 onChange={this.handleInputChange}
                             />
@@ -135,7 +175,8 @@ class MonthlyOutgoing extends Component {
                                 Back
                             </Button>
                             <Button
-                                onClick={() => this.handleRoute( "/home/details/credit-commitments" )}
+                                onClick={() => this.handleSubmit()}
+                                loading={this.props.loading}
                                 className="btn2"
                             >
                                 Save & Continue
@@ -147,4 +188,17 @@ class MonthlyOutgoing extends Component {
         );
     }
 }
-export default MonthlyOutgoing;
+const mapStateToProps = ( state ) => {
+    return {
+        newProps: state.detailsReducer.monthlyOutgoings,    
+        loading: state.detailsReducer.loading,
+        error: state.detailsReducer.error,
+    }
+}
+
+
+const mapDispatchToProps = dispacth => ( {
+    setMonthlyDetails: ( props, callback ) =>
+        dispacth( Api.detailsDataPost( props, callback ) )
+} );
+export default connect( mapStateToProps, mapDispatchToProps )( MonthlyOutgoing );
