@@ -6,7 +6,6 @@ import Background from "../getStarted/getStarted"
 import Top from "./topnavigation/topSteper"
 import "./index.css"
 
-
 export class index extends Component {
   state = {
     selectedKey: 0
@@ -20,7 +19,6 @@ export class index extends Component {
     if (selectedKey === 1) return <Property changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 2) return <User1 changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 3) return <Result />;
-
   };
 
   render() {

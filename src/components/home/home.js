@@ -27,9 +27,11 @@ import AdditionalPropertyIndex from "../details/additionalProperty/additionalPro
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
+import Details from '../details'
 const { Panel } = Collapse;
 
-function Home(props) {
+
+function Home( props ) {
   return (
     <>
       {
@@ -60,6 +62,9 @@ function Home(props) {
                       path="/home/relatedInformation"
                       component={AfterIntial}
                     />
+                    <Route exact
+                      path="/home/details"
+                      component={Details} />
                     <Route
                       exact
                       path="/home/financial-health"
@@ -70,11 +75,11 @@ function Home(props) {
                       path="/home/financial-health/get-started"
                       component={GetStarted}
                     />
-                    <Route
+                    {/* <Route
                       exact
                       path="/home/details/s5"
                       component={DetailMover}
-                    />
+                    /> */}
                     {/* <Route exact path="/home/details/s1" component={StepOne} /> */}
                     <Route
                       exact
@@ -87,6 +92,7 @@ function Home(props) {
                       path="/home/details/s3"
                       component={StepThree}
                     />
+                    {/* <Route exact path="/home/details" component={Steper} /> */}
                     <Route exact path="/home/details/s4" component={StepFour} />
                     <Route
                       exact
@@ -140,8 +146,8 @@ function Home(props) {
   );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => ( {
   UserState: state.userReducer
-});
+} );
 
-export default connect(mapStateToProps)(Home);
+export default connect( mapStateToProps )( Home );
