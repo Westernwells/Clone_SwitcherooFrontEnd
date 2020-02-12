@@ -435,13 +435,6 @@ class BankDetails extends Component {
                 isActive={isCreditActive}
                 handleClick={this.handleCreditClick}
                 lenderArray={lenderArray}
-                name={creditCardAcount.name}
-                location={creditCardAcount.location}
-                accountNo={creditCardAcount.accountNo}
-                monthlyCharges={creditCardAcount.monthlyCharges}
-                balance={creditCardAcount.balance}
-                arrears={creditCardAcount.arrears}
-                
                 lender={creditCardAcount.lender}
                 purpose={creditCardAcount.purpose}
                 purposeArray={purposeArray}
