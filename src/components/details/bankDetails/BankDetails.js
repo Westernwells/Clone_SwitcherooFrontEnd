@@ -46,6 +46,7 @@ class BankDetails extends Component {
       monthlyCharges: "",
       balance: "",
       arrears: "",
+      date: "",
       questions: {
         q: ""
       }
@@ -92,63 +93,64 @@ class BankDetails extends Component {
   };
   // credit function
   handleCreditClick = () => {
-    this.setState({
+    this.setState( {
       isCreditActive: !this.state.isCreditActive
-    });
+    } );
   };
   handleCredit = () => {
-    this.setState({
+    this.setState( {
+      questions: { ...this.state.questions, q3: "" },
       creditCardActive: !this.state.creditCardActive,
       isLoanActive: false,
       isOverdraftActive: false,
       isCreditActive: true
-    });
+    } );
   };
   handleCreditPurposeChange = value => {
-    this.setState({
+    this.setState( {
       creditCardAcount: { ...this.state.creditCardAcount, purpose: value }
-    });
+    } );
   };
   handleCreditLenderChange = value => {
-    this.setState({
+    this.setState( {
       creditCardAcount: { ...this.state.creditCardAcount, lender: value }
-    });
+    } );
   };
 
   handleCreditInputChange = e => {
     const name = e.target.name;
-    this.setState({
+    this.setState( {
       creditCardAcount: {
         ...this.state.creditCardAcount,
         [name]: e.target.validity.valid
           ? e.target.value
           : this.state.creditCardAcount[name]
       }
-    });
+    } );
   };
 
   handleCreditComments = e => {
-    this.setState({
+    this.setState( {
       creditCardAcount: {
         ...this.state.creditCardAcount,
         comments: e.target.value
       }
-    });
+    } );
   };
   handleCreditQ = e => {
     const { questions } = this.state.creditCardAcount;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log("readio =====>", radioContainers);
+    console.log( "readio =====>", radioContainers );
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    console.log(qs);
-    this.setState({
+    console.log( qs );
+    this.setState( {
       q4: !this.state.q4
-    });
+    } );
     // validateRadio(e.target.name, e.target.value);
-    for (var i = 0; i < radioContainers.length; i++) {
+    for ( var i = 0; i < radioContainers.length; i++ ) {
       var input = radioContainers[i].childNodes[0];
-      if (input.checked) {
+      if ( input.checked ) {
         input.parentNode.style.background = "#fb9500";
         input.parentNode.style.border = "2px solid #fb9500";
       } else {
@@ -159,55 +161,55 @@ class BankDetails extends Component {
   };
   //Over draft function
   handleOverdraftClick = () => {
-    console.log("loan active====>", this.state.loanAcount);
-    this.setState({
+    console.log( "loan active====>", this.state.loanAcount );
+    this.setState( {
       isOverdraftActive: !this.state.isOverdraftActive
-    });
+    } );
   };
   handleOverdraftPurposeChange = value => {
-    this.setState({
+    this.setState( {
       overdraftAcount: { ...this.state.overdraftAcount, purpose: value }
-    });
+    } );
   };
   handleOverdraftLenderChange = value => {
-    this.setState({
+    this.setState( {
       overdraftAcount: { ...this.state.overdraftAcount, lender: value }
-    });
+    } );
   };
 
   handleOverdraftInputChange = e => {
     const name = e.target.name;
-    this.setState({
+    this.setState( {
       overdraftAcount: {
         ...this.state.overdraftAcount,
         [name]: e.target.validity.valid
           ? e.target.value
           : this.state.overdraftAcount[name]
       }
-    });
+    } );
   };
 
   handleOverdraftComments = e => {
-    this.setState({
+    this.setState( {
       overdraftAcount: {
         ...this.state.overdraftAcount,
         comments: e.target.value
       }
-    });
+    } );
   };
   handleOverdraftQ = e => {
     const { questions } = this.state.overdraftAcount;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    console.log(qs);
-    this.setState({
+    console.log( qs );
+    this.setState( {
       q4: !this.state.q4
-    });
+    } );
     // validateRadio(e.target.name, e.target.value);
-    for (var i = 0; i < radioContainers.length; i++) {
+    for ( var i = 0; i < radioContainers.length; i++ ) {
       var input = radioContainers[i].childNodes[0];
-      if (input.checked) {
+      if ( input.checked ) {
         input.parentNode.style.background = "#fb9500";
         input.parentNode.style.border = "2px solid #fb9500";
       } else {
@@ -219,72 +221,77 @@ class BankDetails extends Component {
 
   clickRadio = e => {
     var label = e.target.childNodes[1];
-    if (label) {
+    if ( label ) {
       label.click();
     }
   };
   //loan acount methods
   handleClick = () => {
-    console.log("loan active====>", this.state.loanAcount);
-    this.setState({
+    console.log( "loan active====>", this.state.loanAcount );
+    this.setState( {
       isLoanActive: !this.state.isLoanActive
-    });
+    } );
   };
   handleLoanPurposeChange = value => {
-    this.setState({
+    this.setState( {
       loanAcount: { ...this.state.loanAcount, purpose: value }
-    });
+    } );
   };
   handleLoanLenderChange = value => {
-    this.setState({
+    this.setState( {
       loanAcount: { ...this.state.loanAcount, lender: value }
-    });
+    } );
   };
 
   handleLoanInputChange = e => {
     const name = e.target.name;
-    this.setState({
+    this.setState( {
       loanAcount: {
         ...this.state.loanAcount,
         [name]: e.target.validity.valid
           ? e.target.value
           : this.state.loanAcount[name]
       }
-    });
+    } );
   };
 
   handleLoanComments = e => {
-    this.setState({
+    this.setState( {
       loanAcount: {
         ...this.state.loanAcount,
         comments: e.target.value
       }
-    });
+    } );
   };
   handleLoanClick = () => {
     const { loanActive } = this.state;
-    this.setState({
+    this.setState( {
       loanActive: !loanActive
-    });
+    } );
   };
 
-  onLoanDateChange(date, dateString) {
-    console.log(dateString);
+  onLoanDateChange = ( date, dateString ) => {
+
+    this.setState( {
+      loanAcount: { ...this.state.loanAcount, date: dateString }
+    } )
+
   }
+
   handleLoanQ = e => {
     const { questions } = this.state.loanAcount;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log("readio =====>", radioContainers);
+    console.log( "readio =====>", radioContainers );
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    console.log(qs);
-    this.setState({
+    console.log( qs );
+    this.setState( {
       q4: !this.state.q4
-    });
+    } );
     // validateRadio(e.target.name, e.target.value);
-    for (var i = 0; i < radioContainers.length; i++) {
+    for ( var i = 0; i < radioContainers.length; i++ ) {
       var input = radioContainers[i].childNodes[0];
-      if (input.checked) {
+      if ( input.checked ) {
         input.parentNode.style.background = "#fb9500";
         input.parentNode.style.border = "2px solid #fb9500";
       } else {
@@ -296,44 +303,46 @@ class BankDetails extends Component {
   handleQ = e => {
     const { questions } = this.state;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log("readio =====>", radioContainers);
+    console.log( "readio =====>", radioContainers );
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    console.log(qs);
-    this.setState({
+    console.log( qs );
+    this.setState( {
       q4: !this.state.q4
-    });
+    } );
     // validateRadio(e.target.name, e.target.value);
-    for (var i = 0; i < radioContainers.length; i++) {
-      var input = radioContainers[i].childNodes[0];
-      if (input.checked) {
-        input.parentNode.style.background = "#fb9500";
-        input.parentNode.style.border = "2px solid #fb9500";
-      } else {
-        input.parentNode.style.background = "lightgray";
-        input.parentNode.style.border = "2px solid gray";
-      }
-    }
+    // for ( var i = 0; i < radioContainers.length; i++ ) {
+    //   var input = radioContainers[i].childNodes[0];
+    //   if ( input.checked ) {
+    //     input.parentNode.style.background = "#fb9500";
+    //     input.parentNode.style.border = "2px solid #fb9500";
+    //   } else {
+    //     input.parentNode.style.background = "lightgray";
+    //     input.parentNode.style.border = "2px solid gray";
+    //   }
+    // }
   };
 
   handleRoute = route => {
-    this.props.history.push(route);
+    this.props.history.push( route );
   };
   handleLoan = () => {
-    this.setState({
+    this.setState( {
       questions: { ...this.state.questions, q3: "" },
       loanActive: !this.state.loanActive,
       isLoanActive: true,
       isOverdraftActive: false,
       isCreditActive: false
-    });
+    } );
   };
   handleOverdraft = () => {
-    this.setState({
+    this.setState( {
+      questions: { ...this.state.questions, q3: "" },
       overdraftActive: !this.state.overdraftActive,
       isLoanActive: false,
-      isOverdraftActive: true
-    });
+      isOverdraftActive: true,
+      isCreditActive: false
+    } );
   };
 
   renderAcount = () => {
@@ -366,7 +375,7 @@ class BankDetails extends Component {
       overdraftAcount
     } = this.state;
 
-    console.log("state", this.state);
+    console.log( "state", this.state );
     return (
       <div className="credit-commitments">
         <Row className="d-row-s1">
@@ -398,6 +407,7 @@ class BankDetails extends Component {
                 handleInputChange={this.handleLoanInputChange}
                 handleCommentChange={this.handleLoanComments}
                 handleQ={this.handleLoanQ}
+                date={loanAcount.date}
                 onLoanChange={this.onLoanDateChange}
               />
             </Col>
@@ -435,6 +445,13 @@ class BankDetails extends Component {
                 isActive={isCreditActive}
                 handleClick={this.handleCreditClick}
                 lenderArray={lenderArray}
+                name={creditCardAcount.name}
+                location={creditCardAcount.location}
+                accountNo={creditCardAcount.accountNo}
+                monthlyCharges={creditCardAcount.monthlyCharges}
+                balance={creditCardAcount.balance}
+                arrears={creditCardAcount.arrears}
+                
                 lender={creditCardAcount.lender}
                 purpose={creditCardAcount.purpose}
                 purposeArray={purposeArray}
@@ -457,9 +474,9 @@ class BankDetails extends Component {
             <div
               onClick={this.clickRadio}
               className={
-                questions.purposeOfMortgage === "First Time Buyer"
+                questions.q3 === "a"
                   ? "radio-container container_malta"
-                  : "radio-container"
+                  : "radio-container unchecked"
               }
             >
               <input
@@ -468,7 +485,7 @@ class BankDetails extends Component {
                 name="q3"
                 id="q31"
                 className=""
-                // checked={questions.purposeOfMortgage === "a"}
+                checked={questions.q3 === "a"}
                 value="a"
               />
               <label for="q31">Yes</label>
@@ -476,9 +493,7 @@ class BankDetails extends Component {
             <div
               onClick={this.clickRadio}
               className={
-                questions.purposeOfMortgage === "House Mover"
-                  ? "radio-container container_malta"
-                  : "radio-container"
+                questions.q3 === "b" ? " radio-container container_malta" : "radio-container"
               }
             >
               <input
@@ -486,7 +501,7 @@ class BankDetails extends Component {
                 type="radio"
                 name="q3"
                 id="q32"
-                // checked={questions.purposeOfMortgage === "House Mover"}
+                checked={questions.q3 === "b"}
                 className=""
                 value="b"
               />
@@ -505,13 +520,13 @@ class BankDetails extends Component {
             <div className="btn-div">
               <Button
                 style={{ height: "40px" }}
-                onClick={() => window.history.back()}
+                onClick={() => this.props.changeProfRout( 6 )}
                 className="btn1"
               >
                 Back
               </Button>
               <Button
-                onClick={() => this.handleRoute("/home/details/bank-details")}
+                // onClick={() => this.handleRoute( "/home/details/bank-details" )}
                 className="btn2"
               >
                 Save & Continue
