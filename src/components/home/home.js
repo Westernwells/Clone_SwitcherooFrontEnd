@@ -27,6 +27,7 @@ import AdditionalPropertyIndex from "../details/additionalProperty/additionalPro
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
+import Details from '../details'
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -80,7 +81,10 @@ function Home(props) {
                       exact
                       path="/home/details/s1"
                       component={CreditCommittments}
-                    />
+                    /><Route exact
+                    path="/home/details"
+                    component={Details} />
+
                     <Route exact path="/home/details/s2" component={StepTwo} />
                     <Route
                       exact
