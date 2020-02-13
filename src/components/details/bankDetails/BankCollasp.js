@@ -1,13 +1,44 @@
 import React, { Component } from 'react'
 import './BankDetails.css'
 import { Icon, Col, Row, Select, DatePicker } from 'antd'
+import moment from 'moment';
 const { Option } = Select
 
 function BankCollapse( props ) {
-
-
+    const {
+        isActive,
+        handleClick,
+        accType,
+        index,
+        comments,
+        accPurpose,
+        lenderName,
+        accNumber,
+        creditUnionLoc,
+        creditUnionName,
+        outstandingBal,
+        monthlyRepayments,
+        arrears,
+        finalPayDate,
+        clearing,
+        purposeArray,
+        lenderArray,
+        handlePurposeChange,
+        handleLenderChange,
+        handleInputChange,
+        onDateChange,
+        handleRadioButton,
+       
+    } = props;
+    console.log( "inside coolasp=====>", index );
+    const idGeneratorOne = () => {
+        return "clearingMortage" + index
+    }
+    const idGeneratorTwo = () => {
+        return "clearingMortage1" + index
+    }
     const renderCommentsBox = () => {
-        if ( props.purpose === "Other" ) {
+        if ( accPurpose === "Other" ) {
             return <>
                 <Col lg={24}>
                     <h6 className="h61">
@@ -19,8 +50,8 @@ function BankCollapse( props ) {
                     <div className={props.comments ? "textarea-input maltaback" : "textarea-input"}>
                         <textarea
                             placeholder="comments"
-                            value={props.comments}
-                            onChange={props.handleCommentChange}
+                            value={comments}
+                            onChange={( evt ) => props.handleCommentsChange( evt, index )}
                         />
                     </div>
                 </Col>
@@ -28,44 +59,62 @@ function BankCollapse( props ) {
         }
     }
     const lendrConditional = () => {
-        const { lender, location, name } = props;
-        if ( lender === "Credit Union" ) {
+        if ( lenderName === "Credit Union" ) {
             return <React.Fragment><Col lg={24}>
                 <h6 className="h61">Please provide location/name</h6>
             </Col>
                 <Col className="colomn_8" lg={16}>
                     <div className={
-                        props.location !== "" ? "input maltaback" : "input"
+                        creditUnionLoc !== "" ? "input maltaback" : "input"
                     }>
                         <input type="text"
-                            name="location"
-                            placeholder="Location"
-                            value={location}
-                            onChange={props.handleInputChange}
+                            name="creditUnionLoc"
+                            placeholder="creditUnionLoc"
+                            value={creditUnionLoc}
+                            onChange={( event ) => handleInputChange( event, index )}
                         />
                     </div>
                 </Col></React.Fragment>
-        } else if ( lender === "Other" ) {
+        } else if ( lenderName === "Other" ) {
             return <React.Fragment><Col lg={24}>
                 <h6 className="h61">Please provide institution's name</h6>
             </Col>
                 <Col className="colomn_8" lg={16}>
                     <div className={
-                        props.name !== "" ? "input maltaback" : "input"
+                        creditUnionName !== "" ? "input maltaback" : "input"
                     }>
                         <input
                             type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={name}
-                            onChange={props.handleInputChange}
+                            name="creditUnionName"
+                            placeholder="name"
+                            value={creditUnionName}
+                            onChange={( event ) => handleInputChange( event, index )}
                         />
                     </div>
                 </Col></React.Fragment>
         }
     }
+
+    const renderAcoundName = () => {
+        console.log( "acount type", accType )
+        if ( accType === "loan" ) {
+            return ( <span className="account-text">Loan Account{index}
+            </span>
+            )
+        } else if ( accType === "overdraft" ) {
+            return ( <span className="account-text">Overdraft Account{index}
+            </span>
+            )
+        } else if ( accType === "credit" ) {
+            return (
+                <span className="account-text">Credit Card Account{index}
+                </span>
+
+            )
+        }
+    }
     const balanceRender = () => {
-        if ( accountName === "Loan Account" ) {
+        if ( accType === "loan" ) {
             return (
                 <Col lg={24}>
                     <h6 className="h61">
@@ -73,7 +122,7 @@ function BankCollapse( props ) {
                         </h6>
                 </Col>
             )
-        } else if ( accountName === "Overdraft Account" ) {
+        } else if ( accType === "overdraft" ) {
             return (
                 <Col lg={24}>
                     <h6 className="h61">
@@ -81,7 +130,7 @@ function BankCollapse( props ) {
                         </h6>
                 </Col>
             )
-        } else if ( accountName === "Credit Card Account" ) {
+        } else if ( accType === "credit" ) {
             return (
                 <Col lg={24}>
                     <h6 className="h61">
@@ -92,34 +141,9 @@ function BankCollapse( props ) {
         }
     }
 
-
-    // const { name } = this.props
-
-    const {
-        isActive,
-        accountNo,
-        monthlyCharges,
-        balance,
-        arrears,
-        questions,
-        accountName,
-        handleClick,
-        lenderArray,
-        lender,
-        purposeArray,
-        handleLenderChange,
-        handlePurposeChange,
-        handleQ,
-        handleInputChange,
-        onLoanChange,
-        date
-
-    } = props;
-    console.log( "props====>", lender );
     return (
         <React.Fragment><div className={isActive ? "collapse" : "collapse-inactive"}>
-            <span className="account-text">{accountName}
-            </span>
+            {renderAcoundName()}
             {isActive ? <Icon
                 type="down"
                 className="right-arrow"
@@ -129,177 +153,182 @@ function BankCollapse( props ) {
                     className="right-arrow"
                     onClick={() => handleClick()}
                 />}
-        </div> {isActive && <div className="bank-frame">
-            <Row className="d-row-s1">
-                <Col lg={24}>
-                    <h6 className="h61">What is the purpose of the account?</h6>
-                </Col>
-                <Col lg={10} >
-                    <div >
-                        <Select
-                            className={props.purpose !== "" ? "select-option1 maltaback" : "select-option1"}
-                            defaultValue="Select from options"
-                            onChange={handlePurposeChange}
+        </div>
+            <div className={isActive ? "bank-frame" : "bank-frame-inactive"}>
+                <Row className="d-row-s1">
+                    <Col lg={24}>
+                        <h6 className="h61">What is the purpose of the account?</h6>
+                    </Col>
+                    <Col lg={10} >
+                        <div >
+                            <Select
+                                className={accPurpose !== "" ? "select-option1 maltaback" : "select-option1"}
+                                defaultValue={accPurpose === "" ? "Select from options" : accPurpose}
+                                onChange={( e ) => handlePurposeChange( e, index )}
+                            >
+
+                                {purposeArray.map( ( value, index ) => {
+                                    return <Option key={index} value={value}>{value}</Option>
+                                } )}
+
+                            </Select>
+                        </div>
+                    </Col>
+                    {renderCommentsBox()}
+                    <Col lg={24}>
+                        <h6 className="h61">What is the name of the lender?</h6>
+                    </Col>
+                    <Col lg={10} >
+                        <div >
+                            <Select
+                                className={lenderName !== "" ? "select-option1 maltaback" : "select-option1"}
+                                defaultValue={lenderName === "" ? "Select from options" : lenderName}
+                                onChange={( e ) => handleLenderChange( e, index )}
+
+                            >
+                                {lenderArray.map( ( value, index ) => {
+                                    return <Option key={index} value={value}>{value}</Option>
+                                } )}
+
+                            </Select>
+                        </div>
+                    </Col>
+                    {lendrConditional()}
+                    <Col lg={24}>
+                        <h6 className="h61">Whats is the account number?</h6>
+                    </Col>
+                    <Col lg={16}>
+                        <div className={
+                            accNumber !== "" ? "input maltaback" : "input"
+                        }>
+                            <input
+                                type="text"
+                                placeholder="########"
+                                name="accNumber"
+                                pattern="[0-9]*"
+                                value={accNumber}
+                                onChange={( event ) => handleInputChange( event, index )}
+                            />
+                        </div>
+                    </Col>
+                    {balanceRender()}
+                    <Col lg={16}>
+                        <div className={
+                            outstandingBal !== "" ? "input input2 maltaback" : "input input2"
+                        }>
+                            <span className="pre">€</span>
+                            <input
+                                type="text"
+                                placeholder="########"
+                                pattern="[0-9]*"
+                                name="outstandingBal"
+                                value={outstandingBal}
+                                onChange={( event ) => handleInputChange( event, index )}
+                            />
+                        </div>
+                    </Col>
+                    <Col lg={24}>
+                        <h6 className="h61">
+                            Whats are the monthly repayments/charges?
+                        </h6>
+                    </Col>
+                    <Col lg={16}>
+                        <div className={
+                            monthlyRepayments !== "" ? "input input2 maltaback" : "input input2"
+                        }>
+                            <span className="pre">€</span>
+                            <input
+                                type="text"
+                                placeholder="########"
+                                name="monthlyRepayments"
+                                value={monthlyRepayments}
+                                pattern="[0-9]*"
+                                onChange={( event ) => handleInputChange( event, index )}
+                            />
+                        </div>
+                    </Col>
+                    <Col lg={24}>
+                        <h6 className="h61">
+                            Any arrears? How much?
+                        </h6>
+                    </Col>
+                    <Col lg={16}>
+                        <div className={
+                            arrears !== "" ? "input input2 maltaback" : "input input2"
+                        }>
+                            <span className="pre">€</span>
+                            <input type="text"
+                                placeholder="########"
+                                value={arrears}
+                                name="arrears"
+                                pattern="[0-9]*"
+                                onChange={( event ) => handleInputChange( event, props.index )}
+
+                            />
+                        </div>
+                    </Col>
+                    {accType === "loan" && <Col lg={24}>
+                        <h6 className="h61">
+                            Date of final payment?
+                        </h6>
+                    </Col>}
+                    {accType === "loan" && <Col lg={20}>
+                        <div className="input datepic"
+                            className={
+                                finalPayDate !== "" ? "input datepic maltaback" : "input datepic"
+                            }
                         >
-                            {purposeArray.map( ( value, index ) => {
-                                return <Option key={index} value={value}>{value}</Option>
-                            } )}
 
-                        </Select>
-                    </div>
-                </Col>
-                {renderCommentsBox()}
-                <Col lg={24}>
-                    <h6 className="h61">What is the name of the lender?</h6>
-                </Col>
-                <Col lg={10} >
-                    <div >
-                        <Select
-                            className={props.lender !== "" ? "select-option1 maltaback" : "select-option1"}
-                            defaultValue="Select from options"
-                            onChange={handleLenderChange}
+                            <DatePicker defaultValue={finalPayDate !== "" ? finalPayDate : moment( '2015-06-06', 'YYYY-MM-DD' )} onChange={( date, dateString ) => onDateChange( date, dateString, index )} />
+                        </div>
+                    </Col>}
+                    <Col lg={24}>
+                        <h6 className="h61">Are you clearing this as part of your mortgage?</h6>
+                    </Col>
 
+                    <Col lg={24} className="q1 q3 my_costuma colomn_8">
+                        <div
+                            onClick={( e ) => handleRadioButton( 'yes', index )}
+                            className={
+                                clearing === "yes"
+                                    ? "radio-container container_malta"
+                                    : "radio-container"
+                            }
                         >
-                            {lenderArray.map( ( value, index ) => {
-                                return <Option key={index} value={value}>{value}</Option>
-                            } )}
+                            <input
+                                
+                                type="radio"
+                                name={idGeneratorOne()}
+                                id={idGeneratorOne()}
+                                className=""
+                                checked={clearing ==="yes"?true:false}
+                                value="yes"
+                            />
+                            <label for={idGeneratorOne()}>Yes</label>
+                        </div>
+                        <div
+                            className={
+                                clearing === "no"
+                                    ? "radio-container container_malta"
+                                    : "radio-container"
+                            }
+                        >
+                            <input
+                                onClick={()=>handleRadioButton( 'no', index )}
+                                type="radio"
+                                name={idGeneratorTwo()}
+                                id={idGeneratorTwo()}
+                                checked={clearing === "no"?true:false}
+                                className=""
+                                value="no"
+                            />
+                            <label for={idGeneratorTwo()}>No</label>
+                        </div>
+                    </Col>
 
-                        </Select>
-                    </div>
-                </Col>
-                {lendrConditional()}
-                <Col lg={24}>
-                    <h6 className="h61">Whats is the account number?</h6>
-                </Col>
-                <Col lg={16}>
-                    <div className={
-                        accountNo !== "" ? "input maltaback" : "input"
-                    }>
-                        <input
-                            type="text"
-                            placeholder="########"
-                            name="accountNo"
-                            value={accountNo}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                </Col>
-                {balanceRender()}
-                <Col lg={16}>
-                    <div className={
-                        balance !== "" ? "input input2 maltaback" : "input input2"
-                    }>
-                        <span className="pre">€</span>
-                        <input
-                            type="text"
-                            placeholder="########"
-                            pattern="[0-9]*"
-                            name="balance"
-                            value={balance}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                </Col>
-                <Col lg={24}>
-                    <h6 className="h61">
-                        Whats are the monthly repayments/charges?
-                        </h6>
-                </Col>
-                <Col lg={16}>
-                    <div className={
-                        monthlyCharges !== "" ? "input input2 maltaback" : "input input2"
-                    }>
-                        <span className="pre">€</span>
-                        <input
-                            type="text"
-                            placeholder="########"
-                            name="monthlyCharges"
-                            value={monthlyCharges}
-                            pattern="[0-9]*"
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                </Col>
-                <Col lg={24}>
-                    <h6 className="h61">
-                        Any arrears? How much?
-                        </h6>
-                </Col>
-                <Col lg={16}>
-                    <div className={
-                        arrears !== "" ? "input input2 maltaback" : "input input2"
-                    }>
-                        <span className="pre">€</span>
-                        <input type="text"
-                            placeholder="########"
-                            value={arrears}
-                            name="arrears"
-                            pattern="[0-9]*"
-                            onChange={handleInputChange}
-
-                        />
-                    </div>
-                </Col>
-                {onLoanChange && <Col lg={24}>
-                    <h6 className="h61">
-                        Date of final payment?
-                        </h6>
-                </Col>}
-                {onLoanChange && <Col lg={20}>
-                    <div className="input datepic"
-                        className={
-                            date !== "" ? "input datepic maltaback" : "input datepic"
-                        }
-                    >
-                        <DatePicker onChange={onLoanChange} />
-                    </div>
-                </Col>}
-                <Col lg={24}>
-                    <h6 className="h61">Are you clearing this as part of your mortgage?</h6>
-                </Col>
-
-                <Col lg={24} className="q1 q3 my_costuma colomn_8">
-                    <div
-                        // onClick={this.clickRadio}
-                        className={
-                            questions.purposeOfMortgage === "First Time Buyer"
-                                ? "radio-container container_malta"
-                                : "radio-container"
-                        }
-                    >
-                        <input
-                            onChange={handleQ}
-                            type="radio"
-                            name="clearingMortage"
-                            id="clearingMortage"
-                            className=""
-                            checked={questions.clearingMortage === "a"}
-                            value="a"
-                        />
-                        <label for="clearingMortage">Yes</label>
-                    </div>
-                    <div
-                        // onClick={this.clickRadio}
-                        className={
-                            questions.purposeOfMortgage === "House Mover"
-                                ? "radio-container container_malta"
-                                : "radio-container"
-                        }
-                    >
-                        <input
-                            onChange={handleQ}
-                            type="radio"
-                            name="clearingMortage"
-                            id="clearingMortage1"
-                            checked={questions.clearingMortage === "b"}
-                            className=""
-                            value="b"
-                        />
-                        <label for="clearingMortage1">No</label>
-                    </div>
-                </Col>
-            </Row>
-        </div>}</React.Fragment>
+                </Row>
+            </div>
+        </React.Fragment>
     )
 }
 

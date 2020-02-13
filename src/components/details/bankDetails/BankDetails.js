@@ -1,7 +1,9 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import { Row, Col, Select, Button, Icon } from "antd";
 import "./BankDetails.css";
 import BankCollapse from "./BankCollasp";
+import Api from "../../../redux/api/detailsApi";
+import { connect } from "react-redux";
 
 const { Option } = Select;
 const purposeArray = [
@@ -36,187 +38,31 @@ const AddAcount = props => {
 };
 class BankDetails extends Component {
   state = {
-    loanAcount: {
-      purpose: "",
-      comments: "",
-      lender: "",
-      location: "",
-      name: "",
-      accountNo: "",
-      monthlyCharges: "",
-      balance: "",
-      arrears: "",
-      date: "",
-      questions: {
-        q: ""
-      }
-    },
-    overdraftAcount: {
-      lender: "",
-      location: "",
-      name: "",
-      purpose: "",
-      comments: "",
-      accountNo: "",
-      monthlyCharges: "",
-      balance: "",
-      arrears: "",
-      questions: {
-        q: ""
-      }
-    },
-    creditCardAcount: {
-      purpose: "",
-      comments: "",
-      lender: "",
-      location: "",
-      name: "",
-      accountNo: "",
-      monthlyCharges: "",
-      balance: "",
-      arrears: "",
-      questions: {
-        q: ""
-      }
-    },
-
-    questions: {
-      q1: ""
-    },
+    loanOrOverdraftCosts: [
+      {
+        accType: "overdraft",
+        accPurpose: "savings",
+        comments: "",
+        lenderName: "AIB",
+        creditUnionName: "",
+        creditUnionLoc: "Dublin",
+        accNumber: "",
+        outstandingBal: "",
+        maxOutstandingBal: 750000,
+        monthlyRepayments: 3500,
+        arrears: 4000,
+        finalPayDate: "",
+        clearing: "yes",
+        isActive: false,
+      },
+    ],
+    monthlyOutgoings: {},
+    creditCommitments: {},
     q4: false,
-    loanActive: false,
-    isLoanActive: true,
-    overdraftActive: false,
-    isOverdraftActive: false,
-    creditCardActive: false,
-    isCreditActive: false
-  };
-  // credit function
-  handleCreditClick = () => {
-    this.setState( {
-      isCreditActive: !this.state.isCreditActive
-    } );
-  };
-  handleCredit = () => {
-    this.setState( {
-      questions: { ...this.state.questions, q3: "" },
-      creditCardActive: !this.state.creditCardActive,
-      isLoanActive: false,
-      isOverdraftActive: false,
-      isCreditActive: true
-    } );
-  };
-  handleCreditPurposeChange = value => {
-    this.setState( {
-      creditCardAcount: { ...this.state.creditCardAcount, purpose: value }
-    } );
-  };
-  handleCreditLenderChange = value => {
-    this.setState( {
-      creditCardAcount: { ...this.state.creditCardAcount, lender: value }
-    } );
-  };
-
-  handleCreditInputChange = e => {
-    const name = e.target.name;
-    this.setState( {
-      creditCardAcount: {
-        ...this.state.creditCardAcount,
-        [name]: e.target.validity.valid
-          ? e.target.value
-          : this.state.creditCardAcount[name]
-      }
-    } );
-  };
-
-  handleCreditComments = e => {
-    this.setState( {
-      creditCardAcount: {
-        ...this.state.creditCardAcount,
-        comments: e.target.value
-      }
-    } );
-  };
-  handleCreditQ = e => {
-    const { questions } = this.state.creditCardAcount;
-    var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log( "readio =====>", radioContainers );
-    var qs = questions;
-    qs[e.target.name] = e.target.value;
-    console.log( qs );
-    this.setState( {
-      q4: !this.state.q4
-    } );
-    // validateRadio(e.target.name, e.target.value);
-    for ( var i = 0; i < radioContainers.length; i++ ) {
-      var input = radioContainers[i].childNodes[0];
-      if ( input.checked ) {
-        input.parentNode.style.background = "#fb9500";
-        input.parentNode.style.border = "2px solid #fb9500";
-      } else {
-        input.parentNode.style.background = "lightgray";
-        input.parentNode.style.border = "2px solid gray";
-      }
+    questions: {
+      q: ""
     }
-  };
-  //Over draft function
-  handleOverdraftClick = () => {
-    console.log( "loan active====>", this.state.loanAcount );
-    this.setState( {
-      isOverdraftActive: !this.state.isOverdraftActive
-    } );
-  };
-  handleOverdraftPurposeChange = value => {
-    this.setState( {
-      overdraftAcount: { ...this.state.overdraftAcount, purpose: value }
-    } );
-  };
-  handleOverdraftLenderChange = value => {
-    this.setState( {
-      overdraftAcount: { ...this.state.overdraftAcount, lender: value }
-    } );
-  };
 
-  handleOverdraftInputChange = e => {
-    const name = e.target.name;
-    this.setState( {
-      overdraftAcount: {
-        ...this.state.overdraftAcount,
-        [name]: e.target.validity.valid
-          ? e.target.value
-          : this.state.overdraftAcount[name]
-      }
-    } );
-  };
-
-  handleOverdraftComments = e => {
-    this.setState( {
-      overdraftAcount: {
-        ...this.state.overdraftAcount,
-        comments: e.target.value
-      }
-    } );
-  };
-  handleOverdraftQ = e => {
-    const { questions } = this.state.overdraftAcount;
-    var radioContainers = e.target.parentNode.parentNode.childNodes;
-    var qs = questions;
-    qs[e.target.name] = e.target.value;
-    console.log( qs );
-    this.setState( {
-      q4: !this.state.q4
-    } );
-    // validateRadio(e.target.name, e.target.value);
-    for ( var i = 0; i < radioContainers.length; i++ ) {
-      var input = radioContainers[i].childNodes[0];
-      if ( input.checked ) {
-        input.parentNode.style.background = "#fb9500";
-        input.parentNode.style.border = "2px solid #fb9500";
-      } else {
-        input.parentNode.style.background = "lightgray";
-        input.parentNode.style.border = "2px solid gray";
-      }
-    }
   };
 
   clickRadio = e => {
@@ -225,81 +71,181 @@ class BankDetails extends Component {
       label.click();
     }
   };
-  //loan acount methods
-  handleClick = () => {
-    console.log( "loan active====>", this.state.loanAcount );
-    this.setState( {
-      isLoanActive: !this.state.isLoanActive
-    } );
-  };
-  handleLoanPurposeChange = value => {
-    this.setState( {
-      loanAcount: { ...this.state.loanAcount, purpose: value }
-    } );
-  };
-  handleLoanLenderChange = value => {
-    this.setState( {
-      loanAcount: { ...this.state.loanAcount, lender: value }
-    } );
-  };
+  // Create new Acount 
+  generateAcount = ( type ) => {
 
-  handleLoanInputChange = e => {
-    const name = e.target.name;
+    let newAcount = {
+      accType: type,
+      accPurpose: "",
+      comments: "",
+      lenderName: "",
+      creditUnionName: "",
+      creditUnionLoc: "",
+      accNumber: "",
+      outstandingBal: "",
+      monthlyRepayments: "",
+      arrears: "",
+      finalPayDate: "",
+      clearing: "",
+      isActive: true,
+    }
+    for ( let i = 0; i < this.state.loanOrOverdraftCosts.length; i++ ) {
+      this.state.loanOrOverdraftCosts[i].isActive = false;
+    }
     this.setState( {
-      loanAcount: {
-        ...this.state.loanAcount,
-        [name]: e.target.validity.valid
-          ? e.target.value
-          : this.state.loanAcount[name]
-      }
+      loanOrOverdraftCosts: [...this.state.loanOrOverdraftCosts, { ...newAcount }]
     } );
-  };
-
-  handleLoanComments = e => {
-    this.setState( {
-      loanAcount: {
-        ...this.state.loanAcount,
-        comments: e.target.value
-      }
-    } );
-  };
-  handleLoanClick = () => {
-    const { loanActive } = this.state;
-    this.setState( {
-      loanActive: !loanActive
-    } );
-  };
-
-  onLoanDateChange = ( date, dateString ) => {
-
-    this.setState( {
-      loanAcount: { ...this.state.loanAcount, date: dateString }
-    } )
-
   }
-
-  handleLoanQ = e => {
-    const { questions } = this.state.loanAcount;
-    var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log( "readio =====>", radioContainers );
-    var qs = questions;
-    qs[e.target.name] = e.target.value;
-    console.log( qs );
-    this.setState( {
-      q4: !this.state.q4
-    } );
-    // validateRadio(e.target.name, e.target.value);
-    for ( var i = 0; i < radioContainers.length; i++ ) {
-      var input = radioContainers[i].childNodes[0];
-      if ( input.checked ) {
-        input.parentNode.style.background = "#fb9500";
-        input.parentNode.style.border = "2px solid #fb9500";
-      } else {
-        input.parentNode.style.background = "lightgray";
-        input.parentNode.style.border = "2px solid gray";
+  handleClick = ( index ) => {
+    for ( let i = 0; i < this.state.loanOrOverdraftCosts.length; i++ ) {
+      if ( i !== index ) {
+        this.state.loanOrOverdraftCosts[i].isActive = false;
       }
     }
+    this.setState( ( { loanOrOverdraftCosts, questions } ) => ( {
+      questions: { ...questions, q3: "" },
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          isActive: !this.state.loanOrOverdraftCosts[index].isActive,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+     
+    } ) );
+  }
+  //handle purpose select 
+  handlePurposeChange = ( value, index ) => {
+    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          accPurpose: value,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+    } ) );
   };
+  handleLenderChange = ( value, index ) => {
+    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          lenderName: value,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+    } ) );
+  }
+  handleInputChange = ( event, index ) => {
+    const { name, value, validity } = event.target;
+    if ( name === "creditUnionLoc" || name === "creditUnionName" ) {
+      this.setState( ( { loanOrOverdraftCosts } ) => ( {
+        loanOrOverdraftCosts: [
+          ...loanOrOverdraftCosts.slice( 0, index ),
+          {
+            ...loanOrOverdraftCosts[index],
+            [name]: value,
+          },
+          ...loanOrOverdraftCosts.slice( index + 1 )
+        ]
+      } ) );
+    } else {
+      this.setState( ( { loanOrOverdraftCosts } ) => ( {
+        loanOrOverdraftCosts: [
+          ...loanOrOverdraftCosts.slice( 0, index ),
+          {
+            ...loanOrOverdraftCosts[index],
+            [name]: validity.valid ? value : loanOrOverdraftCosts[index][name],
+          },
+          ...loanOrOverdraftCosts.slice( index + 1 )
+        ]
+      } ) );
+    }
+  }
+  handleSubmit = () => {
+    let { loanOrOverdraftCosts } = this.state
+
+    this.props.bankDetailsPost( {
+      userId: "5e407cceb15f780017b0a1b4",
+      monthlyOutgoings: {
+        ...this.state.monthlyOutgoings
+      },
+      creditCommitments: {
+        ...this.state.creditCommitments,
+        loanOrOverdraftCosts: [...loanOrOverdraftCosts]
+      }
+    } )
+    // console.log( this.props.loading );
+    // if ( !this.props.loading ) {
+    //   this.props.changeProfRout( 7 );
+    // }
+
+  }
+  componentDidMount = () => {
+    const options = {
+      method: "GET",
+      headers: new Headers( {
+        Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
+        "Content-Type": "application/json"
+      } )
+    };
+    fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
+      .then( res => {
+        console.log( res );
+        res.json().then( res => {
+          console.log( "responsed====>", res );
+          if ( res.creditCommitments.loanOrOverdraftCosts ) {
+            this.setState( {
+              creditCommitments: res.creditCommitments,
+              monthlyOutgoings: res.monthlyOutgoings,
+              loanOrOverdraftCosts: [...res.creditCommitments.loanOrOverdraftCosts]
+            } )
+          } else {
+            this.setState( {
+              creditCommitments: res.creditCommitments,
+              monthlyOutgoings: res.monthlyOutgoings,
+            } )
+          }
+
+        } );
+      } )
+      .catch( err => {
+        console.log( err );
+        alert( err.msg );
+      } );
+  }
+  handleCommentsChange = ( evt, index ) => {
+    const { value } = evt.target;
+    console.log( "index", index )
+    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          comments: value.length < 256 ? value : loanOrOverdraftCosts[index].comments,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+    } ) );
+  }
+  onDateChange = ( date, dateString, index ) => {
+    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          finalPayDate: dateString,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+    } ) );
+  }
+
+  //loan acount methods
   handleQ = e => {
     const { questions } = this.state;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
@@ -310,160 +256,84 @@ class BankDetails extends Component {
     this.setState( {
       q4: !this.state.q4
     } );
-    // validateRadio(e.target.name, e.target.value);
-    // for ( var i = 0; i < radioContainers.length; i++ ) {
-    //   var input = radioContainers[i].childNodes[0];
-    //   if ( input.checked ) {
-    //     input.parentNode.style.background = "#fb9500";
-    //     input.parentNode.style.border = "2px solid #fb9500";
-    //   } else {
-    //     input.parentNode.style.background = "lightgray";
-    //     input.parentNode.style.border = "2px solid gray";
-    //   }
-    // }
   };
-
-  handleRoute = route => {
-    this.props.history.push( route );
-  };
-  handleLoan = () => {
-    this.setState( {
-      questions: { ...this.state.questions, q3: "" },
-      loanActive: !this.state.loanActive,
-      isLoanActive: true,
-      isOverdraftActive: false,
-      isCreditActive: false
-    } );
-  };
-  handleOverdraft = () => {
-    this.setState( {
-      questions: { ...this.state.questions, q3: "" },
-      overdraftActive: !this.state.overdraftActive,
-      isLoanActive: false,
-      isOverdraftActive: true,
-      isCreditActive: false
-    } );
-  };
+  handleRadioButton = ( e, index ) => {
+    const value = e
+    console.log( "value     ==>", value );
+    // console.log("value=====>",e.target.value)
+    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice( 0, index ),
+        {
+          ...loanOrOverdraftCosts[index],
+          clearing: value,
+        },
+        ...loanOrOverdraftCosts.slice( index + 1 )
+      ]
+    } ) );
+  }
 
   renderAcount = () => {
     return (
       <React.Fragment>
-        <AddAcount name="Loan Account" handleAddAccount={this.handleLoan} />
+        <AddAcount name="Loan Account" handleAddAccount={() => this.generateAcount( "loan" )} />
         <AddAcount
           name="Overdraft Account"
-          handleAddAccount={this.handleOverdraft}
+          handleAddAccount={() => this.generateAcount( "overdraft" )}
         />
         <AddAcount
           name="Credit Card Account"
-          handleAddAccount={this.handleCredit}
+          handleAddAccount={() => this.generateAcount( "credit" )}
         />
       </React.Fragment>
     );
   };
 
   render() {
-    const {
-      questions,
-      loanActive,
-      overdraftActive,
-      isLoanActive,
-      isOverdraftActive,
-      isCreditActive,
-      creditCardActive,
-      loanAcount,
-      creditCardAcount,
-      overdraftAcount
-    } = this.state;
-
-    console.log( "state", this.state );
+    const { questions, loanOrOverdraftCosts } = this.state
+    console.log( "Accounts details =====>", this.state );
     return (
       <div className="credit-commitments">
         <Row className="d-row-s1">
           <Col lg={24}>
             <h1 className="heading1">Let's get some details of your account</h1>
           </Col>
-          {loanActive && (
-            <Col lg={19}>
-              <BankCollapse
-                accountName="Loan Account"
-                lender={loanAcount.lender}
-                purpose={loanAcount.purpose}
-                comments={loanAcount.comments}
-                name={loanAcount.name}
-                location={loanAcount.location}
-                accountNo={loanAcount.accountNo}
-                monthlyCharges={loanAcount.monthlyCharges}
-                balance={loanAcount.balance}
-                arrears={loanAcount.arrears}
-                isActive={isLoanActive}
-                loanActive={loanActive}
-                isLoanActive={isLoanActive}
-                lenderArray={lenderArray}
-                purposeArray={purposeArray}
-                questions={this.state.loanAcount.questions}
-                handleClick={this.handleClick}
-                handlePurposeChange={this.handleLoanPurposeChange}
-                handleLenderChange={this.handleLoanLenderChange}
-                handleInputChange={this.handleLoanInputChange}
-                handleCommentChange={this.handleLoanComments}
-                handleQ={this.handleLoanQ}
-                date={loanAcount.date}
-                onLoanChange={this.onLoanDateChange}
-              />
-            </Col>
+          {loanOrOverdraftCosts.map( ( rec, index ) => {
+
+            return (
+
+              <Col lg={19}>
+                <BankCollapse
+                  accType={rec.accType}
+                  isActive={rec.isActive}
+                  index={index}
+                  accPurpose={rec.accPurpose}
+                  lenderName={rec.lenderName}
+                  purposeArray={purposeArray}
+                  lenderArray={lenderArray}
+                  accNumber={rec.accNumber}
+                  arrears={rec.arrears}
+                  monthlyRepayments={rec.monthlyRepayments}
+                  finalPayDate={rec.finalPayDate}
+                  comments={rec.comments}
+                  creditUnionName={rec.creditUnionName}
+                  creditUnionLoc={rec.creditUnionLoc}
+                  outstandingBal={rec.outstandingBal}
+                  clearing={rec.clearing}
+                  handleClick={() => this.handleClick( index )}
+                  handlePurposeChange={this.handlePurposeChange}
+                  handleLenderChange={this.handleLenderChange}
+                  handleInputChange={this.handleInputChange}
+                  onDateChange={this.onDateChange}
+                  handleCommentsChange={this.handleCommentsChange}
+                  handleRadioButton={this.handleRadioButton}
+
+                />
+              </Col> )
+          }
+
           )}
-          {overdraftActive && (
-            <Col lg={19}>
-              <BankCollapse
-                accountName="Overdraft Account"
-                isActive={isOverdraftActive}
-                handleClick={this.handleOverdraftClick}
-                lenderArray={lenderArray}
-                lender={overdraftAcount.lender}
-                comments={overdraftAcount.comments}
-                name={overdraftAcount.name}
-                location={overdraftAcount.location}
-                accountNo={overdraftAcount.accountNo}
-                monthlyCharges={overdraftAcount.monthlyCharges}
-                balance={overdraftAcount.balance}
-                arrears={overdraftAcount.arrears}
-                purpose={overdraftAcount.purpose}
-                purposeArray={purposeArray}
-                questions={this.state.overdraftAcount.questions}
-                handlePurposeChange={this.handleOverdraftPurposeChange}
-                handleLenderChange={this.handleOverdraftLenderChange}
-                handleInputChange={this.handleOverdraftInputChange}
-                handleCommentChange={this.handleOverdraftComments}
-                handleQ={this.handleOverdraftQ}
-              />
-            </Col>
-          )}
-          {creditCardActive && (
-            <Col lg={19}>
-              <BankCollapse
-                accountName="Credit Card Account"
-                isActive={isCreditActive}
-                handleClick={this.handleCreditClick}
-                lenderArray={lenderArray}
-                name={creditCardAcount.name}
-                location={creditCardAcount.location}
-                accountNo={creditCardAcount.accountNo}
-                monthlyCharges={creditCardAcount.monthlyCharges}
-                balance={creditCardAcount.balance}
-                arrears={creditCardAcount.arrears}
-                
-                lender={creditCardAcount.lender}
-                purpose={creditCardAcount.purpose}
-                purposeArray={purposeArray}
-                questions={this.state.creditCardAcount.questions}
-                handlePurposeChange={this.handleCreditPurposeChange}
-                handleLenderChange={this.handleCreditLenderChange}
-                handleInputChange={this.handleCreditInputChange}
-                handleCommentChange={this.handleOverdraftComments}
-                handleQ={this.handleCreditQ}
-              />
-            </Col>
-          )}
+
           <Col lg={24}>
             <h6 className="h61">
               Do you have any monthly loan/overdraft/credit card costs?
@@ -526,7 +396,7 @@ class BankDetails extends Component {
                 Back
               </Button>
               <Button
-                // onClick={() => this.handleRoute( "/home/details/bank-details" )}
+                onClick={() => this.handleSubmit()}
                 className="btn2"
               >
                 Save & Continue
@@ -538,4 +408,18 @@ class BankDetails extends Component {
     );
   }
 }
-export default BankDetails;
+
+const mapStateToProps = ( state ) => {
+  return {
+    newProps: state.detailsReducer,
+    loading: state.detailsReducer.loading,
+    error: state.detailsReducer.error,
+  }
+}
+
+
+const mapDispatchToProps = dispacth => ( {
+  bankDetailsPost: ( props, callback ) =>
+    dispacth( Api.bankDetailsPost( props, callback ) )
+} );
+export default connect( mapStateToProps, mapDispatchToProps )( BankDetails );
