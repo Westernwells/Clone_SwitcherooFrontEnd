@@ -278,3 +278,6 @@
   padding-left: 25px;
   color: white;
 }
+.bank-frame-inactive{
+  display: none;
+}

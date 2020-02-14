@@ -12,9 +12,14 @@ const setDetailsDataCredit=payload=>({
   type:actions.SET_DETAILS_DATA_CREDIT,
   payload
 })
+const setBankDetails = (payload)=>({
+  type:actions.SET_BANK_DETAILS,
+  payload
+})
 
 export {
   setDetailsData,
   LoadingDetailsData,
-  setDetailsDataCredit
+  setDetailsDataCredit,
+  setBankDetails
 };

@@ -92,7 +92,8 @@ class CreditCommittments extends Component {
         accDuration: "",
         eirCode: "",
         accNum: "",
-        comments: ""
+        comments: "",
+        firstPaymentAcc: "",
 
     }
     handleDurChange = ( value ) => {
@@ -131,11 +132,13 @@ class CreditCommittments extends Component {
         qs[e.target.name] = e.target.value;
         console.log( qs );
         this.setState( {
+            firstPaymentAcc: e.target.value,
             q4: !this.state.q4
         } )
         // validateRadio(e.target.name, e.target.value);
         for ( var i = 0; i < radioContainers.length; i++ ) {
             var input = radioContainers[i].childNodes[0];
+            console.log( "input status===>", input.checked );
             if ( input.checked ) {
                 input.parentNode.style.background = "#fb9500";
                 input.parentNode.style.border = "2px solid #fb9500";
@@ -171,7 +174,9 @@ class CreditCommittments extends Component {
             accDuration,
             eirCode,
             accNum,
-            comments } = this.state
+            comments,
+            firstPaymentAcc
+        } = this.state
         let data = {
             currentAccIns,
             sortCode,
@@ -195,11 +200,61 @@ class CreditCommittments extends Component {
                 ...data
             }
         } )
-        console.log(this.props.loading );
+        console.log( this.props.loading );
         if ( !this.props.loading ) {
             this.props.changeProfRout( 7 );
         }
 
+    }
+    componentDidMount = () => {
+        const options = {
+            method: "GET",
+            headers: new Headers( {
+                Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
+                "Content-Type": "application/json"
+            } )
+        };
+        fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
+            .then( res => {
+                console.log( res );
+                res.json().then( res => {
+                    console.log( "responsed====>", res.creditCommitments );
+                    if ( res.creditCommitments ) {
+                        const { currentAccIns,
+                            sortCode,
+                            credUnionLoc,
+                            institutionName,
+                            branchAddress,
+                            branchCity,
+                            branchCounty,
+                            accDuration,
+                            eirCode,
+                            accNum,
+                            comments,
+                            firstPaymentAcc } = res.creditCommitments
+                        this.setState( {
+                            currentAccIns,
+                            sortCode,
+                            credUnionLoc,
+                            institutionName,
+                            branchAddress,
+                            branchCity,
+                            branchCounty,
+                            accDuration,
+                            eirCode,
+                            accNum,
+                            comments,
+                            firstPaymentAcc
+
+                        } )
+                    }
+
+                } );
+            } )
+            .catch( err => {
+                console.log( err );
+                alert( err.msg );
+            } );
     }
     renderCommentsBox = ( q ) => {
         const { comments } = this.state
@@ -261,7 +316,7 @@ class CreditCommittments extends Component {
         }
     }
     render() {
-        const { questions, sortCode, branchAddress, branchCity, eirCode, accNum } = this.state
+        const { questions, sortCode, branchAddress, branchCity, eirCode, accNum, firstPaymentAcc } = this.state
         console.log( this.state )
         return (
             <div className="credit-commitments" >
@@ -279,6 +334,7 @@ class CreditCommittments extends Component {
                             <Select
                                 className={this.state.currentAccIns !== "" ? "select-option1 maltaback" : "select-option1"}
                                 defaultValue="Select currentAccIns"
+                                defaultValue={this.state.currentAccIns == "" ? "Select from options" : this.state.currentAccIns}
                                 onChange={this.handleChange}
                             >
                                 {banks.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
@@ -312,7 +368,7 @@ class CreditCommittments extends Component {
                     <Col className="colomn_8" lg={15}>
                         <Select
                             className={this.state.branchCounty !== "" ? "select-option1 maltaback" : "select-option1"}
-                            defaultValue="County"
+                            defaultValue={this.state.branchCounty == "" ? "Select from options" : this.state.branchCounty}
                             onChange={this.handlebranchCounty}
                         >
                             {counties.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
@@ -364,6 +420,7 @@ class CreditCommittments extends Component {
                             <Select
                                 className={this.state.accDuration !== "" ? "select-option1 maltaback" : "select-option1"}
                                 defaultValue="Select years"
+                                defaultValue={this.state.accDuration == "" ? "Select from options" : this.state.branchCounty}
                                 onChange={this.handleDurChange}
                             >
                                 {years.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
@@ -379,7 +436,7 @@ class CreditCommittments extends Component {
                         <div
                             onClick={this.clickRadio}
                             className={
-                                questions.purposeOfMortgage === "First Time Buyer"
+                                firstPaymentAcc === "a"
                                     ? "radio-container container_malta"
                                     : "radio-container"
                             }
@@ -390,7 +447,7 @@ class CreditCommittments extends Component {
                                 name="firstPaymentAcc"
                                 id="q31"
                                 className=""
-                                // checked={questions.purposeOfMortgage === "a"}
+                                checked={firstPaymentAcc === "a"}
                                 value="a"
                             />
                             <label for="q31">Yes</label>
@@ -398,7 +455,7 @@ class CreditCommittments extends Component {
                         <div
                             onClick={this.clickRadio}
                             className={
-                                questions.purposeOfMortgage === "House Mover"
+                                firstPaymentAcc === "b"
                                     ? "radio-container container_malta"
                                     : "radio-container"
                             }
@@ -408,7 +465,7 @@ class CreditCommittments extends Component {
                                 type="radio"
                                 name="firstPaymentAcc"
                                 id="q32"
-                                // checked={questions.purposeOfMortgage === "House Mover"}
+                                checked={firstPaymentAcc === "b"}
                                 className=""
                                 value="b"
                             />
