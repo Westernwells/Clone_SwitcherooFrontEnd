@@ -523,15 +523,20 @@ class App extends React.Component {
       this.props.changeProfRout(1);
     }
   };
-  onChangeTextSecond = e => {
-    var reg = /^-?\d*\.?\d*$/;
-
-    if (reg.test(e.target.value)) {
+  onChangeTextSecond = (value, name) => {
+    if (value > 0) {
       this.setState({
-        [e.target.name]: Number(e.target.value),
-        [`${e.target.name}Empty`]: false
+        [name]: value,
+        [`${name}Empty`]: false
       });
     }
+  };
+  cashFlowChange = (value, name) => {
+    console.log(typeof value);
+    this.setState({
+      [name]: value,
+      [`${name}Empty`]: false
+    });
   };
 
   onChangeDate = (date, dateString) => {

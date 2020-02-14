@@ -33,15 +33,16 @@ export default class userForm extends Component {
     const {
       onChangeTextSecond,
       onChangeSecond,
-      onsubmitForm
+      onsubmitForm,
+      cashFlowChange
     } = this.props.thisObject;
     return (
-      <div className="fo_2_con">
+      <div className="fo_2_con form3user">
         <p className="note_text">
           {" "}
-          Please try and be as accurate as possible in describing your finance
-          and expenses. Finance fees and expenses figures are monthly. Check box
-          if it is not applicable to you
+          {this.props.text
+            ? this.props.text
+            : "Please try and be as accurate as possible in describing your earnings. All figures are yearly. Check box if it is not applicable to you"}
         </p>
         <Row className="formUser-row-gs">
           <Checkbox
@@ -143,6 +144,7 @@ export default class userForm extends Component {
             ]}
             onChangeTextSecond={onChangeTextSecond}
             onChangefunc={onChangeSecond}
+            cashFlowChange={cashFlowChange}
           >
             Do you have a monthly cashflow shortfall/surplus from properties you
             rent? (please include shortfall as a negative and surplus cashflow

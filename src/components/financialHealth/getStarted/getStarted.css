@@ -55,7 +55,22 @@
   color: white;
   margin: 9px 0 0 30px;
 }
-
+.ifExitaNu input{
+  background : #fb9500 !important;
+    border : 2px solid #fb9500 !important;
+    padding-left:50px !important;
+}
+.ifExitaNu input {
+  background: #fb9500 !important;
+  border: 2px solid #fb9500 !important;
+  padding-left: 50px !important;
+}
+.aaa input {
+  width: 100% !important;
+}
+.react-tel-input {
+  width: 27% !important;
+}
 .financial-health .q1 input[type="radio"]:checked + label:before,
 .financial-health .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";

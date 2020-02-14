@@ -185,7 +185,7 @@ input[type="number"] {
 }
 .user_form1 .errormissting{
   position: relative;
-  left: -180px;
+  left: -100px;
 }
 .q1 .radio-container.container_malta {
   background: #fb9500;

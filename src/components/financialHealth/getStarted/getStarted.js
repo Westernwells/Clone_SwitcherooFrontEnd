@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 import "./getStarted.css";
 import Api from "../../../redux/api/financialHealthCheck";
 import { connect } from "react-redux";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const phoneno = /^\d{10}$/;
 const { Option } = Select;
@@ -50,7 +50,7 @@ function GetStarted(props) {
     contructionNature: "",
     contructionNatureEmpty: false,
     emailSecondApplicant: "",
-    emailSecondApplicantValidation: false,
+    emailSecondApplicantValidation: true,
     emailSecondApplicantHelp: "",
     emailSecondApplicantValidationStatus: "error",
     firstNameSecondApplicantEmpty: false,
@@ -58,7 +58,7 @@ function GetStarted(props) {
     emailSecondApplicantEmpty: false,
 
     emailSecondApplicantre: "",
-    emailSecondApplicantreValidation: false,
+    emailSecondApplicantreValidation: true,
     emailSecondApplicantreHelp: "",
     emailSecondApplicantreValidationStatus: "error",
     emailSecondApplicantreEmpty: false,
@@ -123,7 +123,7 @@ function GetStarted(props) {
             emailSecondApplicantValidationStatus: "success",
             emailSecondApplicantHelp: "",
             emailSecondApplicantValidation: true,
-            [`${name}Empty`]: false,
+            [`${name}Empty`]: false
           });
         }
         break;
@@ -191,6 +191,15 @@ function GetStarted(props) {
     }
   };
 
+  const handlePhone = (value, name) => {
+    setQuestions({
+      ...questions,
+      overAllFormValidate: true,
+      [name]: value,
+      [`${name}Empty`]: false
+    });
+  };
+
   const handleinput = e => {
     if (
       e.target.name === "emailSecondApplicant" ||
@@ -199,7 +208,6 @@ function GetStarted(props) {
     ) {
       validateRadio(e.target.name, e.target.value);
     } else {
-      debugger;
       setQuestions({
         ...questions,
         overAllFormValidate: true,
@@ -380,9 +388,7 @@ function GetStarted(props) {
     props.present && props.changeProfRout(1);
   };
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+ 
   const {
     filedBankruptcyEmpty,
     failedToPayLoanEmpty,
@@ -401,7 +407,9 @@ function GetStarted(props) {
     <div className="financial-health innerIConinner">
       <Row className="fh-row-gs">
         <Col lg={24} className="col3 mysetting">
-          <p className="heading3">What is the mortgage for?</p>
+          <p className="heading3">
+            What is the mortgage for?
+          </p>
           {purposeOfMortgageEmpty && <span>* This field cannot be empty</span>}
         </Col>
         <Col lg={24} className="q1 q3">
@@ -615,7 +623,6 @@ function GetStarted(props) {
                   value={questions.firstNameSecondApplicant}
                   onChange={handleinput}
                   name="firstNameSecondApplicant"
-
                   placeholder="First Name"
                 />
                 {firstNameSecondApplicantEmpty && (
@@ -652,7 +659,7 @@ function GetStarted(props) {
                   type="email"
                   className={
                     questions.emailSecondApplicant &&
-                      questions.emailSecondApplicantValidation
+                    questions.emailSecondApplicantValidation
                       ? "ifExit"
                       : ""
                   }
@@ -692,26 +699,20 @@ function GetStarted(props) {
             </div>
             <div className="input">
               <p className="input-lbl">What's their Phone Number?</p>
-              <div className="">
-                <input
-                  type="number"
-                  className={
-                    questions.phoneSecondApplicant &&
-                      questions.phoneSecondApplicantIsValid
-                      ? "ifExit"
-                      : ""
-                  }
+              <div className={
+                    questions.phoneSecondApplicant
+                      ? "ifExitaNu mysetting aaa"
+                      : "mysetting aaa"
+                  }>
+                <PhoneInput
+                  country={"us"}
+                  
                   value={questions.phoneSecondApplicant}
-                  onChange={handleinput}
+                  onChange={phoneSecondApplicant =>
+                    setQuestions({ ...questions, phoneSecondApplicant, phoneSecondApplicantEmpty:false })
+                  }
                   name="phoneSecondApplicant"
                   placeholder=" ###########"
-                />
-
-                {/* use this phone field instead  */}
-                <PhoneInput
-                  country={'us'}
-                  // value={this.state.phone}
-                  // onChange={phone => this.setState({ phone })}
                 />
                 {phoneSecondApplicantEmpty && (
                   <span>* This field cannot be empty</span>

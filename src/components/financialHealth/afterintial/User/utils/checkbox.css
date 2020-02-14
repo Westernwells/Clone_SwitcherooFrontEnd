@@ -7,27 +7,54 @@
   margin: 0 0 10px 0;
   color: #62635d;
 }
-.form_checkbox .input input {
+.form_checkbox .anableClass input {
   width: 37%;
-  height: 40px;
   border-radius: 20px;
   background: #fb9500;
   border: 2px solid #fb9500;
   outline: none;
   padding: 0 40px;
+  height: 28px;
   font-weight: 600;
   color: white;
 }
-.form_checkbox .input .DisableClass {
+.form_checkbox .input .DisableClass{
   background: white !important;
   color: #62635d;
   border: 2px solid #62635d !important;
+
   position: relative;
+  width: 300px;
+
+}
+.form_checkbox .input .DisableClass input{
+  background: white !important;
+  border:0;
+  padding: 0 40px !important; 
+
+
+}
+.form_checkbox .input  input{
+  height: 37px !important;
+  border-radius: 20px !important;
+
+}
+.form_checkbox .ant-input-number{
+  height: 41px;
+  border-radius: 20px !important;
 }
 .form_checkbox .input .anableClass {
   background: #fb9500 !important;
   border: 2px solid #fb9500 !important;
   position: relative;
+  width: 300px;
+  height: 40px;
+  border-radius:15px
+}
+.anableClass input , .DisableClass input , .valuenotyet input{
+  width: 100% !important;
+  border-radius: 0 !important;
+  border-radius: 20px;
 }
 .iconColor {
   color: #62635d;
@@ -37,6 +64,7 @@
   border: 2px solid red !important;
   position: relative;
   color: #62635d;
+  width: 300px !important;
 }
 .form_checkbox .input input::placeholder {
   color: white;
@@ -62,7 +90,7 @@
 }
 .EruoSymbleDisableClass {
   position: absolute;
-  top: 45px;
+  top: 46px;
   left: 14px;
   color: #62635d;
   font-size: 14px;
@@ -70,10 +98,13 @@
   z-index: 300;
   box-sizing: border-box;
 }
-
+.lastelemt.EruoSymbleDisableClass,
+.EruoSymbleanableClass.lastelemt {
+  top: 70px;
+}
 .EruoSymbleanableClass {
   position: absolute;
-  top: 45px;
+  top: 46px;
   font-weight: 500;
   left: 14px;
   z-index: 300;
@@ -85,4 +116,27 @@
 
 .form_checkbox {
   position: relative;
+}
+
+.valuenotyet{
+  background: #cccccc !important;
+  border: 2px solid #cccccc !important;
+  position: relative;
+  width: 300px !important;
+
+}
+.valuenotyet input{
+  background: #cccccc !important;
+  border: 2px solid #cccccc !important;
+  width: 100% !important;
+  padding: 0 40px;
+  color:#cccccc
+}
+
+.form_checkbox .ant-input-number-handler-wrap{
+  display:hidden !important;
+}
+
+.reddrop input{
+  color:red !important
 }
