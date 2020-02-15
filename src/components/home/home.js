@@ -17,17 +17,18 @@ import AfterIntial from "../financialHealth/afterintial/";
 import StepOne from "../details/step1/step1";
 import StepTwo from "../details/step2/step2";
 import StepThree from "../details/step3/step3";
-import StepFour from "../details/step4/step4";
+import StepFour from "../yourDocumentation/firstForm/step4";
 import SwitcherThree from "../details/switcher3/switcher3";
 import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
+import Documentation from "../yourDocumentation/intro/docMain";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
-import Details from '../details'
+import Details from "../details";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -81,9 +82,8 @@ function Home(props) {
                       exact
                       path="/home/details/s1"
                       component={CreditCommittments}
-                    /><Route exact
-                    path="/home/details"
-                    component={Details} />
+                    />
+                    <Route exact path="/home/details" component={Details} />
 
                     <Route exact path="/home/details/s2" component={StepTwo} />
                     <Route
@@ -91,7 +91,11 @@ function Home(props) {
                       path="/home/details/s3"
                       component={StepThree}
                     />
-                    <Route exact path="/home/details/s4" component={StepFour} />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/form1"
+                      component={StepFour}
+                    />
                     <Route
                       exact
                       path="/home/details/s5"
@@ -131,6 +135,11 @@ function Home(props) {
                       exact
                       path="/home/expertChat"
                       component={ExpertChat}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation"
+                      component={Documentation}
                     />
                     <Route path="/home" component={Feed} />
                   </Switch>

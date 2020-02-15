@@ -55,7 +55,7 @@ class LeftBar extends React.Component {
             key="3"
             onClick={() => {
               this.handleRoute("/home/details");
-            }}
+            }} 
             className="lb"
           >
             <span className="menu-icon">
@@ -66,10 +66,12 @@ class LeftBar extends React.Component {
             </p>
           </Menu.Item>
           <span className="connector"></span>
-          <Menu.Item key="4"
-                      onClick={() => {
-                        this.handleRoute("/home/details/s4");
-                      }}>
+          <Menu.Item
+            key="4"
+            onClick={() => {
+              this.handleRoute("/home/yourDocumentation");
+            }}
+          >
             <span className="menu-icon">
               <img src="images/home/icons/document_icon.png" />
             </span>
