@@ -189,7 +189,7 @@ class CreditCommittments extends Component {
             eirCode,
             accNum,
             comments,
-            firstPaymentAcc: this.state.questions.firstPaymentAcc
+            firstPaymentAcc
         }
         this.props.setCreditCommentments( {
             userId: "5e407cceb15f780017b0a1b4",
@@ -316,8 +316,18 @@ class CreditCommittments extends Component {
         }
     }
     render() {
-        const { questions, sortCode, branchAddress, branchCity, eirCode, accNum, firstPaymentAcc } = this.state
-        console.log( this.state )
+        const {
+            questions,
+            sortCode,
+            branchAddress,
+            branchCity,
+            branchCounty,
+            eirCode,
+            accNum,
+            firstPaymentAcc,
+            currentAccIns } = this.state
+
+        console.log( "state===============================================>", this.state )
         return (
             <div className="credit-commitments" >
                 <Row className="d-row-s1">
@@ -332,9 +342,9 @@ class CreditCommittments extends Component {
                     <Col className="colomn_8" lg={6}>
                         <div >
                             <Select
-                                className={this.state.currentAccIns !== "" ? "select-option1 maltaback" : "select-option1"}
-                                defaultValue="Select currentAccIns"
-                                defaultValue={this.state.currentAccIns == "" ? "Select from options" : this.state.currentAccIns}
+                                className={currentAccIns !== "" ? "select-option1 maltaback" : "select-option1"}
+                                value={currentAccIns == "" ? "Select from options" : currentAccIns}
+                              
                                 onChange={this.handleChange}
                             >
                                 {banks.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
@@ -367,9 +377,10 @@ class CreditCommittments extends Component {
                     </Col>
                     <Col className="colomn_8" lg={15}>
                         <Select
-                            className={this.state.branchCounty !== "" ? "select-option1 maltaback" : "select-option1"}
-                            defaultValue={this.state.branchCounty == "" ? "Select from options" : this.state.branchCounty}
+                            className={branchCounty !== "" ? "select-option1 maltaback" : "select-option1"}
+                            value={branchCounty == "" ? "Select from options" : branchCounty}
                             onChange={this.handlebranchCounty}
+
                         >
                             {counties.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
                         </Select>
@@ -419,8 +430,7 @@ class CreditCommittments extends Component {
                         <div>
                             <Select
                                 className={this.state.accDuration !== "" ? "select-option1 maltaback" : "select-option1"}
-                                defaultValue="Select years"
-                                defaultValue={this.state.accDuration == "" ? "Select from options" : this.state.branchCounty}
+                                value={this.state.accDuration == "" ? "Select from options" : this.state.accDuration}
                                 onChange={this.handleDurChange}
                             >
                                 {years.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
