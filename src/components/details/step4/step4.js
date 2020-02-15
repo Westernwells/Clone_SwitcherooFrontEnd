@@ -410,55 +410,16 @@ function StepFour(props) {
   }
 
   const exportPdf = () => {
-    // var currentPosition = document.getElementById("application_div").scrollTop;
-    var w = document.getElementById("application_div").offsetWidth;
-    var h = document.getElementById("application_div").offsetHeight;
-  //  document.getElementById("application_div").style.height="auto";
-
-    // html2canvas(document.getElementById("application_div"), {
-    //   dpi: 300, // Set to 300 DPI
-    //   scale: 3, // Adjusts your resolution
-    //   onrendered: function(canvas) {
-    //     var img = canvas.toDataURL("image/jpeg", 1);
-    //     var doc = new jsPDF('L', 'px', [w, h]);
-    //     doc.addImage(img, 'JPEG', 0, 0, w, h);
-    //     doc.addPage();
-    //     doc.autoPrint()
-    //     doc.save('sample-file.pdf');
-    //   }
-    // });
-
-  //   var options = {
-  //     dpi:300,
-  //     scale:3
-  //   }
-
-  //   html2canvas(document.getElementById("application_div"), {
-  //     scrollX: 0,
-  //     scrollY: 0
-  //   }).then(function (canvas) {
-  //     var img = canvas.toDataURL("image/jpeg", 1);
-  //     var doc = new jsPDF('L', 'px', [w, h]);
-  //     doc.addImage(img, 'JPEG', 0, 0, w, h);
-  //     doc.addPage();
-  //     // doc.autoPrint()
-  //     doc.save('sample-file.pdf');      
-  // });
 
   var element = document.getElementById('application_div');
   var opt = {
-    margin:       -0.1,
+    margin:       0.3,
     filename:     'myfile.pdf',
     image:        { type: 'jpeg', quality: 0.5 },
     html2canvas:  { scale:  2},
     jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
   };
 html2pdf(element, opt);
-  //  document.getElementById("application_div").style.height="100px";
-  //  document.getElementById("application_div").scrollTop = currentPosition;
-
-  
-
 
 }
 
@@ -482,16 +443,22 @@ html2pdf(element, opt);
               <textarea className="cover-text" name="userId" value={formData.userId} onChange={handleChange} placeholder="PIBA Member" rows="4" cols="50" />
             </div>
 
+            <div id="watermark">
+
+  <p class="wm-text">MORTGAGE</p>
+</div>
+
           </div>
+          <div className="pagebreak"> </div>
           <br /><br />
-          <div className="main-header-container">
-            <div className="main-header-top"></div>
-            <div className="main-header-bottom">
-              <i><p className="main-header-txt"> Application Form</p></i>
+          <div className="right-main-header-container">
+            <div className="right-main-header-top"></div>
+            <div className="right-main-header-bottom">
+              <i><p className="right-main-header-txt"> Application Form</p></i>
             </div>
 
           </div>
-          <br />
+          <br /> <br />
           <div className="header">
             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
           </div>
@@ -547,6 +514,16 @@ html2pdf(element, opt);
               <h6 className="custom-sub-header">Please ensure that all applicants sign part one and two of the application.</h6>
             </div>
           </div>
+
+          <br /><br />
+          <div className="right-main-header-container">
+            <div className="right-main-header-top"></div>
+            <div className="right-main-header-bottom">
+              <i><p className="right-main-header-txt"> PART ONE</p></i>
+            </div>
+
+          </div>
+          <br /> <br />
 
           <div className="header">
             <h5 className="header-txt"> NFORMATION ABOUT APPLICANT</h5>
@@ -620,7 +597,7 @@ html2pdf(element, opt);
               <span class="checkmark"></span>
             </label>
           </div>
-
+          <div className="pagebreak"> </div>
           <div className="full-content">
             <div className="left-pane">
               <br />
