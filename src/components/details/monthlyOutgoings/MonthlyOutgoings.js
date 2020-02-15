@@ -6,7 +6,6 @@ import Api from "../../../redux/api/detailsApi";
 import { baseurl } from "../../../redux/api";
 
 class MonthlyOutgoing extends Component {
-
     state = {
         childMining: 5000,
         spousalMaintenance: 3000,
@@ -69,8 +68,9 @@ class MonthlyOutgoing extends Component {
         };
         fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
             .then( res => {
-                console.log( res );
+                console.log( "response=====>", res );
                 res.json().then( res => {
+                    console.log( "res===>", res )
                     if ( res.monthlyOutgoings ) {
                         const { childMining,
                             spousalMaintenance,
@@ -93,7 +93,7 @@ class MonthlyOutgoing extends Component {
             } );
     }
     render() {
-        console.log( "state====>", this.props.newProps );
+        console.log( "state====>", this.state );
         const { childMining,
             spousalMaintenance,
             schoolFee,
@@ -166,7 +166,7 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
                         <div className={
-                            this.state.schoolFee !== "" ? "input maltaback" : "input"
+                            this.state.schoolFee !== "" && this.state.schoolFee !==null ? "input maltaback" : "input"
                         }>
                             <span className="pre">€</span>
                             <input type="text"
@@ -186,7 +186,7 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
                         <div className={
-                            this.state.clubSubcriptions !== "" ? "input maltaback" : "input"
+                            this.state.clubSubcriptions !== "" && this.state.clubSubcriptions !== null? "input maltaback" : "input"
                         }>
                             <span className="pre">€</span>
                             <input
