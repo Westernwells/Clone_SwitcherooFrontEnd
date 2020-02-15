@@ -388,7 +388,6 @@ function GetStarted(props) {
     props.present && props.changeProfRout(1);
   };
 
- 
   const {
     filedBankruptcyEmpty,
     failedToPayLoanEmpty,
@@ -407,9 +406,7 @@ function GetStarted(props) {
     <div className="financial-health innerIConinner">
       <Row className="fh-row-gs">
         <Col lg={24} className="col3 mysetting">
-          <p className="heading3">
-            What is the mortgage for?
-          </p>
+          <p className="heading3">What is the mortgage for?</p>
           {purposeOfMortgageEmpty && <span>* This field cannot be empty</span>}
         </Col>
         <Col lg={24} className="q1 q3">
@@ -699,17 +696,22 @@ function GetStarted(props) {
             </div>
             <div className="input">
               <p className="input-lbl">What's their Phone Number?</p>
-              <div className={
-                    questions.phoneSecondApplicant
-                      ? "ifExitaNu mysetting aaa"
-                      : "mysetting aaa"
-                  }>
+              <div
+                className={
+                  questions.phoneSecondApplicant
+                    ? "ifExitaNu mysetting aaa"
+                    : "mysetting aaa"
+                }
+              >
                 <PhoneInput
                   country={"us"}
-                  
                   value={questions.phoneSecondApplicant}
                   onChange={phoneSecondApplicant =>
-                    setQuestions({ ...questions, phoneSecondApplicant, phoneSecondApplicantEmpty:false })
+                    setQuestions({
+                      ...questions,
+                      phoneSecondApplicant,
+                      phoneSecondApplicantEmpty: false
+                    })
                   }
                   name="phoneSecondApplicant"
                   placeholder=" ###########"
