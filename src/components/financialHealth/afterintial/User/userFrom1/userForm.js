@@ -22,6 +22,7 @@ class UserForm extends Component {
       childrenFinanciallyDependentEmpty,
       dateOfBirth
     } = this.props.allState;
+    const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     return (
       <div className="fo_1_con user_form1">
         <Row className="fh-row-gs">
@@ -100,6 +101,7 @@ class UserForm extends Component {
           <Col lg={24} className="q1">
             <div className="datepic">
               <DatePicker
+              format={dateFormatList}
                 className={
                   dateOfBirth !== ""
                     ? "radio-container container_malta"
@@ -132,7 +134,7 @@ class UserForm extends Component {
           childrenFinanciallyDependent == "5+" ? (
             <div>
               <Col lg={24} className="col2 mysetting">
-                <p className="heading3">Please Provide their age in years</p>
+                <p className="heading3">Please provide their age in years</p>
                 {ageOfChildrenEmpty && (
                   <span className="errormissting">
                     * This field cannot be empty
@@ -167,7 +169,7 @@ class UserForm extends Component {
             </div>
           ) : null}
           <Col lg={24} className="col2 mysetting">
-            <p className="heading3">
+            <p  className="heading3">
               Do you work in the Public or Private sector?
             </p>
             {publicOrPrivateSectorEmpty && (

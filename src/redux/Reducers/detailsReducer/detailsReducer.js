@@ -2,8 +2,8 @@ import * as Action from '../../actions/details/detailsActionType'
 
 const initialstate = {
   loading: false,
-  monthlyOutgoings:{},
-  creditCommitments:{},
+  monthlyOutgoings: {},
+  creditCommitments: {},
   errors: false,
   modal: false
 };
@@ -14,17 +14,25 @@ function detailsReducer( state = initialstate, action ) {
     case Action.SET_DETAILS_DATA:
       return {
         ...state,
-        loading:false,
+        loading: false,
         monthlyOutgoings: action.payload.monthlyOutgoings
       };
     case Action.SET_DETAILS_DATA_CREDIT:
-      return{
+      return {
         ...state,
-        loading:false,
-        creditCommitments:action.payload,
+        loading: false,
+        creditCommitments: action.payload,
 
       }
-
+    case Action.SET_BANK_DETAILS:
+      return {
+        ...state,
+        creditCommitments: {
+          ...state.creditCommitments,
+          loanOrOverdraftCosts: action.payload,
+        },
+        loading:false,
+      }
     case Action.DETAILS_DATA_LOADING:
       return { ...state, loading: action.payload };
     default:

@@ -3,6 +3,7 @@ import { Row, Col, Select, Button, Icon } from "antd";
 import "./MonthlyOutgoings.css";
 import { connect } from "react-redux";
 import Api from "../../../redux/api/detailsApi";
+import { baseurl } from "../../../redux/api";
 
 class MonthlyOutgoing extends Component {
 
@@ -56,6 +57,40 @@ class MonthlyOutgoing extends Component {
             this.props.changeProfRout( 6 );
         }
 
+    }
+
+    componentDidMount = () => {
+        const options = {
+            method: "GET",
+            headers: new Headers( {
+                Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
+                "Content-Type": "application/json"
+            } )
+        };
+        fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
+            .then( res => {
+                console.log( res );
+                res.json().then( res => {
+                    if ( res.monthlyOutgoings ) {
+                        const { childMining,
+                            spousalMaintenance,
+                            schoolFee,
+                            clubSubcriptions } = res.monthlyOutgoings
+                        this.setState( {
+                            childMining,
+                            spousalMaintenance,
+                            schoolFee,
+                            clubSubcriptions,
+
+                        } )
+                    }
+
+                } );
+            } )
+            .catch( err => {
+                console.log( err );
+                alert( err.msg );
+            } );
     }
     render() {
         console.log( "state====>", this.props.newProps );
@@ -190,7 +225,7 @@ class MonthlyOutgoing extends Component {
 }
 const mapStateToProps = ( state ) => {
     return {
-        newProps: state.detailsReducer.monthlyOutgoings,    
+        newProps: state.detailsReducer.monthlyOutgoings,
         loading: state.detailsReducer.loading,
         error: state.detailsReducer.error,
     }

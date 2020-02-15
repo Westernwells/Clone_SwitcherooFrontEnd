@@ -203,6 +203,12 @@
     border: red solid 2px !important;
 
   }
+  .inputmyProper{
+    width:44%
+  }
+  .inputmyProper input{
+    width:100% !important;
+  }
   .borderRed .anticon ,.borderRed .ant-select-selection__placeholder{
     font-weight: 600!important;
     color: gray !important;
@@ -248,12 +254,13 @@ input{
 
   .property_conpe .eruo{
     position: absolute;
-    top: 54px;
+    top: 19%;
     z-index: 23;
-    left: 10px;
+    left: .8%;
     color: white;
     font-weight: 500;
   }
+
   .property_conpe .eruo:last-child{
     color: gray;
   }

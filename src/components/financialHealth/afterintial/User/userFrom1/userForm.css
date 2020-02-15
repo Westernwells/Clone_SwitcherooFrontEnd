@@ -21,7 +21,8 @@
   background: #fb9500;
 }
 .magrin-t10{
-  
+  margin-top: -17px !important;
+  margin-bottom: 40px !important;
 }
 .fo_1_con p.heading3 {
   width: 65%;
@@ -184,7 +185,7 @@ input[type="number"] {
 }
 .user_form1 .errormissting{
   position: relative;
-  left: -180px;
+  left: -100px;
 }
 .q1 .radio-container.container_malta {
   background: #fb9500;

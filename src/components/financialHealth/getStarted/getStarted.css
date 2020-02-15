@@ -12,13 +12,15 @@
   font-size: 16px;
   color: #62635d;
 }
+
 .fh-row-gs .q1-ul {
   list-style: none;
   padding: 0;
 }
 .fh-row-gs .q1-ul li {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500 !important;
+  /* color: red; */
 }
 .financial-health .q1 {
   margin: 15px 0 50px 0;
@@ -53,7 +55,22 @@
   color: white;
   margin: 9px 0 0 30px;
 }
-
+.ifExitaNu input{
+  background : #fb9500 !important;
+    border : 2px solid #fb9500 !important;
+    padding-left:50px !important;
+}
+.ifExitaNu input {
+  background: #fb9500 !important;
+  border: 2px solid #fb9500 !important;
+  padding-left: 50px !important;
+}
+.aaa input {
+  width: 100% !important;
+}
+.react-tel-input {
+  width: 27% !important;
+}
 .financial-health .q1 input[type="radio"]:checked + label:before,
 .financial-health .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";
