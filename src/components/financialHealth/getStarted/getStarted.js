@@ -4,6 +4,9 @@ import { withRouter } from "react-router-dom";
 import "./getStarted.css";
 import Api from "../../../redux/api/financialHealthCheck";
 import { connect } from "react-redux";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 const phoneno = /^\d{10}$/;
 const { Option } = Select;
 const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -47,7 +50,7 @@ function GetStarted(props) {
     contructionNature: "",
     contructionNatureEmpty: false,
     emailSecondApplicant: "",
-    emailSecondApplicantValidation: false,
+    emailSecondApplicantValidation: true,
     emailSecondApplicantHelp: "",
     emailSecondApplicantValidationStatus: "error",
     firstNameSecondApplicantEmpty: false,
@@ -55,7 +58,7 @@ function GetStarted(props) {
     emailSecondApplicantEmpty: false,
 
     emailSecondApplicantre: "",
-    emailSecondApplicantreValidation: false,
+    emailSecondApplicantreValidation: true,
     emailSecondApplicantreHelp: "",
     emailSecondApplicantreValidationStatus: "error",
     emailSecondApplicantreEmpty: false,
@@ -120,7 +123,7 @@ function GetStarted(props) {
             emailSecondApplicantValidationStatus: "success",
             emailSecondApplicantHelp: "",
             emailSecondApplicantValidation: true,
-            [`${name}Empty`]: false,
+            [`${name}Empty`]: false
           });
         }
         break;
@@ -188,6 +191,15 @@ function GetStarted(props) {
     }
   };
 
+  const handlePhone = (value, name) => {
+    setQuestions({
+      ...questions,
+      overAllFormValidate: true,
+      [name]: value,
+      [`${name}Empty`]: false
+    });
+  };
+
   const handleinput = e => {
     if (
       e.target.name === "emailSecondApplicant" ||
@@ -196,7 +208,6 @@ function GetStarted(props) {
     ) {
       validateRadio(e.target.name, e.target.value);
     } else {
-      debugger;
       setQuestions({
         ...questions,
         overAllFormValidate: true,
@@ -377,9 +388,7 @@ function GetStarted(props) {
     props.present && props.changeProfRout(1);
   };
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+ 
   const {
     filedBankruptcyEmpty,
     failedToPayLoanEmpty,
@@ -398,7 +407,9 @@ function GetStarted(props) {
     <div className="financial-health innerIConinner">
       <Row className="fh-row-gs">
         <Col lg={24} className="col3 mysetting">
-          <p className="heading3">What is the mortgage for?</p>
+          <p className="heading3">
+            What is the mortgage for?
+          </p>
           {purposeOfMortgageEmpty && <span>* This field cannot be empty</span>}
         </Col>
         <Col lg={24} className="q1 q3">
@@ -555,7 +566,7 @@ function GetStarted(props) {
         <Col lg={24} className="note-col mysetting">
           <p className="heading2">
             It's ok if the person you're applying with doesn't have an income,
-            they can still ba named on your mortgage. choose option "Two" if
+            they can still be named on your mortgage. choose option "Two" if
             you'd like to own the property together.
           </p>
         </Col>
@@ -612,7 +623,6 @@ function GetStarted(props) {
                   value={questions.firstNameSecondApplicant}
                   onChange={handleinput}
                   name="firstNameSecondApplicant"
-
                   placeholder="First Name"
                 />
                 {firstNameSecondApplicantEmpty && (
@@ -662,7 +672,7 @@ function GetStarted(props) {
                 {emailSecondApplicantEmpty && (
                   <span>* This field cannot be empty</span>
                 )}
-                
+
                 {!emailSecondApplicantValidation && (
                   <span>* You email is not valid</span>
                 )}
@@ -684,22 +694,23 @@ function GetStarted(props) {
                 <span>* This field cannot be empty</span>
               )}
               {!emailSecondApplicantreValidation && (
-                  <span>* You email is not match</span>
-                )}
+                <span>* You email is not match</span>
+              )}
             </div>
             <div className="input">
-              <p className="input-lbl">what's their Phone Number?</p>
-              <div className="mysetting">
-                <input
-                  type="text"
-                  className={
-                    questions.phoneSecondApplicant &&
-                    questions.phoneSecondApplicantIsValid
-                      ? "ifExit"
-                      : ""
-                  }
+              <p className="input-lbl">What's their Phone Number?</p>
+              <div className={
+                    questions.phoneSecondApplicant
+                      ? "ifExitaNu mysetting aaa"
+                      : "mysetting aaa"
+                  }>
+                <PhoneInput
+                  country={"us"}
+                  
                   value={questions.phoneSecondApplicant}
-                  onChange={handleinput}
+                  onChange={phoneSecondApplicant =>
+                    setQuestions({ ...questions, phoneSecondApplicant, phoneSecondApplicantEmpty:false })
+                  }
                   name="phoneSecondApplicant"
                   placeholder=" ###########"
                 />
@@ -712,17 +723,17 @@ function GetStarted(props) {
         )}
         <Col className="questionme123 ">
           {/* <div className="mysetting"> */}
-          <h6 className="heading2">
+          <h6 style={{ fontWeight: 700 }} className="heading2 new-heading">
             In the last 6 years, have you or anyone you're applying with
           </h6>
           {/* </div> */}
           <ul className="q1-ul">
             <li>1). filled for bankruptcy</li>
-            <li>2). been issued a county court judgement (CCJ)</li>
-            <li>3). had your home repossesed</li>
-            <li>4). entered into a Debt Relief Notice (DRN)</li>
-            <li>5). entered into a Debt Sattlement Arrangement (DSA)</li>
-            <li>6). entered into a Personal Insolvancy Arrangement (PIA)?</li>
+            {/* <li>2). been issued a county court judgement (CCJ)</li> */}
+            <li>2). had your home repossesed</li>
+            <li>3). entered into a Debt Relief Notice (DRN)</li>
+            <li>4). entered into a Debt Sattlement Arrangement (DSA)</li>
+            <li>5). entered into a Personal Insolvancy Arrangement (PIA)?</li>
           </ul>
           {filedBankruptcyEmpty && (
             <span className="errormissting">* This field cannot be empty</span>

@@ -37,8 +37,9 @@ export default class userForm extends Component {
       <div className="fo_2_con">
         <p className="note_text">
           {" "}
-          Please try and be as accurate as possible in describing your earnings.
-          All figures are yearly. Check box if it is not applicable to you
+          {this.props.text
+            ? this.props.text
+            : "Please try and be as accurate as possible in describing your earnings. All figures are yearly. Check box if it is not applicable to you"}
         </p>
         <Row className="formUser-row-gs">
           <Checkbox
@@ -102,8 +103,8 @@ export default class userForm extends Component {
             onChangeTextSecond={onChangeTextSecond}
             onChangefunc={onChangeSecond}
           >
-            Do you receive a guaranteed allowance ? e.g. car allowance, rent
-            allowance
+            Do you receive a guaranteed allowance e.g. car allowance, rent
+            allowance?
           </Checkbox>
           <Checkbox
             itemName={[

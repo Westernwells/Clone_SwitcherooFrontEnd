@@ -25,7 +25,7 @@ class App extends React.Component {
     selfEmployedOrPaye: "",
     selfEmployedOrPayeEmpty: false,
     childrenFinanciallyDependent: "",
-    childrenFinanciallyDependentOptions: [0, 1, 2, 3, 4, 5, "5+"],
+    childrenFinanciallyDependentOptions: [1, 2, 3, 4, 5, "5+"],
     publicOrPrivateSector: "",
     publicOrPrivateSectorEmpty: false,
     selfEmployedOrPayeOptions: ["Self Employed", "Paye"],
@@ -144,6 +144,7 @@ class App extends React.Component {
       dateOfBirthEmpty: false
     });
   };
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (
       nextProps.financial_back_data.applicantTwo &&
@@ -352,6 +353,10 @@ class App extends React.Component {
       maritalStatusEmpty = true;
       form1Validate = false;
     }
+    if (!publicOrPrivateSector) {
+      publicOrPrivateSectorEmpty = true;
+      form1Validate = false;
+    }
     if (!selfEmployedOrPaye) {
       selfEmployedOrPayeEmpty = true;
       form1Validate = false;
@@ -519,13 +524,18 @@ class App extends React.Component {
       [`${e.target.name}Empty`]: false
     });
   };
-  onChangeTextSecond = e => {
-    var reg = /^-?\d*\.?\d*$/;
-
-    if (reg.test(e.target.value)) {
+  cashFlowChange = (value, name) => {
+    console.log(typeof value);
+    this.setState({
+      [name]: value,
+      [`${name}Empty`]: false
+    });
+  };
+  onChangeTextSecond = (value, name) => {
+    if (value > 0) {
       this.setState({
-        [e.target.name]: Number(e.target.value),
-        [`${e.target.name}Empty`]: false
+        [name]: value,
+        [`${name}Empty`]: false
       });
     }
   };
@@ -549,13 +559,12 @@ class App extends React.Component {
     if (current === 0)
       return <UserForm1 allState={this.state} thisObject={this} />;
     if (current === 1)
-      return <UserForm2 allState={this.state} thisObject={this} />;
+      return <UserForm2 text={`All figures provided here should be separate from any details provided by  ${this.props.firstNameApp}`} allState={this.state} thisObject={this} />;
     if (current === 2)
-      return <UserForm3 allState={this.state} thisObject={this} />;
+      return <UserForm3 text={`All figures provided here should be separate from any details provided by ${this.props.firstNameApp}`} allState={this.state} thisObject={this} />;
   };
   render() {
     const { current } = this.state;
-    console.log(this.props.financial_back_data);
     return (
       <div className="user_form">
         <TopUserNavigation current={current} onChange={this.onChangeme} />
@@ -567,13 +576,14 @@ class App extends React.Component {
 
 const mapStateToProps = ({
   userReducer: {
-    user: { _id }
+    user: { _id, firstName}
   },
   Financial_data: { loading, error, modal, financial_Health_Check }
 }) => ({
   financial_data: { loading, error, modal },
   financial_back_data: financial_Health_Check,
-  userId: _id
+  userId: _id,
+  firstNameApp:firstName
 });
 
 const mapDispatchToProps = dispacth => ({

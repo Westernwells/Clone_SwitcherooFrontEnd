@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Menu, Col, Select, Button, Steps, Checkbox } from "antd";
+import { Row, Menu, Col, Select, Button, Steps, InputNumber } from "antd";
 import "./property.css";
 import { connect } from "react-redux";
 import Api from "../../../../redux/api/financialHealthCheck";
@@ -35,7 +35,7 @@ class Property extends React.Component {
       "Clare",
       "Cork City",
       "Cork County",
-      "Denegal",
+      "Donegal",
       "Dublin 1",
       "Dublin 2",
       "Dublin 3",
@@ -62,7 +62,7 @@ class Property extends React.Component {
       "Dublin Country(South)",
       "Dublin Country(West)",
       "Galway City",
-      "Galway Country",
+      "Galway County",
       "Kerry",
       "Kildare",
       "Kilkenny",
@@ -79,7 +79,7 @@ class Property extends React.Component {
       "Sligo",
       "Tipperary",
       "Waterford City",
-      "Waterford Country",
+      "Waterford County",
       "Westmeath",
       "Wexford",
       "Wicklow"
@@ -129,7 +129,7 @@ class Property extends React.Component {
       nextProps.financial_Property.typeOfProperty &&
       nextProps.financial_Property.typeOfProperty !== "" &&
       prevState.howManyBedrooms !==
-      nextProps.financial_Property.howManyBedrooms &&
+        nextProps.financial_Property.howManyBedrooms &&
       prevState.userId !== nextProps.userId
     ) {
       const {
@@ -169,14 +169,13 @@ class Property extends React.Component {
   handlelocation = value => {
     this.setState({
       propertyLocation: value,
-      propertyLocationV: false,
+      propertyLocationV: false
     });
   };
   handlebed = value => {
     this.setState({
       howManyBedrooms: value,
-      howManyBedroomsV: false,
-
+      howManyBedroomsV: false
     });
   };
   handlepay = value => {
@@ -294,7 +293,6 @@ class Property extends React.Component {
             <div
               onClick={e => this.clickRadio(e)}
               style={{ marginBottom: "10px" }}
-
               className={
                 typeOfProperty === "Apartment"
                   ? "radio-container container_malta"
@@ -357,16 +355,15 @@ class Property extends React.Component {
               ))}
             </Select>
           </Col>
-          <Col lg={24} className="col3" style={{ position: "relative", marginTop: "10px" }}>
+          <Col
+            lg={24}
+            className="col3"
+            style={{ position: "relative", marginTop: "10px" }}
+          >
             <p className="heading3">What is the value of Property?</p>
             {this.state.valueOfPropertyV === true ? (
               <span className="p-error-v">* This field cannot be empty</span>
             ) : null}
-
-            <span style={{ color: "white" }} className="eruo">
-              {" "}
-              &euro;{" "}
-            </span>
           </Col>
           <Col lg={24} className="q1 q3">
             <div
@@ -374,8 +371,11 @@ class Property extends React.Component {
                 this.state.valueOfProperty !== "" ? "input maltaback" : "input"
               }
             >
+              <span style={{ color: "white" }} className="eruo">
+                {" "}
+                &euro;{" "}
+              </span>
               <input
-                type="number"
                 name="valueOfProperty"
                 onChange={this.onchangeInput}
                 value={valueOfProperty}
@@ -391,6 +391,7 @@ class Property extends React.Component {
           </Col>
           <Col lg={24} className="q1">
             <Select
+              style={{ marginBottom: "10px" }}
               className={
                 propertyLocation !== "" ? "selectPRo maltaback" : "selectPRo "
               }
@@ -409,9 +410,7 @@ class Property extends React.Component {
             </Select>
           </Col>
           <Col lg={24} className="col3" style={{ position: "relative" }}>
-            <span className="eruo"> &euro; </span>
-
-            <p className="heading3" style={{marginTop:"10px"}}>
+            <p className="heading3">
               What is the size of mortgage are you looking for?
             </p>
             {this.state.sizeOfMortgageV === true ? (
@@ -424,6 +423,7 @@ class Property extends React.Component {
                 sizeOfMortgage !== undefined ? "input maltaback" : "input"
               }
             >
+              <span className="eruo my-e"> &euro; </span>
               <input
                 type="number"
                 name="sizeOfMortgage"
@@ -454,9 +454,9 @@ class Property extends React.Component {
                   ? "Select Option"
                   : yearsToPayOffMortgage
               }
-            // className={
-            //   typeOfProperty !== "" ? "selectPRo borderRed" : "selectPRo"
-            // }
+              // className={
+              //   typeOfProperty !== "" ? "selectPRo borderRed" : "selectPRo"
+              // }
             >
               {years.map((val, ind) => {
                 return (
