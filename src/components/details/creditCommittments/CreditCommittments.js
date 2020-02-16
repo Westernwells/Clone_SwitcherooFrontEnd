@@ -4,6 +4,7 @@ import "./CreditCommittments.css";
 import InputMask from 'react-input-mask'
 import { connect } from "react-redux";
 import Api from "../../../redux/api/detailsApi";
+import { baseurl } from "../../../redux/api";
 
 const { Option } = Select;
 const banks = [
@@ -192,7 +193,7 @@ class CreditCommittments extends Component {
             firstPaymentAcc
         }
         this.props.setCreditCommentments( {
-            userId: "5e407cceb15f780017b0a1b4",
+            userId: this.props.userId,
             monthlyOutgoings: {
                 ...this.props.newProps,
             },
@@ -214,7 +215,8 @@ class CreditCommittments extends Component {
                 "Content-Type": "application/json"
             } )
         };
-        fetch( "https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e407cceb15f780017b0a1b4", options )
+        let url = `${ baseurl}/detailsYouNeed/getDetails/${ this.props.userId }`
+        fetch( url, options )
             .then( res => {
                 console.log( res );
                 res.json().then( res => {
@@ -326,8 +328,6 @@ class CreditCommittments extends Component {
             accNum,
             firstPaymentAcc,
             currentAccIns } = this.state
-
-        console.log( "state===============================================>", this.state )
         return (
             <div className="credit-commitments" >
                 <Row className="d-row-s1">
@@ -344,7 +344,7 @@ class CreditCommittments extends Component {
                             <Select
                                 className={currentAccIns !== "" ? "select-option1 maltaback" : "select-option1"}
                                 value={currentAccIns == "" ? "Select from options" : currentAccIns}
-                              
+
                                 onChange={this.handleChange}
                             >
                                 {banks.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
@@ -514,6 +514,7 @@ class CreditCommittments extends Component {
 }
 const mapStateToProps = ( state ) => {
     return {
+        userId: state.userReducer.user._id,
         newProps: state.detailsReducer.monthlyOutgoings,
         loading: state.detailsReducer.loading,
         error: state.detailsReducer.error,

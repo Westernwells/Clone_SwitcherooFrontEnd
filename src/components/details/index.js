@@ -8,23 +8,22 @@ import "./index.css"
 // import Top from "../financialHealth/afterintial/topnavigation/topSteper";
 import MonthlyOutgoing from "./monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "./creditCommittments/CreditCommittments";
-import TopSteper from "../financialHealth/afterintial/topnavigation/topSteper";
 import BankDetails from "./bankDetails/BankDetails";
-
+import TopSteper from './topnavigation/topSteper'
 
 export class index extends Component {
   state = {
     selectedKey: 5
   }
 
-  changeProfRoute = key => this.setState({ selectedKey: key });
+  changeProfRoute = key => this.setState( { selectedKey: key } );
 
   profRouteRenderer = () => {
     const { selectedKey } = this.state;
-    console.log("selected key",selectedKey)
-    if(selectedKey===5) return <MonthlyOutgoing  present={true} changeProfRout={this.changeProfRoute}/>
-    if(selectedKey===6) return <CreditCommittments  changeProfRout={this.changeProfRoute}/>
-    if(selectedKey===7)return <BankDetails changeProfRout={this.changeProfRoute}/>
+    console.log( "selected key", selectedKey )
+    if ( selectedKey === 5 ) return <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />
+    if ( selectedKey === 6 ) return <CreditCommittments changeProfRout={this.changeProfRoute} />
+    if ( selectedKey === 7 ) return <BankDetails changeProfRout={this.changeProfRoute} />
 
   };
 
@@ -34,7 +33,7 @@ export class index extends Component {
         <div >
           <div >
             <TopSteper defaltSet={this.state.selectedKey} changeProfRoute={this.changeProfRoute} />
-                {this.profRouteRenderer()}
+            {this.profRouteRenderer()}
           </div>
         </div>
       </div>
