@@ -24,6 +24,8 @@ import CreditCommittments from "../details/creditCommittments/CreditCommittments
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
 import Documentation from "../yourDocumentation/intro/docMain";
+import PtsbForm from "../yourDocumentation/ptsbForm/Main";
+import IcsForm from "../yourDocumentation/icsForm/MainPage";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
@@ -95,6 +97,16 @@ function Home(props) {
                       exact
                       path="/home/yourDocumentation/form1"
                       component={StepFour}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/ptsbForm"
+                      component={PtsbForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/icsForm"
+                      component={IcsForm}
                     />
                     <Route
                       exact

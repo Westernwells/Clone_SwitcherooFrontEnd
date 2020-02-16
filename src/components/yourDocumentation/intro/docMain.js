@@ -19,14 +19,24 @@ class docMain extends React.Component {
           PIBA Form
         </button>
         <button
-          onClick={() =>
-            // this.props.history.push("/home/yourDocumentation/form1")
-            alert(
-              "Please link your PDF form on this button or create new button"
-            )
+          onClick={
+            () => this.props.history.push("/home/yourDocumentation/ptsbForm")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
           }
         >
-          Next Form
+          PTSB Form
+        </button>
+        <button
+          onClick={
+            () => this.props.history.push("/home/yourDocumentation/icsForm")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          ICS Form
         </button>
       </div>
     );

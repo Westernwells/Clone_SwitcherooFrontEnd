@@ -1,0 +1,114 @@
+.App {
+  background-color: #fff;
+  width: 21cm;
+  /* height: 29.7cm; */
+  height: auto;
+  position: relative;
+  padding-top: 0px;
+  box-sizing: border-box;
+}
+.m-types ~ .defaultRadio {
+  font-weight: semibold;
+}
+.pageHeight {
+  height: 29.7cm;
+  /* margin: 0; */
+  padding: 0;
+}
+.top-page-container {
+  width: 21cm;
+  height: 29.7cm;
+}
+textarea {
+  resize: none;
+}
+
+.top-page {
+  display: none;
+  width: 21cm;
+  height: 29.7cm;
+}
+.top-page > img {
+  width: 100%;
+  height: 100%;
+}
+@media print {
+  .top-page {
+    display: flex;
+  }
+  .print-button {
+    display: none;
+  }
+}
+.top-page-container > img {
+  width: 100%;
+  height: 100%;
+}
+input,
+textarea {
+  padding: 0 10px;
+}
+.elements-container {
+  padding: 0 70px;
+}
+.border-primary {
+  border-color: var(--primary);
+}
+.dim {
+  font-weight: 400;
+}
+.w-15 {
+  width: 15%;
+}
+.defaultRadio {
+  display: flex;
+}
+.defaultRadio > div {
+  background-color: var(--tertiary);
+  width: 18px;
+  margin-left: 5px;
+  height: 18px;
+}
+.defaultRadio > input[type="radio"] {
+  display: none;
+}
+.defaultRadio > input[type="radio"] ~ div {
+  border: 1px solid var(--primary);
+}
+.defaultRadio > input[type="radio"]:checked ~ div {
+  background-color: var(--primary);
+}
+.mega-container {
+  width: 100%;
+  height: 70px;
+}
+.bg-primary {
+  background: var(--primary);
+}
+.color-primary {
+  color: var(--primary);
+}
+.bg-secondary {
+  background: var(--secondary);
+}
+.bg-tertiary {
+  background: var(--tertiary);
+}
+ol.roman {
+  counter-reset: roman;
+}
+ol.alpha {
+  counter-reset: alpha;
+}
+ol li {
+  list-style: none;
+  position: relative;
+}
+ol.roman > li:before {
+  counter-increment: roman;
+  content: "(" counter(roman, lower-roman) ") ";
+}
+ol.alpha > li:before {
+  counter-increment: alpha;
+  content: "(" counter(alpha, lower-alpha) ") ";
+}
