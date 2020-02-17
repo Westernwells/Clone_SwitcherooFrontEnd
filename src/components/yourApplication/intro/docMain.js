@@ -12,15 +12,13 @@ class docMain extends React.Component {
     return (
       <div className="btn-div">
         <button
-          onClick={() =>
-            this.props.history.push("/home/yourDocumentation/form1")
-          }
+          onClick={() => this.props.history.push("/home/yourApplication/form1")}
         >
           PIBA Form
         </button>
         <button
           onClick={
-            () => this.props.history.push("/home/yourDocumentation/ptsbForm")
+            () => this.props.history.push("/home/yourApplication/ptsbForm")
             // alert(
             //   "Please link your PDF form on this button or create new button"
             // )
@@ -30,7 +28,7 @@ class docMain extends React.Component {
         </button>
         <button
           onClick={
-            () => this.props.history.push("/home/yourDocumentation/icsForm")
+            () => this.props.history.push("/home/yourApplication/icsForm")
             // alert(
             //   "Please link your PDF form on this button or create new button"
             // )

@@ -17,15 +17,15 @@ import AfterIntial from "../financialHealth/afterintial/";
 import StepOne from "../details/step1/step1";
 import StepTwo from "../details/step2/step2";
 import StepThree from "../details/step3/step3";
-import StepFour from "../yourDocumentation/firstForm/step4";
+import StepFour from "../yourApplication/firstForm/step4";
 import SwitcherThree from "../details/switcher3/switcher3";
 import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
-import Documentation from "../yourDocumentation/intro/docMain";
-import PtsbForm from "../yourDocumentation/ptsbForm/Main";
-import IcsForm from "../yourDocumentation/icsForm/MainPage";
+import YourApplication from "../yourApplication/intro/docMain";
+import PtsbForm from "../yourApplication/ptsbForm/Main";
+import IcsForm from "../yourApplication/icsForm/MainPage";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
@@ -95,17 +95,17 @@ function Home(props) {
                     />
                     <Route
                       exact
-                      path="/home/yourDocumentation/form1"
+                      path="/home/yourApplication/form1"
                       component={StepFour}
                     />
                     <Route
                       exact
-                      path="/home/yourDocumentation/ptsbForm"
+                      path="/home/yourApplication/ptsbForm"
                       component={PtsbForm}
                     />
                     <Route
                       exact
-                      path="/home/yourDocumentation/icsForm"
+                      path="/home/yourApplication/icsForm"
                       component={IcsForm}
                     />
                     <Route
@@ -150,8 +150,8 @@ function Home(props) {
                     />
                     <Route
                       exact
-                      path="/home/yourDocumentation"
-                      component={Documentation}
+                      path="/home/yourApplication"
+                      component={YourApplication}
                     />
                     <Route path="/home" component={Feed} />
                   </Switch>

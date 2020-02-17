@@ -55,7 +55,7 @@ class LeftBar extends React.Component {
             key="3"
             onClick={() => {
               this.handleRoute("/home/details");
-            }} 
+            }}
             className="lb"
           >
             <span className="menu-icon">
@@ -68,9 +68,9 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             key="4"
-            onClick={() => {
-              this.handleRoute("/home/yourDocumentation");
-            }}
+            // onClick={() => {
+            //   this.handleRoute("/home/yourApplication");
+            // }}
           >
             <span className="menu-icon">
               <img src="images/home/icons/document_icon.png" />
@@ -97,7 +97,13 @@ class LeftBar extends React.Component {
             <p>Your Recommendation</p>
           </Menu.Item>
           <span className="connector"></span>
-          <Menu.Item key="7" className="lb">
+          <Menu.Item
+            key="7"
+            className="lb"
+            onClick={() => {
+              this.handleRoute("/home/yourApplication");
+            }}
+          >
             <span className="menu-icon">
               <img src="images/home/icons/mortgage_icon.png" />
             </span>
