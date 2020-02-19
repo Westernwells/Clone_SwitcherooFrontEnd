@@ -139,7 +139,7 @@ export default class userForm extends Component {
                 Back
               </button>
               <Button onClick={onsubmitForm} className="btn2">
-                Save & Countinue
+                Save & Continue
               </Button>
             </div>
           </Col>

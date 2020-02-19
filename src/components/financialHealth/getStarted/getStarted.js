@@ -465,7 +465,7 @@ function GetStarted(props) {
               className=""
               value="Switcher"
             />
-            <label for="mortf2">Switching to better rate</label>
+            <label for="mortf2">Switching to a better rate</label>
           </div>
           <div
             onClick={info1}
@@ -704,7 +704,7 @@ function GetStarted(props) {
                 }
               >
                 <PhoneInput
-                  country={"us"}
+                  country={"ie"}
                   value={questions.phoneSecondApplicant}
                   onChange={phoneSecondApplicant =>
                     setQuestions({
@@ -713,6 +713,7 @@ function GetStarted(props) {
                       phoneSecondApplicantEmpty: false
                     })
                   }
+                  className="inputPhonepok"
                   name="phoneSecondApplicant"
                   placeholder=" ###########"
                 />
@@ -726,16 +727,16 @@ function GetStarted(props) {
         <Col className="questionme123 ">
           {/* <div className="mysetting"> */}
           <h6 style={{ fontWeight: 700 }} className="heading2 new-heading">
-            In the last 6 years, have you or anyone you're applying with
+            In the last 4 years, have you or anyone you're applying with
           </h6>
           {/* </div> */}
           <ul className="q1-ul">
-            <li>1). filled for bankruptcy</li>
+            <li> 1). Filled for bankruptcy?</li>
             {/* <li>2). been issued a county court judgement (CCJ)</li> */}
-            <li>2). had your home repossesed</li>
-            <li>3). entered into a Debt Relief Notice (DRN)</li>
-            <li>4). entered into a Debt Sattlement Arrangement (DSA)</li>
-            <li>5). entered into a Personal Insolvancy Arrangement (PIA)?</li>
+            <li>2). Had your home repossesed?</li>
+            <li>3). Entered into a Debt Relief Notice (DRN)?</li>
+            <li>4). Entered into a Debt Sattlement Arrangement (DSA)?</li>
+            <li>5). Entered into a Personal Insolvancy Arrangement (PIA)?</li>
           </ul>
           {filedBankruptcyEmpty && (
             <span className="errormissting">* This field cannot be empty</span>
@@ -836,7 +837,7 @@ function GetStarted(props) {
               className="btn2"
               loading={props.financial_data.loading}
             >
-              Save & Countinue
+              Save & Continue
             </Button>
           </div>
         </Col>

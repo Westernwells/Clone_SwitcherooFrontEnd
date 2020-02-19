@@ -108,7 +108,7 @@ export default class userForm extends Component {
             onChangeTextSecond={onChangeTextSecond}
             onChangefunc={onChangeSecond}
           >
-            What is your total overdraft limit(s)?
+            What was the largest outstanding balance on your overdraft over the last 6 months?
           </Checkbox>
           <Checkbox
             itemName={[
@@ -161,7 +161,7 @@ export default class userForm extends Component {
               </button>
 
               <Button onClick={onsubmitForm} className="btn2">
-                Save & Countinue
+                Save & Continue
               </Button>
             </div>
           </Col>

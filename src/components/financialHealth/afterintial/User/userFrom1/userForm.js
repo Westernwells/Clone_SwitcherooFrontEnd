@@ -115,7 +115,7 @@ class UserForm extends Component {
           </Col>
           <Col lg={24} className="col2 mysetting">
             <p className="heading3">
-              How many children are financially depand on you?
+              How many children are financially depend on you?
             </p>
             {childrenFinanciallyDependentEmpty && (
               <span className="errormissting">
@@ -211,6 +211,7 @@ class UserForm extends Component {
                 id="public"
                 checked={publicOrPrivateSector === "Public Sector"}
                 className=""
+                style={{paddingTop:"-4px"}}
                 value="Public Sector"
               />
               <label for="public">Public</label>
@@ -280,7 +281,7 @@ class UserForm extends Component {
                 onClick={this.props.thisObject.onsubmitForm}
                 className="btn2"
               >
-                Save & Countinue
+                Save & Continue
               </Button>
             </div>
           </Col>

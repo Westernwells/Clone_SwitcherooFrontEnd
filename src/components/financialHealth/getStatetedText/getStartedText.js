@@ -16,10 +16,10 @@ class GetStartedText extends React.Component {
         <Row className="gst-row">
           <Col lg={12}>
             <h1 className="h1">
-              Hi,{" "}
+              Hi{" "}
               <span style={{ textTransform: "capitalize" }}>
                 {this.props.userFirstName}
-              </span>
+              </span>,
             </h1>
             <p className="p1">
               We understand that taking out a mortgage is as big a deal as it

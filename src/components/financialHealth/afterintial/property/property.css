@@ -172,7 +172,46 @@
     font-weight: 600;
     color: white;
   }
+  .MyinputForNumber  {
+    width: 44%;
+    padding-top: 4px;
+    height: 40px;
+    background: #cccccc;
+    border-radius: 20px;
+    border: 2px solid gray;
+    outline: none;
+    overflow: hidden;
+    font-weight: 600;
+    color: white;
+    padding-left: 10px;
+  }
+  .MyinputForNumber input{
+    width: 100% !important;
+    padding-left: 27px;
+  }
+  .MyinputForNumber input::placeholder{
+   color: white !important;
+  }
+  .MyinputForNumberMalta{
+    background-color:#fb9500 !important;
+    border: 2px solid #fb9500 !important;
+
+
+  }
+  .MyinputForNumber:hover, .MyinputForNumber:focus {
   
+    border: 2px solid gray !important;
+    box-shadow: none;
+  }
+
+  .MyinputForNumberMalta:hover, .MyinputForNumberMalta:focus {
+  
+    border: 2px solid #fb9500 !important;
+    box-shadow: none;
+  }
+  .ant-input-number-handler-wrap{
+    position: absolute;
+  }
   .property_conpe .input input::placeholder {
     color: white;
   }
@@ -254,9 +293,9 @@ input{
 
   .property_conpe .eruo{
     position: absolute;
-    top: 19%;
+    top: 22%;
     z-index: 23;
-    left: .8%;
+    left: 2.3%;
     color: white;
     font-weight: 500;
   }
