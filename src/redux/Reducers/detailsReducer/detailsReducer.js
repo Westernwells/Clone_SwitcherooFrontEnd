@@ -15,7 +15,7 @@ function detailsReducer( state = initialstate, action ) {
       return {
         ...state,
         loading: false,
-        monthlyOutgoings: action.payload.monthlyOutgoings
+        monthlyOutgoings: action.payload
       };
     case Action.SET_DETAILS_DATA_CREDIT:
       return {
@@ -31,7 +31,13 @@ function detailsReducer( state = initialstate, action ) {
           ...state.creditCommitments,
           loanOrOverdraftCosts: action.payload,
         },
-        loading:false,
+        loading: false,
+      }
+    case Action.SET_BANKS:
+      console.log("inside reducer====>",action.payload);
+      return {
+        ...state,
+        loanOrOverdraftCosts: action.payload
       }
     case Action.DETAILS_DATA_LOADING:
       return { ...state, loading: action.payload };

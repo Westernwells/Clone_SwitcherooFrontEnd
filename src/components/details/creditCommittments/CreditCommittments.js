@@ -5,6 +5,8 @@ import InputMask from 'react-input-mask'
 import { connect } from "react-redux";
 import Api from "../../../redux/api/detailsApi";
 import { baseurl } from "../../../redux/api";
+import * as actions from "../../../redux/actions/details/detailsAction";
+import { configConsumerProps } from "antd/lib/config-provider";
 
 const { Option } = Select;
 const banks = [
@@ -165,6 +167,7 @@ class CreditCommittments extends Component {
         this.props.changeProfRout( 7 );
     };
     handleSubmit = () => {
+        console.log( "monthly monthlyOutgoings====>", this.props.monthlyOutgoings )
         let { currentAccIns,
             sortCode,
             credUnionLoc,
@@ -195,7 +198,7 @@ class CreditCommittments extends Component {
         this.props.setCreditCommentments( {
             userId: this.props.userId,
             monthlyOutgoings: {
-                ...this.props.newProps,
+                ...this.props.monthlyOutgoings,
             },
             creditCommitments: {
                 ...data
@@ -215,12 +218,17 @@ class CreditCommittments extends Component {
                 "Content-Type": "application/json"
             } )
         };
-        let url = `${ baseurl}/detailsYouNeed/getDetails/${ this.props.userId }`
+        let url = `${ baseurl }/detailsYouNeed/getDetails/${ this.props.userId }`
         fetch( url, options )
             .then( res => {
                 console.log( res );
                 res.json().then( res => {
+                    console.log( "credic commentments===>", res );
                     console.log( "responsed====>", res.creditCommitments );
+                    if ( res.creditCommitments.loanOrOverdraftCosts && res.creditCommitments.loanOrOverdraftCosts.length > 0 ) {
+                        console.log( "inside condition===>", res.creditCommitments.loanOrOverdraftCosts )
+                        this.props.setBanks( res.creditCommitments.loanOrOverdraftCosts );
+                    }
                     if ( res.creditCommitments ) {
                         const { currentAccIns,
                             sortCode,
@@ -515,15 +523,16 @@ class CreditCommittments extends Component {
 const mapStateToProps = ( state ) => {
     return {
         userId: state.userReducer.user._id,
-        newProps: state.detailsReducer.monthlyOutgoings,
+        monthlyOutgoings: state.detailsReducer.monthlyOutgoings,
         loading: state.detailsReducer.loading,
         error: state.detailsReducer.error,
     }
 }
 
 
-const mapDispatchToProps = dispacth => ( {
+const mapDispatchToProps = dispatch => ( {
     setCreditCommentments: ( props, callback ) =>
-        dispacth( Api.detailsCreditDataPost( props, callback ) )
+        dispatch( Api.detailsCreditDataPost( props, callback ) ),
+    setBanks: ( data ) => dispatch( actions.setBanks( data ) ),
 } );
 export default connect( mapStateToProps, mapDispatchToProps )( CreditCommittments );
