@@ -8,8 +8,9 @@ html {
   /* font-size: small; */
   text-rendering: optimize-speed;
 }
+/* this is body */
 
-body {
+body { 
   font-family: "WeissenhofGrotesk";
 }
 
