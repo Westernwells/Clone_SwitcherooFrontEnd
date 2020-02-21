@@ -99,16 +99,16 @@ function BankCollapse( props ) {
     const renderAcoundName = () => {
         console.log( "acount type", accType )
         if ( accType === "loan" ) {
-            return ( <span className="account-text">Loan Account{index}
+            return ( <span className="account-text">Loan Account {index + 1}
             </span>
             )
         } else if ( accType === "overdraft" ) {
-            return ( <span className="account-text">Overdraft Account{index}
+            return ( <span className="account-text">Overdraft Account {index + 1}
             </span>
             )
         } else if ( accType === "credit" ) {
             return (
-                <span className="account-text">Credit Card Account{index}
+                <span className="account-text">Credit Card Account {index + 1}
                 </span>
 
             )
@@ -196,7 +196,7 @@ function BankCollapse( props ) {
                     </Col>
                     {lendrConditional()}
                     <Col lg={24}>
-                        <h6 className="h61">Whats is the account number?</h6>
+                        <h6 className="h61">What is the account number? </h6>
                     </Col>
                     <Col lg={16}>
                         <div className={
@@ -230,7 +230,7 @@ function BankCollapse( props ) {
                     </Col>
                     <Col lg={24}>
                         <h6 className="h61">
-                            Whats are the monthly repayments/charges?
+                            What are the monthly repayments/charges?
                         </h6>
                     </Col>
                     <Col lg={16}>
