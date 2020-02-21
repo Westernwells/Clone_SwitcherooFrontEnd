@@ -16,17 +16,17 @@ class GetStartedText extends React.Component {
         <Row className="gst-row">
           <Col lg={12}>
             <h1 className="h1">
-              Hi,{" "}
+              Hi{" "}
               <span style={{ textTransform: "capitalize" }}>
                 {this.props.userFirstName}
-              </span>
+              </span>,
             </h1>
-            <p className="p1">
+            <p className="p1 padding-b-i">
               We understand that taking out a mortgage is as big a deal as it
               gets so we want to make sure that you are financially in a good
               place before you set on your journey.
             </p>
-            <p className="p1">
+            <p className="p1 padding-b-i">
               Even if you are looking to switching your mortgage to a better
               rate your circumstances may have changed since you got your
               mortgage so we should check you out to make sure you are mortgage

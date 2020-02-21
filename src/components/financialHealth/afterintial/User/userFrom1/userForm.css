@@ -40,6 +40,7 @@
   border: 0 !important;
   background: #fb9500;
   color: white;
+
   padding-left: 20px;
   font-weight: 600;
   font-size: 14px;
@@ -48,6 +49,7 @@
   background-color: #fb9500 !important;
   border: #fb9500 solid 2px !important;
   padding-left: 25px;
+  border: 2px solid #fb9500;
   color: white;
 }
 
@@ -82,7 +84,6 @@ input[type="number"] {
   cursor: pointer;
   height: 40px;
   border-radius: 20px;
-  border: 0px solid gray;
   background: #cccccc !important ;
   overflow: hidden;
 }
@@ -198,6 +199,7 @@ input[type="number"] {
   background-image: none;
   border: 0px solid transparent !important;
   color: white;
+  padding-top: 12px;
   font-weight: 550;
 }
 

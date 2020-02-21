@@ -58,9 +58,9 @@ class Property extends React.Component {
       "Dublin 20",
       "Dublin 22",
       "Dublin 24",
-      "Dublin Country(North)",
-      "Dublin Country(South)",
-      "Dublin Country(West)",
+      "Dublin County(North)",
+      "Dublin County(South)",
+      "Dublin County(West)",
       "Galway City",
       "Galway County",
       "Kerry",
@@ -68,7 +68,7 @@ class Property extends React.Component {
       "Kilkenny",
       "Laois",
       "Leitrim City",
-      "Limerick Country",
+      "Limerick County",
       "Longford",
       "Louth",
       "Mayo",
@@ -184,6 +184,13 @@ class Property extends React.Component {
       yearsToPayOffMortgageV: false
     });
   };
+  Numberchange = (value, name) => {
+    if (value > 0) {
+      this.setState({
+        [name]: value
+      });
+    }
+  };
   handleQ = e => {
     var radioContainers = e.target.parentNode.parentNode.childNodes;
     // this.validateRadio(e.target.name, e.target.value);
@@ -277,7 +284,7 @@ class Property extends React.Component {
       yearsToPayOffMortgage
     } = this.state;
     var years = [];
-    for (var i = 1; i <= 35; i++) {
+    for (var i = 5; i <= 35; i++) {
       years.push(i);
     }
     return (
@@ -367,19 +374,27 @@ class Property extends React.Component {
           </Col>
           <Col lg={24} className="q1 q3">
             <div
-              className={
-                this.state.valueOfProperty !== "" ? "input maltaback" : "input"
-              }
+             style={{position:"relative"}}
             >
               <span style={{ color: "white" }} className="eruo">
                 {" "}
                 &euro;{" "}
               </span>
-              <input
+              <InputNumber
+                formatter={value =>
+                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                }
+                className={
+                  valueOfProperty !== ""
+                    ? "MyinputForNumber MyinputForNumberMalta"
+                    : "MyinputForNumber"
+                }
                 name="valueOfProperty"
-                onChange={this.onchangeInput}
-                value={valueOfProperty}
-                placeholder="#######"
+                onChange={number =>
+                  this.Numberchange(number, "valueOfProperty")
+                }
+                defaultValue={valueOfProperty}
+                placeholder="########"
               />
             </div>
           </Col>
@@ -417,17 +432,24 @@ class Property extends React.Component {
               <span className="p-error-v">* This field cannot be empty</span>
             ) : null}
           </Col>
+
           <Col lg={24} className="q1 q3">
             <div
-              className={
-                sizeOfMortgage !== undefined ? "input maltaback" : "input"
-              }
+              
+              style={{position:"relative"}}
             >
               <span className="eruo my-e"> &euro; </span>
-              <input
-                type="number"
+              <InputNumber
+                formatter={value =>
+                  `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                }
+                className={
+                  sizeOfMortgage !== undefined
+                    ? "MyinputForNumber MyinputForNumberMalta"
+                    : "MyinputForNumber"
+                }
                 name="sizeOfMortgage"
-                onChange={this.onchangeInput}
+                onChange={number => this.Numberchange(number, "sizeOfMortgage")}
                 defaultValue={sizeOfMortgage}
                 placeholder="########"
               />
@@ -441,6 +463,7 @@ class Property extends React.Component {
               <span className="p-error-v">* This field cannot be empty</span>
             ) : null}
           </Col>
+
           <Col lg={24} className="q1">
             <Select
               onChange={this.handlepay}
@@ -490,7 +513,7 @@ class Property extends React.Component {
                 // }
                 className="btn2"
               >
-                Save & Countinue
+                Save & Continue
               </Button>
             </div>
           </Col>

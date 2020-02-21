@@ -13,7 +13,7 @@
   background: #fb9500;
   border: 2px solid #fb9500;
   outline: none;
-  padding: 0 40px;
+  padding: 0 20px;
   height: 28px;
   font-weight: 600;
   color: white;
@@ -30,7 +30,7 @@
 .form_checkbox .input .DisableClass input{
   background: white !important;
   border:0;
-  padding: 0 40px !important; 
+  padding: 0 20px !important; 
 
 
 }
@@ -90,7 +90,7 @@
 }
 .EruoSymbleDisableClass {
   position: absolute;
-  top: 46px;
+  top: 45px;
   left: 14px;
   color: #62635d;
   font-size: 14px;
@@ -104,7 +104,7 @@
 }
 .EruoSymbleanableClass {
   position: absolute;
-  top: 46px;
+  top: 45px;
   font-weight: 500;
   left: 14px;
   z-index: 300;
@@ -129,8 +129,11 @@
   background: #cccccc !important;
   border: 2px solid #cccccc !important;
   width: 100% !important;
-  padding: 0 40px;
+  padding: 0 29px;
   color:#cccccc
+}
+.form_checkbox{
+  overflow: hidden;
 }
 
 .form_checkbox .ant-input-number-handler-wrap{
@@ -139,4 +142,13 @@
 
 .reddrop input{
   color:red !important
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

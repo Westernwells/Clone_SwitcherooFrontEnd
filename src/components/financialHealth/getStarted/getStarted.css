@@ -12,7 +12,9 @@
   font-size: 16px;
   color: #62635d;
 }
-
+.react-tel-input input{
+  padding-left: 42px !important;
+}
 .fh-row-gs .q1-ul {
   list-style: none;
   padding: 0;
