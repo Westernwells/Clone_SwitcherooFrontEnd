@@ -112,7 +112,7 @@ class MonthlyOutgoing extends Component {
                     </Col>
                     <Col lg={24}>
                         <h6 className="h61">
-                            Do you have monthly childMinding costs?
+                            Do you have monthly childminding costs?
                         </h6>
                     </Col>
                     <Col className="inputWithEdit" lg={24}>
@@ -125,7 +125,7 @@ class MonthlyOutgoing extends Component {
                             <span className="pre">€</span>
                             <input type="text"
                                 name="childMining"
-                                placeholder="#######"
+                                placeholder=""
                                 value={childMining}
                                 pattern="[0-9]*"
                                 disabled={isDisabledChild}
@@ -147,7 +147,7 @@ class MonthlyOutgoing extends Component {
                             <span className="pre">€</span>
                             <input type="text"
                                 name="spousalMaintenance"
-                                placeholder="#######"
+                                placeholder=""
                                 pattern="[0-9]*"
                                 value={spousalMaintenance}
                                 disabled={isDisabledMaintainance}
@@ -173,7 +173,7 @@ class MonthlyOutgoing extends Component {
                             <input type="text"
                                 name="schoolFee"
                                 value={schoolFee}
-                                placeholder="#######"
+                                placeholder=""
                                 pattern="[0-9]*"
                                 onChange={this.handleInputChange}
                             />
@@ -195,7 +195,7 @@ class MonthlyOutgoing extends Component {
                                 name="clubSubcriptions"
                                 pattern="[0-9]*"
                                 value={clubSubcriptions}
-                                placeholder="#######"
+                                placeholder=""
                                 onChange={this.handleInputChange}
                             />
                         </div>
