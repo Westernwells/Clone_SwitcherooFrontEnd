@@ -12,10 +12,11 @@ const { Option } = Select;
 const banks = [
     "Aib",
     "An Post",
-    "currentAccIns of Ireland",
+    "Bank of Ireland",
     "KBC",
     "PTSB",
-    "Ulster currentAccIns",
+    "EBS",
+    "Ulster Bank",
     "Credit Union",
     "Other"
 ];
@@ -24,9 +25,9 @@ const counties = [
     "Carlow",
     "Cavan",
     "Clare",
-    "Cork branchCity",
+    "Cork City",
     "Cork County",
-    "Denegal",
+    "Donegal",
     "Dublin 1",
     "Dublin 2",
     "Dublin 3",
@@ -49,17 +50,17 @@ const counties = [
     "Dublin 20",
     "Dublin 22",
     "Dublin 24",
-    "Dublin Country(North)",
-    "Dublin Country(South)",
-    "Dublin Country(West)",
-    "Galway branchCity",
-    "Galway Country",
+    "Dublin County(North)",
+    "Dublin County(South)",
+    "Dublin County(West)",
+    "Galway City",
+    "Galway County",
     "Kerry",
     "Kildare",
     "Kilkenny",
     "Laois",
-    "Leitrim branchCity",
-    "Limerick Country",
+    "Leitrim City",
+    "Limerick County ",
     "Longford",
     "Louth",
     "Mayo",
@@ -69,8 +70,8 @@ const counties = [
     "Roscommon",
     "Sligo",
     "Tipperary",
-    "Waterford branchCity",
-    "Waterford Country",
+    "Waterford City",
+    "Waterford County",
     "Westmeath",
     "Wexford",
     "Wicklow"
@@ -380,7 +381,7 @@ class CreditCommittments extends Component {
                                 name="branchCity"
                                 value={branchCity}
                                 onChange={this.handleInputChange}
-                                placeholder="branchCity" />
+                                placeholder="Town/City" />
                         </div>
                     </Col>
                     <Col className="colomn_8" lg={15}>
@@ -432,7 +433,7 @@ class CreditCommittments extends Component {
                         </div>
                     </Col>
                     <Col lg={24}>
-                        <h6 className="h61">How long have you had this account?</h6>
+                        <h6 className="h61">How long have you had this account (years)?</h6>
                     </Col>
                     <Col className="colomn_8" lg={6} style={{ width: "27%" }}>
                         <div>

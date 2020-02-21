@@ -371,9 +371,9 @@ class BankDetails extends Component {
           {questions.q3 == "a" && this.renderAcount()}
 
           <Col style={{ marginTop: "50px" }} lg={24}>
-            <h6 className="heading1">
+            {questions.q3 == "b" && <h6 className="heading1">
               OK, lets get these acount details from you
-            </h6>
+            </h6>}
           </Col>
 
           <Col lg={10} offset={0}>
