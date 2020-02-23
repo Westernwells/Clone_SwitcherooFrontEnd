@@ -1,0 +1,387 @@
+// 20200223211639
+// https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e399686c1fad0001747ed8f
+
+{
+	"_id": "5e4d82c8d0d1213150bbc4b2",
+	"userId": "5e399686c1fad0001747ed8f",
+	"appType": "single",
+	"situation": "switcher",
+	"investmentProp": "",
+	"kindOfProp": "house",
+	"constructionNature": "part of a new development",
+	"selfBuild": "",
+	"bedrooms": "3",
+	"propAddress": "Ireland",
+	"city": "West coast",
+	"county": "pds",
+	"eircode": "547563",
+	"mortDetails": {
+		"propYear": 2010,
+		"howOldProp": 5,
+		"purchasePrice": 750000,
+		"currentValue": 850000,
+		"lenderName": "KBC",
+		"accNumber": 154245524,
+		"outstandingBal": 20000,
+		"startingYear": 2010,
+		"rateType": "variable",
+		"yearsLeftOnMortgage": 14,
+		"interestRate": "10%",
+		"monthlyRepay": 2000,
+		"missedPayments": "no",
+		"additionalBorrowings": 15000,
+		"borrowingPurpose": "furniture",
+		"additionalSavings": 20000,
+		"sourceOfSavings": "inheritance",
+		"estimatedLoan": 250000,
+		"borrowingYears": 7,
+		"additionalProps": "yes",
+		"numOfAddProps": 1
+	},
+	"additionalProperties": [
+		{
+			"propAddress": "Ireland",
+			"city": "Dublin",
+			"county": "Dublin County",
+			"eircode": 215346,
+			"currentValue": 300000,
+			"outstandingBal": 10000,
+			"numOfBedrooms": 1,
+			"yearsLeftOnMortgage": 4,
+			"lenderName": "KBC",
+			"accNumber": 15454643,
+			"typeOfMort": "annuity",
+			"rateType": "variable",
+			"interestRate": "15%",
+			"monthlyRent": 3000,
+			"missedPayments": "no"
+		},
+		{
+			"propAddress": "Ireland",
+			"city": "Dublin",
+			"county": "Dublin County",
+			"eircode": 215346,
+			"currentValue": 300000,
+			"outstandingBal": 10000,
+			"numOfBedrooms": 1,
+			"yearsLeftOnMortgage": 4,
+			"lenderName": "KBC",
+			"accNumber": 15454643,
+			"typeOfMort": "annuity",
+			"rateType": "variable",
+			"interestRate": "15%",
+			"monthlyRent": 3000,
+			"missedPayments": "no"
+		}
+	],
+	"personalDetails": {
+		"currentAddress": {
+			"address": "Ireland",
+			"city": "Dublin",
+			"county": "Dublin County",
+			"eircode": 1231534
+		},
+		"familyHome": "no",
+		"timePeriod": 2,
+		"prevAddress": {
+			"address": "Ireland",
+			"city": "Dublin",
+			"county": "Dublin County",
+			"eircode": 1231534
+		},
+		"maritalStatus": "single",
+		"numOfChildren": 1,
+		"agesOfChildren": [
+			{
+				"age": 23
+			}
+		],
+		"peopleOver17": [
+			{
+				"fullName": "Richard Henderics",
+				"dateOfBirth": "21/06/1995",
+				"relationWithApp": "friend"
+			}
+		]
+	},
+	"employmentDetails": {
+		"empType": "self employed",
+		"publicOrPrivate": "public",
+		"natureOfBusiness": "education",
+		"sector": "education",
+		"tradingName": "insaf foundation",
+		"yearEstablished": 2010,
+		"percOfOwnership": 75,
+		"businessAddress": "Dublin North",
+		"city": "Dublin",
+		"county": "North",
+		"eircode": "48832",
+		"accountancyFirm": "Testing",
+		"contactPerson": "Asad Sheikh",
+		"accountantAddress": "Ireland",
+		"accountantCity": "Dublin",
+		"accountantCounty": "Dublin County",
+		"accountantEircode": "2367412",
+		"accountantPhone": 178236413,
+		"audAccAvailability": "yes",
+		"taxAffairs": "yes",
+		"durationOfbusiness": {
+			"years": 10,
+			"months": 2
+		},
+		"prevEmpName": "Emmet",
+		"position": "temporary",
+		"prevEmpAddress": "Ireland",
+		"prevEmpCity": "Dublin",
+		"prevEmpCounty": "Dublin County",
+		"prevEmpEircode": "72364",
+		"durationWithPrevEmp": {
+			"years": 4,
+			"months": 2
+		}
+	},
+	"incomeDetails": {
+		"currentYear": {
+			"basicSalary": 3000,
+			"bonusEarned": 3000,
+			"overtimeEarned": 3000,
+			"commissionEarned": 1500,
+			"gauranteedAllow": 1500,
+			"otherIncome": 4000
+		},
+		"lastYear": {
+			"basicSalary": 3000,
+			"bonusEarned": 3000,
+			"overtimeEarned": 3000,
+			"commissionEarned": 1500,
+			"gauranteedAllow": 1500,
+			"otherIncome": 4000
+		},
+		"previousYear": {
+			"basicSalary": 3000,
+			"bonusEarned": 3000,
+			"overtimeEarned": 3000,
+			"commissionEarned": 1500,
+			"gauranteedAllow": 1500,
+			"otherIncome": 4000
+		}
+	},
+	"monthlyOutgoings": {
+		"childMining": 700,
+		"spousalMaintenance": 800,
+		"schoolFee": 2500,
+		"clubSubcriptions": null
+	},
+	"creditCommitments": {
+		"currentAccIns": "AIB",
+		"sortCode": 214321,
+		"credUnionLoc": "Dublin",
+		"institutionName": "Kbc",
+		"branchAddress": "Dublin",
+		"branchCity": "SGD",
+		"branchCounty": "Dublin County",
+		"accDuration": 5,
+		"accNum": 12341234324,
+		"firstPaymentAcc": "a"
+	},
+	"savingsAccounts": [
+		{
+			"accInstitution": "AIB",
+			"accNum": 712632336,
+			"currentBal": 750000,
+			"monthlySavings": 5000
+		},
+		{
+			"accInstitution": "AIB",
+			"accNum": 712632336,
+			"currentBal": 750000,
+			"monthlySavings": 5000
+		}
+	],
+	"declarations": {
+		"placeOfBirth": "America",
+		"ppsNum": "234567WW",
+		"durationInIreland": 5,
+		"requireVisa": "yes",
+		"typeOfVisa": "student",
+		"visaExpDate": "28/07/2024",
+		"citizenOfUS": "yes",
+		"taxResidentOfUS": "yes",
+		"tin": "123-123-3214",
+		"futureChanges": "no",
+		"healthIssues": "yes",
+		"healthIssueDetails": "blah blah blah",
+		"bankruptcy": "no",
+		"refusedMortgage": "no"
+	},
+	"applicant2": {
+		"personalDetails": {
+			"currentAddress": {
+				"address": "Ireland",
+				"city": "Dublin",
+				"county": "Dublin County",
+				"eircode": 1231534
+			},
+			"familyHome": "no",
+			"timePeriod": 2,
+			"prevAddress": {
+				"address": "Ireland",
+				"city": "Dublin",
+				"county": "Dublin County",
+				"eircode": 1231534
+			},
+			"maritalStatus": "single",
+			"numOfChildren": 1,
+			"agesOfChildren": [
+				{
+					"age": 23
+				}
+			],
+			"peopleOver17": [
+				{
+					"fullName": "Richard Henderics",
+					"dateOfBirth": "21/06/1995",
+					"relationWithApp": "friend"
+				}
+			]
+		},
+		"employmentDetails": {
+			"empType": "self employed",
+			"publicOrPrivate": "public",
+			"natureOfBusiness": "education",
+			"sector": "education",
+			"tradingName": "insaf foundation",
+			"yearEstablished": 2010,
+			"percOfOwnership": 75,
+			"businessAddress": "Dublin North",
+			"city": "Dublin",
+			"county": "North",
+			"eircode": "48832",
+			"accountancyFirm": "Testing",
+			"contactPerson": "Asad Sheikh",
+			"accountantAddress": "Ireland",
+			"accountantCity": "Dublin",
+			"accountantCounty": "Dublin County",
+			"accountantEircode": "2367412",
+			"accountantPhone": 178236413,
+			"audAccAvailability": "yes",
+			"taxAffairs": "yes",
+			"durationOfbusiness": {
+				"years": 10,
+				"months": 2
+			},
+			"prevEmpName": "Emmet",
+			"position": "temporary",
+			"prevEmpAddress": "Ireland",
+			"prevEmpCity": "Dublin",
+			"prevEmpCounty": "Dublin County",
+			"prevEmpEircode": "72364",
+			"durationWithPrevEmp": {
+				"years": 4,
+				"months": 2
+			}
+		},
+		"incomeDetails": {
+			"currentYear": {
+				"basicSalary": 3000,
+				"bonusEarned": 3000,
+				"overtimeEarned": 3000,
+				"commissionEarned": 1500,
+				"gauranteedAllow": 1500,
+				"otherIncome": 4000
+			},
+			"lastYear": {
+				"basicSalary": 3000,
+				"bonusEarned": 3000,
+				"overtimeEarned": 3000,
+				"commissionEarned": 1500,
+				"gauranteedAllow": 1500,
+				"otherIncome": 4000
+			},
+			"previousYear": {
+				"basicSalary": 3000,
+				"bonusEarned": 3000,
+				"overtimeEarned": 3000,
+				"commissionEarned": 1500,
+				"gauranteedAllow": 1500,
+				"otherIncome": 4000
+			}
+		},
+		"monthlyOutgoings": {
+			"childMining": 700,
+			"spousalMaintenance": 800,
+			"schoolFee": 2500,
+			"clubSubcriptions": "No"
+		},
+		"creditCommitments": {
+			"currentAccIns": "AIB",
+			"credUnionLoc": "Dublin",
+			"institutionName": "Kbc",
+			"branchAddress": "Dublin",
+			"branchCity": "SGD",
+			"branchCounty": "Dublin County",
+			"branchEircode": 234324,
+			"accNum": 12341234324,
+			"sortCode": 214321,
+			"accDuration": 5,
+			"firstPaymentAcc": "yes",
+			"accForFirstMortPay": "",
+			"monthlyCardCosts": "yes",
+			"loanOrOverdraftCosts": [
+				{
+					"accType": "overdraft",
+					"accPurpose": "savings",
+					"lenderName": "AIB",
+					"creditUnionLoc": "Dublin",
+					"outstandingBal": "",
+					"maxOutstandingBal": 750000,
+					"monthlyRepayments": 3500,
+					"arrears": 4000,
+					"finalPayDate": "25/06/2014",
+					"clearing": "yes"
+				},
+				{
+					"accType": "overdraft",
+					"accPurpose": "savings",
+					"lenderName": "AIB",
+					"creditUnionLoc": "Dublin",
+					"outstandingBal": "",
+					"maxOutstandingBal": 750000,
+					"monthlyRepayments": 3500,
+					"arrears": "",
+					"finalPayDate": "",
+					"clearing": ""
+				}
+			]
+		},
+		"savingsAccounts": [
+			{
+				"accInstitution": "AIB",
+				"accNum": 712632336,
+				"currentBal": 750000,
+				"monthlySavings": 5000
+			},
+			{
+				"accInstitution": "AIB",
+				"accNum": 712632336,
+				"currentBal": 750000,
+				"monthlySavings": 5000
+			}
+		],
+		"declarations": {
+			"placeOfBirth": "America",
+			"ppsNum": "234567WW",
+			"durationInIreland": 5,
+			"requireVisa": "yes",
+			"typeOfVisa": "student",
+			"visaExpDate": "28/07/2024",
+			"citizenOfUS": "yes",
+			"taxResidentOfUS": "yes",
+			"tin": "123-123-3214",
+			"futureChanges": "no",
+			"healthIssues": "yes"
+		}
+	},
+	"createdAt": "2020-02-12T19:43:04.313Z",
+	"updatedAt": "2020-02-20T13:42:41.031Z"
+}

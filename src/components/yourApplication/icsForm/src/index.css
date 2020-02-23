@@ -1,0 +1,57 @@
+body {
+	--primary: rgb(207, 45, 67);
+	--secondary: #455660;
+	--tertiary: #d3d4d4;
+	--bottom: 20px;
+	font-size: 12px;
+	color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #222;
+	margin: 0px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.text-14 {
+	font-size: 13px;
+}
+.text-8 {
+	font-size: 10px;
+}
+.text-gray-800,
+.text-gray-900 {
+	color: #222;
+}
+
+.red-border {
+	border: none;
+	border-bottom: 1px solid var(--primary);
+}
+.w-28 {
+	width: 29%;
+}
+.ics-form {
+	display: block;
+}
+@page {
+	size: A4;
+	margin: 0;
+	padding: 0;
+}
+@media print {
+	body {
+		background: #fff;
+	}
+}
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.logo-container > img {
+	width: inherit;
+	height: 60px;
+}

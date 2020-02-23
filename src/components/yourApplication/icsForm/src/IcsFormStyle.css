@@ -1,0 +1,167 @@
+.application-type {
+  font-size: 14px;
+  color: #000;
+}
+.m-types ~ .defaultRadio {
+  font-weight: semibold;
+}
+.pageHeight {
+  height: 29.7cm;
+  position: relative;
+  /* border-bottom: 2px solid red; */
+}
+.pageHeightCustom {
+  height: 28cm;
+  position: relative;
+}
+
+.pageHeightCustom::before,
+.pageHeight::before {
+  position: absolute;
+  content: "CBKR032";
+  bottom: var(--bottom);
+  right: 60px;
+  color: #5f5f5fa1;
+}
+.top-page-container {
+  width: 21cm;
+  height: 29.7cm;
+}
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+.sepa textarea {
+  width: 80%;
+  align-self: flex-end;
+}
+.sepa div > div > div:nth-last-child(-n + 1) {
+  display: flex;
+  justify-content: flex-end;
+}
+.sepa div > div:nth-last-child(-n + 1) {
+  display: flex;
+  justify-content: flex-end;
+}
+.top-page {
+  display: none;
+  width: 21cm;
+  height: 29.7cm;
+}
+.top-page > img {
+  width: 100%;
+  height: 100%;
+}
+@media print {
+  .top-page {
+    display: flex;
+  }
+  .print-button {
+    display: none;
+  }
+  :not(.ics-form > *) {
+    display: none;
+  }
+}
+.top-page-container > img {
+  width: 100%;
+  height: 100%;
+}
+input,
+textarea {
+  padding: 5px 10px;
+}
+.with-percentage {
+  position: relative;
+}
+.with-percentage input {
+  padding-right: 18px;
+}
+.with-percentage:before {
+  position: absolute;
+  top: 5px;
+  font-weight: 600;
+  content: "%";
+  right: 5px;
+}
+.with-symbol {
+  position: relative;
+}
+.with-symbol input {
+  padding-left: 18px;
+}
+
+.with-symbol:before {
+  position: absolute;
+  top: 5px;
+  font-weight: 600;
+  content: "€";
+  left: 5px;
+}
+.elements-container {
+  padding: 0 60px;
+}
+.elements-container > div:nth-last-child(-n + 2) {
+  font-size: 12px;
+}
+.border-primary {
+  border-color: var(--primary);
+}
+.dim {
+  font-weight: 400;
+}
+.w-15 {
+  width: 15%;
+}
+.defaultRadio {
+  display: flex;
+}
+.defaultRadio > div {
+  background-color: var(--tertiary);
+  width: 18px;
+  margin-left: 5px;
+  height: 18px;
+}
+.defaultRadio > input[type="radio"] {
+  display: none;
+}
+.defaultRadio > input[type="radio"] ~ div {
+  border: 1px solid var(--primary);
+}
+.defaultRadio > input[type="radio"]:checked ~ div {
+  background-color: var(--primary);
+}
+.mega-container {
+  width: 100%;
+  height: 70px;
+}
+.bg-primary {
+  background: var(--primary);
+}
+.color-primary {
+  color: var(--primary);
+}
+.bg-secondary {
+  background: var(--secondary);
+}
+.bg-tertiary {
+  background: var(--tertiary);
+}
+ol.roman {
+  counter-reset: roman;
+}
+ol.alpha {
+  counter-reset: alpha;
+}
+ol li {
+  list-style: none;
+  position: relative;
+}
+ol.roman > li:before {
+  counter-increment: roman;
+  content: "(" counter(roman, lower-roman) ") ";
+}
+ol.alpha > li:before {
+  counter-increment: alpha;
+  content: "(" counter(alpha, lower-alpha) ") ";
+}

@@ -25,7 +25,7 @@ import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
 import YourApplication from "../yourApplication/intro/docMain";
 import PtsbForm from "../yourApplication/ptsbForm/Main";
-import IcsForm from "../yourApplication/icsForm/MainPage";
+import IcsForm from "../yourApplication/icsForm/src/App";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
