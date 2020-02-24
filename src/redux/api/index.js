@@ -7,7 +7,7 @@ export const baseurl =
 // export const baseurl =
 //   window.location.origin === "http://localhost:3000"
 //     ? "http://localhost:8080"
-//     : window.location.origin;
+//     : window.location.origin; 
 
 const post = (url, data, auth, dispatch, callback) => {
   dispatch(actions.Loading(true));
