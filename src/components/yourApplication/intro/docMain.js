@@ -36,6 +36,16 @@ class docMain extends React.Component {
         >
           ICS Form
         </button>
+        <button
+          onClick={
+            () => this.props.history.push("/home/yourApplication/newForm")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          New Form
+        </button>
       </div>
     );
   }
