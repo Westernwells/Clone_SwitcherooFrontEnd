@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./IcsFormStyle.css";
+// import "./tailwind.css";
+// import "./index.css";
 import { AppContext } from "./components/AppContext";
 import FirstPage from "./components/FirstPage";
 import SecondPage from "./components/SecondPage";

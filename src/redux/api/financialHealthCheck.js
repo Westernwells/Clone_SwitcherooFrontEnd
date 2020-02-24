@@ -1,8 +1,8 @@
 import * as actions from "../actions/financial_health/financial_Action";
-import { message, } from 'antd';
-import {baseurl} from "./index"
+import { message } from "antd";
+import { baseurl } from "./index";
 
-let timeoutGlobel = 10000
+let timeoutGlobel = 10000;
 
 const token = localStorage.getItem("tokenas");
 const financialDataPost = (data, callback) => dispatch => {
@@ -35,7 +35,7 @@ const financialDataPost = (data, callback) => dispatch => {
 
 const financialDataGet = id => dispatch => {
   dispatch(actions.LoadingFinancialData(true));
- 
+
   const options = {
     method: "GET",
     headers: new Headers({
@@ -68,7 +68,7 @@ const financialDataGet = id => dispatch => {
 };
 
 const fillDataSheet = id => dispatch => {
-  warning("Please waite you data is under analysis! testing")
+  warning("We are calculating your results!");
   console.log(id);
   const options = {
     method: "GET",
@@ -82,14 +82,14 @@ const fillDataSheet = id => dispatch => {
       // dispatch(actions.LoadingFinancialData(true));
       if (res.status === 201)
         res.json().then(res => {
-          timeoutGlobel=0
-          success("you data is file in xls file, You can check! Testing")
+          timeoutGlobel = 0;
+          success("We Received Results from Bank 1");
         });
     })
     .catch(err => {
       console.log(err);
-      timeoutGlobel=0
-      error("some thing going wrong testing")
+      timeoutGlobel = 0;
+      error("some thing going wrong testing");
     });
 };
 
@@ -100,16 +100,15 @@ const Api = {
 };
 export default Api;
 
-
-const success = (data) => {
+const success = data => {
   message.success(data);
 };
 
-const error = (data) => {
+const error = data => {
   message.error(data);
 };
 
-const warning = (data  ) => {
+const warning = data => {
   const hide = message.loading(data, 0);
   setTimeout(hide, timeoutGlobel);
 };
