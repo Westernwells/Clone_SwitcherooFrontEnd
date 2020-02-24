@@ -31,6 +31,7 @@ import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
+import NewForm from "../yourApplication/newForm/newForm";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -107,6 +108,11 @@ function Home(props) {
                       exact
                       path="/home/yourApplication/icsForm"
                       component={IcsForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/newForm"
+                      component={NewForm}
                     />
                     <Route
                       exact
