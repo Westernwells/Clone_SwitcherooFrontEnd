@@ -5,6 +5,7 @@ import User1 from "./User/userContainner"
 import Background from "../getStarted/getStarted"
 import Top from "./topnavigation/topSteper"
 import "./index.css"
+import CheckResult from "../checkResult/checkResult";
 
 
 export class index extends Component {
@@ -19,7 +20,8 @@ export class index extends Component {
     if (selectedKey === 0) return <Background present={true} changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 1) return <Property changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 2) return <User1 changeProfRout={this.changeProfRoute} />;
-    if (selectedKey === 3) return <Result />;
+    if (selectedKey === 3) return <Result changeProfRout={this.changeProfRoute}/>;
+    if (selectedKey === 4) return <CheckResult />;
 
   };
 

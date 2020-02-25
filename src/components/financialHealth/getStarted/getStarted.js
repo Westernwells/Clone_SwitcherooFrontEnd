@@ -6,6 +6,7 @@ import Api from "../../../redux/api/financialHealthCheck";
 import { connect } from "react-redux";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import * as Actions from '../../../redux/actions/financial_health/getStarted_Action';
 
 const phoneno = /^\d{10}$/;
 const { Option } = Select;
@@ -178,6 +179,7 @@ function GetStarted(props) {
     var qs = questions;
     qs[e.target.name] = e.target.value;
     setQ4(!q4);
+    props.onSaveQ4Data(q4);
     validateRadio(e.target.name, e.target.value);
     for (var i = 0; i < radioContainers.length; i++) {
       var input = radioContainers[i].childNodes[0];
@@ -859,7 +861,8 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispacth => ({
   set_financial_BackGround: (props, callback) =>
-    dispacth(Api.financialDataPost(props, callback))
+    dispacth(Api.financialDataPost(props, callback)),
+   onSaveQ4Data : (data) => dispacth(Actions.saveQ4Data(data))
 });
 
 export default connect(
