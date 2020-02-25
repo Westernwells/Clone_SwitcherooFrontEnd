@@ -17,8 +17,23 @@ label{
 .font-size-10{
   font-size: 10px;
 }
+.font-size-12{
+  font-size: 12px;
+}
+.width70{
+  width: 70px;
+}
+.width110{
+  width: 110px;
+}
+.width50{
+  width: 50px;
+}
 .width100{
   width: 100px !important;
+}
+.width40{
+  width: 40px !important;
 }
 .radioBtn{
   border-radius: 100%;
@@ -93,10 +108,39 @@ label{
 .inputDiv input{
   width: 33px;
 }
+/**************************************************************/
+.tableDiv table{
+  width: 100%;
+}
 
+.radioBtnDiv .radio-area{
+  width: 70px;
+}
+.radioBtnDiv .radio-area .container{
+  padding: 0px;
+}
+.radioBtnDivWidth .radio-area{
+  width: 35px !important;
+  margin-bottom: 10px;
+}
 
+.multiRadio{
+  display: flex;
+}
+.multiRadio .radio-area{
+  margin-bottom: 10px;
+}
+.multiRadio .radio-area label:nth-child(1){
+  border-right: 1px solid #000000;
+}
+.multiRadio .radio-area input{
+  border-radius: 100%;
+}
 
-
+/*******************************************************/
+.displayFlex{
+  display: flex;
+}
 
 
 
@@ -335,13 +379,40 @@ label{
     /* height: 43px; */
     border-radius: 0px 0px 43px 0px;
 }
+.main-header-bottom-white {
+  background: #ffffff;
+  width: fit-content;
+  padding-left: 26px;
+  padding-right: 76px;
+  padding-bottom: 1px;
+  /* height: 43px; */
+  border-radius: 0px 0px 43px 0px;
+  box-shadow: 10px 10px 5px grey;
+}
 
 .main-header-top {
   background: #111E6C;
   height: 28px;
 }
-
-
+.main-header-top-white {
+  background: #ffffff;
+  height: 28px;
+  box-shadow: 10px 10px 5px grey;
+}
+.main-header-txt-white span{
+  color: gray;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  margin-bottom: 11px;
+}
+.main-header-txt-white{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  margin-bottom: 11px;
+}
 
 .wrapper {
   display: grid;

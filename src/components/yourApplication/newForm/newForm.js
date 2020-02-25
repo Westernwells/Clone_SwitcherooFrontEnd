@@ -2458,6 +2458,1847 @@ const NewForm = () => {
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> SAVING ACCOUNT INFORMATION</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <h6 className="font-size-12">Financial Institution</h6>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-lg-6">
+                                                                        <h6 className="font-size-12"> A/C Number</h6>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-6">
+                                                                <div className="montlyDiv">
+                                                                    <div className="row">
+                                                                    <div className="col-lg-4">
+                                                                        <h6 className="font-size-12">Monthly Savings </h6>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width110"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width110"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width110"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width110"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-lg-2">
+                                                                        <h6 className="font-size-12">App1 </h6>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-lg-2">
+                                                                        <h6 className="font-size-12">App2 </h6>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input type="text" className="box-input width50"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="col-lg-4">
+                                                                        <h6 className="font-size-12">Balance</h6>
+                                                                        <div className="form-group">
+                                                                            <label>
+                                                                                &euro;
+                                                                                <input type="text" className="box-input width70"/>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label>
+                                                                                &euro;
+                                                                                <input type="text" className="box-input width70"/>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label>
+                                                                                &euro;
+                                                                                <input type="text" className="box-input width70"/>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label>
+                                                                                &euro;
+                                                                                <input type="text" className="box-input width70"/>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <br/>
+                                                        <div className="right-main-header-container">
+                                                            <div className="right-main-header-top-blue"></div>
+                                                            <div className="right-main-header-bottom-blue">
+                                                            <i>
+                                                                <p className="right-main-header-txt-white"> Section C – Financial & Credit History</p>
+                                                            </i>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-4">
+                                                                            <h5 className="header-txt"> MORTGAGE 1</h5>
+                                                                        </div>
+                                                                        <div className="col-lg-4">
+                                                                            <h5 className="header-txt"> MORTGAGE 2</h5>
+                                                                        </div>
+                                                                        <div className="col-lg-4">
+                                                                            <h5 className="header-txt"> MORTGAGE 3</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-4">
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Inception Date</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Term</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Are you selling this property </label>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />yes
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />no
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Name of Lender</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Lender</label>
+                                                                <textarea type="text" rows="3" className="box-textarea width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Property Value &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Year Purchased</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">If fixed, for how many years</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 6 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 12 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments per month</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Property</label>
+                                                                <textarea type="text" rows="3" className="box-textarea" />
+                                                            </div>
+                                                            <br />
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Mortgage </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ANNUITY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ENDOWMENT
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />OTHER
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Rate </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />FIXED
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />Other
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Inception Date</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Term</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Are you selling this property </label>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />yes
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />no
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Name of Lender</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Lender</label>
+                                                                <textarea type="text" rows="3" className="box-textarea width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Property Value &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Year Purchased</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">If fixed, for how many years</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 6 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 12 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments per month</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Property</label>
+                                                                <textarea type="text" rows="3" className="box-textarea" />
+                                                            </div>
+                                                            <br />
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Mortgage </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ANNUITY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ENDOWMENT
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />OTHER
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Rate </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />FIXED
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />Other
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Inception Date</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Term</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Are you selling this property </label>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />yes
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />no
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Name of Lender</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Lender</label>
+                                                                <textarea type="text" rows="3" className="box-textarea width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Property Value &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Balance Due &euro;</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Year Purchased</label>
+                                                                <input type="text" className="box-input width100" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">If fixed, for how many years</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 6 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments missed in last 12 months</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Payments per month</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                                                <input type="text" className="box-input width50" />
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Address of Property</label>
+                                                                <textarea type="text" rows="3" className="box-textarea" />
+                                                            </div>
+                                                            <br />
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Mortgage </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ANNUITY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />ENDOWMENT
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />OTHER
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <div className="radioBtnDiv">
+                                                            <label className="box-label font-size-12">Type of Rate </label>
+                                                            <div className="form-group">
+                                                                
+                                                                <br />
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />FIXED
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />PENSION
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                                <div className="radio-area">
+                                                                <label class="container">
+                                                                    <input type="radio" name="radio" /><br />Other
+                                                                <span class="checkmark"></span>
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <label className="font-size-12">
+                                                                    Is property registered in any name other than that of the applicant
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Details</label>
+                                                                    <textarea type="text" rows="3" className="box-textarea" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> FINANCIAL COMMITMENTS</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">How many existing loans do you have</label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                    <label className="box-label font-size-12">Amount Borrowed</label>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-6">
+                                                                <div className="row">
+                                                                        <div className="col-lg-6">
+                                                                            <div className="form-group">
+                                                                                <label className="box-label font-size-12">Applicant 1 </label>
+                                                                                <input type="text" className="box-input width50" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="col-lg-6">
+                                                                            <div className="form-group">
+                                                                                <label className="box-label font-size-12">Applicant 2 </label>
+                                                                                <input type="text" className="box-input width50" />
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-4">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <label className="box-label font-size-12">Financial Institution </label>
+                                                                        <textarea style={{height:"90px",width:"100px"}} type="input" className="box-textarea" row="5"></textarea>
+                                                                    </div>
+                                                                    <div className="col-lg-6">
+                                                                        <label className="box-label font-size-12">Account Number: </label>
+                                                                        <textarea style={{height:"90px",width:"120px"}} type="input" className="box-textarea" row="5"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <label className="box-label font-size-12">App1 </label>
+                                                                       <div className="radioBtnDiv radioBtnDivWidth">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                       </div>
+                                                                    </div>
+                                                                    <div className="col-lg-6">
+                                                                        <label className="box-label font-size-12">App1 </label>
+                                                                       <div className="radioBtnDiv radioBtnDivWidth">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                       </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-6">
+                                                                <div className="row">
+                                                                    <div className="col-lg-3">
+                                                                        <label className="box-label font-size-12">Payment (Mly) </label>
+                                                                            <label className="font-size-12">&euro;
+                                                                            <input type="text" className="box-input width40" /></label>
+                                                                            <label className="font-size-12">&euro;
+                                                                            <input type="text" className="box-input width40" /></label>
+                                                                            <label className="font-size-12">&euro;
+                                                                            <input type="text" className="box-input width40" /></label>
+                                                                            <label className="font-size-12">&euro;
+                                                                            <input type="text" className="box-input width40" /></label>
+                                                                    </div>
+                                                                    <div className="col-lg-3">
+                                                                        <label className="box-label font-size-12"> Purpose </label>
+                                                                            <textarea class="box-textarea width70" type="input" row="4"></textarea>
+                                                                    </div>
+                                                                    <div className="col-lg-3">
+                                                                        <label className="box-label font-size-12">Final Payment Date </label>
+                                                                            <textarea class="box-textarea width70" type="input" row="4"></textarea>
+                                                                    </div>
+                                                                    <div className="col-lg-3">
+                                                                        <label className="box-label font-size-12">Final Payment Date </label>
+                                                                        <div className="multiRadio">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="multiRadio">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="multiRadio">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="multiRadio">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Rent &euro;</label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                    <label className="box-label font-size-12">Maintenance Payments &euro;</label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                    <label className="box-label font-size-12">Total &euro;</label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> CREDIT HISTORY</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <label className="font-size-12">
+                                                                    Have you ever:
+                                                                </label>
+                                                            </div> 
+                                                            <div className="col-lg-2 text-center">
+                                                                <label className="font-size-12">
+                                                                    App1
+                                                                </label>
+                                                            </div>  
+                                                            <div className="col-lg-2 text-center">
+                                                                <label className="font-size-12">
+                                                                    App2
+                                                                </label>
+                                                            </div>                                                          
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <label className="font-size-12">
+                                                                    Is property registered in any name other than that of the applicant
+                                                                </label>
+                                                            </div> 
+                                                            <div className="col-lg-2">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>  
+                                                            <div className="col-lg-2">
+                                                            <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                          
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <label className="font-size-12">
+                                                                    Had a court order registered against you
+                                                                </label>
+                                                            </div> 
+                                                            <div className="col-lg-2">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>  
+                                                            <div className="col-lg-2">
+                                                            <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                          
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <label className="font-size-12">
+                                                                    Been insolvent, declared bankrupt or made any arrangements with creditors or any other action pending 
+                                                                </label>
+                                                            </div> 
+                                                            <div className="col-lg-2">
+                                                                <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>  
+                                                            <div className="col-lg-2">
+                                                            <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="multiRadio">  
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />Yes
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />No
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                          
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                            <div className="form-group">
+                                                                <label className="box-label font-size-12">Details</label>
+                                                                <textarea type="text" rows="3" className="box-textarea" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <br />
+                                                        <div className="main-header-container">
+                                                            <div className="main-header-top-white"></div>
+                                                            <div className="main-header-bottom-white">
+                                                            <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> CUSTOMER TYPE</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-4">
+                                                                <div className="row">
+                                                                    <div className="col-lg-8">
+                                                                        <label className="box-label font-size-12">First Time Buyer</label>
+                                                                    </div>
+                                                                    <div className="col-lg-4">
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="row">
+                                                                    <div className="col-lg-8">
+                                                                        <label className="box-label font-size-12">Remortgage House</label>
+                                                                    </div>
+                                                                    <div className="col-lg-4">
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="row">
+                                                                    <div className="col-lg-8">
+                                                                        <label className="box-label font-size-12">Second Property </label>
+                                                                    </div>
+                                                                    <div className="col-lg-4">
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="row">
+                                                                    <div className="col-lg-8">
+                                                                        <label className="box-label font-size-12">RP</label>
+                                                                    </div>
+                                                                    <div className="col-lg-4">
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="col-lg-4">
+                                                                <label className="box-label font-size-12">Max Approval Required</label>
+                                                                <label className="box-label font-size-12">First Applicant</label>
+                                                                <label className="box-label font-size-12">Second Applicant</label>
+                                                            </div>
+
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Yes</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Yes</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Yes</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">No</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">No</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">No</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <label className="font-size-12">If joint application, is title of property to be in joint names</label>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                            <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Yes</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                            <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">No</lable>
+                                                                    <div className="radioBtnDiv">
+                                                                        <div className="radio-area">
+                                                                            <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> SECTION ONE (PURCHASE ONLY) </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Purchase price/cost of Building </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Site Price (if applicable) </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Legal & stamp duty (if applicable) </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Repairs/Renovations </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Other costs* </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Total Expenditure </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2"></div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Savings* </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Grant  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Gifts </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Other funds* </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <br/>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Total Finance </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">*Please supply details of other cost and/or savings, or other funding sources </label>
+                                                                    <textarea type="text" className="box-textarea" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-2">
+                                                                <label className="font-size-12">Is purchase:  </label>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Local Authority Housing Scheme</lable>
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Affordable Housing</lable>
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Shared Ownership</lable>
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Affordable Housing</lable>
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-2">
+                                                                <div className="optionalDiv displayFlex">
+                                                                    <lable className="font-size-12">Local Authority Tenant Purchase</lable>
+                                                                        <div className="radioBtnDiv">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                    <input type="radio" name="radio" /><br />
+                                                                                    <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-4">
+                                                                <lable className="font-size-12">If affordable House, please provide:</lable>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Purchase Price </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Market Value </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> SECTION TWO (RE-MORTGAGE ONLY)  </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Remortgage amount </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Property value  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Loan Value % </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Year of original purchase </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Current mortgage outstanding </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Age of property </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">New Mortgage required </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Purpose of additional borrowing </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> MORTGAGE  </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">What type of repayment method do you require </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Other/Initial years </label>
+                                                                    <input type="text" className="box-input width100" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div className="row">
+                                                                    <div className="col-lg-6">
+                                                                        <div className="form-group">
+                                                                            <label className="box-label font-size-12">What type of repayment method do you require </label>
+                                                                            <input type="text" className="box-input width50" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <br/>
+                                                                    <div className="col-lg-6">
+                                                                            <div className="multiRadio displayFlex">  
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />TRACKER  
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />FIXED  
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />PENSION 
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />OTHER
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Loan amount </label>
+                                                                    <input type="text" className="box-input" />
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Commencement date </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Type of rate required </label>
+                                                                    <input type="text" className="box-input" />
+                                                                </div>
+                                                                <div className="floatRight">
+                                                                <div className="multiRadio displayFlex">  
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />ENDOWMENT MORTGAGE 
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />OTHER 
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />PENSION BACKED
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />REPAYMENT/ANNUITY
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-lg-4">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Fixed for (years) </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> SOLICITOR  </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Solicitor Name </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 1  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 2  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 3  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="displayFlex">
+                                                                    <div className="form-group">
+                                                                        <label className="box-label font-size-12">County   </label>
+                                                                        <input type="text" className="box-input width50" />
+                                                                    </div>
+                                                                    <div className="form-group">
+                                                                        <label className="box-label font-size-12">Country    </label>
+                                                                        <input type="text" className="box-input width50" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Phone Number   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Mobile Number   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                            <div className="col-lg-8">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Fax Number  </label>
+                                                                    <textarea type="text" className="box-textarea " />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <br /><br />
+                                                        <div className="right-main-header-container">
+                                                            <div className="right-main-header-top"></div>
+                                                                <div className="right-main-header-bottom">
+                                                                <i>
+                                                                    <p className="right-main-header-txt"> Section E – Property Details</p>
+                                                                </i>
+                                                            </div>
+                                                        </div>
+                                                        <br /> <br />
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> SOLICITOR  </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+                                                        <div className="row">
+                                                            <div className="col-lg-6">
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 1   </label>
+                                                                    <input type="text" className="box-input" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 2   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Address Line 3  </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">County   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Country   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <p>See page 2 for address requirements</p>
+                                                            </div>
+
+                                                            <div className="col-lg-6">
+                                                                <div className="row">
+                                                                    <div className="col-lg-4">
+                                                                        <label className="box-label font-size-12">Type  of Property   </label>
+                                                                    </div>
+                                                                    <div className="col-lg-8">
+                                                                    <div className="multiRadio displayFlex">  
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />ENDOWMENT MORTGAGE 
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />OTHER 
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />PENSION BACKED
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div className="radio-area">
+                                                                                    <label class="container">
+                                                                                        <input type="radio" name="radio" /><br />REPAYMENT/ANNUITY
+                                                                                    <span class="checkmark"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Estimated completion/closing date   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">New Property </label>
+                                                                        <div className="multiRadio">
+                                                                            <div className="radio-area">
+                                                                                <label class="container">
+                                                                                <input type="radio" name="radio" /><br />
+                                                                                <span class="checkmark"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Number of floors in block (If apartment)   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <label className="box-label font-size-12">Estimated Value   </label>
+                                                                    <input type="text" className="box-input width50" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <br/>
+                                                        <div className="row">
+                                                            <div className="col-lg-12">
+                                                                <div className="header">
+                                                                    <div className="row">
+                                                                        <div className="col-lg-12">
+                                                                            <h5 className="header-txt"> NUMBER OF ROOMS  </h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+
+                                                        <div className="row"></div>
+
+
+
+
 
 
                                             </div>
