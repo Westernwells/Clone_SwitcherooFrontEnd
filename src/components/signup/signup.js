@@ -15,7 +15,6 @@ function Signup(props) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-
     email: "",
     emailIsValid: false,
     emailHelp: "",
