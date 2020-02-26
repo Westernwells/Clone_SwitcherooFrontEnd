@@ -35,6 +35,22 @@ label{
 .width40{
   width: 40px !important;
 }
+.widthper100{
+  width:100% !important;
+}
+.no-border-Right{
+  border-right: none !important;
+}
+.radio-area-marginTop{
+  margin-top: 7px;
+}
+.formwidth10{
+  width: 10% !important;
+}
+.textAreaHeightWidth{
+  width: 100%;
+  height: 600px !important;
+}
 .radioBtn{
   border-radius: 100%;
   background-size: 39% !important;
