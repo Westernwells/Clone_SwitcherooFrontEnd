@@ -97,7 +97,7 @@
     border-radius:8px;
 }
 .result-con .d1 .amount-div {
-    height: 370px;
+    height: 450px;
     padding: 40px 20px;
     width: 80%;
     margin: 30px;
@@ -177,9 +177,10 @@
     border:1px solid;
 }
 .result-con .d1 .amount-div img {
-    width: 65%;
+    width: 85%;
     max-width: 100%;
-    margin-left: 50px;
+    margin-left: 21px;
+
 }
 .result-con .d1 .mount-div img {
     width: 30%;
@@ -193,4 +194,51 @@
     color: black;
     /*padding: 0px 0px 5px 21px;*/
     font-weight: 500;
+}
+/*.result {*/
+/* height:50px*/
+/*}*/
+.result-con .d1 .amount-div .bank-1-4 {
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+    text-align: justify;
+
+}
+.result-con .d1 .amount-div .bank-1-4 div h1 {
+ color : green;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0px;
+ }
+.result-con .d1 .amount-div .bank-1-4 div h2 {
+    color : red;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 0 22px;
+}
+.result-con .d1 .amount-div .bank-1-4 div h3 {
+    color : orange;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 0 22px;
+}
+.result-con .d1 .amount-div .bank-1-4 .heading{
+    color : red;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 0 6px;
+}
+.result-con .d1 .amount-div .bank-1-4 div {
+ display: flex;
+}
+.result-con .d1 .amount-div .bank-1-4 img {
+width: 34px;
+    height: 30px;
+    margin-left: 6px;
+}
+.result-con .d1 .amount-div .bank-1-4 p {
+text-align: left;
+    color:black;
+    font-weight:500;
 }

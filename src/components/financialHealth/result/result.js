@@ -6,9 +6,12 @@ import { withRouter } from "react-router-dom";
 import GaugeChart from 'react-gauge-chart'
 import Api from "../../../redux/api/financialHealthCheck";
 import { baseurl } from "../../../redux/api/index";
+import * as Actions from '../../../redux/actions/financial_health/calculateResult_Action';
 
 class YourResult extends React.Component {
+
   state = {
+      fillSpreadSheet:false,
     fillHavenSpreadSheet: false,
     fillIcsSpreadSheet: false,
     fillPtsbSpreadSheet: false
@@ -38,11 +41,14 @@ class YourResult extends React.Component {
     this.setState({ [route]: true });
     fetch(baseurl + `/financialHealth/${route}/${this.props.userId}`, options)
       .then(res => {
-        // dispatch(actions.LoadingFinancialData(true));
+
+        //dispatch(actions.LoadingFinancialData(true));
+
         this.setState({ [route]: false });
         if (res.status === 201)
           res.json().then(res => {
             console.log("[response]",res);
+              this.props.onCalculateResult(route,res)
             this.success(message);
           })
       })
@@ -54,49 +60,68 @@ class YourResult extends React.Component {
   };
 
   render() {
-    const onSubmitHandler = () => {
-      this.props.changeProfRout(4)
+ console.log("state",this.state)
+    // const onSubmitHandler = () => {
+    //   this.props.changeProfRout(4)
+    // }
+    const onClickHandler = () => {
+        this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success");
+        this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success");
+        this.checkfillsheet("fillIcsSpreadSheet", "fillIcsSpreadSheet made success");
+        this.checkfillsheet("fillPtsbSpreadSheet", "fillPtsbSpreadSheet made success");
+        this.props.changeProfRout(4)
     }
     return (
       <div className="result-con">
         <div className="logo">
           <img src="images/home/logo.png" alt="logo" />
         </div>
-        <Button
-          className="btncheck"
-          onClick={() =>
-            this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success")
-          }
-          loading={this.state.fillHavenSpreadSheet}
-        >
-          fillHavenSpreadSheet Testing
-        </Button>
+        {/*  <Button*/}
+        {/*      className="btncheck"*/}
+        {/*      onClick={() =>*/}
+        {/*          //this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success")*/}
+        {/*          this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success")*/}
+        {/*      }*/}
+        {/*      loading={this.state.fillSpreadSheet}*/}
+        {/*  >*/}
+        {/*      fillSpreadSheet Testing*/}
+        {/*  </Button>*/}
+        {/*<Button*/}
+        {/*  className="btncheck"*/}
+        {/*  onClick={() =>*/}
+        {/*    this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success")*/}
+        {/*      //this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success")*/}
+        {/*  }*/}
+        {/*  loading={this.state.fillHavenSpreadSheet}*/}
+        {/*>*/}
+        {/*  fillHavenSpreadSheet Testing*/}
+        {/*</Button>*/}
 
-        <Button
-          className="btncheck"
-          onClick={() =>
-            this.checkfillsheet(
-              "fillIcsSpreadSheet",
-              "fillIcsSpreadSheet made success"
-            )
-          }
-          loading={this.state.fillIcsSpreadSheet}
-        >
-          fillIcsSpreadSheet  Testing
-        </Button>
+        {/*<Button*/}
+        {/*  className="btncheck"*/}
+        {/*  onClick={() =>*/}
+        {/*    this.checkfillsheet(*/}
+        {/*      "fillIcsSpreadSheet",*/}
+        {/*      "fillIcsSpreadSheet made success"*/}
+        {/*    )*/}
+        {/*  }*/}
+        {/*  loading={this.state.fillIcsSpreadSheet}*/}
+        {/*>*/}
+        {/*  fillIcsSpreadSheet  Testing*/}
+        {/*</Button>*/}
 
-        <Button
-          className="btncheck"
-          onClick={() =>
-            this.checkfillsheet(
-              "fillPtsbSpreadSheet",
-              "fillPtsbSpreadSheet made success"
-            )
-          }
-          loading={this.state.fillPtsbSpreadSheet}
-        >
-          fillPtsbSpreadSheet Testing
-        </Button>
+        {/*<Button*/}
+        {/*  className="btncheck"*/}
+        {/*  onClick={() =>*/}
+        {/*    this.checkfillsheet(*/}
+        {/*      "fillPtsbSpreadSheet",*/}
+        {/*      "fillPtsbSpreadSheet made success"*/}
+        {/*    )*/}
+        {/*  }*/}
+        {/*  loading={this.state.fillPtsbSpreadSheet}*/}
+        {/*>*/}
+        {/*  fillPtsbSpreadSheet Testing*/}
+        {/*</Button>*/}
 
         <div className="d1">
           <h1 className="h1">You Financial Health Check Results</h1>
@@ -150,8 +175,8 @@ class YourResult extends React.Component {
         {/*</div>*/}
         <Button
           className="btncheck"
-          // loading={this.state.fillIcsSpreadSheet}
-          onClick={onSubmitHandler}
+          onClick={onClickHandler}
+          loading={this.state.fillSpreadSheet }
         >
           let's calculate your results
         </Button>
@@ -169,6 +194,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = dispacth => ({
-  SheetFill: props => dispacth(Api.fillDataSheet(props))
+  SheetFill: props => dispacth(Api.fillDataSheet(props)),
+    onCalculateResult :  (route,message) => dispacth(Actions.calculateResults(route,message))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(YourResult));
