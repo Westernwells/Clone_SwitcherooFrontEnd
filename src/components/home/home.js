@@ -25,6 +25,9 @@ import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
 import YourApplication from "../yourApplication/intro/docMain";
 import PtsbForm from "../yourApplication/ptsbForm/Main";
+import fOne from "../yourApplication/threeForms/fOne/First";
+import fTwo from "../yourApplication/threeForms/fTwo/Second";
+import fThree from "../yourApplication/threeForms/fThree/Third";
 import IcsForm from "../yourApplication/icsForm/src/App";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
@@ -103,6 +106,21 @@ function Home(props) {
                       exact
                       path="/home/yourApplication/ptsbForm"
                       component={PtsbForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/threeForms/fOne/"
+                      component={fOne}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/threeForms/fTwo"
+                      component={fTwo}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/threeForms/fThree"
+                      component={fThree}
                     />
                     <Route
                       exact

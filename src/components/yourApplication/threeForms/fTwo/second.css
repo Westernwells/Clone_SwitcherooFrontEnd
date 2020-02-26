@@ -1,0 +1,561 @@
+/* Second */
+.second {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.second-wrapper {
+  padding: 0 112px 0 142px;
+}
+.forOfficeUseOnly {
+  border: 2px solid #75c04a;
+  border-radius: 25px;
+  background-color: #d8ecbf;
+  padding: 12px 20px;
+  font-size: 0.8rem;
+}
+.font-second {
+  /* font-size: 0.78rem; */
+  font-size: 1.15rem;
+  line-height: 1.4rem;
+  word-spacing: 0.05rem;
+  color: rgb(0, 0, 0);
+}
+.line {
+  height: 2px;
+  background-color: #75c04a;
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+.loanAccountNumber {
+  padding: 21px;
+  height: 98px;
+  border-radius: 25px;
+  margin-top: 25px;
+  background-color: #75c04a !important;
+  padding-left: 48px;
+  font-size: 1.5rem;
+}
+.loanAccountNumber-heading {
+  color: white;
+  font-weight: 500;
+  font-family: Century Gothic;
+  font-size: 2rem;
+}
+.loanAccountNumber-inputMiddle-parent {
+  margin-right: 2px;
+}
+.loanAccountNumber-inputMiddle {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+.loanAccountNumber-inputLeft {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 7px 0 0 7px;
+  text-align: center;
+}
+.loanAccountNumber-inputRight {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0 7px 7px 0;
+  text-align: center;
+}
+.forOfficeUseOnly-box {
+  width: 100%;
+  /* height: 37px; */
+  height: 56px;
+  background-color: white;
+  border: 2px solid #75c04a;
+  border-radius: 7px;
+}
+.debtorName {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding: 10px;
+  padding-top: 25px;
+}
+.debtorName-rightWrapper {
+  width: 70%;
+  padding-top: 20px;
+}
+.debtorName-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.debtorName-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.debtorName-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.debtorAddress {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding: 10px;
+  padding-top: 13px;
+}
+.debtorAddress-rightWrapper {
+  width: 70%;
+  padding-top: 12px;
+}
+.debtorAddress-rightWrapper .innerRows {
+  margin: 12px 0px 0px 0px;
+}
+.debtorAddress-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.debtorAddress-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.debtorAddress-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.city {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding: 10px;
+  padding-top: 13px;
+  padding-bottom: 0px;
+}
+.city-rightWrapper {
+  width: 70%;
+  padding-top: 12px;
+}
+.city-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.city-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.city-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.postCode {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 13px;
+}
+.postCode-rightWrapper {
+  width: 70%;
+  padding-top: 12px;
+}
+.postCode-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.postCode-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.postCode-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.country {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 13px;
+}
+.country-rightWrapper {
+  width: 70%;
+  padding-top: 12px;
+}
+.country-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.country-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.country-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.IBAN {
+  width: 30%;
+  background-color: #d8ecbf;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 13px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.IBAN-rightWrapper {
+  width: 70%;
+  padding-top: 12px;
+}
+.IBAN-inputMiddle {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.IBAN-inputLeft {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-right: 1px solid #75c04a;
+  text-align: center;
+}
+.IBAN-inputRight {
+  height: 37px;
+  width: 100%;
+  border: 2px solid #75c04a;
+  border-left: 1px solid #75c04a;
+  text-align: center;
+}
+.secondBoxRow-left {
+  width: 30%;
+  background-color: #d8ecbf;
+}
+.secondBoxRow-right {
+  width: 70%;
+}
+.pencil {
+  margin-top: -463px;
+  margin-left: -65px;
+  position: absolute;
+  font-size: 5rem;
+  border: 7px solid white;
+  background-color: #ffed4d;
+  color: white;
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+.pencil img {
+  margin-top: -28px;
+  width: 102%;
+}
+.home {
+  margin-top: -210px;
+  margin-left: -65px;
+  position: absolute;
+  font-size: 5rem;
+  border: 7px solid white;
+  background-color: #ffed4d;
+  color: white;
+  height: 135px;
+  width: 135px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+.home img {
+  margin-top: -23px;
+  width: 102%;
+}
+.payment-box-crossed::after {
+  margin-top: -5px;
+  content: 'X';
+  margin-left: 10px;
+  border: 2px solid #75c04a;
+  position: absolute;
+  height: 38px;
+  width: 38px;
+  padding: 4px 0px 0px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.payment-box::after {
+  margin-top: -5px;
+  content: '';
+  margin-left: 10px;
+  border: 2px solid #75c04a;
+  position: absolute;
+  height: 38px;
+  width: 38px;
+  border-radius: 5px;
+}
+.signatureAndDate-left {
+  width: 62%;
+  height: 65px;
+  border: 2px solid #75c04a;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.signatureAndDate-left-bgClr {
+  background-color: #d8ecbf;
+}
+.signatureAndDate-left-bgClr p {
+  text-align: center;
+  margin: 20px 0px;
+}
+.signatureAndDate-right {
+  height: 65px;
+  border: 2px solid #75c04a;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.signatureAndDate-right-bgClr {
+  background-color: #d8ecbf;
+  height: 65px;
+  padding-top: 18px;
+}
+.signatureAndDate-right-bgClr p {
+  text-align: center;
+}
+.text-min {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}
+.second-date {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.second-date::-webkit-outer-spin-button,
+.second-date::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* On Print Preview */
+@media print {
+  @page {
+    size: A4;
+  }
+  /* Second */
+  .second {
+    width: 100% !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .second-wrapper {
+    padding: 0 75px 0 115px;
+    -webkit-print-color-adjust: exact;
+  }
+  .font-second {
+    font-size: 0.85rem !important;
+    line-height: 1.05rem !important;
+    word-spacing: 0.05rem !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .loanAccountNumber {
+    padding: 15px !important;
+    height: 72px !important;
+    border-radius: 22px !important;
+    margin-top: 23px !important;
+    background-color: #75c04a !important;
+    padding-left: 40px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .loanAccountNumber-heading {
+    font-family: Century Gothic;
+    font-size: 1.8rem !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .forOfficeUseOnly {
+    background-color: #d8ecbf !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .forOfficeUseOnly-box {
+    height: 40px !important;
+    border-radius: 6px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .line {
+    background-color: #75c04a;
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .secondBoxRow-left {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .pencil {
+    background-color: #ffed4d;
+    margin-top: -347px !important;
+    margin-left: -60px !important;
+    font-size: 4rem !important;
+    height: 108px !important;
+    width: 108px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .home {
+    background-color: #ffed4d;
+    margin-top: -173px !important;
+    margin-left: -60px !important;
+    font-size: 4rem !important;
+    height: 108px !important;
+    width: 108px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorName {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorName-rightWrapper {
+    padding-top: 16px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorAddress {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorAddress-rightWrapper {
+    padding-top: 9px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorAddress-rightWrapper .innerRows {
+    margin: 9px 0px 0px 0px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .city {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .city-rightWrapper {
+    padding-top: 9px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .postCode {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .postCode-rightWrapper {
+    padding-top: 9px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .country {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .country-rightWrapper {
+    padding-top: 9px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .IBAN {
+    background-color: #d8ecbf;
+    padding-bottom: 5px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .IBAN-rightWrapper {
+    padding-top: 9px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .debtorName-inputMiddle,
+  .debtorName-inputLeft,
+  .debtorName-inputRight,
+  .debtorAddress-inputMiddle,
+  .debtorAddress-inputLeft,
+  .debtorAddress-inputRight,
+  .city-inputMiddle,
+  .city-inputLeft,
+  .city-inputRight,
+  .postCode-inputMiddle,
+  .postCode-inputRight,
+  .postCode-inputLeft,
+  .country-inputMiddle,
+  .country-inputLeft,
+  .country-inputRight,
+  .IBAN-inputMiddle,
+  .IBAN-inputLeft,
+  .IBAN-inputRight {
+    height: 28px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .signatureAndDate-left {
+    height: 53px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .signatureAndDate-left-bgClr {
+    background-color: #d8ecbf;
+    -webkit-print-color-adjust: exact;
+  }
+  .signatureAndDate-left-bgClr p {
+    margin: 16px 0px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .signatureAndDate-right {
+    height: 53px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .signatureAndDate-right-bgClr {
+    background-color: #d8ecbf;
+    padding-top: 14px;
+    -webkit-print-color-adjust: exact;
+  }
+  .hide-on-print {
+    display: none !important;
+    -webkit-print-color-adjust: exact;
+  }
+}

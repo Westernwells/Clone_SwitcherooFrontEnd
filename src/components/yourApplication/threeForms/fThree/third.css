@@ -1,0 +1,150 @@
+.third {
+  width: 100%;
+  padding: 0px 115px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.third-IBAN input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 2px solid #212529;
+  font-size: 1.5rem;
+}
+.third-IBAN .left-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  margin-bottom: -10px !important;
+}
+.third-IBAN .left-text {
+  font-size: 0.75rem;
+}
+.bottom-text-IBAN {
+  margin-left: 20%;
+  font-size: 0.85rem;
+  padding-left: 8px;
+  text-align: left !important;
+}
+.third-BIC input {
+  width: 100%;
+  height: 48px;
+  outline: none;
+  border: 2px solid #212529;
+  font-size: 1.5rem;
+}
+.third-BIC .left-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: -7px !important;
+}
+.third-BIC .left-text {
+  font-size: 0.85rem;
+}
+.bottom-text-BIC {
+  margin-top: -8px;
+}
+.bottom-text-BIC small {
+  margin-left: 20%;
+  font-size: 0.85rem;
+  padding-left: 30px;
+  text-align: left !important;
+}
+.innerForm {
+  padding: 15px 20px;
+}
+.third-yourName .left-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  margin-bottom: -10px !important;
+}
+.third-yourName .left-text {
+  font-size: 0.75rem;
+}
+.third-yourName input {
+  width: 100%;
+  height: 39px;
+  outline: none;
+  border: 2px solid #383838;
+  font-size: 1.3rem;
+}
+.third-yourAddress {
+  margin-top: 15px;
+}
+.third-yourAddress .left-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  margin-bottom: -10px !important;
+}
+.third-yourAddress .left-text {
+  font-size: 0.75rem;
+}
+.third-yourAddress input {
+  width: 100%;
+  height: 32px;
+  outline: none;
+  border: 2px solid #383838;
+  font-size: 1.2rem;
+}
+.city-postCode-row {
+  margin-bottom: 12px;
+}
+.third-city-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  margin-bottom: -10px !important;
+}
+.third-city-input {
+  width: 100%;
+  height: 32px;
+  outline: none;
+  border: 2px solid #383838;
+  font-size: 1.2rem;
+}
+.third-postCode-heading {
+  font-size: 1.18rem;
+  margin: 0px;
+  padding-left: 20px;
+}
+.third-postCode-input {
+  width: 100%;
+  height: 32px;
+  outline: none;
+  border: 2px solid #383838;
+  font-size: 1.2rem;
+}
+.third-date-heading-parent {
+  padding: 0px 0px 0px 0px;
+}
+.third-date-heading {
+  font-size: 1.1rem;
+  margin: 3px 0px 0px 0px;
+}
+.third-date-input {
+  width: 42%;
+  height: 32px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #383838 !important;
+  margin-top: -7px;
+}
+.importantNote {
+  padding: 0px 5px 0px 13px;
+}
+.footer-text {
+  padding-left: 6px;
+  font-size: 0.85rem;
+}
+@media print {
+  @page {
+    size: A4;
+  }
+  /* body {
+    padding: 0px 115px !important;
+    -webkit-print-color-adjust: exact;
+  } */
+  .third {
+    width: 100%;
+    /* padding: 0px 95px 0px 80px !important; */
+    -webkit-print-color-adjust: exact;
+  }
+}
