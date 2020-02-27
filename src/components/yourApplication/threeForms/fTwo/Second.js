@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SecondCapture3 from "./img/SecondCapture3.png";
-// import SecondCapture4 from "./img/SecondCapture4.PNG";
+import SecondCapture4 from "./img/SecondCapture4.jpg";
 import ThirdCapture3 from "./img/ThirdCapture3.PNG";
 import pencil1 from "./img/pencil1.PNG";
 import home from "./img/home.PNG";
@@ -836,7 +836,7 @@ const Second = () => {
           </div>
           {/* Footer */}
           <div className="row mx-0">
-            {/* <img src={SecondCapture4} alt="..." style={{ width: "100%" }} /> */}
+            <img src={SecondCapture4} alt="..." style={{ width: "100%" }} />
           </div>
           <input
             type="submit"
