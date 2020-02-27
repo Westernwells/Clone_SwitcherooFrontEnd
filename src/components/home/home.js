@@ -34,7 +34,7 @@ import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
-import NewForm from "../yourApplication/newForm/newForm";
+import NewForm from "../yourApplication/newForm/NewForm";
 const { Panel } = Collapse;
 
 function Home(props) {

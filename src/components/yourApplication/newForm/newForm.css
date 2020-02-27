@@ -2,6 +2,34 @@
 label{
   color: #111e6c;
 }
+
+
+.page1 label {
+  font-size: 0.7rem;
+}
+
+.page1 input {
+  font-size: 0.8rem;
+}
+.page2 h2 {
+  font-size: 0.93rem;
+}
+
+.page2 label {
+  font-size: 0.69rem;
+}
+
+.page2 th {
+  padding: 5px;
+  font-size: 0.75rem;
+}
+.print-button {
+  height: 70px;
+  width: 200px;
+}
+
+
+
 .noPadding{
   padding: 0px;
 }
@@ -209,7 +237,7 @@ label{
 .form-outer {
   max-height: calc(100vh - 150px);
   margin: 20px 20px 20px 20px;
-  padding: 20px 20px 20px 0px;
+  padding: 30px 30px 30px 30px;
   clear: both;
   border-radius: 10px;
   font-family: Montserrat;
@@ -274,7 +302,7 @@ label{
 
 .box-input {
   flex: 2;
-  background-image: url("../../../assets/input-border-croped.gif"); 
+  background-image: url("../../../assets/input-border-croped.gif");
   border: 3px solid #FFFFFF !important;
   border-bottom: 1px solid #111e6c !important;
   /* width: 100%; */
@@ -282,7 +310,7 @@ label{
   background-size: 20px;
   font-family: monospace;
   font-size: 13px !important;
-  padding-left: 5px;
+  padding: 0px;
   letter-spacing: 13px !important;
   text-transform: uppercase;
 }
@@ -486,7 +514,7 @@ label{
 }
 
 
-.cover-page{
+.covepage{
   width:102%;
   background-color: #111E6C;;
   background-image: linear-gradient(to bottom right, #111E6C, #73C2FB); 
