@@ -14,7 +14,7 @@
   padding: 0px 30px 30px 30px;
   margin: 0px 1px 0px 2px;
 }
-.main-heading {
+.first .main-heading {
   font-weight: bolder;
   font-family: bahnschrift;
   letter-spacing: -0.11rem;
@@ -25,13 +25,13 @@
   padding-left: 25px;
   margin-bottom: 40px;
 }
-.heading {
+.first .heading {
   font-family: bahnschrift;
   color: #40a0f0;
   font-weight: bolder !important;
   letter-spacing: -0.05rem;
 }
-.text-bold {
+.first .text-bold {
   color: rgb(14, 55, 75);
   /* font-size: 0.8rem; */
   font-size: 1.1rem;
@@ -43,13 +43,14 @@
 .mrgn-btm {
   margin-bottom: 1.6rem !important;
 }
-.input {
-  border: 0px solid #35648a;
+.first .input {
+  border: 1px solid #35648a;
+  color: black;
 }
-.input:focus {
+.first .input:focus {
   border: 1px solid dodgerblue;
 }
-.input-min {
+.first .input-min {
   width: 100%;
   height: 20px;
   margin-bottom: 16px;
@@ -58,19 +59,19 @@
 .iban-input-wrapper {
   margin-right: 0.4rem;
 }
-.date {
+.first .date {
   width: 27px;
   height: 28px;
   margin-right: 0.4rem;
-  border: 1px solid rgb(41, 78, 75);
+  border: 1px solid #35648a;
   text-align: center;
 }
-.date::-webkit-outer-spin-button,
-.date::-webkit-inner-spin-button {
+.first .date::-webkit-outer-spin-button,
+.first .date::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.date::placeholder {
+.first .date::placeholder {
   color: rgb(184, 182, 182);
 }
 .input-mrgn-btm {
@@ -96,11 +97,11 @@
     font-size: 0.9rem !important;
     -webkit-print-color-adjust: exact;
   }
-  .input {
+  .first .input {
     height: 23px !important;
     -webkit-print-color-adjust: exact;
   }
-  .input-min {
+  .first .input-min {
     width: 100%;
     margin-bottom: 16px;
     text-align: center;
@@ -112,11 +113,11 @@
     margin-bottom: 6px !important;
     -webkit-print-color-adjust: exact;
   }
-  .mrgn-btm {
+  .first .mrgn-btm {
     margin-bottom: 1.55rem !important;
     -webkit-print-color-adjust: exact;
   }
-  .date {
+  .first .date {
     width: 22px !important;
     height: 22px !important;
     margin-right: 0.35rem !important;

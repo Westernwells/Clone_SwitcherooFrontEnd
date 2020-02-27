@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SecondCapture3 from "./img/SecondCapture3.png";
+// import SecondCapture4 from "./img/SecondCapture4.PNG";
 import ThirdCapture3 from "./img/ThirdCapture3.PNG";
-// import pencil1 from "./img/pencil1.PNG";
-// import home from "./img/home.PNG";
+import pencil1 from "./img/pencil1.PNG";
+import home from "./img/home.PNG";
 import "./second.css";
 
 const Second = () => {
@@ -291,7 +292,7 @@ const Second = () => {
     e.preventDefault();
     formData.lan = lan.join("");
     if (formData.lan.length !== 9) {
-      return alert("Please enter valuid Local Accound Number");
+      return alert("Please enter valid Local Accound Number");
     }
     formData.debtorName = debtorName.join("").trim();
     if (formData.debtorName.length === 0) {
@@ -318,6 +319,7 @@ const Second = () => {
     objectFromDb.personalDetails.firstName = splitedName[0];
     objectFromDb.personalDetails.lastName = splitedName[1];
 
+    // send post request to API
     const config = {
       headers: {
         "Content-Type": "application/json"
@@ -326,15 +328,16 @@ const Second = () => {
     try {
       const res = await axios.post(
         "https://switchroo.herokuapp.com/detailsYouNeed/saveDetails",
-        config,
-        objectFromDb
+        objectFromDb,
+        config
       );
+
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
-    // send post request to API
-    console.log(objectFromDb);
 
+    // print / save as pdf
     let backUp = document.body.innerHTML;
     let locationBackUp = window.location.href;
     let contentToPrint = document.getElementsByClassName("second")[0].innerHTML;
@@ -669,7 +672,7 @@ const Second = () => {
             </div>
           </div>
           <div className="pencil">
-            {/* <img src={pencil1} alt="pencil" /> */}
+            <img src={pencil1} alt="pencil" />
           </div>
           {/* Second Box */}
           <div
@@ -719,7 +722,9 @@ const Second = () => {
               />
             </div>
           </div>
-          <div className="home">{/* <img src={home} alt="pencil" /> */}</div>
+          <div className="home">
+            <img src={home} alt="pencil" />
+          </div>
           {/* Type of payment */}
           <div className="row mx-0 my-4 align-items-center">
             <div className="col-4 p-0">
@@ -830,14 +835,8 @@ const Second = () => {
             </div>
           </div>
           {/* Footer */}
-          <div className="row mx-0 mt-4 mb-3">
-            <p className="text-min m-0">
-              Haven Mortages Limited. Registered Office: 2Burlington Road,
-              Dublin 4. Registered in Ireland, No. 438829.
-              <br />
-              Haven Mortagges Limited [trading as Haven] is regulated by the
-              Central Bank of ireland
-            </p>
+          <div className="row mx-0">
+            {/* <img src={SecondCapture4} alt="..." style={{ width: "100%" }} /> */}
           </div>
           <input
             type="submit"
@@ -845,52 +844,6 @@ const Second = () => {
             value="Save & Print"
           />
         </form>
-      </div>
-    </div>
-  );
-};
-
-const SignatureAndDate = () => {
-  return (
-    <div className="row mx-0 mt-3">
-      {/* Left */}
-      <div className="signatureAndDate-left">
-        <div className="row m-0">
-          <div className="col-3 px-0 signatureAndDate-left-bgClr">
-            <p className="font-second">Signature 1*</p>
-          </div>
-          {/* <div className="col-9 p-0"></div> */}
-        </div>
-      </div>
-      {/* Right */}
-      <div style={{ width: "38%" }}>
-        <div className="col p-0 ml-2 signatureAndDate-right">
-          <div className="row mx-0">
-            <div className="col-3 signatureAndDate-right-bgClr">
-              <p className="font-second m-0">Date</p>
-            </div>
-            <div
-              className="col-3"
-              style={{
-                borderRight: "2px solid #75c04a",
-                height: "65px"
-              }}
-            ></div>
-            <div
-              className="col-3"
-              style={{
-                borderRight: "2px solid #75c04a",
-                height: "65px"
-              }}
-            ></div>
-            <div
-              className="col-3"
-              style={{
-                height: "65px"
-              }}
-            ></div>
-          </div>
-        </div>
       </div>
     </div>
   );
