@@ -44,7 +44,7 @@ class GetStartedText extends React.Component {
             <div className="btn-div">
               <button
                 onClick={() =>
-                  this.props.history.push("/home/relatedInformation")
+                  this.props.history.push(`/home/relatedInformation`)
                 }
               >
                 Let's Get Started

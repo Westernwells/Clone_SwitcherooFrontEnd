@@ -14,8 +14,12 @@ class YourResult extends React.Component {
       fillSpreadSheet:false,
     fillHavenSpreadSheet: false,
     fillIcsSpreadSheet: false,
-    fillPtsbSpreadSheet: false
+    fillPtsbSpreadSheet: false,
+      isProgressShow:false,
+      isBtnShow:true
   };
+
+
   componentDidMount() {
     this.props.SheetFill(this.props.userId);
   }
@@ -39,15 +43,15 @@ class YourResult extends React.Component {
       })
     };
     this.setState({ [route]: true });
-    fetch(baseurl + `/financialHealth/${route}/${this.props.userId}`, options)
+    // fetch(baseurl + `/financialHealth/${route}/${this.props.userId}`, options)
+      fetch(`https://switchroo.herokuapp.com/financialHealth/${route}/${this.props.userId}`,options)
       .then(res => {
-
         //dispatch(actions.LoadingFinancialData(true));
 
         this.setState({ [route]: false });
         if (res.status === 201)
           res.json().then(res => {
-            console.log("[response]",res);
+            console.log("[response-2]",res);
               this.props.onCalculateResult(route,res)
             this.success(message);
           })
@@ -60,16 +64,25 @@ class YourResult extends React.Component {
   };
 
   render() {
+
+      const showProgress = e =>{
+          this.setState({isProgressShow:true,isBtnShow:false})
+          this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success");
+          this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success");
+          this.checkfillsheet("fillIcsSpreadSheet", "fillIcsSpreadSheet made success");
+          this.checkfillsheet("fillPtsbSpreadSheet", "fillPtsbSpreadSheet made success");
+          setTimeout( () => {
+              this.props.changeProfRout(4)
+          },4000)
+
+      }
  console.log("state",this.state)
+      console.log("userId",this.props.userId)
     // const onSubmitHandler = () => {
     //   this.props.changeProfRout(4)
     // }
     const onClickHandler = () => {
-        this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success");
-        this.checkfillsheet("fillHavenSpreadSheet", "fillHavenSheet made success");
-        this.checkfillsheet("fillIcsSpreadSheet", "fillIcsSpreadSheet made success");
-        this.checkfillsheet("fillPtsbSpreadSheet", "fillPtsbSpreadSheet made success");
-        this.props.changeProfRout(4)
+
     }
     return (
       <div className="result-con">
@@ -173,13 +186,28 @@ class YourResult extends React.Component {
         {/*    </p>*/}
         {/*  </div>*/}
         {/*</div>*/}
-        <Button
-          className="btncheck"
-          onClick={onClickHandler}
-          loading={this.state.fillSpreadSheet }
-        >
-          let's calculate your results
-        </Button>
+        {/*<Button*/}
+        {/*  className="btncheck"*/}
+        {/*  onClick={onClickHandler}*/}
+        {/*  loading={this.state.fillSpreadSheet }*/}
+        {/*>*/}
+        {/*  let's calculate your results*/}
+        {/*</Button>*/}
+          <div style={{    textAlign: "center",
+              padding: "50px 0px"}}>
+              {this.state.isBtnShow && (
+                  <button className="progresBtn" onClick={showProgress} >let's calculate your results</button>)}
+              {this.state.isProgressShow && (
+                  <div>
+                      <div className="progress-bar-container">
+                          <div className="progress-bar stripes animated reverse slower">
+                              <span className="progress-bar-inner"></span>
+                          </div>
+                      </div>
+                  </div>
+              )
+              }
+          </div>
       </div>
     );
   }

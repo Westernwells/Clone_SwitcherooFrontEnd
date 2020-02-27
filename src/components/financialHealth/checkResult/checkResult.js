@@ -22,64 +22,102 @@ import bank4Maybe from './result-assests/bank-4/maybe4_5.gif';
 
 import happy from './result-assests/happy-emoji.jpg';
 import sad from './result-assests/sad-emoji.png';
+import logo from './result-assests/logo.png';
+
+import Button1 from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 class CheckResult extends React.Component {
     state = {
         bank1 : null, bank2 : null, bank3 : null, bank4 : null,
-        click1: false,click2: false,click3: false,click4: false
+        click1: false,click2: false,click3: false,click4: false,
+        showResult:0, openModel:false
+    }
+
+    Modal () {
+        console.log(this.state.showResult)
+        if ( this.state.showResult >= 3 )
+        {
+            console.log('true')
+            setTimeout  ( () => {
+                this.setState({openModel:true})
+            },2000)
+        }
     }
 
     render() {
+
+
         const getBank1ResultsHandler = () => {
-            if (this.props.result.fillSpreadSheet.msg === "Bad news, based on what you have provided you do not fit this bank’s lending criteria") {
+            if (this.props.result.fillSpreadSheet.data === "1") {
                  this.setState({bank1:'yes'})
             }
-            else if (this.props.result.fillSpreadSheet.msg === "no") {
+            else if (this.props.result.fillSpreadSheet.data === "3") {
                 this.setState({bank1:'no'})
             }
-              else if (this.props.result.fillSpreadSheet.msg === "maybe"){
+              else if (this.props.result.fillSpreadSheet.data === "2"){
                 this.setState({bank1:'maybe'})
             }
               this.setState({click1:true})
+              this.setState({showResult:this.state.showResult+1})
+             this.Modal();
         }
         const getBank2ResultsHandler = () => {
-            if (this.props.result.fillIcsSpreadSheet.msg === "yes") {
+            if (this.props.result.fillIcsSpreadSheet.data === "1") {
                 this.setState({bank2:'yes'})
             }
-            else if (this.props.result.fillIcsSpreadSheet.msg === "no") {
+            else if (this.props.result.fillIcsSpreadSheet.data === "3") {
                 this.setState({bank2:'no'})
             }
-            else if (this.props.result.fillIcsSpreadSheet.msg === "Bad news, based on what you have provided you do not fit this bank’s lending criteria"){
+            else if (this.props.result.fillIcsSpreadSheet.data === "2"){
                 this.setState({bank2:'maybe'})
             }
             this.setState({click2:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
         const getBank3ResultsHandler = () => {
-            if (this.props.result.fillPtsbSpreadSheet.msg === "yes") {
+            if (this.props.result.fillPtsbSpreadSheet.data === "1") {
                 this.setState({bank3:'yes'})
             }
-            else if (this.props.result.fillPtsbSpreadSheet.msg === "Good news, based on the information you provided we are confident that this bank will approve this loan") {
+            else if (this.props.result.fillPtsbSpreadSheet.data === "3") {
                 this.setState({bank3:'no'})
             }
-            else if (this.props.result.fillPtsbSpreadSheet.msg === "maybe"){
+            else if (this.props.result.fillPtsbSpreadSheet.data === "2"){
                 this.setState({bank3:'maybe'})
             }
             this.setState({click3:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
         const getBank4ResultsHandler = () => {
-            if (this.props.result.fillHavenSpreadSheet.msg === "Good news, based on the information you provided we are confident that this bank will approve this loan") {
+            if (this.props.result.fillHavenSpreadSheet.data === "1") {
                 this.setState({bank4:'yes'})
             }
-            else if (this.props.result.fillHavenSpreadSheet.msg === "no") {
+            else if (this.props.result.fillHavenSpreadSheet.data === "3") {
                 this.setState({bank4:'no'})
             }
-            else if (this.props.result.fillHavenSpreadSheet.msg === "maybe"){
+            else if (this.props.result.fillHavenSpreadSheet.data === "2"){
                 this.setState({bank4:'maybe'})
             }
             this.setState({click4:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
+        console.log(this.props.result)
+        console.log(this.props.q4)
         return (
 
+            <div>
                     <div className="result-con">
 
                         <div className="logo">
@@ -94,7 +132,7 @@ class CheckResult extends React.Component {
                                 mortgage based upon the information you have provided.
                             </p>
 
-                            {this.props.q4 === false ?
+                            {this.props.q4 === "No" ?
                                 (
                                     <>
                                         <Row>
@@ -310,6 +348,18 @@ class CheckResult extends React.Component {
                                                 </div>
                                             </Col>
                                         </Row>
+                                        {/*<div className="orangeBg">*/}
+                                        {/*    <div className="container">*/}
+                                        {/*        <div className="row">*/}
+                                        {/*            <div className="col-lg-12">*/}
+
+                                        {/*                <div className="innerDiv">*/}
+                                        {/*                    <h1>Hello</h1>*/}
+                                        {/*                </div>*/}
+                                        {/*            </div>*/}
+                                        {/*        </div>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
 
                                     </>
                                 ) :
@@ -326,13 +376,62 @@ class CheckResult extends React.Component {
                                             a mortgage.We recommend you discuss your circumstances with you primary
                                             current account bank who may be best placed to help
                                         </h2>
+
                                     </>
+
                                 )
                             }
                         </div>
 
+                        <div>
+                            <Dialog
+                                open={this.state.openModel}
+                                fullWidth={false}
+
+                                //maxWidth='md'
+                               // TransitionComponent={Transition}
+                              ///  keepMounted
+                              //  aria-labelledby="alert-dialog-slide-title"
+                               // aria-describedby="alert-dialog-slide-description"
+
+                            >
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-slide-title"
+                                     style = {{fontWeight: 700,color: 'rgb(251, 149, 0)',fontSize: '20px',margin:'40px 0px'}}>
+                                        Let's proceed and get your details to sort out your mortage
+                                    </DialogContentText>
+                                </DialogContent>
+                                <div style={{display:'flex',padding: "16px 0px"
+                                }}>
+                                <DialogContentText id="alert-dialog-slide-title"
+                                                   style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}
+                                >
+                                    <button
+                                        style={{backgroundColor: '#616161',color:'#ffffff', height: '45px',
+                                            padding :'0px 100px',
+                                            margin: '0px 0px 0 200px',
+                                            textAlign: 'center',
+                                            borderRadius:'8px'}}
+                                    >OK</button>
+
+                                </DialogContentText>
+                                    <img src={logo} alt='logo' style={{marginLeft:50,position: "relative",
+                                        top: -23}}/>
+                                </div>
+                            </Dialog>
+                        </div>
+
                     </div>
-        );
+
+                {/*<div className="footerDiv">*/}
+                {/*    <div className="bgClr">*/}
+                {/*        <div className="bgInnerDiv">*/}
+                {/*            <h1>Hello</h1>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+            </div>
+                );
     }
 }
 const mapStateToProps = (state) => {
