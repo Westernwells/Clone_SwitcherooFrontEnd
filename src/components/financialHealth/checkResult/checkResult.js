@@ -354,7 +354,7 @@ class CheckResult extends React.Component {
                                                     <h1>Bank 4</h1>
                                                     <i className="material-icons">error_outline</i>
                                                     <hr className='hr'></hr>
-                                                    <img src={Logo} alt="Question Mark"/>
+                                                    <img src={bank4No} alt="Question Mark"/>
                                                 </div>
                                             </Col> <br />
                                         <p className = "bank4-para">
