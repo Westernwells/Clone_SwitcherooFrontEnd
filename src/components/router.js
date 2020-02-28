@@ -17,7 +17,7 @@ import Home from "./home/home";
 import { connect } from "react-redux";
 import { loadUser } from "../redux/Thunk/authThunk";
 import RegistrationSuccessfully from "./varifyAccount/index";
-import resetPasswordVerification from "./varifyAccount/Password-reset-verification"
+import resetPasswordVerification from "./varifyAccount/Password-reset-verification";
 import { notification } from "antd";
 
 class Routing extends React.PureComponent {
@@ -97,7 +97,7 @@ class Routing extends React.PureComponent {
               {/* <PrivateRoute path="/home">
                 <Home/>
               </PrivateRoute> */}
-              {/* <Route path="/home" render={() => <Home />} /> */}
+              <Route path="/home" render={() => <Home />} />
               <Route
                 path="/home"
                 render={() =>
@@ -127,8 +127,16 @@ class Routing extends React.PureComponent {
                 path="/verifymail"
                 component={RegistrationSuccessfully}
               />
-              <Route exact path="/resetmailsended" component={resetPasswordVerification} />
-              <Route exact path="/resetpassword/:token" component={ResetPassword} />
+              <Route
+                exact
+                path="/resetmailsended"
+                component={resetPasswordVerification}
+              />
+              <Route
+                exact
+                path="/resetpassword/:token"
+                component={ResetPassword}
+              />
             </Switch>
           </div>
         </CSSTransition>

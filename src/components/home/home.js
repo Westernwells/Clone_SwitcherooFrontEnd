@@ -32,6 +32,7 @@ import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetail
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
 import NewForm from "../yourApplication/newForm/newForm";
+import PersonalDetails2p1a from "../personalDetails/personalDetails2.1a/personalDetails2.1a";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -148,6 +149,11 @@ function Home(props) {
                       exact
                       path="/home/details/personal_d1"
                       component={PersonalDetails1}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/personal2p1a"
+                      component={PersonalDetails2p1a}
                     />
                     <Route
                       exact
