@@ -73,14 +73,9 @@ function GetStarted(props) {
     overAllFormValidate: false
   });
   const [q4,setQ4] = useState("")
-  // const data = questions.filedBankruptcy;
-  // console.log(data);
-  // props.onSaveQ4Data(questions.filedBankruptcy);
+
   useEffect( () => {
-  console.log('render')
-    console.log("questions.filedBankruptcy useEffect",questions.filedBankruptcy);
     props.onSaveQ4Data(questions.filedBankruptcy);
-   //setQ4(questions.filedBankruptcy)
   },[questions.filedBankruptcy])
 
   function clickRadio(e) {

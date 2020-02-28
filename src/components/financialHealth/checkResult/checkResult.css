@@ -4,6 +4,18 @@
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
     /* padding: 0 0 10px 0; */
     font-family: Montserrat;
+    height:auto;
+}
+.footerDiv{
+    background-color: #fb9500;
+    padding: 10px 100px;
+    border-radius: 6px;
+}
+.bgInnerDiv{
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
 }
 .result-con .logo {
     height: 125px;
@@ -209,25 +221,25 @@
 
 }
 .result-con .d1 .amount-div .bank-1-4 div h1 {
- color : green;
+    /*color : green;*/
     font-size: 25px;
     font-weight: 600;
     margin: 0px;
  }
 .result-con .d1 .amount-div .bank-1-4 div h2 {
-    color : red;
+    /*color : #fb9500;*/
     font-size: 22px;
     font-weight: 600;
     margin: 0 0 0 22px;
 }
 .result-con .d1 .amount-div .bank-1-4 div h3 {
-    color : orange;
+    /*color : orange;*/
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 0 22px;
 }
 .result-con .d1 .amount-div .bank-1-4 .heading{
-    color : red;
+    /*color : #fb9500;;*/
     font-size: 22px;
     font-weight: 600;
     margin: 0 0 0 6px;
@@ -244,4 +256,14 @@ width: 34px;
 text-align: left;
     color:black;
     font-weight:500;
+}
+
+.bank4-para {
+    line-height: 1.5rem;
+    text-align: center;
+    top: 190px;
+    margin-top: 410px;
+    font-weight: 600;
+    font-size: 15px;
+    padding-bottom: 50px;
 }

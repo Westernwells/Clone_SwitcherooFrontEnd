@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Button, message } from "antd";
+import {withRouter} from 'react-router-dom'
 import "./checkResult.css";
 import { connect } from "react-redux";
 import Logo from '../images/questionMark icon.png';
@@ -31,6 +32,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import {orange} from "@material-ui/core/colors";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -44,19 +46,15 @@ class CheckResult extends React.Component {
     }
 
     Modal () {
-        console.log(this.state.showResult)
         if ( this.state.showResult >= 3 )
         {
-            console.log('true')
             setTimeout  ( () => {
                 this.setState({openModel:true})
-            },2000)
+            },5000)
         }
     }
 
     render() {
-
-
         const getBank1ResultsHandler = () => {
             if (this.props.result.fillSpreadSheet.data === "1") {
                  this.setState({bank1:'yes'})
@@ -113,8 +111,6 @@ class CheckResult extends React.Component {
             this.setState({showResult:this.state.showResult+1})
             this.Modal();
         }
-        console.log(this.props.result)
-        console.log(this.props.q4)
         return (
 
             <div>
@@ -155,7 +151,7 @@ class CheckResult extends React.Component {
                                                         (
                                                             <div className="bank-1-4">
                                                                 <div>
-                                                                    <h1>Good news,</h1>
+                                                                    <h1 style={{color:'#fb9500'}}>Good news,</h1>
                                                                     <img src={happy} alt="Happy Emoji"/>
                                                                 </div>
                                                                 <p>Based upon the information provided we believe this
@@ -166,9 +162,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#fb9500'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#fb9500'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -178,7 +174,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#fb9500'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -207,7 +203,7 @@ class CheckResult extends React.Component {
                                                             (
                                                                 <div className="bank-1-4">
                                                                     <div>
-                                                                        <h1>Good news,</h1>
+                                                                        <h1 style={{color:'#002efb73'}}>Good news,</h1>
                                                                         <img src={happy} alt="Happy Emoji"/>
                                                                     </div>
                                                                     <p>Based upon the information provided we believe this
@@ -218,9 +214,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#002efb73'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#002efb73'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -230,7 +226,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#002efb73'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -262,7 +258,7 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h1>Good news,</h1>
+                                                                            <h1 style={{color:'#53c742'}}>Good news,</h1>
                                                                             <img src={happy} alt="Happy Emoji"/>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
@@ -273,9 +269,9 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h2>Sorry</h2>
+                                                                                <h2 style={{color:'#53c742'}}>Sorry</h2>
                                                                                 <img src={sad} alt="Sad Emoji"/>
-                                                                                <h2 className="heading">Bad News</h2>
+                                                                                <h2 className="heading" style={{color:'#53c742'}}>Bad News</h2>
                                                                             </div>
                                                                             <p>Based upon the information provided we believe this
                                                                                 bank will lend to you</p>
@@ -285,7 +281,7 @@ class CheckResult extends React.Component {
                                                                         (
                                                                             <div className="bank-1-4">
                                                                                 <div>
-                                                                                    <h3>Manager Review Required</h3>
+                                                                                    <h3 style={{color:'#53c742'}}>Manager Review Required</h3>
                                                                                 </div>
                                                                                 <p>We believe you are in the bank's lending criteria but will
                                                                                     require a more senior level of approval</p>
@@ -314,7 +310,7 @@ class CheckResult extends React.Component {
                                                             (
                                                                 <div className="bank-1-4">
                                                                     <div>
-                                                                        <h1>Good news,</h1>
+                                                                        <h1 style={{color:'#e18494'}}>Good news,</h1>
                                                                         <img src={happy} alt="Happy Emoji"/>
                                                                     </div>
                                                                     <p>Based upon the information provided we believe this
@@ -325,9 +321,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#e18494'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#e18494'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -337,7 +333,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#e18494'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -348,37 +344,26 @@ class CheckResult extends React.Component {
                                                 </div>
                                             </Col>
                                         </Row>
-                                        {/*<div className="orangeBg">*/}
-                                        {/*    <div className="container">*/}
-                                        {/*        <div className="row">*/}
-                                        {/*            <div className="col-lg-12">*/}
-
-                                        {/*                <div className="innerDiv">*/}
-                                        {/*                    <h1>Hello</h1>*/}
-                                        {/*                </div>*/}
-                                        {/*            </div>*/}
-                                        {/*        </div>*/}
-                                        {/*    </div>*/}
-                                        {/*</div>*/}
 
                                     </>
                                 ) :
                                 (
                                     <>
-                                        <div className="mount-div">
-                                            <h1>Bank 4</h1>
-                                            <i className="material-icons">error_outline</i>
-                                            <hr className='hr'></hr>
-                                            <img src={Logo} alt="Question Mark"/>
-                                        </div>
-                                        <h2 className="mount-div" style={{lineHeight: '1.5rem', textAlign: 'center'}}>
+                                            <Col lg={12} style={{marginLeft:'190px'}}>
+                                                <div className="amount-div">
+                                                    <h1>Bank 4</h1>
+                                                    <i className="material-icons">error_outline</i>
+                                                    <hr className='hr'></hr>
+                                                    <img src={Logo} alt="Question Mark"/>
+                                                </div>
+                                            </Col> <br />
+                                        <p className = "bank4-para">
                                             Sorry based on the information provided we won't be able to help you
                                             a mortgage.We recommend you discuss your circumstances with you primary
                                             current account bank who may be best placed to help
-                                        </h2>
+                                        </p>
 
                                     </>
-
                                 )
                             }
                         </div>
@@ -387,70 +372,46 @@ class CheckResult extends React.Component {
                             <Dialog
                                 open={this.state.openModel}
                                 fullWidth={false}
-
-                                //maxWidth='md'
-                               // TransitionComponent={Transition}
-                              ///  keepMounted
-                              //  aria-labelledby="alert-dialog-slide-title"
-                               // aria-describedby="alert-dialog-slide-description"
-
                             >
                                 <DialogContent>
                                     <DialogContentText id="alert-dialog-slide-title"
-                                     style = {{fontWeight: 700,color: 'rgb(251, 149, 0)',fontSize: '20px',margin:'40px 0px'}}>
+                                                       style = {{fontWeight: 700,color:'rgb(251, 149, 0)',fontSize: '20px',margin:'40px 0px'}}>
                                         Let's proceed and get your details to sort out your mortage
                                     </DialogContentText>
                                 </DialogContent>
-                                <div style={{display:'flex',padding: "16px 0px"
-                                }}>
-                                <DialogContentText id="alert-dialog-slide-title"
-                                                   style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}
-                                >
-                                    <button
-                                        style={{backgroundColor: '#616161',color:'#ffffff', height: '45px',
-                                            padding :'0px 100px',
-                                            margin: '0px 0px 0 200px',
-                                            textAlign: 'center',
-                                            borderRadius:'8px'}}
-                                    >OK</button>
+
+                                <div style={{display:'flex',padding: "16px 0px"}}>
+                                    <DialogContentText id="alert-dialog-slide-title"
+                                                   style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}>
+                                    <button onClick={()=> this.props.history.push('/home/details')}
+                                            style={{backgroundColor: '#616161',color:'#ffffff', height: '45px', padding :'0px 100px',
+                                                    margin: '0px 0px 0 200px', textAlign: 'center', borderRadius:'8px'}}>
+                                        OK
+                                    </button>
 
                                 </DialogContentText>
-                                    <img src={logo} alt='logo' style={{marginLeft:50,position: "relative",
-                                        top: -23}}/>
+                                    <img src={logo} alt='logo' style={{marginLeft:50,position: "relative", top: -23}}/>
                                 </div>
                             </Dialog>
                         </div>
 
                     </div>
 
-                {/*<div className="footerDiv">*/}
-                {/*    <div className="bgClr">*/}
-                {/*        <div className="bgInnerDiv">*/}
-                {/*            <h1>Hello</h1>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+                <div className="footerDiv">
+                    <div className="bgClr">
+                        <div className="bgInnerDiv">
+                            <h2>This does not represent a formal mortgage offer or a guarantee of a mortgages</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
-                );
+        );
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         q4 : state.getStartedReducer.data,
         result : state.calculateResultReducer.data
     }
 }
-// const mapStateToProps = ({
-//                              userReducer: {
-//                                  user: { _id, firstName }
-//                              }
-//                          }) => ({
-//     userId: _id,
-//     userFirstName: firstName
-// });
-
-// const mapDispatchToProps = dispacth => ({
-//     SheetFill: props => dispacth(Api.fillDataSheet(props))
-// });
-export default connect(mapStateToProps,null)(CheckResult);
+export default connect(mapStateToProps,null)(withRouter(CheckResult));
