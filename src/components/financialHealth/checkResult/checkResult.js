@@ -5,21 +5,21 @@ import "./checkResult.css";
 import { connect } from "react-redux";
 import Logo from '../images/questionMark icon.png';
 
-import bank1Yes from './result-assests/bank-1/yes1_5.gif';
-import bank1No from './result-assests/bank-1/no1_5.gif';
-import bank1Maybe from './result-assests/bank-1/maybe1_5.gif';
+import bank1Yes from './result-assests/bank-1/yes1_5.webp';
+import bank1No from './result-assests/bank-1/no1_5 .webp';
+import bank1Maybe from './result-assests/bank-1/maybe1_5.webp';
 
-import bank2Yes from './result-assests/bank-2/yes2_5.gif';
-import bank2No from './result-assests/bank-2/no2_5.gif';
-import bank2Maybe from './result-assests/bank-2/maybe2_5.gif';
+import bank2Yes from './result-assests/bank-2/yes2_6.webp';
+import bank2No from './result-assests/bank-2/no2_6.webp';
+import bank2Maybe from './result-assests/bank-2/maybe2_6.webp';
 
-import bank3Yes from './result-assests/bank-3/yes3_5.gif';
-import bank3No from './result-assests/bank-3/no3_5.gif';
-import bank3Maybe from './result-assests/bank-3/maybe3_5.gif';
+import bank3Yes from './result-assests/bank-3/yes3_5.webp';
+import bank3No from './result-assests/bank-3/no3_5.webp';
+import bank3Maybe from './result-assests/bank-3/maybe3_5.webp';
 
 import bank4Yes from './result-assests/bank-4/yes4_5.gif';
-import bank4No from './result-assests/bank-4/no4_5.gif';
-import bank4Maybe from './result-assests/bank-4/maybe4_5.gif';
+import bank4No from './result-assests/bank-4/no4_5.webp';
+import bank4Maybe from './result-assests/bank-4/maybe4_5.webp';
 
 import happy from './result-assests/happy-emoji.jpg';
 import sad from './result-assests/sad-emoji.png';

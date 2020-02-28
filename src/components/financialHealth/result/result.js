@@ -92,8 +92,7 @@ class YourResult extends React.Component {
 
         </div>
 
-          <div style={{    textAlign: "center",
-              padding: "50px 0px"}}>
+          <div style={{textAlign: "center", padding: "50px 0px"}}>
               {this.state.isBtnShow && (
                   <button className="progresBtn" onClick={showProgress} >let's calculate your results</button>)}
               {this.state.isProgressShow && (

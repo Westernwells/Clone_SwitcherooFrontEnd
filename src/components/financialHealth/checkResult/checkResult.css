@@ -17,6 +17,9 @@
     text-align: center;
     border-radius: 6px;
 }
+.bgInnerDiv h2{
+     font-size:1rem;
+ }
 .result-con .logo {
     height: 125px;
     width: 100%;
@@ -262,7 +265,7 @@ text-align: left;
     line-height: 1.5rem;
     text-align: center;
     top: 190px;
-    margin-top: 410px;
+    margin-top: 430px;
     font-weight: 600;
     font-size: 15px;
     padding-bottom: 50px;
