@@ -23,6 +23,7 @@ import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
+import YourDocumentation from "../yourDocumentation/intro/mDocMain";
 import YourApplication from "../yourApplication/intro/docMain";
 import PtsbForm from "../yourApplication/ptsbForm/Main";
 import fOne from "../yourApplication/threeForms/fOne/First";
@@ -35,6 +36,17 @@ import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetail
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
 import NewForm from "../yourApplication/newForm/NewForm";
+import CustDoc from "../yourDocumentation/custCard/step1";
+import AddDoc from "../yourDocumentation/addCard/step2";
+import BankStDoc from "../yourDocumentation/bankStCard/step3";
+import SavingDoc from "../yourDocumentation/savingCard/step4";
+import BorrowDoc from "../yourDocumentation/borrowCard/step5";
+import CreditDoc from "../yourDocumentation/creditCard/step6";
+import MortgageDoc from "../yourDocumentation/mortgageCard/step7";
+import PayeeDoc from "../yourDocumentation/payeeCard/step8";
+import SelfDoc from "../yourDocumentation/selfCard/step9";
+import SourceDoc from "../yourDocumentation/sourceCard/step10";
+import OtherDoc from "../yourDocumentation/otherCard/step11";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -169,6 +181,66 @@ function Home(props) {
                     />
                     <Route
                       exact
+                      path="/home/yourDocumentation"
+                      component={YourDocumentation}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step1"
+                      component={CustDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step2"
+                      component={AddDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step3"
+                      component={BankStDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step4"
+                      component={SavingDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step5"
+                      component={BorrowDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step6"
+                      component={CreditDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step7"
+                      component={MortgageDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step8"
+                      component={PayeeDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step9"
+                      component={SelfDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step10"
+                      component={SourceDoc}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step11"
+                      component={OtherDoc}
+                    />
+                    <Route
+                      exact
                       path="/home/expertChat"
                       component={ExpertChat}
                     />
@@ -177,6 +249,7 @@ function Home(props) {
                       path="/home/yourApplication"
                       component={YourApplication}
                     />
+
                     <Route path="/home" component={Feed} />
                   </Switch>
                 </Row>

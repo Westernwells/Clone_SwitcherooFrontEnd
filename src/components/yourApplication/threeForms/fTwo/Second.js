@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SecondCapture3 from "./img/SecondCapture3.png";
-import SecondCapture4 from "./img/SecondCapture4.jpg";
+import SecondCapture4 from "./img/SecondCapture4.PNG";
 import ThirdCapture3 from "./img/ThirdCapture3.PNG";
 import pencil1 from "./img/pencil1.PNG";
 import home from "./img/home.PNG";
@@ -291,21 +291,12 @@ const Second = () => {
   const onSubmit = async e => {
     e.preventDefault();
     formData.lan = lan.join("");
-    if (formData.lan.length !== 9) {
-      return alert("Please enter valid Local Accound Number");
-    }
     formData.debtorName = debtorName.join("").trim();
-    if (formData.debtorName.length === 0) {
-      return alert("Debtor Name is required");
-    }
     formData.debtorAddress = combineAddressRows();
     formData.city = city.join("").trim();
     formData.postCode = postCode.join("").trim();
     formData.country = country.join("");
     formData.IBAN = IBAN.join("");
-    if (formData.IBAN.length === 0) {
-      return alert("Debtor Account Number - IBAN is required");
-    }
     formData.date1 = date1.join("");
     formData.date2 = date2.join("");
 

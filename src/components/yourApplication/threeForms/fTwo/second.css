@@ -51,6 +51,7 @@
   border: none;
   outline: none;
   text-align: center;
+  color: black !important;
 }
 .loanAccountNumber-inputLeft {
   height: 100%;
@@ -59,6 +60,7 @@
   outline: none;
   border-radius: 7px 0 0 7px;
   text-align: center;
+  color: black !important;
 }
 .loanAccountNumber-inputRight {
   height: 100%;
@@ -67,6 +69,7 @@
   outline: none;
   border-radius: 0 7px 7px 0;
   text-align: center;
+  color: black !important;
 }
 .forOfficeUseOnly-box {
   width: 100%;
@@ -93,6 +96,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .debtorName-inputLeft {
   height: 37px;
@@ -100,6 +104,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .debtorName-inputRight {
   height: 37px;
@@ -107,6 +112,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .debtorAddress {
   width: 30%;
@@ -128,6 +134,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .debtorAddress-inputLeft {
   height: 37px;
@@ -135,6 +142,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .debtorAddress-inputRight {
   height: 37px;
@@ -142,6 +150,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .city {
   width: 30%;
@@ -161,6 +170,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .city-inputLeft {
   height: 37px;
@@ -168,6 +178,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .city-inputRight {
   height: 37px;
@@ -175,6 +186,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .postCode {
   width: 30%;
@@ -194,6 +206,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .postCode-inputRight {
   height: 37px;
@@ -201,6 +214,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .postCode-inputLeft {
   height: 37px;
@@ -208,6 +222,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .country {
   width: 30%;
@@ -227,6 +242,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .country-inputLeft {
   height: 37px;
@@ -234,6 +250,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .country-inputRight {
   height: 37px;
@@ -241,6 +258,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .IBAN {
   width: 30%;
@@ -262,6 +280,7 @@
   border-right: 1px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .IBAN-inputLeft {
   height: 37px;
@@ -269,6 +288,7 @@
   border: 2px solid #75c04a;
   border-right: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .IBAN-inputRight {
   height: 37px;
@@ -276,6 +296,7 @@
   border: 2px solid #75c04a;
   border-left: 1px solid #75c04a;
   text-align: center;
+  color: black !important;
 }
 .secondBoxRow-left {
   width: 30%;

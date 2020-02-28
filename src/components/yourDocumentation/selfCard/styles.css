@@ -1,0 +1,109 @@
+.obord .title {
+  font-size: 26px;
+}
+
+.wrn-bx {
+  border: 2px solid #daa81b;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+.wrn-bx-inner {
+  background-color: #fb95008c;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.obord i {
+  cursor: pointer;
+}
+
+nav {
+  text-align: center;
+  background-color: #62635d !important;
+  border-radius: 20px 20px 0px 0px;
+  color: #fff;
+}
+
+nav a:hover {
+  border: none !important;
+  border-bottom: 4px solid #daa81b !important;
+  border-color: none;
+}
+
+.upload-btn {
+  padding: 6px 35px;
+  background-color: #fb9500;
+  color: white;
+  border: none;
+  margin-top: 25px;
+  border-radius: 10px;
+}
+
+.uploadApp1 {
+  width: 60%;
+}
+
+.addMoreApp1 {
+  width: 60%;
+  background-color: #62635d;
+}
+
+.project-tab {
+  padding: 10%;
+  margin-top: -8%;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent transparent transparent;
+  border-bottom: 4px solid #daa81b !important;
+}
+.project-tab .nav-link {
+  font-size: 16px;
+  font-weight: 600;
+}
+.project-tab thead {
+  background: #f3f3f3;
+  color: #333;
+}
+.project-tab a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.docContent {
+  border: 1px solid #d3d0d0;
+  padding: 0px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.filesContainer {
+  height: 150px;
+  padding: 0px 15px;
+}
+
+.filesLabel {
+  background-color: #d3d0d0 !important;
+}
+
+.filesLabel span {
+  font-size: 14px;
+}
+
+.filesContainer li {
+  font-size: 14px;
+  list-style: none;
+}
+.fa-pdf {
+  color: #fb9500;
+}
+.filesOptions {
+  background-color: #fb9500;
+  border: none;
+  color: #fff;
+  border-radius: 58px !important;
+}

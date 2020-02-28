@@ -138,10 +138,6 @@
   @page {
     size: A4;
   }
-  /* body {
-    padding: 0px 115px !important;
-    -webkit-print-color-adjust: exact;
-  } */
   .third {
     width: 100%;
     /* padding: 0px 95px 0px 80px !important; */
