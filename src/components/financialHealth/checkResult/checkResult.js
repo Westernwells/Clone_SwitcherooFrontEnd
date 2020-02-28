@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Button, message } from "antd";
+import {withRouter} from 'react-router-dom'
 import "./checkResult.css";
 import { connect } from "react-redux";
 import Logo from '../images/questionMark icon.png';
@@ -22,64 +23,97 @@ import bank4Maybe from './result-assests/bank-4/maybe4_5.gif';
 
 import happy from './result-assests/happy-emoji.jpg';
 import sad from './result-assests/sad-emoji.png';
+import logo from './result-assests/logo.png';
+
+import Button1 from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+import {orange} from "@material-ui/core/colors";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 class CheckResult extends React.Component {
     state = {
         bank1 : null, bank2 : null, bank3 : null, bank4 : null,
-        click1: false,click2: false,click3: false,click4: false
+        click1: false,click2: false,click3: false,click4: false,
+        showResult:0, openModel:false
+    }
+
+    Modal () {
+        if ( this.state.showResult >= 3 )
+        {
+            setTimeout  ( () => {
+                this.setState({openModel:true})
+            },5000)
+        }
     }
 
     render() {
         const getBank1ResultsHandler = () => {
-            if (this.props.result.fillSpreadSheet.msg === "Bad news, based on what you have provided you do not fit this bank’s lending criteria") {
+            if (this.props.result.fillSpreadSheet.data === "1") {
                  this.setState({bank1:'yes'})
             }
-            else if (this.props.result.fillSpreadSheet.msg === "no") {
+            else if (this.props.result.fillSpreadSheet.data === "3") {
                 this.setState({bank1:'no'})
             }
-              else if (this.props.result.fillSpreadSheet.msg === "maybe"){
+              else if (this.props.result.fillSpreadSheet.data === "2"){
                 this.setState({bank1:'maybe'})
             }
               this.setState({click1:true})
+              this.setState({showResult:this.state.showResult+1})
+             this.Modal();
         }
         const getBank2ResultsHandler = () => {
-            if (this.props.result.fillIcsSpreadSheet.msg === "yes") {
+            if (this.props.result.fillIcsSpreadSheet.data === "1") {
                 this.setState({bank2:'yes'})
             }
-            else if (this.props.result.fillIcsSpreadSheet.msg === "no") {
+            else if (this.props.result.fillIcsSpreadSheet.data === "3") {
                 this.setState({bank2:'no'})
             }
-            else if (this.props.result.fillIcsSpreadSheet.msg === "Bad news, based on what you have provided you do not fit this bank’s lending criteria"){
+            else if (this.props.result.fillIcsSpreadSheet.data === "2"){
                 this.setState({bank2:'maybe'})
             }
             this.setState({click2:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
         const getBank3ResultsHandler = () => {
-            if (this.props.result.fillPtsbSpreadSheet.msg === "yes") {
+            if (this.props.result.fillPtsbSpreadSheet.data === "1") {
                 this.setState({bank3:'yes'})
             }
-            else if (this.props.result.fillPtsbSpreadSheet.msg === "Good news, based on the information you provided we are confident that this bank will approve this loan") {
+            else if (this.props.result.fillPtsbSpreadSheet.data === "3") {
                 this.setState({bank3:'no'})
             }
-            else if (this.props.result.fillPtsbSpreadSheet.msg === "maybe"){
+            else if (this.props.result.fillPtsbSpreadSheet.data === "2"){
                 this.setState({bank3:'maybe'})
             }
             this.setState({click3:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
         const getBank4ResultsHandler = () => {
-            if (this.props.result.fillHavenSpreadSheet.msg === "Good news, based on the information you provided we are confident that this bank will approve this loan") {
+            if (this.props.result.fillHavenSpreadSheet.data === "1") {
                 this.setState({bank4:'yes'})
             }
-            else if (this.props.result.fillHavenSpreadSheet.msg === "no") {
+            else if (this.props.result.fillHavenSpreadSheet.data === "3") {
                 this.setState({bank4:'no'})
             }
-            else if (this.props.result.fillHavenSpreadSheet.msg === "maybe"){
+            else if (this.props.result.fillHavenSpreadSheet.data === "2"){
                 this.setState({bank4:'maybe'})
             }
             this.setState({click4:true})
+            this.setState({showResult:this.state.showResult+1})
+            this.Modal();
         }
         return (
 
+            <div>
                     <div className="result-con">
 
                         <div className="logo">
@@ -94,7 +128,7 @@ class CheckResult extends React.Component {
                                 mortgage based upon the information you have provided.
                             </p>
 
-                            {this.props.q4 === false ?
+                            {this.props.q4 === "No" ?
                                 (
                                     <>
                                         <Row>
@@ -117,7 +151,7 @@ class CheckResult extends React.Component {
                                                         (
                                                             <div className="bank-1-4">
                                                                 <div>
-                                                                    <h1>Good news,</h1>
+                                                                    <h1 style={{color:'#fb9500'}}>Good news,</h1>
                                                                     <img src={happy} alt="Happy Emoji"/>
                                                                 </div>
                                                                 <p>Based upon the information provided we believe this
@@ -128,9 +162,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#fb9500'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#fb9500'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -140,7 +174,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#fb9500'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -169,7 +203,7 @@ class CheckResult extends React.Component {
                                                             (
                                                                 <div className="bank-1-4">
                                                                     <div>
-                                                                        <h1>Good news,</h1>
+                                                                        <h1 style={{color:'#002efb73'}}>Good news,</h1>
                                                                         <img src={happy} alt="Happy Emoji"/>
                                                                     </div>
                                                                     <p>Based upon the information provided we believe this
@@ -180,9 +214,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#002efb73'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#002efb73'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -192,7 +226,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#002efb73'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -224,7 +258,7 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h1>Good news,</h1>
+                                                                            <h1 style={{color:'#53c742'}}>Good news,</h1>
                                                                             <img src={happy} alt="Happy Emoji"/>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
@@ -235,9 +269,9 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h2>Sorry</h2>
+                                                                                <h2 style={{color:'#53c742'}}>Sorry</h2>
                                                                                 <img src={sad} alt="Sad Emoji"/>
-                                                                                <h2 className="heading">Bad News</h2>
+                                                                                <h2 className="heading" style={{color:'#53c742'}}>Bad News</h2>
                                                                             </div>
                                                                             <p>Based upon the information provided we believe this
                                                                                 bank will lend to you</p>
@@ -247,7 +281,7 @@ class CheckResult extends React.Component {
                                                                         (
                                                                             <div className="bank-1-4">
                                                                                 <div>
-                                                                                    <h3>Manager Review Required</h3>
+                                                                                    <h3 style={{color:'#53c742'}}>Manager Review Required</h3>
                                                                                 </div>
                                                                                 <p>We believe you are in the bank's lending criteria but will
                                                                                     require a more senior level of approval</p>
@@ -276,7 +310,7 @@ class CheckResult extends React.Component {
                                                             (
                                                                 <div className="bank-1-4">
                                                                     <div>
-                                                                        <h1>Good news,</h1>
+                                                                        <h1 style={{color:'#e18494'}}>Good news,</h1>
                                                                         <img src={happy} alt="Happy Emoji"/>
                                                                     </div>
                                                                     <p>Based upon the information provided we believe this
@@ -287,9 +321,9 @@ class CheckResult extends React.Component {
                                                                 (
                                                                     <div className="bank-1-4">
                                                                         <div>
-                                                                            <h2>Sorry</h2>
+                                                                            <h2 style={{color:'#e18494'}}>Sorry</h2>
                                                                             <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading">Bad News</h2>
+                                                                            <h2 className="heading" style={{color:'#e18494'}}>Bad News</h2>
                                                                         </div>
                                                                         <p>Based upon the information provided we believe this
                                                                             bank will lend to you</p>
@@ -299,7 +333,7 @@ class CheckResult extends React.Component {
                                                                     (
                                                                         <div className="bank-1-4">
                                                                             <div>
-                                                                                <h3>Manager Review Required</h3>
+                                                                                <h3 style={{color:'#e18494'}}>Manager Review Required</h3>
                                                                             </div>
                                                                             <p>We believe you are in the bank's lending criteria but will
                                                                                 require a more senior level of approval</p>
@@ -315,43 +349,69 @@ class CheckResult extends React.Component {
                                 ) :
                                 (
                                     <>
-                                        <div className="mount-div">
-                                            <h1>Bank 4</h1>
-                                            <i className="material-icons">error_outline</i>
-                                            <hr className='hr'></hr>
-                                            <img src={Logo} alt="Question Mark"/>
-                                        </div>
-                                        <h2 className="mount-div" style={{lineHeight: '1.5rem', textAlign: 'center'}}>
+                                            <Col lg={12} style={{marginLeft:'190px'}}>
+                                                <div className="amount-div">
+                                                    <h1>Bank 4</h1>
+                                                    <i className="material-icons">error_outline</i>
+                                                    <hr className='hr'></hr>
+                                                    <img src={Logo} alt="Question Mark"/>
+                                                </div>
+                                            </Col> <br />
+                                        <p className = "bank4-para">
                                             Sorry based on the information provided we won't be able to help you
                                             a mortgage.We recommend you discuss your circumstances with you primary
                                             current account bank who may be best placed to help
-                                        </h2>
+                                        </p>
+
                                     </>
                                 )
                             }
                         </div>
 
+                        <div>
+                            <Dialog
+                                open={this.state.openModel}
+                                fullWidth={false}
+                            >
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-slide-title"
+                                                       style = {{fontWeight: 700,color:'rgb(251, 149, 0)',fontSize: '20px',margin:'40px 0px'}}>
+                                        Let's proceed and get your details to sort out your mortage
+                                    </DialogContentText>
+                                </DialogContent>
+
+                                <div style={{display:'flex',padding: "16px 0px"}}>
+                                    <DialogContentText id="alert-dialog-slide-title"
+                                                   style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}>
+                                    <button onClick={()=> this.props.history.push('/home/details')}
+                                            style={{backgroundColor: '#616161',color:'#ffffff', height: '45px', padding :'0px 100px',
+                                                    margin: '0px 0px 0 200px', textAlign: 'center', borderRadius:'8px'}}>
+                                        OK
+                                    </button>
+
+                                </DialogContentText>
+                                    <img src={logo} alt='logo' style={{marginLeft:50,position: "relative", top: -23}}/>
+                                </div>
+                            </Dialog>
+                        </div>
+
                     </div>
+
+                <div className="footerDiv">
+                    <div className="bgClr">
+                        <div className="bgInnerDiv">
+                            <h2>This does not represent a formal mortgage offer or a guarantee of a mortgages</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         q4 : state.getStartedReducer.data,
         result : state.calculateResultReducer.data
     }
 }
-// const mapStateToProps = ({
-//                              userReducer: {
-//                                  user: { _id, firstName }
-//                              }
-//                          }) => ({
-//     userId: _id,
-//     userFirstName: firstName
-// });
-
-// const mapDispatchToProps = dispacth => ({
-//     SheetFill: props => dispacth(Api.fillDataSheet(props))
-// });
-export default connect(mapStateToProps,null)(CheckResult);
+export default connect(mapStateToProps,null)(withRouter(CheckResult));
