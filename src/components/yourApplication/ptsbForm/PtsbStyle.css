@@ -30,6 +30,7 @@
 
 .accountNumber {
   width: 1.7em;
+  padding: 0;
 }
 
 .accountNumber:focus {
