@@ -1,39 +1,58 @@
 import React, { Component } from "react";
-// import Result from "../result/result"
-// import Property from "./property/index"
-// import User1 from "./User/userContainner"
-// import Background from "../financialHealth/getStarted/getStarted"
 
-import "./index.css"
-// import Top from "../financialHealth/afterintial/topnavigation/topSteper";
+import "./index.css";
+import StepOne from "./personalDetails1/personalDetails1";
 import MonthlyOutgoing from "./monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "./creditCommittments/CreditCommittments";
 import BankDetails from "./bankDetails/BankDetails";
-import TopSteper from './topnavigation/topSteper'
+import TopSteper from "./topnavigation/topSteper";
+import UserNav from "./userNavigation/topNavigation";
 
 export class index extends Component {
   state = {
-    selectedKey: 5
-  }
+    selectedKey: 1,
+    defalutClient: "user1"
+  };
 
-  changeProfRoute = key => this.setState( { selectedKey: key } );
+  changeProfRoute = key => this.setState({ selectedKey: key });
 
   profRouteRenderer = () => {
     const { selectedKey } = this.state;
-    console.log( "selected key", selectedKey )
-    if ( selectedKey === 5 ) return <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />
-    if ( selectedKey === 6 ) return <CreditCommittments changeProfRout={this.changeProfRoute} />
-    if ( selectedKey === 7 ) return <BankDetails changeProfRout={this.changeProfRoute} />
+    if (selectedKey === 1)
+      return <StepOne present={true} changeProfRout={this.changeProfRoute} />;
+    if (selectedKey === 5)
+      return (
+        <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />
+      );
+    if (selectedKey === 6)
+      return <CreditCommittments changeProfRout={this.changeProfRoute} />;
+    if (selectedKey === 7)
+      return <BankDetails changeProfRout={this.changeProfRoute} />;
+  };
 
+  UserChange = e => {
+    this.setState({
+      defalutClient: e.key
+    });
   };
 
   render() {
     return (
       <div>
-        <div >
-          <div >
-            <TopSteper defaltSet={this.state.selectedKey} changeProfRoute={this.changeProfRoute} />
-            {this.profRouteRenderer()}
+        <div>
+          <div>
+            <TopSteper
+              defaltSet={this.state.selectedKey}
+              changeProfRoute={this.changeProfRoute}
+              defalutClient={this.state.defalutClient}
+            />
+            <div className="bottonItems">
+              <UserNav
+                defalutClient={this.state.defalutClient}
+                onchangeFunc={this.UserChange}
+              />
+              {this.profRouteRenderer()}
+            </div>
           </div>
         </div>
       </div>
