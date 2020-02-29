@@ -5,6 +5,7 @@ import Page3 from "./Page3";
 import Page4 from "./Page4";
 import Page5 from "./Page5";
 import Page6 from "./Page6";
+import "./PtsbStyle.css";
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
