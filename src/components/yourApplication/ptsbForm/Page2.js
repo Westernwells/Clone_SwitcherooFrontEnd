@@ -1,6 +1,7 @@
 import React from "react";
 import ptsbHeader from "../../../assets/ptsb-header.png";
 import footer from "../../../assets/ptsb-footer.png";
+import page2_1 from "../../../assets/p2_1.png";
 
 import CheckBox from "./CheckBox";
 
@@ -68,31 +69,7 @@ class Page2 extends React.Component {
         <h2 className="mt-2 font-weight-bold color-primary">
           Responsible Lending – Our Approach
         </h2>
-        <p className="mb-0" style={{ fontSize: "0.74rem" }}>
-          Whether you are borrowing by way of Term Loan to fund that special
-          purchase, looking for a Mortgage to assist in the purchase of a
-          property, or would like to avail of an overdraft or credit card
-          facility, we have a responsibility to you to act as a prudent and
-          responsible lender. That means that we will be open and honest with
-          you in the manner in which we promote and offer our products. We will
-          provide clear information on the cost of your borrowing and we will
-          provide sufficient details in relation to fees, charges, and terms and
-          conditions to enable you make an informed decision before entering
-          into the transaction. </p>
-        <p className="mt-little">
-          Before advancing any facility, an assessment of your ability to meet
-          the required repayments will be completed and any advance will be
-          limited to the amount we believe will ensure you can meet repayments
-          comfortably while still meeting other essential financial and
-          lifestyle commitments. </p>
-        <p className="mt-little">
-          To assist us in this regard it is important that you provide us with a
-          complete record of your financial affairs, particularly in relation to
-          any non-bank commitments. It is therefore important that you complete
-          the following brief questionnaire carefully, as the information will
-          be used to determine the appropriateness of our product offering to
-          you.
-        </p>
+        <img src={page2_1} width="700" className="mt-2"></img>
 
         <div className="d-flex flex-column w-95">
           <div className="d-flex flex-row justify-content-between align-items-center">
@@ -467,7 +444,7 @@ class Page2 extends React.Component {
           (If Provided){" "}
         </h2>
 
-        <p>
+        <p className="mt-2">
           I/We have provided specific health-related information in the form
           above which{" "}
           <u>I/We feel is relevant to the application for this product.</u>{" "}
@@ -488,12 +465,12 @@ class Page2 extends React.Component {
           information in the decision process.
         </p>
 
-        <div className="d-flex flex-row w-80 justify-content-between mt-2">
-          <div className="w-70 d-flex flex-row justify-content-between align-items-center">
+        <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+          <div className="w-70 d-flex flex-row justify-content-between align-items-end">
             <label className="w-40">Signature of first applicant:</label>
             <input type="text" className="primary-input form-control w-56" />
           </div>
-          <div className="d-flex flex-row w-25 align-items-center">
+          <div className="d-flex flex-row w-25 align-items-end">
             <label className="mr-2">Date:</label>
             {this.getSplitInput(2, "date")}
             <p className="mr-1">/</p>
@@ -503,12 +480,12 @@ class Page2 extends React.Component {
           </div>
         </div>
 
-        <div className="d-flex flex-row w-80 justify-content-between mt-2">
-          <div className="w-70 d-flex flex-row justify-content-between align-items-center">
+        <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+          <div className="w-70 d-flex flex-row justify-content-between align-items-end">
             <label className="w-40">Signature of second applicant:</label>
             <input type="text" className="primary-input form-control w-56" />
           </div>
-          <div className="d-flex flex-row w-25 align-items-center">
+          <div className="d-flex flex-row w-25 align-items-end">
             <label className="mr-2">Date:</label>
             {this.getSplitInput(2, "date")}
             <p className="mr-1">/</p>
@@ -542,14 +519,14 @@ class Page2 extends React.Component {
           my/our place of employment/business.
         </p>
 
-        <div className="d-flex flex-row w-80 justify-content-between mt-2">
-          <div className="w-70 d-flex flex-row justify-content-between align-items-center">
+        <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+          <div className="w-70 d-flex flex-row justify-content-between align-items-end">
             <label className="w-40" style={{ fontSize: "12px" }}>
               Signature of first applicant:
             </label>
             <input type="text" className="primary-input form-control w-56" />
           </div>
-          <div className="d-flex flex-row w-25 align-items-center">
+          <div className="d-flex flex-row w-25 align-items-end">
             <label className="mr-2" style={{ fontSize: "12px" }}>
               Date:
             </label>
@@ -561,14 +538,14 @@ class Page2 extends React.Component {
           </div>
         </div>
 
-        <div className="d-flex flex-row w-80 justify-content-between mt-2">
-          <div className="w-70 d-flex flex-row justify-content-between">
+        <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+          <div className="w-70 d-flex flex-row justify-content-between align-items-end">
             <label className="w-40" style={{ fontSize: "12px" }}>
               Signature of second applicant:
             </label>
             <input type="text" className="primary-input form-control w-56" />
           </div>
-          <div className="d-flex flex-row w-25 align-items-center">
+          <div className="d-flex flex-row w-25 align-items-end">
             <label className="mr-2" style={{ fontSize: "12px" }}>
               Date:
             </label>
@@ -580,7 +557,7 @@ class Page2 extends React.Component {
           </div>
         </div>
 
-        <img src={footer} height="13" className="mt-5"></img>
+        <img src={footer} height="13" className="mt-4"></img>
       </div>
     );
   }

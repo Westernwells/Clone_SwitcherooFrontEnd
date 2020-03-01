@@ -280,7 +280,7 @@ class Page1 extends React.Component {
         </div>
 
         <h2 className="mt-3 font-weight-bold color-primary">Valuation</h2>
-        <img src={test1} width="700" alt="" />
+        <img src={test1} width="700" alt="" className="mt-2"/>
 
         <h2 className="mt-3 font-weight-bold color-primary mb-2">Insurance</h2>
         <img src={test} width="700" alt="" />
