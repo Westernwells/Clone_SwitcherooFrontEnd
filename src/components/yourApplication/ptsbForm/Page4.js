@@ -2,6 +2,7 @@ import React from "react";
 import CheckBox from "./CheckBox";
 import page4_1 from "../../../assets/p4_1.png";
 import page4_2 from "../../../assets/p4_2.png";
+import page4_4 from "../../../assets/p4_4.png";
 import ptsbHeader from "../../../assets/ptsb-header.png";
 import footer from "../../../assets/ptsb-footer.png";
 
@@ -401,10 +402,48 @@ class Page4 extends React.Component {
               </p>
             </div>
           </div>
-          <div className="d-flex flex-column w-100 mt-2">
             <img src={page4_1} width="700"></img>
             <img src={page4_2} width="700"></img>
+          <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+            <div className="w-70 d-flex flex-row justify-content-between align-items-end">
+              <label className="w-40" style={{ fontSize: "12px" }}>
+                Signature of first applicant:
+            </label>
+              <input type="text" className="primary-input form-control w-56" />
+            </div>
+            <div className="d-flex flex-row w-25 align-items-end">
+              <label className="mr-2" style={{ fontSize: "12px" }}>
+                Date:
+            </label>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+            </div>
           </div>
+
+          <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+            <div className="w-70 d-flex flex-row justify-content-between align-items-end">
+              <label className="w-40" style={{ fontSize: "12px" }}>
+                Signature of second applicant:
+            </label>
+              <input type="text" className="primary-input form-control w-56" />
+            </div>
+            <div className="d-flex flex-row w-25 align-items-end">
+              <label className="mr-2" style={{ fontSize: "12px" }}>
+                Date:
+            </label>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+            </div>
+          </div>
+
+          <img src={page4_4} width="700" className="mt-2"></img>
+
         </div>
         <img src={footer} height="13"></img>
       </div>
