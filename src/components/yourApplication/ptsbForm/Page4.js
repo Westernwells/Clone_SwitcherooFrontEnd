@@ -2,6 +2,8 @@ import React from "react";
 import CheckBox from "./CheckBox";
 import page4_1 from "../../../assets/p4_1.png";
 import page4_2 from "../../../assets/p4_2.png";
+import ptsbHeader from "../../../assets/ptsb-header.png";
+import footer from "../../../assets/ptsb-footer.png";
 
 class Page4 extends React.Component {
   constructor(props) {
@@ -50,15 +52,9 @@ class Page4 extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid p-5 page4 px-5 py-3">
-        <hr className="divider" />
-
-        <h4 className="text-right color-primary header">
-          <span className="font-weight-bold">permanent tsb</span> Mortgage
-          Application for Credit
-        </h4>
-        <hr className="divider-dotted" />
-        <div className="d-flex flex-column w-100">
+      <div className="container-fluid page4 px-5 py-4">
+        <img src={ptsbHeader} height="48px" className="mt-4"></img>
+        <div className="d-flex flex-column w-100 mt-2">
           <div className="d-flex flex-row w-100 h-40">
             <div className="d-flex flex-column w-50 mr-4">
               <h2 className="mt-1 font-weight-bold color-primary mb-2">
@@ -410,12 +406,7 @@ class Page4 extends React.Component {
             <img src={page4_2} width="700"></img>
           </div>
         </div>
-        <p
-          className="text-right mb-2"
-          style={{ fontSize: "9px", position: "relative", bottom: "10px" }}
-        >
-          BMK3069 (Rev07/18)
-        </p>
+        <img src={footer} height="13"></img>
       </div>
     );
   }

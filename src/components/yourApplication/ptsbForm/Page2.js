@@ -1,4 +1,6 @@
 import React from "react";
+import ptsbHeader from "../../../assets/ptsb-header.png";
+import footer from "../../../assets/ptsb-footer.png";
 
 import CheckBox from "./CheckBox";
 
@@ -59,17 +61,11 @@ class Page2 extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid p-5">
-        <hr className="divider" />
+      <div className="container-fluid px-5 py-4">
 
-        <h4 className="text-right color-primary">
-          <span className="font-weight-bold header">permanent tsb</span>{" "}
-          Mortgage Application for Credit
-        </h4>
+        <img src={ptsbHeader} height="48px" className="mt-4"></img>
 
-        <hr className="divider-dotted" />
-
-        <h2 className="mt-1 font-weight-bold color-primary">
+        <h2 className="mt-2 font-weight-bold color-primary">
           Responsible Lending – Our Approach
         </h2>
         <p className="mb-0" style={{ fontSize: "0.74rem" }}>
@@ -584,7 +580,7 @@ class Page2 extends React.Component {
           </div>
         </div>
 
-        <p className="text-right mt-2" style={{ fontSize: '9px' }}>BMK3069 (Rev07/18)</p>
+        <img src={footer} height="13" className="mt-5"></img>
       </div>
     );
   }

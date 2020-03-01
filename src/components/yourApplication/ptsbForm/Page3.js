@@ -3,6 +3,7 @@ import page3_1 from "../../../assets/p3_1.png";
 import page3_2 from "../../../assets/p3_2.png";
 import page3_3 from "../../../assets/p3_3.png";
 import page3_4 from "../../../assets/p3_4.png";
+import footer from "../../../assets/ptsb-footer.png";
 
 class Page3 extends React.Component {
   getSplitInput = (boxCount, key) => {
@@ -21,16 +22,11 @@ class Page3 extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid p-5">
-        <img src={page3_1} width="700"></img>
+      <div className="container-fluid px-5 py-4">
+        <img src={page3_1} width="700" className="mt-4"></img>
         <img src={page3_2} width="700" className="mt-3"></img>
         <img src={page3_3} width="700"></img>
-        <p
-          className="text-right mt-5"
-          style={{ fontSize: "9px", position: "relative", bottom: "20px" }}
-        >
-          BMK3069 (Rev07/18)
-        </p>
+        <img src={footer} height="13"></img>
       </div>
     );
   }

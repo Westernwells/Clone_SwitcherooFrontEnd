@@ -37,7 +37,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="root" className="ptsb-form">
+      <div id="root" className="ptsb-form mt-6">
         <section>
           <div className="print-wrap page1">
             {this.state.obj && <Page1 form={this.state.obj} />}

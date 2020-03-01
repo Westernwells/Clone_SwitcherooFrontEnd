@@ -94,6 +94,10 @@
   width: 65% !important;
 }
 
+.w-63 {
+  width: 63% !important;
+}
+
 .w-60 {
   width: 60% !important;
 }
@@ -104,6 +108,10 @@
 
 .w-40 {
   width: 40% !important;
+}
+
+.w-37 {
+  width: 37% !important;
 }
 
 .w-35 {
@@ -437,4 +445,12 @@ labels {
 
 .mt-little {
   margin-top: 0.2rem !important;
+}
+
+.mt-4p5 {
+  margin-top: 2.5rem;
+}
+
+.mt-6 {
+  margin-top: 5rem;
 }
