@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../../assets/logo.png";
 import test from "../../../assets/test.png";
 import test1 from "../../../assets/test1.png";
+import footer from "../../../assets/ptsb-footer.png";
 
 class Page1 extends React.Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class Page1 extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid px-5 py-3">
+      <div className="container-fluid px-5 py-4">
         <div className="d-flex flex-row w-100">
           <div className="w-65 mt-5">
             <h1 className="color-primary headings">
@@ -104,7 +105,7 @@ class Page1 extends React.Component {
             <hr className="divider" />
           </div>
           <div className="w-35 d-flex justify-content-end">
-            <img src={logo} height="90" className="ml-2" />
+            <img src={logo} height="87" className="ml-2" />
           </div>
         </div>
 
@@ -210,7 +211,7 @@ class Page1 extends React.Component {
             <div className="w-65">
               <div className="input-group mb-1">
                 <div className="input-group-prepend">
-                  <span className="input-group-text primary-input no-right-border input-placeholder">
+                  <span className="input-group-text primary-input no-right-border input-placeholder pl-1 euro">
                     €
                   </span>
                 </div>
@@ -247,7 +248,7 @@ class Page1 extends React.Component {
             <div className="w-65">
               <div className="input-group mb-1">
                 <div className="input-group-prepend">
-                  <span className="input-group-text primary-input no-right-border input-placeholder">
+                  <span className="input-group-text primary-input no-right-border input-placeholder pl-1 euro">
                     €
                   </span>
                 </div>
@@ -284,9 +285,7 @@ class Page1 extends React.Component {
         <h2 className="mt-3 font-weight-bold color-primary mb-2">Insurance</h2>
         <img src={test} width="700" alt="" />
 
-        <p className="text-right mt-2" style={{ fontSize: "9px" }}>
-          BMK3069 (Rev07/18)
-        </p>
+        <img src={footer} height="13" className="mt-3"></img>
       </div>
     );
   }
