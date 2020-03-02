@@ -2,6 +2,7 @@ import React from "react";
 import ptsbHeader from "../../../assets/ptsb-header.png";
 import footer from "../../../assets/ptsb-footer.png";
 import page2_1 from "../../../assets/p2_1.png";
+import page2_2 from "../../../assets/p2_2.png";
 
 import CheckBox from "./CheckBox";
 
@@ -186,9 +187,9 @@ class Page2 extends React.Component {
               <th className="border-right-1">
                 Name of Credit Union / Other Lender
               </th>
-              <th className="border-right-1 w-20">Savings Balance</th>
-              <th className="border-right-1 w-20">Loan Balance</th>
-              <th className="w-20">Monthly Commitment</th>
+              <th className="border-right-1 w-23p1">Savings Balance</th>
+              <th className="border-right-1 w-23p1">Loan Balance</th>
+              <th className="w-23p1">Monthly Commitment</th>
             </tr>
 
             <tr className="border-left-1 border-right-1 border-bottom-1">
@@ -495,17 +496,13 @@ class Page2 extends React.Component {
           </div>
         </div>
 
-        <h3 className="font-weight-bold mt-1">
-          <i className="special-note">
-            * Only applicable where health-related personal data is disclosed.*
-          </i>
-        </h3>
+        <img src={page2_2} width="700" className="mt-1"></img>
 
         <h2 className="mt-2 font-weight-bold color-primary">
           Consent under the Consumer Credit Act 1995
         </h2>
 
-        <p>
+        <p className="mt-2">
           Under the Consumer Credit Act 1995 a customer’s consent is required if
           the customer wishes permanent tsb to be able to telephone him/her at
           his/her place of employment/business in connection with a Credit
