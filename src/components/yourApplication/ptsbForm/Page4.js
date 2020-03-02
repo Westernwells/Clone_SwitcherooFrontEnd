@@ -324,7 +324,7 @@ class Page4 extends React.Component {
                   </div>
                 </div>
               </div>
-              <p className="mt-1" style={{ fontSize: "10.4px" }}>
+              <p className="mt-1 lh-1p2" style={{ fontSize: "10.4px" }}>
                 If at any time you change your mind and you wish to amend your
                 direct marketing preferences, you may contact us by writing to
                 FREEPOST F4940, Customer Data Quality (Direct Marketing ),
@@ -389,7 +389,7 @@ class Page4 extends React.Component {
                   </div>
                 </div>
               </div>
-              <p>
+              <p className="lh-1p2">
                 If at any time you change your mind and you wish to amend your
                 direct marketing preferences, you may contact us by writing to
                 <span className="p4-textchange">
@@ -402,7 +402,7 @@ class Page4 extends React.Component {
               </p>
             </div>
           </div>
-            <img src={page4_1} width="700"></img>
+            <img src={page4_1} width="700" className="mt-3"></img>
             <img src={page4_2} width="700"></img>
           <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
             <div className="w-70 d-flex flex-row justify-content-between align-items-end">
@@ -442,7 +442,7 @@ class Page4 extends React.Component {
             </div>
           </div>
 
-          <img src={page4_4} width="700" className="mt-2"></img>
+          <img src={page4_4} width="700" className="mt-4"></img>
 
         </div>
         <img src={footer} height="13"></img>
