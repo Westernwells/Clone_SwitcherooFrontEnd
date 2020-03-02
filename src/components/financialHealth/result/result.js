@@ -76,23 +76,23 @@ class YourResult extends React.Component {
 
       }
     return (
-      <div className="result-con">
-        <div className="logo">
+      <div className="calculate-result">
+        <div>
           <img src="images/home/logo.png" alt="logo" />
         </div>
 
 
-        <div className="d1">
-          <h1 className="h1">You Financial Health Check Results</h1>
+        <div className="content">
+          <h1 >Your Financial Health Check Results</h1>
 
-          <p className="p2">
+          <p>
             We are connecting to the banks affordability calculators to see whether they will lend your requested
             mortgage based upon the information you have provided.
           </p>
 
         </div>
 
-          <div style={{textAlign: "center", padding: "50px 0px"}}>
+          <div style={{textAlign: "center", padding: "40px 0px"}}>
               {this.state.isBtnShow && (
                   <button className="progresBtn" onClick={showProgress} >let's calculate your results</button>)}
               {this.state.isProgressShow && (
