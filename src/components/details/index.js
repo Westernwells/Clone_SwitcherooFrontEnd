@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./index.css";
 import StepOne from "./personalDetails1/personalDetails1";
+import StepTwo from "./personalDetails2.1a/personalDetails2.1a";
 import MonthlyOutgoing from "./monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "./creditCommittments/CreditCommittments";
 import BankDetails from "./bankDetails/BankDetails";
@@ -20,6 +21,8 @@ export class index extends Component {
     const { selectedKey } = this.state;
     if (selectedKey === 1)
       return <StepOne present={true} changeProfRout={this.changeProfRoute} />;
+    if (selectedKey === 2)
+      return <StepTwo present={true} changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 5)
       return (
         <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />

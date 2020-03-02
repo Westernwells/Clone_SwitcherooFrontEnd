@@ -32,7 +32,7 @@ import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetail
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
 import NewForm from "../yourApplication/newForm/newForm";
-import PersonalDetails2p1a from "../personalDetails/personalDetails2.1a/personalDetails2.1a";
+import PersonalDetails2p1b from "../personalDetails/personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -152,8 +152,8 @@ function Home(props) {
                     />
                     <Route
                       exact
-                      path="/home/details/personal2p1a"
-                      component={PersonalDetails2p1a}
+                      path="/home/details/personal2p1b"
+                      component={PersonalDetails2p1b}
                     />
                     <Route
                       exact

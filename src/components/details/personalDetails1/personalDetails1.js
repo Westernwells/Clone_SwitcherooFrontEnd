@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Select, Button } from "antd";
+import {withRouter} from "react-router-dom";
 import "./personalDetails1.css";
 
 const { Option } = Select;
@@ -57,10 +58,11 @@ function PersonalDetails1(props) {
     setQuestions({ ...questions, purpose: value })
   }
   const handleRoute = route => {
-    if (addP && addP > 0)
-      props.history.push(route + "/" + addP);
-    else
-      props.history.push("/home/details/final_page");
+    props.changeProfRout(2);
+    // if (addP && addP > 0)
+    //   props.history.push(route + "/" + addP);
+    // else
+    //   props.history.push("/home/details/final_page");
 
   };
   return (
@@ -436,4 +438,4 @@ function PersonalDetails1(props) {
     </div>
   );
 }
-export default PersonalDetails1;
+export default withRouter(PersonalDetails1);
