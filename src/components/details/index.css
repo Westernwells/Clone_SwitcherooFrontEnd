@@ -1,5 +1,6 @@
 .itemCont{
-  width: 99%;
+  width: 96%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;

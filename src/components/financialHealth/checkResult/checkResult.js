@@ -5,21 +5,21 @@ import "./checkResult.css";
 import { connect } from "react-redux";
 import Logo from '../images/questionMark icon.png';
 
-import bank1Yes from './result-assests/bank-1/yes1_5.webp';
-import bank1No from './result-assests/bank-1/no1_5 .webp';
-import bank1Maybe from './result-assests/bank-1/maybe1_5.webp';
+import bank1Yes from './result-assests/optimized-gif/bank-1/maybe11_5.gif';
+import bank1No from './result-assests/optimized-gif/bank-1/no11_5.gif';
+import bank1Maybe from './result-assests/optimized-gif/bank-1/yes11_5.gif';
 
-import bank2Yes from './result-assests/bank-2/yes2_6.webp';
-import bank2No from './result-assests/bank-2/no2_6.webp';
-import bank2Maybe from './result-assests/bank-2/maybe2_6.webp';
+import bank2Yes from './result-assests/optimized-gif/bank-2/maybe22_5.gif';
+import bank2No from './result-assests/optimized-gif/bank-2/no22_5.gif';
+import bank2Maybe from './result-assests/optimized-gif/bank-2/yes22_5.gif';
 
-import bank3Yes from './result-assests/bank-3/yes3_5.webp';
-import bank3No from './result-assests/bank-3/no3_5.webp';
-import bank3Maybe from './result-assests/bank-3/maybe3_5.webp';
+import bank3Yes from './result-assests/optimized-gif/bank-3/maybe33_5.gif';
+import bank3No from './result-assests/optimized-gif/bank-3/no33_5.gif';
+import bank3Maybe from './result-assests/optimized-gif/bank-3/yes33_5.gif';
 
-import bank4Yes from './result-assests/bank-4/yes4_5.gif';
-import bank4No from './result-assests/bank-4/no4_5.webp';
-import bank4Maybe from './result-assests/bank-4/maybe4_5.webp';
+import bank4Yes from './result-assests/optimized-gif/bank-4/maybe44_5.gif';
+import bank4No from './result-assests/optimized-gif/bank-4/no44_5.gif';
+import bank4Maybe from './result-assests/optimized-gif/bank-4/yes44_5.gif';
 
 import happy from './result-assests/happy-emoji.jpg';
 import sad from './result-assests/sad-emoji.png';
@@ -349,15 +349,17 @@ class CheckResult extends React.Component {
                                 ) :
                                 (
                                     <>
-                                            <Col lg={12} style={{marginLeft:'190px'}}>
-                                                <div className="amount-div">
-                                                    <h1>Bank 4</h1>
-                                                    <i className="material-icons">error_outline</i>
-                                                    <hr className='hr'></hr>
+                                                <div className="result-div">
+                                                    <div className="top">
+                                                        <h1>Result</h1>
+                                                        <i className="material-icons">error_outline</i>
+                                                    </div>
+
+                                                    <hr className='hrr'></hr>
                                                     <img src={bank4No} alt="Question Mark"/>
                                                 </div>
-                                            </Col> <br />
-                                        <p className = "bank4-para">
+
+                                        <p className = "result-para">
                                             Sorry based on the information provided we won't be able to help you
                                             a mortgage.We recommend you discuss your circumstances with you primary
                                             current account bank who may be best placed to help
