@@ -4,7 +4,8 @@ import { Row, Col, Form, Button } from "antd";
 import "./newForm.css";
 import axios from 'axios';
 import html2pdf from "html2pdf.js";
-
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const NewForm = () => {
     const [form,setForm] = useState({
@@ -143,19 +144,62 @@ const NewForm = () => {
         setForm(stateClone);
         console.log(form)
     }
-    const exportPdf = () => {
+    // const exportPdf = () => {
 
-        var element = document.getElementById('application_div');
-        var opt = {
-            margin:       0.3,
-            filename:     'myfile.pdf',
-            image:        { type: 'jpeg', quality: 0.5 },
-            html2canvas:  { scale:  2},
-            jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
-        };
-        html2pdf(element, opt);
+    //     var element = document.getElementById('application_div');
+    //     var opt = {
+    //         margin:       0.3,
+    //         filename:     'myfile.pdf',
+    //         image:        { type: 'jpeg', quality: 0.5 },
+    //         html2canvas:  { scale:  2},
+    //         jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
+    //     };
+    //     html2pdf(element, opt);
 
-    }
+
+    const exportPdf = async () => {
+        var quotes = document.getElementById('application_div');
+        html2canvas(quotes)
+       .then((canvas) => {
+             //! MAKE YOUR PDF
+             var pdf = new jsPDF('p', 'pt', 'letter');
+             for (var i = 0; i <= quotes.clientHeight/980; i++) {
+                 //! This is all just html2canvas stuff
+                 var srcImg  = canvas;
+                 var sX      = 0;
+                 var sY      = 980*i; // start 980 pixels down for every new page
+                 var sWidth  = 900;
+                 var sHeight = 980;
+                 var dX      = 0;
+                 var dY      = 0;
+                 var dWidth  = 900;
+                 var dHeight = 980;
+                 const onePageCanvas = document.createElement("canvas");
+                 onePageCanvas.setAttribute('width', 900);
+                 onePageCanvas.setAttribute('height', 980);
+                 var ctx = onePageCanvas.getContext('2d');
+                 // details on this usage of this function: 
+                 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images#Slicing
+                 ctx.drawImage(srcImg,sX,sY,sWidth,sHeight,dX,dY,dWidth,dHeight);
+                 // document.body.appendChild(canvas);
+                 var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                 var width         = onePageCanvas.width;
+                 var height        = onePageCanvas.clientHeight;
+                 //! If we're on anything other than the first page,
+                 // add another page
+                 if (i > 0) {
+                     pdf.addPage(612, 791); //8.5" x 11" in pts (in*72)
+                 }
+                 //! now we declare that we're working on that page
+                 pdf.setPage(i+1);
+                 //! now we add content to that page!
+                 pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width*.62), (height*.62));
+             }
+             //! after the for loop is finished running, we save the pdf.
+             pdf.save('Test.pdf');
+         }
+       );
+     }
 
     return (
         <div>
@@ -163,7 +207,7 @@ const NewForm = () => {
                 <Button type="primary">Submit Application</Button>
                 <Button type="primary" onClick={exportPdf}>Download PDF</Button>
                 <div className="form-outer">
-                    <div className="A4" id="application_div">
+                    <div id="application_div">
                         <div className="cover-page">
                             <div className="logo-area">
                                 <img src={Logo} className="logo-img" />
@@ -180,11 +224,12 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        <div className="pagebreak"> </div>
-                        <br /><br />
+                        {/* <div className="pagebreak"> </div>
+                        <br /><br /> */}
                         <div className="right-main-header-container">
-                            <div className="right-main-header-top"></div>
-                            <div className="right-main-header-bottom">
+                            {/* <div className="right-main-header-top"></div> */}
+                            {/* <div className="right-main-header-bottom"> */}
+                            <div>
                                 <i>
                                     <p className="right-main-header-txt"> Application Form</p>
                                 </i>
