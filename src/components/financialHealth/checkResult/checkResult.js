@@ -53,8 +53,14 @@ class CheckResult extends React.Component {
             },5000)
         }
     }
-
+  
     render() {
+        console.log("[props]",this.props)
+        const handleRoute = () => {
+            
+            this.props.history.push('/home/details')
+            this.props.location.key = "3"
+        }
         const getBank1ResultsHandler = () => {
             if (this.props.result.fillSpreadSheet.data === "1") {
                  this.setState({bank1:'yes'})
@@ -356,7 +362,7 @@ class CheckResult extends React.Component {
                                                     </div>
 
                                                     <hr className='hrr'></hr>
-                                                    <img src={bank4No} alt="Question Mark"/>
+                                                    <img src={bank1No} alt="Question Mark"/>
                                                 </div>
 
                                         <p className = "result-para">
@@ -385,7 +391,7 @@ class CheckResult extends React.Component {
                                 <div style={{display:'flex',padding: "16px 0px"}}>
                                     <DialogContentText id="alert-dialog-slide-title"
                                                    style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}>
-                                    <button onClick={()=> this.props.history.push('/home/details')}
+                                    <button onClick={handleRoute}
                                             style={{backgroundColor: '#616161',color:'#ffffff', height: '45px', padding :'0px 100px',
                                                     margin: '0px 0px 0 200px', textAlign: 'center', borderRadius:'8px'}}>
                                         OK
