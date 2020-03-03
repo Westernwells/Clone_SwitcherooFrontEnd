@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -25,8 +26,10 @@
     "mailgun-js": "^0.22.0",
     "moment": "^2.24.0",
     "mongoose": "^5.7.14",
+    "object-path": "^0.11.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "pdfjs": "^2.3.4",
     "react": "^16.12.0",
     "react-calendar": "^2.19.2",
     "react-dom": "^16.12.0",
@@ -37,14 +40,14 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
     "react-toastify": "^5.4.1",
+    "react-shadow-scroll": "^1.0.0",
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "socketio-file-upload": "^0.7.0",
-    "styled-components": "^5.0.1",
-    "object-path": "^0.11.4"
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,0 +1,110 @@
+/* KBCDDM */
+.KBCDDM {
+  width: 100%;
+  max-height: 297mm;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 30px;
+}
+.KBCDDM-wrapper {
+  border: 1.5px solid #74c7ff;
+  border-top: none !important;
+  padding: 0px 30px 30px 30px;
+  margin: 0px 1px 0px 2px;
+}
+.KBCDDM-left-text {
+  font-size: 1.1rem;
+  color: rgb(14, 55, 75);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.KBCDDM-border-dotted {
+  border-bottom: 0.1rem dashed #64b9ff;
+}
+.KBCDDM-mrgn-btm {
+  margin-bottom: 1.6rem !important;
+}
+.KBCDDM-input {
+  border: 1px solid #35648a;
+  color: black !important;
+}
+.KBCDDM .KBCDDM-input:focus {
+  border: 1px solid dodgerblue;
+}
+.KBCDDM-input-min {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: black !important;
+}
+.iban-input-wrapper {
+  margin-right: 0.4rem;
+}
+.KBCDDM-date {
+  width: 27px;
+  height: 28px;
+  margin-right: 0.4rem;
+  border: 1px solid #35648a;
+  text-align: center;
+}
+.KBCDDM-date::-webkit-outer-spin-button,
+.KBCDDM-date::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.KBCDDM-date::placeholder {
+  color: rgb(184, 182, 182);
+}
+.KBCDDM-input-mrgn-btm {
+  margin-bottom: 10px !important;
+}
+@media print {
+  @page {
+    size: A4;
+  }
+  /* KBC DDM */
+  .KBCDDM {
+    width: 100% !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-wrapper {
+    border: 0.1rem solid #86cefd !important;
+    border-top: none !important;
+    padding: 0px 23px 20px 23px !important;
+    margin: 0px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-left-text {
+    font-size: 0.9rem !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-input {
+    height: 23px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-input-min {
+    height: 21px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .iban-input-wrapper {
+    margin-right: 0.25rem;
+  }
+  .KBCDDM-input-mrgn-btm {
+    margin-bottom: 6px !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-mrgn-btm {
+    margin-bottom: 1.55rem !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .KBCDDM-date {
+    width: 22px !important;
+    height: 22px !important;
+    margin-right: 0.35rem !important;
+    -webkit-print-color-adjust: exact;
+  }
+  .hide-on-print {
+    visibility: hidden !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
