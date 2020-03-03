@@ -191,29 +191,29 @@ label{
 
 
 .A4 {
-  background: white;
+  /* background: white;
   width: 94%;
   min-height: 100vh;
   height: auto;
   display: block;
-  margin: 0 auto;
-  padding: 10px 25px;
-  margin-bottom: 0.5cm;
+  margin: 0 auto; */
+  /* padding: 10px 25px; */
+  /* margin-bottom: 0.5cm;
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
   overflow-y: scroll;
   box-sizing: border-box;
   font-size: 12pt;
-  overflow-x: hidden;
+  overflow-x: hidden; */
 }
-
-@media print {
+/* 
+ @media print {
   .page-break {
     display: block;
     page-break-before: always;
   }
   size: A4 portrait;
-}
-
+} */
+/* 
 @media print {
   body {
     margin: 0;
@@ -225,19 +225,29 @@ label{
     width: auto;
     height: auto;
   }
+  .header {
+  border: 1px solid #000000;
+  padding: 3px;
+  padding-bottom: 0px;
+  border-radius: 10px;
+  padding-left: 15px;
+  background-color: #FAED9E;
+  margin: 0px 180px 0px 0px;
+}
   .noprint {
     display: none;
   }
   .enable-print {
     display: block;
   }
-}
+}  */
 
 
 .form-outer {
   max-height: calc(100vh - 150px);
-  margin: 20px 20px 20px 20px;
+  margin: 30px 20px 20px 20px;
   padding: 30px 30px 30px 30px;
+  /* padding : 30px 40px 30px 40px; */
   clear: both;
   border-radius: 10px;
   font-family: Montserrat;
@@ -271,6 +281,7 @@ label{
   border-radius: 10px;
   padding-left: 15px;
   background-color: #FAED9E;
+  margin: 0px 73px 0px 25px;
 }
 
 .full-content {
@@ -298,6 +309,7 @@ label{
 .form-group {
   width: 100%;
   display: flex;
+
 }
 
 .box-input {
@@ -513,9 +525,17 @@ label{
   padding: 5px;
 }
 
+.cover-page {
+    width: 90%;
+    background-color: #111E6C;
+    background-image: linear-gradient(to bottom right, #111E6C, #73C2FB);
+    height: 1458px;
+    margin: 0px 30px;
+}
 
 .covepage{
-  width:102%;
+  width:98%;
+  text-align: center;
   background-color: #111E6C;;
   background-image: linear-gradient(to bottom right, #111E6C, #73C2FB); 
   height:1458px;
@@ -525,6 +545,7 @@ label{
   text-align: right;
   padding: 80px;
   padding-bottom: 0px;
+  margin-right: 50px;
 }
 
 .logo-img{
@@ -554,7 +575,7 @@ padding-left: 110px;
   padding-left: 110px;
 }
 .cover-text{
-  width: 100%;
+  width: 90%;
   height: 450px;
 }
 
@@ -591,7 +612,7 @@ padding-left: 110px;
     margin-left: auto;
     /* height: 43px; */
     border-radius: 0px 0px 0px 33px;
-    box-shadow: 10px 10px 5px grey;
+    /* box-shadow: 10px 10px 5px grey; */
 }
 .right-main-header-bottom-blue{
   background: #111e6c;
@@ -608,7 +629,7 @@ padding-left: 110px;
 .right-main-header-top {
   background: #ffffff;
   height: 28px;
-  box-shadow: 10px 10px 5px grey;
+  /* box-shadow: 10px 10px 5px grey; */
 
 }
 .right-main-header-top-blue {
