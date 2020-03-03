@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 
 import "./index.css";
-import StepOne from "./personalDetails1/personalDetails1";
+import StepTwo from "./personalDetails1/personalDetails1";
+import MoverUser1 from "./personalDetailsMover2.3a/personalDetailsMover2.3a";
+import SwitcherUser1 from "./personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
+import FTBUser1 from "./personalDetails2.1a/personalDetails2.1a";
+
+import MoverUser2 from "./personalDetailsMover2.3b/personalDetailsMover2.3b";
+import SwitcherUser2 from "./personalDetailsSwitch2.2b/personalDetailsSwitch2.2b";
+import FTBUser2 from "./personalDetails2.1b/personalDetails2.1b";
+
+import { connect } from "react-redux";
+
 import MonthlyOutgoing from "./monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "./creditCommittments/CreditCommittments";
 import BankDetails from "./bankDetails/BankDetails";
@@ -17,9 +27,53 @@ export class index extends Component {
   changeProfRoute = key => this.setState({ selectedKey: key });
 
   profRouteRenderer = () => {
-    const { selectedKey } = this.state;
-    if (selectedKey === 1)
-      return <StepOne present={true} changeProfRout={this.changeProfRoute} />;
+    const { selectedKey, defalutClient } = this.state;
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "First Time Buyer" &&
+      defalutClient === "user1"
+    )
+      return <FTBUser1 present={true} changeProfRout={this.changeProfRoute} />;
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "House Mover" &&
+      defalutClient === "user1"
+    )
+      return (
+        <MoverUser1 present={true} changeProfRout={this.changeProfRoute} />
+      );
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "Switcher" &&
+      defalutClient === "user1"
+    )
+      return (
+        <SwitcherUser1 present={true} changeProfRout={this.changeProfRoute} />
+      );
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "First Time Buyer" &&
+      defalutClient === "user2"
+    )
+      return <FTBUser2 present={true} changeProfRout={this.changeProfRoute} />;
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "House Mover" &&
+      defalutClient === "user2"
+    )
+      return (
+        <MoverUser2 present={true} changeProfRout={this.changeProfRoute} />
+      );
+    if (
+      selectedKey === 1 &&
+      this.props.purposeOfMortgage === "Switcher" &&
+      defalutClient === "user2"
+    )
+      return (
+        <SwitcherUser2 present={true} changeProfRout={this.changeProfRoute} />
+      );
+    if (selectedKey === 2)
+      return <StepTwo present={true} changeProfRout={this.changeProfRoute} />;
     if (selectedKey === 5)
       return (
         <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />
@@ -60,4 +114,11 @@ export class index extends Component {
   }
 }
 
-export default index;
+const mapStateToProps = ({
+  Financial_data: {
+    financial_Health_Check: { purposeOfMortgage }
+  }
+}) => ({
+  purposeOfMortgage
+});
+export default connect(mapStateToProps)(index);

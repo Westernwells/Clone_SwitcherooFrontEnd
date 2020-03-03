@@ -48,6 +48,7 @@ import PayeeDoc from "../yourDocumentation/payeeCard/step8";
 import SelfDoc from "../yourDocumentation/selfCard/step9";
 import SourceDoc from "../yourDocumentation/sourceCard/step10";
 import OtherDoc from "../yourDocumentation/otherCard/step11";
+import PersonalDetails2p1b from "../personalDetails/personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -241,6 +242,8 @@ function Home(props) {
                       exact
                       path="/home/yourDocumentation/step11"
                       component={OtherDoc}
+                      path="/home/details/personal2p1b"
+                      component={PersonalDetails2p1b}
                     />
                     <Route
                       exact
