@@ -5,21 +5,21 @@ import "./checkResult.css";
 import { connect } from "react-redux";
 import Logo from '../images/questionMark icon.png';
 
-import bank1Yes from './result-assests/optimized-gif/bank-1/maybe11_5.gif';
+import bank1Yes from './result-assests/optimized-gif/bank-1/yes11_5.gif';
 import bank1No from './result-assests/optimized-gif/bank-1/no11_5.gif';
-import bank1Maybe from './result-assests/optimized-gif/bank-1/yes11_5.gif';
+import bank1Maybe from './result-assests/optimized-gif/bank-1/maybe11_5.gif';
 
-import bank2Yes from './result-assests/optimized-gif/bank-2/maybe22_5.gif';
+import bank2Yes from './result-assests/optimized-gif/bank-2/yes22_5.gif';
 import bank2No from './result-assests/optimized-gif/bank-2/no22_5.gif';
-import bank2Maybe from './result-assests/optimized-gif/bank-2/yes22_5.gif';
+import bank2Maybe from './result-assests/optimized-gif/bank-2/maybe22_5.gif';
 
-import bank3Yes from './result-assests/optimized-gif/bank-3/maybe33_5.gif';
+import bank3Yes from './result-assests/optimized-gif/bank-3/yes33_5.gif';
 import bank3No from './result-assests/optimized-gif/bank-3/no33_5.gif';
-import bank3Maybe from './result-assests/optimized-gif/bank-3/yes33_5.gif';
+import bank3Maybe from './result-assests/optimized-gif/bank-3/maybe33_5.gif';
 
-import bank4Yes from './result-assests/optimized-gif/bank-4/maybe44_5.gif';
+import bank4Yes from './result-assests/optimized-gif/bank-4/yes44_5.gif';
 import bank4No from './result-assests/optimized-gif/bank-4/no44_5.gif';
-import bank4Maybe from './result-assests/optimized-gif/bank-4/yes44_5.gif';
+import bank4Maybe from './result-assests/optimized-gif/bank-4/maybe44_5.gif';
 
 import happy from './result-assests/happy-emoji.jpg';
 import sad from './result-assests/sad-emoji.png';
@@ -121,7 +121,7 @@ class CheckResult extends React.Component {
                         </div>
 
                         <div className="d1">
-                            <h1 className="h1">You Financial Health Check Results</h1>
+                            <h1 className="h1">Your Financial Health Check Results</h1>
                             <p className="p2">
                                 We are connecting to the banks affordability calculators to see whether they will lend
                                 your requested
@@ -135,7 +135,7 @@ class CheckResult extends React.Component {
                                             <Col lg={12}>
                                                 <div className="amount-div">
                                                     <h1>Bank 1</h1>
-                                                    <i className="material-icons">error_outline</i>
+                                                    {/* <i className="material-icons">error_outline</i> */}
                                                     <hr className='hr'></hr>
                                                     {
                                                         (this.state.bank1 === "yes") ?
@@ -187,7 +187,7 @@ class CheckResult extends React.Component {
                                             <Col lg={12}>
                                                 <div className="amount-div">
                                                     <h1>Bank 2</h1>
-                                                    <i className="material-icons">error_outline</i>
+                                                    {/* <i className="material-icons">error_outline</i> */}
                                                     <hr className='hr'></hr>
                                                     {
                                                         (this.state.bank2 === "yes") ?
@@ -242,7 +242,7 @@ class CheckResult extends React.Component {
                                             <Col lg={12}>
                                                 <div className="amount-div">
                                                     <h1>Bank 3</h1>
-                                                    <i className="material-icons">error_outline</i>
+                                                    {/* <i className="material-icons">error_outline</i> */}
                                                     <hr className='hr'></hr>
                                                     {
                                                         (this.state.bank3 === "yes") ?
@@ -294,7 +294,7 @@ class CheckResult extends React.Component {
                                             <Col lg={12}>
                                                 <div className="amount-div">
                                                     <h1>Bank 4</h1>
-                                                    <i className="material-icons">error_outline</i>
+                                                    {/* <i className="material-icons">error_outline</i> */}
                                                     <hr className='hr'></hr>
                                                     {
                                                         (this.state.bank4 === "yes") ?
@@ -352,7 +352,7 @@ class CheckResult extends React.Component {
                                                 <div className="result-div">
                                                     <div className="top">
                                                         <h1>Result</h1>
-                                                        <i className="material-icons">error_outline</i>
+                                                        {/* <i className="material-icons">error_outline</i> */}
                                                     </div>
 
                                                     <hr className='hrr'></hr>
