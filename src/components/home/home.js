@@ -35,6 +35,7 @@ import FinalPage from "../details/FinalPage/FinalPage";
 import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
+import PersonalDetails2p1a from "../personalDetails/personalDetails2.1a/personalDetails2.1a";
 import NewForm from "../yourApplication/newForm/NewForm";
 import CustDoc from "../yourDocumentation/custCard/step1";
 import AddDoc from "../yourDocumentation/addCard/step2";
@@ -47,6 +48,7 @@ import PayeeDoc from "../yourDocumentation/payeeCard/step8";
 import SelfDoc from "../yourDocumentation/selfCard/step9";
 import SourceDoc from "../yourDocumentation/sourceCard/step10";
 import OtherDoc from "../yourDocumentation/otherCard/step11";
+import PersonalDetails2p1b from "../personalDetails/personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -181,6 +183,8 @@ function Home(props) {
                     />
                     <Route
                       exact
+                      path="/home/details/personal2p1a"
+                      component={PersonalDetails2p1a}
                       path="/home/yourDocumentation"
                       component={YourDocumentation}
                     />
@@ -238,6 +242,8 @@ function Home(props) {
                       exact
                       path="/home/yourDocumentation/step11"
                       component={OtherDoc}
+                      path="/home/details/personal2p1b"
+                      component={PersonalDetails2p1b}
                     />
                     <Route
                       exact
