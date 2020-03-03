@@ -217,6 +217,7 @@ const NewForm = () => {
                                 <p className="cover-sub-header">Application form</p>
                             </div>
                             <br /><br />
+                            
                             <div className="cover-text-area">
                                 <textarea className="cover-text" name="userId"  placeholder="PIBA Member" rows="4" cols="50" />
                             </div>
@@ -224,19 +225,17 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        {/* <div className="pagebreak"> </div>
-                        <br /><br /> */}
-                        <div className="right-main-header-container">
-                            {/* <div className="right-main-header-top"></div> */}
-                            {/* <div className="right-main-header-bottom"> */}
-                            <div>
-                                <i>
-                                    <p className="right-main-header-txt"> Application Form</p>
-                                </i>
+                        <div className="pagebreak"> </div>
+                        <br /><br /> 
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <h4 className="right-para">Application From</h4>
+                                </div>
                             </div>
                         </div>
                         <br /> <br />
-                        <div className="header">
+                        <div className="header1">
                             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
                         </div>
                         <br />
@@ -306,13 +305,14 @@ const NewForm = () => {
                                 </div>
                             </div>
                             <div className="row">
+                            <br/>
                                 <p>Disclosure of intermediary Status (where applicable). (e.g. only acts on behalf of one lender or one insurance company)</p>
                                 <br/>
                                 <p>If this application has been introduced to you, by a thord party (including an appointed introducer) please provide the introducers name and address.</p>
                             </div>
                         </div>
-                        <br/>
-                        <div className="header">
+                        <br/><br />
+                        <div className="header1">
                             <h5 className="header-txt"> EXPLANATORY TEXT</h5>
                         </div>
                         <br />
@@ -324,21 +324,29 @@ const NewForm = () => {
                             </div>
                         </div>
                         <br /><br />
-                        <div className="right-main-header-container">
+                        <div className="right-main-header-container" style={{"margin-right":"75px"}}>
                             <div className="right-main-header-top-blue"></div>
                             <div className="right-main-header-bottom-blue">
                                 <i>
-                                    <p className="right-main-header-txt-white"> PART ONE</p>
+                                    <p className="right-main-header-txt-white" > PART ONE</p>
                                 </i>
                             </div>
                         </div>
                         <br /> <br />
-                        <div className="header">
-                            <h5 className="header-txt"> NFORMATION ABOUT APPLICANT</h5>
+                        <div className="container">  
+                        <div className="header1">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                        <h5 className="header-txt"> INFORMATION ABOUT APPLICANT</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
                         <br />
-                        <p>Please indicate the reason for your application</p>
+                       
                         <div className="full-content">
+                            <p>Please indicate the reason for your application</p>
                             <div className="radioBtnDiv">
                                 <div className="container">
                                     <div className="row">
@@ -541,6 +549,192 @@ const NewForm = () => {
                                                 value={form.personalDetails.applicantOne.nationality}
                                                 onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
                                             />
+                                        </div> <br />
+                                        <div className="form-group">
+                                            <label className="box-label">PPS Number</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='ppsNumber'
+                                                value={form.personalDetails.applicantOne.ppsNumber}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label width100 font-size-12">Marital Status</label>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='married'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />married
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='remarried'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />remarried
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='single'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />single
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='separated/devorced'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />separated/devorced
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='widow/er'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />widow/er
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='co HABITANT'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />co HABITANT
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding">
+                                                    <input
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='other'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />other
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label">No. of Children</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='noOfChildren'
+                                                value={form.personalDetails.applicantOne.noOfChildren}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label">Children’s Ages</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='childrenAges'
+                                                value={form.personalDetails.applicantOne.childrenAges}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="header-container">
+                                            <h1 className="main-header">APPLICANT TWO</h1>
+                                        </div>
+                                        <div className="form-group">
+                                                <label class="container left-pad-5">Guarantor &nbsp;
+                                                    <input
+                                                        type="radio"
+                                                        className="radioBtn"
+                                                        name='Guarantor'
+                                                        value='Guarantor'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','leftCorrespondingCurrentAddress')}
+                                                    />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        <div className="form-group">
+                                            <br/>
+                                            <label className="box-label">Forenames</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='forename'
+                                                value={form.personalDetails.applicantOne.forename}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label">Surname</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='surname'
+                                                value={form.personalDetails.applicantOne.surname}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label">Other/Previous Names</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='otherName'
+                                                value={form.personalDetails.applicantOne.otherName}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label">Date of Birth (dd/mm/yyyy)</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='date'
+                                                value={form.personalDetails.applicantOne.date}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div><br />
+                                        <div className="form-group">
+                                            <label className="box-label">Nationality</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='nationality'
+                                                value={form.personalDetails.applicantOne.nationality}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
                                         </div>
                                         <div className="form-group">
                                             <label className="box-label">PPS Number</label>
@@ -555,7 +749,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label width100 font-size-12">Marital Status</label>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -567,7 +761,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -579,7 +773,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -591,7 +785,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -603,7 +797,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -615,7 +809,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -627,7 +821,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding">
                                                     <input
                                                         type="radio"
                                                         name='maritalStatus'
@@ -664,8 +858,6 @@ const NewForm = () => {
                                 </div>
 
                                 <div className="currentAddressDiv">
-                                    <div className="row">
-                                        <div className="col-lg-12">
                                             <div className="header">
                                                 <div className="row">
                                                     <div className="col-lg-6">
@@ -676,8 +868,6 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
                                     <br />
 
                                     <div className="row">
@@ -1595,7 +1785,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Lodger income per annum &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Residential Investment income per annum &euro;</label>
                                             <input type="text" className="box-input" />
@@ -1623,37 +1813,37 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />HOMEMAKER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1801,7 +1991,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Lodger income per annum &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Residential Investment income per annum &euro;</label>
                                             <input type="text" className="box-input" />
@@ -1829,37 +2019,37 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />HOMEMAKER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding paddingBorder">
                                                         <input type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -2118,7 +2308,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input" style={{ width: "70px" }} />
                                             <label className="box-label font-size-12">Country</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Occupation</label>
                                             <input type="text" className="box-input" />
@@ -2155,7 +2345,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input" style={{ width: "70px" }} />
                                             <label className="box-label font-size-12">Country</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Occupation</label>
                                             <input type="text" className="box-input" />
@@ -2678,7 +2868,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                 <br/>
-
+                                <br />
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <div className="form-group">
@@ -2688,7 +2878,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -2845,7 +3035,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3001,7 +3191,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3166,7 +3356,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                <br/> <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3178,7 +3368,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                <br/> <br/>
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -3186,7 +3376,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input width50" />
                                             <label className="box-label font-size-12">Amount Borrowed</label>
                                         </div>
-                                    </div>
+                                    </div> <br/>
                                     <div className="col-lg-6">
                                         <div className="row">
                                             <div className="col-lg-6">
@@ -3565,16 +3755,15 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br />
-                                <div className="main-header-container">
-                                    <div className="main-header-top-white"></div>
-                                    <div className="main-header-bottom-white">
+                                <br /><br /> 
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
                                         <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <br />
-
-                                <br/>
+                                <br /> <br />
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3784,7 +3973,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Purchase price/cost of Building </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Site Price (if applicable) </label>
                                             <input type="text" className="box-input width50" />
@@ -3811,7 +4000,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Savings* </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Grant  </label>
                                             <input type="text" className="box-input width50" />
@@ -4158,7 +4347,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-
+                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-group">
@@ -4224,17 +4413,15 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br /><br />
-                                <div className="right-main-header-container">
-                                    <div className="right-main-header-top"></div>
-                                    <div className="right-main-header-bottom">
-                                        <i>
-                                            <p className="right-main-header-txt"> Section E – Property Details</p>
-                                        </i>
+                                <br /><br /> 
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                        <i><p className="right-para-white">Section E – Property Details</p></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <br /> <br />
-                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4821,7 +5008,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Last Name  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Telephone Number  </label>
                                             <input type="text" className="box-input width50" />
@@ -4839,7 +5026,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 2  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 3  </label>
                                             <input type="text" className="box-input width50" />
@@ -5017,12 +5204,12 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-
+                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
                                             If yes, please specify by completing the following:
-                                        </label>
+                                        </label>  
                                         <div className="form-group">
                                             <label className="box-label font-size-12">1. Current Mortgage - Highest Number of Installment Arrears in last 12 months</label>
                                             <input type="text" className="box-input width50" />
@@ -5068,7 +5255,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <label className="font-size-12">
                                             If yes, please specify by completing the following:
                                         </label>
@@ -5606,7 +5793,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                <br/><br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5862,7 +6049,7 @@ const NewForm = () => {
                                 <br /><br />
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="header">
+                                        <div className="header" style={{"background-color":"#FAED9E"}}>
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <h5 className="header-txt">NOTES TO PART ONE OF THE APPLICATION FORM OCCUPATION (NOTE 2) </h5>
@@ -5918,12 +6105,13 @@ const NewForm = () => {
 
 
                                 <br /><br />
-                                <div className="right-main-header-container">
-                                    <div className="right-main-header-top"></div>
-                                    <div className="right-main-header-bottom">
-                                        <i>
-                                            <p className="right-main-header-txt"> Section H – Notes & Messages</p>
-                                        </i>
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                            <i>
+                                                <p className="right-para-white"> Section H – Notes & Messages</p>
+                                            </i>
+                                        </div>
                                     </div>
                                 </div>
                                 <br /> <br />
