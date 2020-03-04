@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 import "./index.css";
-import StepTwo from "./personalDetails1/personalDetails1";
 import MoverUser1 from "./personalDetailsMover2.3a/personalDetailsMover2.3a";
 import SwitcherUser1 from "./personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
 import FTBUser1 from "./personalDetails2.1a/personalDetails2.1a";
-
 import MoverUser2 from "./personalDetailsMover2.3b/personalDetailsMover2.3b";
+import PersonalDetails1 from "./personalDetails1/personalDetails";
+
 import SwitcherUser2 from "./personalDetailsSwitch2.2b/personalDetailsSwitch2.2b";
 import FTBUser2 from "./personalDetails2.1b/personalDetails2.1b";
 
@@ -28,14 +28,21 @@ export class index extends Component {
 
   profRouteRenderer = () => {
     const { selectedKey, defalutClient } = this.state;
+    if (selectedKey === 1)
+    return (
+      <PersonalDetails1
+        present={true}
+        changeProfRout={this.changeProfRoute}
+      />
+    );
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "First Time Buyer" &&
       defalutClient === "user1"
     )
       return <FTBUser1 present={true} changeProfRout={this.changeProfRoute} />;
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "House Mover" &&
       defalutClient === "user1"
     )
@@ -43,7 +50,7 @@ export class index extends Component {
         <MoverUser1 present={true} changeProfRout={this.changeProfRoute} />
       );
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "Switcher" &&
       defalutClient === "user1"
     )
@@ -51,13 +58,13 @@ export class index extends Component {
         <SwitcherUser1 present={true} changeProfRout={this.changeProfRoute} />
       );
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "First Time Buyer" &&
       defalutClient === "user2"
     )
       return <FTBUser2 present={true} changeProfRout={this.changeProfRoute} />;
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "House Mover" &&
       defalutClient === "user2"
     )
@@ -65,15 +72,14 @@ export class index extends Component {
         <MoverUser2 present={true} changeProfRout={this.changeProfRoute} />
       );
     if (
-      selectedKey === 1 &&
+      selectedKey === 2 &&
       this.props.purposeOfMortgage === "Switcher" &&
       defalutClient === "user2"
     )
       return (
         <SwitcherUser2 present={true} changeProfRout={this.changeProfRoute} />
       );
-    if (selectedKey === 2)
-      return <StepTwo present={true} changeProfRout={this.changeProfRoute} />;
+  
     if (selectedKey === 5)
       return (
         <MonthlyOutgoing present={true} changeProfRout={this.changeProfRoute} />

@@ -480,7 +480,6 @@ function PersonalDetailsSwitch2p2b(props) {
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
               // onClick={onsubmitForm}
               className="btn2"
               // loading={props.financial_data.loading}

@@ -588,26 +588,8 @@ function PersonalDetailsSwitch2p2b(props) {
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
               className="btn2"
-              // loading={props.financial_data.loading}
-              // disabled={
-              //   (questions.filedBankruptcy &&
-              //     questions.failedToPayLoan &&
-              //     questions.purposeOfMortgage &&
-              //     questions.peopleOnMortgage === "one") ||
-              //     (questions.filedBankruptcy &&
-              //       questions.failedToPayLoan &&
-              //       questions.purposeOfMortgage &&
-              //       questions.peopleOnMortgage === "two" &&
-              //       questions.firstNameSecondApplicant &&
-              //       questions.lastNameSecondApplicant &&
-              //       questions.emailSecondApplicantValidation &&
-              //       questions.emailSecondApplicantreValidation)
-              //     ? false
-              //     : true
-              // }
+       
             >
               Save & Countinue
             </Button>

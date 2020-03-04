@@ -119,16 +119,18 @@
   width: 30%;
   /* height: 50px; */
 }
+/* 
 .personal-details1 .select-option2 {
   width: 17%;
   margin: 0 15px 0 0;
 }
-.personal-details1 .ant-select-selection--single {
+.personal-details1 .ant-select-selection--single  {
   background: rgb(251, 149, 0);
   border: rgb(251, 149, 0);
   border-radius: 20px;
   height: 37px;
 }
+
 .personal-details1 .ant-select-selection--single:active {
   border: rgb(251, 149, 0);
   box-shadow: none;
@@ -142,6 +144,50 @@
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
+} */
+.ifExitaNu input{
+  background : #fb9500 !important;
+    border : 2px solid #fb9500 !important;
+    padding-left:50px !important;
+}
+ .mysetting{
+  display: flex;
+  align-items: center;
+
+  
+}
+.aaa input {
+  width: 100% !important;
+}
+.selectPRo{
+  width: 30% !important;
+  float: left;
+  margin: 0 70px 0 0 ;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid gray;
+ background: #cccccc !important ;
+ overflow: hidden;
+}
+.property_conpe .q1 .radio-container:last-child {
+  margin: 0 0 0 0;
+}
+ .personal-details1 .maltaback .ant-select-selection{
+  background-color:#fb9500 !important;
+
+
+}
+.selectPRo .ant-select-selection{
+    border: 0 !important;
+    background: #cccccc;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+.selectPRo .ant-select-selection__placeholder{
+    color: white !important;
 }
 .personal-details1 .ant-select-arrow {
   color: white;
