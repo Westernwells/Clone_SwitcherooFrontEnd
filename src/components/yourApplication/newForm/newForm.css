@@ -81,6 +81,9 @@ label{
   border-right: 1px solid;
   padding-right: 5px;
 }
+.noBorder{
+  border: none !important;
+}
 .radioBtn{
   border-radius: 100%;
   background-size: 39% !important;
@@ -127,7 +130,20 @@ label{
 
 
 
-
+.widthheight{
+  width: 10px !important;
+  height: 10px !important;
+}
+.font-size-5{
+  font-size: 5px !important;
+}
+.borderRight{
+  border-right: 1px solid !important;
+}
+.padding3border{
+  padding-right: 3px;
+  border-right: 1px solid;
+}
 /******************** CrossPondence Div ******************/
 .currentAddressDiv .radio-area label{
   border-right: 1px solid #000000;
@@ -407,6 +423,7 @@ input:hover{
   font-weight: bold;
   font-style: italic;
   font-size: 13px;
+  color: #111e6c;
 }
 
 .header-container{
