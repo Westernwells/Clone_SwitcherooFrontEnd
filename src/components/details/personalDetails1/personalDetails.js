@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Row, Col, Select, Button, DatePicker, Dropdown } from "antd";
 import "./personalDetails.css";
 import moment from "moment";
+import { connect } from "react-redux";
+import * as Actions from "../../../redux/actions/details/detailsAction";
+import Api from "../../../redux/api/detailsApi";
+import { withRouter } from "react-router-dom";
+
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 // import SelectBoxa from "../../utils/Selectbox";
@@ -9,10 +14,11 @@ const { Option } = Select;
 
 function PersonalDetails1(props) {
   const [q4, setQ4] = useState(false);
+  const [phoneEmpty, setPhoneEmpty] = useState(false);
   //Edit
   const [dateOfBirthEmpty, setDateOfBirthEmpty] = useState(false);
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
-  const [dateOfBirth, setDateOfBirth] = useState("");
+  // const [dateOfBirth, setDateOfBirth] = useState("");
   const [dropdownValue, setDropdownValue] = useState("");
 
   //End Edit
@@ -20,8 +26,14 @@ function PersonalDetails1(props) {
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
     youGoBy: "",
-    phoneEmpty: false,
-    phone: ""
+    firstName: "",
+    surName: "",
+    middleName: "",
+    maidenName: "",
+    yourIdentification: "",
+    phone: "",
+    email: "",
+    dateOfBirth: ""
   });
   const purposes = [
     "Extension",
@@ -72,7 +84,10 @@ function PersonalDetails1(props) {
     setIsOpenDropDown(false);
   }
   function onChangeDate(date, dateString) {
-    return setDateOfBirth(date), setDateOfBirthEmpty(false);
+    return (
+      setQuestions({ ...questions, dateOfBirth: date }),
+      setDateOfBirthEmpty(false)
+    );
   }
   function handleAdditionalP(value) {
     setAddP(value);
@@ -89,8 +104,21 @@ function PersonalDetails1(props) {
   function handlePurpose(value) {
     setQuestions({ ...questions, youGoBy: value });
   }
+  function onsubmitForm(e) {
+    // e.preventDefault();
+
+    console.log("Question final result", questions);
+    props.set_Personal_Details({
+      userId: props.userId,
+      applicant2: {
+        ...questions
+      }
+    });
+    props.changeProfRout(2)
+
+  }
   const handleRoute = route => {
-    alert("asidflkj")
+    alert("asidflkj");
     props.changeProfRout(2);
   };
   const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
@@ -149,6 +177,7 @@ function PersonalDetails1(props) {
               disabled={disEstimate}
               name="firstName"
               placeholder="First name"
+              onChange={handleInput}
             />
           </div>
           <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
@@ -171,8 +200,9 @@ function PersonalDetails1(props) {
             <input
               type="text"
               disabled={disEstimate}
-              name="surname"
+              name="surName"
               placeholder="Surname"
+              onChange={handleInput}
             />
           </div>
           <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
@@ -197,6 +227,7 @@ function PersonalDetails1(props) {
               name="middleName"
               onChange={handleInput}
               placeholder="middle name"
+              onChange={handleInput}
             />
           </div>
         </Col>
@@ -217,6 +248,7 @@ function PersonalDetails1(props) {
               name="maidenName"
               onChange={handleInput}
               placeholder="maiden name"
+              onChange={handleInput}
             />
           </div>
         </Col>
@@ -236,7 +268,7 @@ function PersonalDetails1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="gender"
+              name="yourIdentification"
               id="genderM"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -255,7 +287,7 @@ function PersonalDetails1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="gender"
+              name="yourIdentification"
               id="genderF"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -274,7 +306,7 @@ function PersonalDetails1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="gender"
+              name="yourIdentification"
               id="genderO"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -367,8 +399,9 @@ function PersonalDetails1(props) {
             <input
               type="email"
               disabled={disEstimate}
-              name="email address"
+              name="email"
               placeholder="Email Address"
+              onChange={handleInput}
             />
           </div>
           <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
@@ -387,12 +420,14 @@ function PersonalDetails1(props) {
             <DatePicker
               format={dateFormatList}
               className={
-                dateOfBirth !== ""
+                questions.dateOfBirth !== ""
                   ? "radio-container container_malta"
                   : "radio-container"
               }
               onChange={onChangeDate}
-              defaultValue={moment(dateOfBirth ? dateOfBirth : Date.now())}
+              defaultValue={moment(
+                questions.dateOfBirth ? questions.dateOfBirth : Date.now()
+              )}
               // placeholder="Please Select "
             />
           </div>
@@ -410,8 +445,8 @@ function PersonalDetails1(props) {
               Back
             </Button>
             <Button
-              onClick={() =>props.changeProfRout(2)}
-              // onClick={onsubmitForm}
+              // onClick={() =>props.changeProfRout(2)}
+              onClick={()=>{onsubmitForm()}}
               className="btn2"
             >
               Save & Countinue
@@ -422,4 +457,21 @@ function PersonalDetails1(props) {
     </div>
   );
 }
-export default PersonalDetails1;
+
+const mapStateToProps = ({
+  userReducer: {
+    user: { _id }
+  }
+}) => ({
+  userId: _id
+});
+
+const mapDispatchToProps = dispacth => ({
+  set_Personal_Details: props => dispacth(Api.personalDetailsDataPost(props))
+  //  onSaveQ4Data : (data) => dispacth(Actions.saveQ4Data(data))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(PersonalDetails1));

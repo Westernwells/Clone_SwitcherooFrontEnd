@@ -1,5 +1,9 @@
 import * as actions from "./detailsActionType";
 
+const setPersonalData = payload => ( {
+  type: actions.SET_PERSONAL_DETAILS,
+  payload
+} );
 const setDetailsData = payload => ( {
   type: actions.SET_DETAILS_DATA,
   payload
@@ -22,6 +26,7 @@ const setBanks = (payload)=>({
 })
 
 export {
+  setPersonalData,
   setDetailsData,
   LoadingDetailsData,
   setDetailsDataCredit,
