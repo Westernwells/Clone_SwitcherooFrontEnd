@@ -206,7 +206,7 @@ const NewForm = () => {
             <Form>
                 <Button type="primary">Submit Application</Button>
                 <Button type="primary" onClick={exportPdf}>Download PDF</Button>
-                <div className="form-outer">
+                <div className="form-outer" >
                     <div id="application_div">
                         <div className="cover-page">
                             <div className="logo-area">
@@ -225,7 +225,6 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        <div className="pagebreak"> </div>
                         <br /><br /> 
                         <div className="container">
                             <div className="row">
@@ -234,11 +233,11 @@ const NewForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <br /> <br />
+                        <br />
                         <div className="header1">
                             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
                         </div>
-                        <br />
+                       
                         <div className="full-content">
                             <div class="row" id="loginForm">
                                 <div className="form-group">
@@ -311,11 +310,11 @@ const NewForm = () => {
                                 <p>If this application has been introduced to you, by a thord party (including an appointed introducer) please provide the introducers name and address.</p>
                             </div>
                         </div>
-                        <br/><br />
+                        <br/>
                         <div className="header1">
                             <h5 className="header-txt"> EXPLANATORY TEXT</h5>
                         </div>
-                        <br />
+                        <br/>
                         <div className="full-content">
                             <div className="row">
                                 <p>This application form is divided into two parts. The first part captures information about you, the applicant. The second part gives important information about mortgages offered by a given mortgage lender, including statutory warnings. In part two your signature is required in relation to your application for a mortgage loan and your consent is sought in relation to various matters.</p>
@@ -323,7 +322,7 @@ const NewForm = () => {
                                 <h6 className="custom-sub-header">Please ensure that all applicants sign part one and two of the application.</h6>
                             </div>
                         </div>
-                        <br /><br />
+                        <br />
                         <div className="right-main-header-container" style={{"margin-right":"75px"}}>
                             <div className="right-main-header-top-blue"></div>
                             <div className="right-main-header-bottom-blue">
@@ -332,7 +331,7 @@ const NewForm = () => {
                                 </i>
                             </div>
                         </div>
-                        <br /> <br />
+                        <br /> 
                         <div className="container">  
                         <div className="header1">
                             <div className="row">
@@ -343,8 +342,6 @@ const NewForm = () => {
                             </div>
                         </div>
                         
-                        <br />
-                       
                         <div className="full-content">
                             <p>Please indicate the reason for your application</p>
                             <div className="radioBtnDiv">
@@ -438,7 +435,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
                             </div>
-                            <br />
+                           
                             <div className="form-group">
                                 <p>If ‘Other’ please specify</p>
                                 <textarea
@@ -484,9 +481,9 @@ const NewForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="pagebreak"> </div>
+                      
                         <div className="full-content">
-                            <br />
+                            
                             <div className="main-header-container">
                                 <div className="main-header-top"></div>
                                 <div className="main-header-bottom">
@@ -646,7 +643,7 @@ const NewForm = () => {
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label">No. of Children</label>
                                             <input
@@ -674,7 +671,9 @@ const NewForm = () => {
                                             <h1 className="main-header">APPLICANT TWO</h1>
                                         </div>
                                         <div className="form-group">
-                                                <label class="container left-pad-5">Guarantor &nbsp;
+                                                <label class="container left-pad-5" 
+                                                       style={{marginTop:'-15px',marginBottom:'-3px'}}>
+                                                        Guarantor &nbsp;
                                                     <input
                                                         type="radio"
                                                         className="radioBtn"
@@ -832,7 +831,7 @@ const NewForm = () => {
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label">No. of Children</label>
                                             <input
@@ -868,7 +867,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                    <br />
+                                   
 
                                     <div className="row">
                                         <div className="col-lg-6">
@@ -1130,7 +1129,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+                               
                                 <div className="crosspondDiv">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -1146,7 +1145,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
+                                 
 
                                     <div className="row">
                                         <div className="col-lg-6">
@@ -1331,7 +1330,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -1499,7 +1498,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /><br />
+                               <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -1605,7 +1604,7 @@ const NewForm = () => {
                                         <br />
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="right-main-header-container">
                                     <div className="right-main-header-top-blue"></div>
                                     <div className="right-main-header-bottom-blue">
@@ -1621,13 +1620,13 @@ const NewForm = () => {
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT ONE</h1>
                                         </div>
-                                        <br />
+                                       
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT TWO</h1>
                                         </div>
-                                        <br />
+                                       
                                     </div>
                                 </div>
 
@@ -1646,7 +1645,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                        
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -1801,7 +1800,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -2007,7 +2006,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -2062,7 +2061,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/><br />
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -2078,7 +2077,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -2265,9 +2264,6 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-
-                                <br/><br />
-
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2367,19 +2363,17 @@ const NewForm = () => {
                                         <i><p className="main-header-txt"> Section B – Income & Employment</p></i>
                                     </div>
                                 </div>
-                                <br />
+                               <br />
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT ONE</h1>
                                         </div>
-                                        <br />
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT TWO</h1>
-                                        </div>
-                                        <br />
+                                        </div>  
                                     </div>
                                 </div>
 
@@ -2401,7 +2395,7 @@ const NewForm = () => {
 
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <br />
+                                       
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Name of firm/company</label>
                                             <input type="text" className="box-input" />
@@ -2506,8 +2500,9 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <br />
+                                    
                                         <div className="form-group">
+                                       
                                             <label className="box-label font-size-12">Name of firm/company</label>
                                             <input type="text" className="box-input" />
                                         </div>
@@ -2611,7 +2606,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /><br />
+                                <br />
                                 <div className="main-header-container">
                                     <div className="main-header-top"></div>
                                     <div className="main-header-bottom">
@@ -2708,7 +2703,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2720,7 +2715,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -2849,7 +2844,6 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2867,8 +2861,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
-                                <br />
+                            
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <div className="form-group">
@@ -2917,7 +2910,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3074,7 +3067,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3230,7 +3223,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3356,7 +3349,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/> <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3368,7 +3361,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/> <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -3376,7 +3369,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input width50" />
                                             <label className="box-label font-size-12">Amount Borrowed</label>
                                         </div>
-                                    </div> <br/>
+                                    </div> 
                                     <div className="col-lg-6">
                                         <div className="row">
                                             <div className="col-lg-6">
@@ -3570,7 +3563,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3582,16 +3575,16 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
-
+                                  
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">
                                             Have you ever:
                                         </label>
                                     </div>
-                                    <div className="col-lg-2 text-center">
+                                  <div className="col-lg-2 text-center">
                                         <label className="font-size-12">
                                             App1
                                         </label>
@@ -3755,7 +3748,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br /><br /> 
+                                
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -3763,7 +3756,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /> <br />
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3775,7 +3768,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-4">
@@ -3953,7 +3946,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3965,7 +3958,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                            
 
 
                                 <div className="row">
@@ -4132,7 +4125,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
                                 <div className="row">
@@ -4140,7 +4133,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Remortgage amount </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Property value  </label>
                                             <input type="text" className="box-input width50" />
@@ -4177,7 +4170,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4189,7 +4182,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
 
                                 <div className="row">
@@ -4216,7 +4209,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input width50" />
                                         </div>
                                     </div>
-                                    <br/>
+                                   
                                     <div className="col-lg-6">
                                         <div className="multiRadio displayFlex">
                                             <div className="radio-area">
@@ -4323,7 +4316,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4335,7 +4328,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
 
                                 <div className="row">
@@ -4413,7 +4406,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br /><br /> 
+                                <br />
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -4421,7 +4414,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /> <br />
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4433,7 +4426,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4456,7 +4449,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Country   </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <p>See page 2 for address requirements</p>
                                     </div>
 
@@ -4514,7 +4507,7 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Number of floors in block (If apartment)   </label>
                                             <input type="text" className="box-input width50" />
@@ -4527,7 +4520,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4539,7 +4532,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4571,7 +4564,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4583,7 +4576,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -4831,7 +4824,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4843,7 +4836,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
 
                                 <div className="row">
@@ -4862,7 +4855,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4874,7 +4867,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                            
 
 
                                 <div className="row">
@@ -4916,7 +4909,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4928,7 +4921,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4984,7 +4977,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4996,7 +4989,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
                                 <div className="row">
@@ -5051,7 +5044,7 @@ const NewForm = () => {
 
 
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5063,7 +5056,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -5079,7 +5072,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5091,7 +5084,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -5117,7 +5110,7 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5129,7 +5122,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -5172,7 +5165,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br />
+                               
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">Have there ever been any missed Repayments or revoked Credit Cards or Judgements?  </label>
@@ -5204,7 +5197,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
@@ -5225,8 +5218,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
-
+                        
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
@@ -5355,7 +5347,7 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5367,7 +5359,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">Declarations have been signed</label>
@@ -5461,7 +5453,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5473,7 +5465,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5502,7 +5494,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="displayFlex">
                                             <label className="font-size-12 width100">Contact employer</label>
                                             <div className="form-group">
@@ -5557,7 +5549,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5569,7 +5561,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5580,7 +5572,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5592,7 +5584,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5642,7 +5634,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/><br />
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5654,7 +5646,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -5714,8 +5706,7 @@ const NewForm = () => {
                                 <br />
 
 
-                                <br/>
-                                <div className="row">
+                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
                                             <div className="row">
@@ -5726,7 +5717,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
 
                                 <div className="row">
@@ -5768,7 +5759,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Work Telephone </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mobile Phone  </label>
                                             <input type="text" className="box-input width50" />
@@ -5793,7 +5784,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/><br/>
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5805,7 +5796,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -5899,7 +5890,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5920,7 +5911,7 @@ const NewForm = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -5954,7 +5945,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5966,7 +5957,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
 
@@ -6044,9 +6035,6 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <br /><br />
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header" style={{"background-color":"#FAED9E"}}>
@@ -6058,7 +6046,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-6">

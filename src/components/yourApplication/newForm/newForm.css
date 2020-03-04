@@ -144,7 +144,7 @@ label{
 /***********************************************************/
 .appdiv{
   position: absolute;
-  top: -20px;
+  top: -12px;
 }
 .appdiv label:nth-child(2){
   margin-left: 15px;
@@ -286,6 +286,8 @@ label{
   border-radius: 10px;
   padding-left: 15px;
   background-color: #FAED9E;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 .right-para-white{
   color: #111E6C;
@@ -304,7 +306,7 @@ label{
   border-radius: 10px;
   padding-left: 15px;
   background-color: #FAED9E;
-  margin: 0px 73px 0px 25px;
+  margin: 12px 73px 12px 25px;
 }
 .full-content {
   PADDING: 0PX 100PX 0PX 35PX;
