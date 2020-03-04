@@ -2,8 +2,6 @@
 label{
   color: #111e6c;
 }
-
-
 .page1 label {
   font-size: 0.7rem;
 }
@@ -299,6 +297,12 @@ label{
 .right-para-white span{
   color: gray;
 }
+input{
+  -webkit-appearance: button !important;
+}
+input:hover{
+  -webkit-appearance: button !important;
+}
 .header1 {
   border: 1px solid #000000;
   padding: 3px;
@@ -311,10 +315,21 @@ label{
 .full-content {
   PADDING: 0PX 100PX 0PX 35PX;
 }
-
+.waringDiv{
+  border: 1px solid;
+  padding: 10px;
+  text-align: center;
+  margin-top: 24px;
+  background: #261e6c1c;
+}
+.waringDiv label{
+  font-weight: 600;
+}
 .header-txt {
   font-weight: 900;
   margin: 0px;
+  color: rgb(17, 30, 108);
+  font-size: 14px;
 }
 
 .left-pane {

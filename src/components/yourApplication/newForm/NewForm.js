@@ -6047,7 +6047,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                
-
+                                <br/>
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -6109,6 +6109,416 @@ const NewForm = () => {
                                         <textarea className="box-textarea textAreaHeightWidth" type="text" row="20"></textarea>
                                     </div>
                                 </div>
+
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                        <br />
+                                        <div className="main-header-container">
+                                            <div className="main-header-top-white"></div>
+                                            <div className="main-header-bottom-white">
+                                                <i><p className="main-header-txt-white">Section I – Checklist</p></i>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="header">
+                                <div className="row">
+                                                <div className="col-lg-6">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> CHECKLIST OF SUPPORTING DOCUMENTS</h5>
+                                                </div>
+                                                <div className="col-lg-3">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}>   FIRST APPLICANT</h5>
+                                                </div>
+                                                <div className="col-lg-3">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> SECOND APPLICANT</h5>
+                                                </div>
+                                            </div>
+                                </div>
+
+                                <form>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Proof of Identity - Passport or Driving Licence </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">proof of Residence - A recent utility bill* </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Income Certificate completed by your Employer </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">P60</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 payslips </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">*No more than 3 months old ie. ESB, telephone, Credit Card Statement  </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 years audited accounts (For Self Employed)</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Statement of Affairs</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Confirmation of TAX Affaris</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 months Bank Statements</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Separation Agreement or Divorce</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Term Loans</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Mortgage Statement</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Evidence of Deposit</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Gift Letter</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                             
+                            
 
 
                             </div>
