@@ -85,8 +85,10 @@ const Third = () => {
 
     // PREPARE THE OBJECT TO SAVE IN DB
     const { objectFromDb } = formData;
-    objectFromDb.personalDetails.currentAddress.city = formData.city;
-    objectFromDb.personalDetails.currentAddress.address = formData.address;
+    objectFromDb.personalDetails.currentAddress.city = formData.city
+      .split(",")[0]
+      .trim();
+    objectFromDb.personalDetails.currentAddress.address = formData.address.trim();
     let splitedName = formData.name.split(" ");
     objectFromDb.personalDetails.firstName = splitedName[0];
     objectFromDb.personalDetails.lastName = splitedName[1];
@@ -101,13 +103,16 @@ const Third = () => {
     try {
       const res = await axios.post(
         "https://switchroo.herokuapp.com/detailsYouNeed/saveDetails",
-        config,
-        objectFromDb
+        objectFromDb,
+        config
       );
+
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
 
+    // print / save as pdf
     let backUp = document.body.innerHTML;
     let locationBackUp = window.location.href;
     let contentToPrint = document.getElementsByClassName("third")[0].innerHTML;
@@ -263,7 +268,11 @@ const Third = () => {
             />
           </div>
           <p className="footer-text">Direct Debit Mandate</p>
-          <input type="submit" className="hide-on-print" value="Save & Print" />
+          <input
+            type="submit"
+            className="btn btn-outline-secondary btn-lg btn-block hide-on-print"
+            value="Save & Print"
+          />
         </form>
       </div>
     </div>

@@ -134,33 +134,16 @@ const First = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    if (formData.uniqueMandateReference.length === 0) {
-      return alert("'Unique Mandate Reference' field is required");
-    }
-    if (formData.yourName.length === 0) {
-      return alert("'Your Name' field is required");
-    }
     formData.streetNameAndNumber = combineStreetNamendNumber();
-    if (formData.streetNameAndNumber.length === 0) {
-      return alert("'Street name and numvber' field is required");
-    }
-    if (formData.city.length === 0) {
-      return alert("'City/postcode' field is required");
-    }
-    if (formData.country.length === 0) {
-      return alert("'Country' field is required");
-    }
     formData.IBAN = IBAN.join('');
-    if (formData.IBAN.length === 0) {
-      return alert("'IBAN' field is required");
-    }
     formData.dateOfSigning = dateOfSigning.join('');
 
     // prepare the object to save in db
     let { objectFromDb } = formData;
-    objectFromDb.personalDetails.currentAddress.city = formData.city;
-    objectFromDb.personalDetails.currentAddress.address =
-      formData.streetNameAndNumber;
+    objectFromDb.personalDetails.currentAddress.city = formData.city
+      .split(',')[0]
+      .trim();
+    objectFromDb.personalDetails.currentAddress.address = formData.streetNameAndNumber.trim();
     let splitedName = formData.yourName.split(' ');
     objectFromDb.personalDetails.firstName = splitedName[0];
     objectFromDb.personalDetails.lastName = splitedName[1];
@@ -174,9 +157,11 @@ const First = () => {
     try {
       const res = await axios.post(
         'https://switchroo.herokuapp.com/detailsYouNeed/saveDetails',
-        config,
-        objectFromDb
+        objectFromDb,
+        config
       );
+
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -184,7 +169,7 @@ const First = () => {
     // print / save as pdf
     let backUp = document.body.innerHTML;
     let locationBackUp = window.location.href;
-    let contentToPrint = document.getElementsByClassName('first')[0].innerHTML;
+    let contentToPrint = document.getElementsByClassName('KBCDDM')[0].innerHTML;
     document.body.innerHTML = contentToPrint;
     document.body.style.padding = '0px 30px';
     window.print();
@@ -194,7 +179,7 @@ const First = () => {
   };
 
   return (
-    <div id="first" className="first">
+    <div id="KBCDDM" className="KBCDDM">
       <div>
         <img
           src={Capture15}
@@ -202,13 +187,13 @@ const First = () => {
           style={{ width: '100%' }}
         />
       </div>
-      <div className="first-wrapper mb-5">
+      <div className="KBCDDM-wrapper mb-5">
         <form onSubmit={e => onSubmit(e)}>
-          <div className="mb-2 pb-2 border-dotted">
+          <div className="mb-2 pb-2 KBCDDM-border-dotted">
             <img src={Capture16} alt="..." style={{ width: '100%' }} />
             <input
               type="text"
-              className="input"
+              className="KBCDDM-input"
               maxLength="35"
               style={{ width: '100%' }}
               name="uniqueMandateReference"
@@ -217,14 +202,16 @@ const First = () => {
             />
           </div>
           <img src={Capture14} alt="..." style={{ width: '100%' }} />
-          <div className="border-dotted mrgn-btm">
-            <div className="row m-0 input-mrgn-btm">
+          <div className="KBCDDM-border-dotted KBCDDM-mrgn-btm">
+            <div className="row m-0 KBCDDM-input-mrgn-btm">
               <div style={{ width: '24%' }}>
-                <p className="text-bold m-0">Your name*(max.70characters)</p>
+                <p className="KBCDDM-left-text m-0">
+                  Your name*(max.70characters)
+                </p>
               </div>
               <div className="col p-0">
                 <input
-                  className="input"
+                  className="KBCDDM-input"
                   type="text"
                   style={{ width: '100%' }}
                   name="yourName"
@@ -235,11 +222,11 @@ const First = () => {
             </div>
             <div className="row m-0">
               <div style={{ width: '24%' }}>
-                <p className="text-bold m-0">Street name and number*</p>
+                <p className="KBCDDM-left-text m-0">Street name and number*</p>
               </div>
               <div className="col p-0">
                 <input
-                  className="input input-mrgn-btm"
+                  className="KBCDDM-input KBCDDM-input-mrgn-btm"
                   type="text"
                   style={{ width: '100%' }}
                   name="yourName"
@@ -247,7 +234,7 @@ const First = () => {
                   onChange={e => setStreetNameAndNumberR1(e.target.value)}
                 />
                 <input
-                  className="input input-mrgn-btm"
+                  className="KBCDDM-input KBCDDM-input-mrgn-btm"
                   type="text"
                   style={{ width: '100%' }}
                   name="yourName"
@@ -255,7 +242,7 @@ const First = () => {
                   onChange={e => setStreetNameAndNumberR2(e.target.value)}
                 />
                 <input
-                  className="input input-mrgn-btm"
+                  className="KBCDDM-input KBCDDM-input-mrgn-btm"
                   type="text"
                   style={{ width: '100%' }}
                   name="yourName"
@@ -264,13 +251,13 @@ const First = () => {
                 />
               </div>
             </div>
-            <div className="row m-0 input-mrgn-btm">
+            <div className="row m-0 KBCDDM-input-mrgn-btm">
               <div style={{ width: '24%' }}>
-                <p className="text-bold m-0">City/postcode*</p>
+                <p className="KBCDDM-left-text m-0">City/postcode*</p>
               </div>
               <div className="col p-0">
                 <input
-                  className="input"
+                  className="KBCDDM-input"
                   type="text"
                   style={{ width: '100%' }}
                   name="city"
@@ -281,11 +268,11 @@ const First = () => {
             </div>
             <div className="row m-0">
               <div style={{ width: '24%' }}>
-                <p className="text-bold">Country*</p>
+                <p className="KBCDDM-left-text">Country*</p>
               </div>
               <div className="col p-0">
                 <input
-                  className="input"
+                  className="KBCDDM-input"
                   type="text"
                   style={{ width: '100%' }}
                   name="country"
@@ -295,13 +282,13 @@ const First = () => {
               </div>
             </div>
           </div>
-          <div className="border-dotted mrgn-btm">
+          <div className="KBCDDM-border-dotted KBCDDM-mrgn-btm">
             <img src={Capture17} alt="..." style={{ width: '100%' }} />
             <div className="row mx-0 mt-2 pr-2">
               {IBAN.map((input, index) => (
                 <div className="col p-0 iban-input-wrapper" key={index}>
                   <input
-                    className="input input-min"
+                    className="KBCDDM-input KBCDDM-input-min"
                     type="text"
                     maxLength="1"
                     value={input}
@@ -316,13 +303,13 @@ const First = () => {
             <img src={Capture19} alt="..." style={{ width: '100%' }} />
             <div className="row mx-0 mt-1">
               <div className="col-auto p-0">
-                <p className="text-bold mb-1">Date of signing</p>
+                <p className="KBCDDM-left-text mb-1">Date of signing</p>
               </div>
               <div className="col">
                 {dateOfSigning.map((input, index) => (
                   <input
                     key={index}
-                    className="date"
+                    className="KBCDDM-date"
                     type="number"
                     maxLength="1"
                     placeholder={
@@ -351,7 +338,7 @@ const First = () => {
 };
 const NameOfCreditor = () => {
   return (
-    <div className="border-dotted mrgn-btm pb-3 text-bold">
+    <div className="KBCDDM-border-dotted KBCDDM-mrgn-btm pb-3 KBCDDM-left-text">
       <img src={Capture18} alt="..." style={{ width: '100%' }} />
     </div>
   );

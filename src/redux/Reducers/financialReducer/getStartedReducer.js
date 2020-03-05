@@ -1,7 +1,7 @@
 import * as Action from "../../actions/financial_health/getStartedActionType";
 
 const initialstate = {
-    data: null,
+    data: "null",
 
 };
 

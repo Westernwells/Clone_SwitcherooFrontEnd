@@ -5,6 +5,7 @@ import Page3 from "./Page3";
 import Page4 from "./Page4";
 import Page5 from "./Page5";
 import Page6 from "./Page6";
+import "./PtsbStyle.css";
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -13,7 +14,8 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      obj: null
+      obj: null,
+      generating: false
     };
   }
 
@@ -36,7 +38,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="root" className="ptsb-form">
+      <div id="root" className="ptsb-form mt-6">
         <section>
           <div className="print-wrap page1">
             {this.state.obj && <Page1 form={this.state.obj} />}
@@ -73,16 +75,30 @@ class Main extends React.Component {
             className="print-button mb-5 btn btn-primary"
             type="submit"
             onClick={this.generatePDF}
+            disabled={this.state.generating}
           >
-            Save and Generate PDF
+            <div className="d-flex flex-row align-items-center justify-content-center">
+            { this.state.generating ? 'Generating PDF...' : 'Save and Generate PDF' }
+            {
+              this.state.generating &&
+              <div class="ml-2 spinner-border ptsb-spinner" role="status">
+                <span class="sr-only">Generating PDF...</span>
+              </div>
+            }
+            </div>
+
           </button>
         </div>
       </div>
     );
   }
 
-  async generatePDF() {
-    window.scrollTo(0, 0);
+  generatePDF = async () => {
+    this.setState({
+      ...this.state,
+      generating: true
+    });
+    // window.scrollTo(0,0)
     const pdf = new jsPDF();
 
     for (let i = 0; i < 6; i++) {
@@ -90,6 +106,7 @@ class Main extends React.Component {
       const canvas = await html2canvas(
         document.getElementsByClassName("print-wrap")[i],
         {
+          scrollY: -window.scrollY,
           scale: 2
         }
       );
@@ -98,6 +115,10 @@ class Main extends React.Component {
     }
 
     pdf.save("PTSB-Form");
+    this.setState({
+      ...this.state,
+      generating: false
+    });
   }
 }
 

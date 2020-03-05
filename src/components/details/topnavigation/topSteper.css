@@ -1,27 +1,32 @@
-.topStep_main{
+.topStep_main {
   width: 96.5%;
   display: flex;
-  height: 120px;
+  height: 200px;
   align-items: center;
-  justify-content: center;
   margin: 20px 20px 20px 20px;
   padding: 80px 20px 20px 40px;
   clear: both;
+  flex-direction: column !important;
   border-radius: 10px;
   font-family: Montserrat;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
 }
-.step_cont{
-    width: 70%;
-    height: 56% !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-
+.step_cont {
+  width: 70%;
+  height: 56% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
 }
-
-.processing .ant-steps-item-title{
+.topStep_main .nameHeading {
+  font-size: 22px;
+  color: #62635d;
+  font-weight: 600;
+  position: relative;
+  top: -60px;
+}
+.processing .ant-steps-item-title {
   width: 70px;
   font-size: 12px;
   position: relative;
@@ -29,7 +34,7 @@
   top: 20px !important;
 }
 
-.complete .ant-steps-item-title{
+.complete .ant-steps-item-title {
   width: 70px;
   font-size: 12px;
   position: relative;
@@ -37,9 +42,9 @@
   height: 60px;
   top: 20px !important;
 }
- 
+
 .processing .ant-steps-icon-dot {
-  background:  rgb(153, 153, 153) !important;
+  background: rgb(153, 153, 153) !important;
   width: 50px !important;
   height: 50px !important;
   position: relative;
@@ -47,23 +52,26 @@
   left: -26px !important;
 }
 .complete .ant-steps-icon-dot {
-  background:  #fb9500 !important;
+  background: #fb9500 !important;
   width: 50px !important;
   height: 50px !important;
   position: relative;
   top: -20px !important;
   left: -26px !important;
 }
-.processing .ant-steps-item-tail::after{
-  background:  rgb(153, 153, 153) !important;
+.processing .ant-steps-item-tail::after {
+  background: rgb(153, 153, 153) !important;
 }
-.complete .ant-steps-item-tail::after{
-  background:  #fb9500 !important;
+.complete .ant-steps-item-tail::after {
+  background: #fb9500 !important;
 }
 
-.step_cont .ant-steps-item-description{
+.step_cont .ant-steps-item-description {
   position: relative;
-  top:-83px !important;
+  top: -83px !important;
   color: white !important;
-  left: -5px;  
+  left: -5px;
+}
+.widthconcole .ant-steps-item {
+  width: 116px;
 }

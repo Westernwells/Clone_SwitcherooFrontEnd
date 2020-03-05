@@ -2,6 +2,9 @@ import React from "react";
 import CheckBox from "./CheckBox";
 import page4_1 from "../../../assets/p4_1.png";
 import page4_2 from "../../../assets/p4_2.png";
+import page4_4 from "../../../assets/p4_4.png";
+import ptsbHeader from "../../../assets/ptsb-header.png";
+import footer from "../../../assets/ptsb-footer.png";
 
 class Page4 extends React.Component {
   constructor(props) {
@@ -50,15 +53,9 @@ class Page4 extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid p-5 page4 px-5 py-3">
-        <hr className="divider" />
-
-        <h4 className="text-right color-primary header">
-          <span className="font-weight-bold">permanent tsb</span> Mortgage
-          Application for Credit
-        </h4>
-        <hr className="divider-dotted" />
-        <div className="d-flex flex-column w-100">
+      <div className="container-fluid page4 px-5 py-4">
+        <img src={ptsbHeader} height="48px" className="mt-4"></img>
+        <div className="d-flex flex-column w-100 mt-2">
           <div className="d-flex flex-row w-100 h-40">
             <div className="d-flex flex-column w-50 mr-4">
               <h2 className="mt-1 font-weight-bold color-primary mb-2">
@@ -327,7 +324,7 @@ class Page4 extends React.Component {
                   </div>
                 </div>
               </div>
-              <p className="mt-1" style={{ fontSize: "10.4px" }}>
+              <p className="mt-1 lh-1p2" style={{ fontSize: "10.4px" }}>
                 If at any time you change your mind and you wish to amend your
                 direct marketing preferences, you may contact us by writing to
                 FREEPOST F4940, Customer Data Quality (Direct Marketing ),
@@ -392,7 +389,7 @@ class Page4 extends React.Component {
                   </div>
                 </div>
               </div>
-              <p>
+              <p className="lh-1p2">
                 If at any time you change your mind and you wish to amend your
                 direct marketing preferences, you may contact us by writing to
                 <span className="p4-textchange">
@@ -405,17 +402,50 @@ class Page4 extends React.Component {
               </p>
             </div>
           </div>
-          <div className="d-flex flex-column w-100 mt-2">
-            <img src={page4_1} width="700"></img>
+            <img src={page4_1} width="700" className="mt-3"></img>
             <img src={page4_2} width="700"></img>
+          <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+            <div className="w-70 d-flex flex-row justify-content-between align-items-end">
+              <label className="w-40" style={{ fontSize: "12px" }}>
+                Signature of first applicant:
+            </label>
+              <input type="text" className="primary-input form-control w-56" />
+            </div>
+            <div className="d-flex flex-row w-25 align-items-end">
+              <label className="mr-2" style={{ fontSize: "12px" }}>
+                Date:
+            </label>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+            </div>
           </div>
+
+          <div className="d-flex flex-row w-80 justify-content-between align-items-end mt-2">
+            <div className="w-70 d-flex flex-row justify-content-between align-items-end">
+              <label className="w-40" style={{ fontSize: "12px" }}>
+                Signature of second applicant:
+            </label>
+              <input type="text" className="primary-input form-control w-56" />
+            </div>
+            <div className="d-flex flex-row w-25 align-items-end">
+              <label className="mr-2" style={{ fontSize: "12px" }}>
+                Date:
+            </label>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+              <p className="mr-1">/</p>
+              {this.getSplitInput(2, "date")}
+            </div>
+          </div>
+
+          <img src={page4_4} width="700" className="mt-4"></img>
+
         </div>
-        <p
-          className="text-right mb-2"
-          style={{ fontSize: "9px", position: "relative", bottom: "10px" }}
-        >
-          BMK3069 (Rev07/18)
-        </p>
+        <img src={footer} height="13"></img>
       </div>
     );
   }

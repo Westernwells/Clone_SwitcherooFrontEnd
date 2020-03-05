@@ -2,8 +2,6 @@
 label{
   color: #111e6c;
 }
-
-
 .page1 label {
   font-size: 0.7rem;
 }
@@ -83,6 +81,9 @@ label{
   border-right: 1px solid;
   padding-right: 5px;
 }
+.noBorder{
+  border: none !important;
+}
 .radioBtn{
   border-radius: 100%;
   background-size: 39% !important;
@@ -129,7 +130,20 @@ label{
 
 
 
-
+.widthheight{
+  width: 10px !important;
+  height: 10px !important;
+}
+.font-size-5{
+  font-size: 5px !important;
+}
+.borderRight{
+  border-right: 1px solid !important;
+}
+.padding3border{
+  padding-right: 3px;
+  border-right: 1px solid;
+}
 /******************** CrossPondence Div ******************/
 .currentAddressDiv .radio-area label{
   border-right: 1px solid #000000;
@@ -299,6 +313,12 @@ label{
 .right-para-white span{
   color: gray;
 }
+input{
+  -webkit-appearance: button !important;
+}
+input:hover{
+  -webkit-appearance: button !important;
+}
 .header1 {
   border: 1px solid #000000;
   padding: 3px;
@@ -311,10 +331,21 @@ label{
 .full-content {
   PADDING: 0PX 100PX 0PX 35PX;
 }
-
+.waringDiv{
+  border: 1px solid;
+  padding: 10px;
+  text-align: center;
+  margin-top: 24px;
+  background: #261e6c1c;
+}
+.waringDiv label{
+  font-weight: 600;
+}
 .header-txt {
   font-weight: 900;
   margin: 0px;
+  color: rgb(17, 30, 108);
+  font-size: 14px;
 }
 
 .left-pane {
@@ -392,6 +423,7 @@ label{
   font-weight: bold;
   font-style: italic;
   font-size: 13px;
+  color: #111e6c;
 }
 
 .header-container{

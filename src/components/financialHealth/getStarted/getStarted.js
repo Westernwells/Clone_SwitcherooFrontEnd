@@ -72,13 +72,20 @@ function GetStarted(props) {
 
     overAllFormValidate: false
   });
-  const [q4, setQ4] = useState(false);
+  const [q4,setQ4] = useState("")
+
+  useEffect( () => {
+    props.onSaveQ4Data(questions.filedBankruptcy);
+  },[questions.filedBankruptcy])
+
   function clickRadio(e) {
     var label = e.target.childNodes[1];
     if (label) {
       label.click();
     }
   }
+   console.log('Q4',q4)
+  console.log("questions.filedBankruptcy",questions.filedBankruptcy);
 
   const validateRadio = (name, value) => {
     switch (name) {
@@ -178,8 +185,8 @@ function GetStarted(props) {
     var radioContainers = e.target.parentNode.parentNode.childNodes;
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    setQ4(!q4);
-    props.onSaveQ4Data(q4);
+    // setQ4(!q4);
+    //  props.onSaveQ4Data(!data);
     validateRadio(e.target.name, e.target.value);
     for (var i = 0; i < radioContainers.length; i++) {
       var input = radioContainers[i].childNodes[0];
