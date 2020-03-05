@@ -225,15 +225,29 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        <br /><br /> 
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12">
+                        {/* <br /><br /> 
+                       
                                     <h4 className="right-para">Application From</h4>
                                 </div>
                             </div>
                         </div>
-                        <br />
+                        <br /> */}
+                        <br/>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="right-main-header-container" style={{"margin-right":"75px"}}>
+                                                <div className="right-main-header-top"></div>
+                                                <div className="right-main-header-bottom">
+                                                    <i>
+                                                        <p className="right-para"> Application From</p>
+                                                    </i>
+                                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                                <br />
                         <div className="header1">
                             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
                         </div>
@@ -3775,7 +3789,15 @@ const NewForm = () => {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
-                                        <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                        {/* <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i> */}
+                                        <br />
+                                        <div className="main-header-container">
+                                            <div className="main-header-top-white"></div>
+                                            <div className="main-header-bottom-white">
+                                                <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                            </div>
+                                        </div>
+                                        <br />
                                         </div>
                                     </div>
                                 </div>
@@ -4429,14 +4451,30 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br />
+                                {/* <br />
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
                                         <i><p className="right-para-white">Section E – Property Details</p></i>
                                         </div>
                                     </div>
+                                </div> */}
+                                <br/>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="right-main-header-container">
+                                                <div className="right-main-header-top"></div>
+                                                <div className="right-main-header-bottom">
+                                                    <i>
+                                                        <p className="right-para"> Section E – Property Details</p>
+                                                    </i>
+                                                </div>
                                 </div>
+                            </div>
+                            </div>
+                        </div>
+                                <br />
                                 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -6115,7 +6153,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br /><br />
+                                {/* <br /><br />
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -6125,7 +6163,24 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /> <br />
+                                <br /> <br /> */}
+
+<br/>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="right-main-header-container">
+                                                <div className="right-main-header-top"></div>
+                                                <div className="right-main-header-bottom">
+                                                    <i>
+                                                        <p className="right-para"> Section H – Notes & Messages</p>
+                                                    </i>
+                                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                                <br />
 
                                 <div className="row">
                                     <div className="col-lg-12">
