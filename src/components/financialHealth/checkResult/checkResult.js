@@ -33,6 +33,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import {orange} from "@material-ui/core/colors";
+import {changeKey} from '../../../redux/actions/financial_health/changeKey_Action'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -57,9 +58,8 @@ class CheckResult extends React.Component {
     render() {
         console.log("[props]",this.props)
         const handleRoute = () => {
-            
+            this.props.onChangeKey("3");
             this.props.history.push('/home/details')
-            this.props.location.key = "3"
         }
         const getBank1ResultsHandler = () => {
             if (this.props.result.fillSpreadSheet.data === "1") {
@@ -422,4 +422,9 @@ const mapStateToProps = (state) => {
         result : state.calculateResultReducer.data
     }
 }
-export default connect(mapStateToProps,null)(withRouter(CheckResult));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeKey : (key) =>dispatch(changeKey(key))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(CheckResult));
