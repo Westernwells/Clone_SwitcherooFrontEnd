@@ -79,6 +79,16 @@ class docMain extends React.Component {
         >
           Sepa Direct Debit Form
         </button>
+        <button
+          onClick={
+            () => this.props.history.push("/home/yourApplication/kbcForm")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          KBC Form
+        </button>
       </div>
     );
   }
