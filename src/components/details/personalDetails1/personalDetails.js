@@ -106,16 +106,16 @@ function PersonalDetails1(props) {
   }
   function onsubmitForm(e) {
     // e.preventDefault();
-
+    console.log("finace data", props.financial_back_data);
     console.log("Question final result", questions);
-    props.set_Personal_Details({
-      userId: props.userId,
-      applicant2: {
-        ...questions
-      }
-    });
-    props.changeProfRout(2)
-
+    // props.set_Personal_Details({
+    //   userId: props.userId,
+    //   applicant2: {
+    //     ...questions
+    //   }
+    // });
+    // props.changeProfRout(2)
+    props.secPageMethod(true,questions);
   }
   const handleRoute = route => {
     alert("asidflkj");
@@ -446,7 +446,9 @@ function PersonalDetails1(props) {
             </Button>
             <Button
               // onClick={() =>props.changeProfRout(2)}
-              onClick={()=>{onsubmitForm()}}
+              onClick={() => {
+                onsubmitForm();
+              }}
               className="btn2"
             >
               Save & Countinue
@@ -461,8 +463,11 @@ function PersonalDetails1(props) {
 const mapStateToProps = ({
   userReducer: {
     user: { _id }
-  }
+  },
+  Financial_data: { loading, error, modal, financial_Health_Check }
 }) => ({
+  financial_data: { loading, error, modal },
+  financial_back_data: financial_Health_Check,
   userId: _id
 });
 

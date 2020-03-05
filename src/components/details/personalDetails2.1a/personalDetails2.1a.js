@@ -8,7 +8,7 @@ function PersonalDetails2p1a(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    q1: ""
+   
   });
   const purposes = [
     "Extension",
@@ -178,7 +178,10 @@ function PersonalDetails2p1a(props) {
     if (addP && addP > 0) props.history.push(route + "/" + addP);
     else props.history.push("/home/details/final_page");
   };
-
+  function onsubmitForm(e) {
+    console.log('data', questions);
+    props.getData(questions)
+  }
   return (
     <div className="personal-details2p1s">
       <Row className="d-row-s1">

@@ -7,7 +7,7 @@ function PersonalDetailsSwitch2p2b(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    q1: ""
+    
   });
   const purposes = [
     "Extension",
@@ -180,7 +180,10 @@ function PersonalDetailsSwitch2p2b(props) {
   function onCheckChange(e) {
     console.log(`checked = ${e.target.checked}`);
   }
-
+  function onsubmitForm(e) {
+    console.log('data', questions);
+    props.getData(questions)
+  }
   return (
     <div className="personal-details2p2b">
       <Row className="d-row-s1">
