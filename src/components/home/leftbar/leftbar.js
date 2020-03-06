@@ -67,12 +67,7 @@ class LeftBar extends React.Component {
             <span className="menu-icon">
               <img src="images/home/icons/details_icon.png" />
             </span>
-            <p className="lb">
-              Details on <br /> what you need
-            </p>
-          </Menu.Item>
-          <span className="connector"></span>
-          <Menu.Item key="4">
+
             <span className="menu-icon">
               <img src="images/home/icons/document_icon.png" />
             </span>
