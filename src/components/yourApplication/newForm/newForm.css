@@ -1,4 +1,5 @@
 /********************** New-CSS // New Form ***************/
+
 label{
   color: #111e6c;
 }
@@ -490,6 +491,7 @@ input:hover{
     padding-bottom: 1px;
     /* height: 43px; */
     border-radius: 0px 0px 43px 0px;
+    box-shadow: 10px 10px 5px grey;
 }
 .main-header-bottom-white {
   background: #ffffff;
@@ -499,6 +501,7 @@ input:hover{
   padding-bottom: 1px;
   /* height: 43px; */
   border-radius: 0px 0px 43px 0px;
+  box-shadow: 10px 10px 5px grey;
 }
 
 .main-header-top {
@@ -506,12 +509,14 @@ input:hover{
   height: 28px;
   width: 100%;
   max-width: 33%;
+  box-shadow: 10px 10px 5px grey;
 }
 .main-header-top-white {
   background: #ffffff;
   height: 28px;
   width: 100%;
-  max-width: 33%;
+  max-width: 36%;
+  box-shadow: 10px 10px 5px grey;
 }
 .main-header-txt-white span{
   color: gray;
@@ -669,7 +674,7 @@ padding-left: 110px;
     padding-bottom: 1px;
     margin-left: auto;
     /* height: 43px; */
-    /* box-shadow: 10px 10px 5px grey; */
+    box-shadow: 10px 10px 5px grey;
 }
 .right-main-header-bottom-blue{
   background: #111e6c;
@@ -680,24 +685,26 @@ padding-left: 110px;
     margin-left: auto;
     /* height: 43px; */
     border-radius: 0px 0px 0px 33px;
+    box-shadow: 10px 10px 5px grey;
 }
 .right-para{
-      margin-right: 65px;
-      font-size: 27px;
-      font-weight: bolder;
-      margin-bottom: 11px;
-      text-align: right;
-      font-style: italic;
+  font-size: 27px;
+  font-weight: bolder;
+  margin-bottom: 11px;
+  text-align: right;
+  font-style: italic;
+  color: #111e6c;
 }
 .right-main-header-top {
   background: #ffffff;
   height: 28px;
-  /* box-shadow: 10px 10px 5px grey; */
+  box-shadow: 10px 10px 5px grey;
 
 }
 .right-main-header-top-blue {
   background: #111e6c;
   height: 28px;
+  box-shadow: 10px 10px 5px grey;
 }
 
 
@@ -726,3 +733,294 @@ padding-left: 110px;
   margin-left: 80px;
 }
 
+.appForm {
+  background-image: url('./background/ApplicationForm.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 96.5%;
+  height: 85px;
+}
+.right-appForm{
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #111e6c;
+  width: 100%;
+  max-width: 92%;
+  padding-top: 15px;
+}
+.blue-part {
+  background-image: url('./background/PartOne.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 96.5%;
+  height: 85px;
+}
+.blue-part-text {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 92%;
+  padding-top: 26px;
+}
+.blue-section {
+  background-image: url('./background/PersonalDetails.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+.blue-section-text {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 50%;
+  padding-top: 26px;
+}
+.blue-section-B {
+  background-image: url('./background/IncomeAndEmployment.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+.blue-section-B-text {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 92%;
+  padding-top: 26px;
+}
+.blue-section-B-2 {
+  background-image: url('./background/IncomeAndEmploymentLeft.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+.blue-section-B-text-2 {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 62%;
+  padding-top: 26px;
+}
+.blue-section-C {
+  background-image: url('./background/IncomeAndEmploymentLeft.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+.blue-section-C-text {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 66%;
+  padding-top: 26px;
+}
+.blue-section-C-2 {
+  background-image: url('./background/IncomeAndEmployment.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+.blue-section-C-text-2 {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: right;
+  font-style: italic;
+  color: #ffffff;
+  width: 100%;
+  max-width: 91%;
+  padding-top: 26px;
+}
+.blue-section-D {
+  background-image: url('./background/MortgageDetailsLeft.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 109%;
+  height: 85px;
+}
+.blue-section-D-text span{
+  color: gray;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  margin-bottom: 11px;
+}
+.blue-section-D-text{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 74%;
+  padding-top: 15px;
+}
+.blue-section-E {
+  background-image: url('./background/PropertyDetails.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 115%;
+  height: 100px;
+}
+
+.blue-section-E-text{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 84%;
+  padding-top: 26px;
+}
+.blue-section-E-2 {
+  background-image: url('./background/PropertyDetailsLeft.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+
+.blue-section-E-text-2{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 52%;
+  padding-top: 26px;
+}
+.blue-section-F {
+  background-image: url('./background/AlternativeLending.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+
+.blue-section-F-text{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 58%;
+  padding-top: 26px;
+}
+.blue-section-G {
+  background-image: url('./background/ApplicationForm.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+
+.blue-section-G-text{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 96%;
+  padding-top: 15px;
+}
+.blue-section-G-2 {
+  background-image: url('./background/AlternativeLending.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 36.5%;
+  height: 85px;
+}
+
+.blue-section-G-text-2{
+  color: #111E6C;
+  width: fit-content;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+  max-width: 46%;
+  padding-top: 19px;
+}
+.blue-section-H {
+  background-image: url('./background/NotesAndMessages.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 113%;
+  /* max-width: 125.5%; */
+  height: 100px;
+}
+
+.blue-section-H-text{
+  color: #111E6C;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 27px;
+    font-weight: 900;
+    text-align: right;
+    font-style: italic;
+    width: 100%;
+    max-width: 92%;
+    padding-top: 29px;
+}
+.blue-section-I {
+  background-image: url('./background/Declarations.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 109%;
+  height: 100px;
+}
+
+.blue-section-I-text{
+  color: #111E6C;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 27px;
+    font-weight: 900;
+    text-align: right;
+    font-style: italic;
+    width: 100%;
+    max-width: 42%;
+    padding-top: 24px;
+}
