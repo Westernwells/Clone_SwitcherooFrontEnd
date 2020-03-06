@@ -13,12 +13,12 @@ const docFiles = data => dispatch => {
   //   });
 
   const options = {
-    //   method: "POST",
-    body: JSON.stringify({ ...data })
-    //   headers: new Headers({
-    //   Authorization: "Bearer " + token,
-    //   "Content-Type": "multipart/form-data"
-    // })
+    method: "POST",
+    body: JSON.stringify(...data),
+    headers: new Headers({
+      Authorization: "Bearer " + token,
+      "Content-Type": "multipart/form-data"
+    })
   };
 
   fetch(baseurl + "/documentation/uploadDocument", options)
