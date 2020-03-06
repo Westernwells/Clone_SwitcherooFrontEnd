@@ -33,6 +33,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import {orange} from "@material-ui/core/colors";
+import {changeKey} from '../../../redux/actions/financial_health/changeKey_Action'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -53,8 +54,13 @@ class CheckResult extends React.Component {
             },5000)
         }
     }
-
+  
     render() {
+        console.log("[props]",this.props)
+        const handleRoute = () => {
+            this.props.onChangeKey("3");
+            this.props.history.push('/home/details')
+        }
         const getBank1ResultsHandler = () => {
             if (this.props.result.fillSpreadSheet.data === "1") {
                  this.setState({bank1:'yes'})
@@ -356,7 +362,7 @@ class CheckResult extends React.Component {
                                                     </div>
 
                                                     <hr className='hrr'></hr>
-                                                    <img src={bank4No} alt="Question Mark"/>
+                                                    <img src={bank1No} alt="Question Mark"/>
                                                 </div>
 
                                         <p className = "result-para">
@@ -385,7 +391,7 @@ class CheckResult extends React.Component {
                                 <div style={{display:'flex',padding: "16px 0px"}}>
                                     <DialogContentText id="alert-dialog-slide-title"
                                                    style = {{fontWeight: 1000,color: 'rgb(251, 149, 0)',fontSize: '25px',margin:'40px 0px'}}>
-                                    <button onClick={()=> this.props.history.push('/home/details')}
+                                    <button onClick={handleRoute}
                                             style={{backgroundColor: '#616161',color:'#ffffff', height: '45px', padding :'0px 100px',
                                                     margin: '0px 0px 0 200px', textAlign: 'center', borderRadius:'8px'}}>
                                         OK
@@ -416,4 +422,9 @@ const mapStateToProps = (state) => {
         result : state.calculateResultReducer.data
     }
 }
-export default connect(mapStateToProps,null)(withRouter(CheckResult));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeKey : (key) =>dispatch(changeKey(key))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(CheckResult));
