@@ -164,20 +164,20 @@ const NewForm = () => {
        .then((canvas) => {
              //! MAKE YOUR PDF
              var pdf = new jsPDF('p', 'pt', 'letter');
-             for (var i = 0; i <= quotes.clientHeight/980; i++) {
+             for (var i = 0; i <= quotes.clientHeight/1450; i++) {
                  //! This is all just html2canvas stuff
                  var srcImg  = canvas;
                  var sX      = 0;
-                 var sY      = 980*i; // start 980 pixels down for every new page
+                 var sY      = 1450*i; // start 980 pixels down for every new page
                  var sWidth  = 900;
-                 var sHeight = 980;
+                 var sHeight = 1450;
                  var dX      = 0;
                  var dY      = 0;
                  var dWidth  = 900;
-                 var dHeight = 980;
+                 var dHeight = 1450;
                  const onePageCanvas = document.createElement("canvas");
                  onePageCanvas.setAttribute('width', 900);
-                 onePageCanvas.setAttribute('height', 980);
+                 onePageCanvas.setAttribute('height', 1450);
                  var ctx = onePageCanvas.getContext('2d');
                  // details on this usage of this function: 
                  // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images#Slicing
