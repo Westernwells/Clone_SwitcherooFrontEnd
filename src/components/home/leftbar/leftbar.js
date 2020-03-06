@@ -74,6 +74,9 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             key="4"
+            onClick={() => {
+              this.handleRoute("/home/yourDocumentation");
+            }}
             // className =  {this.props.location.pathname === '/home/details' ? 'active' : ''}
             // onClick={() => {
             //   this.handleRoute("/home/yourApplication");
