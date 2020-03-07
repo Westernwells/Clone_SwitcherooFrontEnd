@@ -32,7 +32,11 @@ import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetail
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
 import NewForm from "../yourApplication/newForm/newForm";
-import PersonalDetails2p1b from "../personalDetails/personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
+import MonthlyOutgoings from "../personalDetails/MonthlyOutgoings/MonthlyOutgoings";
+import Declarations from "../personalDetails/Declaration/Declaration";
+import EmploymentDetailsPAYE from "../personalDetails/EmploymentDetailsPAYE/EmploymentDetailsPAYE";
+import SavingAccounts from "../personalDetails/SavingAccounts/SavingAccountsIndex";
+import Links from "../personalDetails/Links/Links";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -152,9 +156,25 @@ function Home(props) {
                     />
                     <Route
                       exact
-                      path="/home/details/personal2p1b"
-                      component={PersonalDetails2p1b}
+                      path="/home/details/declarations"
+                      component={Declarations}
                     />
+                    <Route
+                      exact
+                      path="/home/details/Emp"
+                      component={EmploymentDetailsPAYE}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/mo"
+                      component={MonthlyOutgoings}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/saving_accounts"
+                      component={SavingAccounts}
+                    />
+                    <Route exact path="/home/details/links" component={Links} />
                     <Route
                       exact
                       path="/home/expertChat"
