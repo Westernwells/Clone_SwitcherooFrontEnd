@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Row, Col, Select, Button, DatePicker, Dropdown } from "antd";
 import "./personalDetails.css";
 import moment from "moment";
@@ -13,10 +13,50 @@ import "react-phone-input-2/lib/style.css";
 const { Option } = Select;
 
 function PersonalDetails1(props) {
+  useEffect(()=>{
+    console.log('user',props)
+    if(props.user || props.user2) 
+    {
+      return setQuestions({
+      youGoBy: "",
+      firstName: props.user ? props.user.firstName:props.user2.firstNameSecondApplicant,
+      surName: props.user ?  props.user.lastName: props.user2.lastNameSecondApplicant,
+      middleName: "",
+      maidenName: "",
+      yourIdentification: "",
+      phone: props.user ? props.user.phone:props.user2.phoneSecondApplicant,
+      email: props.user ? props.user.email:props.user2.emailSecondApplicant,
+      dateOfBirth: ""
+    }),
+    setDisEstimate(false),
+    setPhoneEmpty(false)
+    } else {
+     return setQuestions({
+      youGoBy: "",
+      firstName: "",
+      surName: "",
+      middleName: "",
+      maidenName: "",
+      yourIdentification: "",
+      phone: "",
+      email: "",
+      dateOfBirth: ""
+    })}
+    
+  },[props.user])
   const [q4, setQ4] = useState(false);
   const [phoneEmpty, setPhoneEmpty] = useState(false);
   //Edit
   const [dateOfBirthEmpty, setDateOfBirthEmpty] = useState(false);
+  const [isEmptyYouGoBy, setIsEmptyYouGoBy] = useState(false);
+  const [isEmptyFirstName, setIsEmptyFirstName] = useState(false);
+  const [isEmptySurName, setIsEmptySurName] = useState(false);
+  const [isEmptyMiddelName, setIsEmptyMiddelName] = useState(false);
+  const [isEmptyMaiden, setIsEmptyMaiden] = useState(false);
+  const [isEmptyIdentify, setIsEmptyIdentify] = useState(false);
+  const [isEmptyPhone, setIsEmptyPhone] = useState(false);
+  const [isEmptyEmail, setIsEmptyEmail] = useState(false);
+
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
   // const [dateOfBirth, setDateOfBirth] = useState("");
   const [dropdownValue, setDropdownValue] = useState("");
@@ -105,6 +145,30 @@ function PersonalDetails1(props) {
     setQuestions({ ...questions, youGoBy: value });
   }
   function onsubmitForm(e) {
+    questions.youGoBy === ""
+      ? setIsEmptyYouGoBy(true)
+      : setIsEmptyYouGoBy(false);
+    questions.firstName === ""
+      ? setIsEmptyFirstName(true)
+      : setIsEmptyFirstName(false);
+
+    questions.surName === ""
+      ? setIsEmptySurName(true)
+      : setIsEmptySurName(false);
+    questions.middleName === ""
+      ? setIsEmptyMiddelName(true)
+      : setIsEmptyMiddelName(false);
+    questions.maidenName === ""
+      ? setIsEmptyMaiden(true)
+      : setIsEmptyMaiden(false);
+    questions.phone === "" ? setIsEmptyPhone(true) : setIsEmptyPhone(false);
+    questions.yourIdentification === ""
+      ? setIsEmptyIdentify(true)
+      : setIsEmptyIdentify(false);
+    questions.email === "" ? setIsEmptyEmail(true) : setIsEmptyEmail(false);
+    questions.dateOfBirth === ""
+      ? setDateOfBirthEmpty(true)
+      : setDateOfBirthEmpty(false);
     // e.preventDefault();
     console.log("finace data", props.financial_back_data);
     console.log("Question final result", questions);
@@ -115,7 +179,19 @@ function PersonalDetails1(props) {
     //   }
     // });
     // props.changeProfRout(2)
-    props.secPageMethod(true,questions);
+    if (
+      questions.youGoBy != "" &&
+      // questions.firstName != "" &&
+      // questions.surName != "" &&
+      questions.middleName != "" &&
+      questions.maidenName != "" &&
+      // questions.phone != "" &&
+      questions.yourIdentification != "" 
+      // questions.email != ""
+    ) {
+      props.secPageMethod(true, questions);
+      props.setProgress(50);
+    }
   }
   const handleRoute = route => {
     alert("asidflkj");
@@ -131,6 +207,9 @@ function PersonalDetails1(props) {
             Now let's get some personal details about yourself
           </h1>
           <h6 className="h61">You go by?</h6>
+          {isEmptyYouGoBy === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
 
         <Col lg={24}>
@@ -162,11 +241,15 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your first name?</h6>
+          {isEmptyFirstName === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1">
           <div
             className={
-              disEstimate
+              // disEstimate
+              !questions.firstName
                 ? "input2 input2simple input2disabled "
                 : "input2 input2simple"
             }
@@ -174,45 +257,58 @@ function PersonalDetails1(props) {
             {/* <span className="pre">€</span> */}
             <input
               type="text"
-              disabled={disEstimate}
+              // disabled={disEstimate}
+              disabled={true}
+            
               name="firstName"
               placeholder="First name"
               onChange={handleInput}
+              value = {questions.firstName}
             />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
+          {/* <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
-          </div>
+          </div> */}
         </Col>
 
         <Col lg={24}>
           <h6 className="h61">What is your surname?</h6>
+          {isEmptySurName === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1">
           <div
             className={
-              disEstimate
+              !questions.surName
                 ? "input2 input2simple input2disabled "
                 : "input2 input2simple"
             }
           >
             <input
               type="text"
-              disabled={disEstimate}
+              // disabled={disEstimate}
+              disabled={true}
+             
               name="surName"
               placeholder="Surname"
               onChange={handleInput}
+              value = {questions.surName}
+
             />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
+          {/* <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
-          </div>
+          </div> */}
         </Col>
 
         <Col lg={24}>
           <h6 className="h61">What is your middle name if applicable?</h6>
+          {isEmptyMiddelName === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -234,6 +330,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your maiden name if applicable?</h6>
+          {isEmptyMaiden === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -255,6 +354,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">You identify yourself as </h6>
+          {isEmptyIdentify === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1 q3">
           <div
@@ -315,10 +417,15 @@ function PersonalDetails1(props) {
             <label for="genderO">Other</label>
           </div>
         </Col>
-        {/* 
+        
+        <Col lg={24}>
+          <h6 className="h61">What's their Phone Number? </h6>
+          {isEmptyPhone === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
+        </Col>  
         <Col lg={24}>
         <div className="input">
-              <h6 className="input-lbl">What's their Phone Number?</h6>
               <div
                 className={
                   questions.phone
@@ -327,7 +434,9 @@ function PersonalDetails1(props) {
                 }
               >
                 <PhoneInput
-                 disabled={disEstimate}
+                //  disabled={disEstimate}
+                 disabled={true}
+                // readOnly
                   country={"ie"}
                   value={questions.phone}
                   onChange={phone =>
@@ -346,51 +455,30 @@ function PersonalDetails1(props) {
                 )}
               </div>
             </div>
-          <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
+          {/* <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
-          </div>
-        </Col> */}
+          </div> */}
+        </Col>
         {/* <Col lg={24}>
           <div className="input2">
             <span className="pre">€</span>
             <input type="text" placeholder="########" />
           </div>
         </Col> */}
-
-        <Col lg={24}>
-          <h6 className="h61">What's their Phone Number?</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            className={
-              disEstimate
-                ? "input2 input2simple input2disabled "
-                : "input2 input2simple"
-            }
-          >
-            {/* <span className="pre">€</span> */}
-            <input
-              type="number"
-              disabled={disEstimate}
-              onChange={handleInput}
-              name="phone"
-              placeholder="xxx-xxx-xxxx"
-            />
-          </div>
-          <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
-            <span className="far fa-edit span1"></span>
-            <span className=".span">Edit</span>
-          </div>
-        </Col>
+{/*  */}
 
         <Col lg={24}>
           <h6 className="h61">Whats your email address?</h6>
+          {isEmptyEmail === true ? (
+            <span className="p-error-v">* This field cannot be empty</span>
+          ) : null}
         </Col>
         <Col lg={24} className="q1">
           <div
             className={
-              disEstimate
+              // disEstimate
+              !questions.email
                 ? "input2 input2simple input2disabled "
                 : "input2 input2simple"
             }
@@ -398,16 +486,19 @@ function PersonalDetails1(props) {
             {/* <span className="pre">€</span> */}
             <input
               type="email"
-              disabled={disEstimate}
+              // disabled={disEstimate}
+              disabled={true}
               name="email"
               placeholder="Email Address"
               onChange={handleInput}
+              value={questions.email}
+
             />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
+          {/* <div className="input-edit-btn" onClick={() => setDisEstimate(false)}>
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
-          </div>
+          </div> */}
         </Col>
         <Col lg={24}>
           <h6 className="h61">What is your date of birth?</h6>
@@ -439,7 +530,11 @@ function PersonalDetails1(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => {
+                props.secPageMethod(false)
+                props.changeProfRout(1)
+                props.setProgress(0)}
+              }
               className="btn1"
             >
               Back

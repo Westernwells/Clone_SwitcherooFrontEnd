@@ -576,6 +576,9 @@ function GetStarted(props) {
             you'd like to own the property together.
           </p>
         </Col>
+
+
+        
         <Col lg={24} className="q1">
           <div
             onClick={e => clickRadio(e)}
@@ -597,7 +600,7 @@ function GetStarted(props) {
             <label for="q41">One</label>
           </div>
           <div
-            onClick={clickRadio}
+            onClick={e => clickRadio(e)}
             className={
               questions.peopleOnMortgage === "two"
                 ? "radio-container container_malta"
@@ -616,6 +619,16 @@ function GetStarted(props) {
             <label for="q42">Two</label>
           </div>
         </Col>
+
+
+
+
+
+
+
+
+
+
         {questions.peopleOnMortgage === "two" && (
           <Col lg={24}>
             <div className="input">

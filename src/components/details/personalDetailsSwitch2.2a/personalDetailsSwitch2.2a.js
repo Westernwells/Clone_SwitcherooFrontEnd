@@ -186,6 +186,10 @@ function PersonalDetailsSwitch2p2b(props) {
   function onsubmitForm(e) {
     console.log('data', questions);
     props.getData(questions)
+    props.onSubmitData()
+    props.changeProfRout(2)
+    props.setProgress(0)
+
   }
   return (
     <div className="personal-details2p2a">
@@ -585,7 +589,10 @@ function PersonalDetailsSwitch2p2b(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() =>{ 
+                props.secPageMethod(false)
+                props.changeProfRout(1)
+                props.setProgress(0)}}
               className="btn1"
             >
               Back

@@ -183,6 +183,8 @@ function PersonalDetailsMover2p3b(props) {
   function onsubmitForm(e) {
     console.log('data', questions);
     props.getData(questions)
+    props.onSubmitData()
+    props.changeProfRout(2)
   }
   return (
     <div className="personal-details2p3b">
