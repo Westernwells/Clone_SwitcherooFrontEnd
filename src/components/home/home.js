@@ -38,6 +38,7 @@ import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
 import PersonalDetails2p1a from "../personalDetails/personalDetails2.1a/personalDetails2.1a";
 import NewForm from "../yourApplication/newForm/NewForm";
+import DemoForm from "../yourApplication/asfandTask/asfandTask"
 import CustDoc from "../yourDocumentation/custCard/step1";
 import AddDoc from "../yourDocumentation/addCard/step2";
 import BankStDoc from "../yourDocumentation/bankStCard/step3";
@@ -146,6 +147,11 @@ function Home(props) {
                       exact
                       path="/home/yourApplication/newForm"
                       component={NewForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/asfandTask"
+                      component={DemoForm}
                     />
                     <Route
                       exact

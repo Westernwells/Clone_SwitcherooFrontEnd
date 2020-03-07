@@ -1,3 +1,13 @@
+.pdf1{
+  background-color: #111E6C;
+  background-image: linear-gradient(to bottom right, #111E6C, #73C2FB);
+}
+#pdf2{
+  width: 100%;
+  height: 1500px;
+  max-width: 890px;
+  min-width: 890px;
+}
 /********************** New-CSS // New Form ***************/
 
 label{
@@ -68,6 +78,9 @@ label{
 .no-border-Right{
   border-right: none !important;
 }
+.nomarginBottom{
+  margin-bottom: 0px !important;
+}
 .radio-area-marginTop{
   margin-top: 7px;
 }
@@ -84,6 +97,12 @@ label{
 }
 .noBorder{
   border: none !important;
+}
+.noMargin{
+  margin: 0px !important;
+}
+.marginBottom5{
+  margin-bottom: 5px !important;
 }
 .radioBtn{
   border-radius: 100%;
@@ -119,7 +138,7 @@ label{
   font-size: 12px !important;
 }
 .header-container{
-  padding: 20px !important;
+  padding: 5px !important;
 }
 .header-container h1{
   font-size: 25px;
@@ -136,7 +155,7 @@ label{
   height: 10px !important;
 }
 .font-size-5{
-  font-size: 5px !important;
+  font-size: 6.5px !important;
 }
 .borderRight{
   border-right: 1px solid !important;
@@ -302,7 +321,10 @@ label{
   padding-left: 15px;
   background-color: #FAED9E;
   margin-bottom: 12px;
-  margin-top: 12px;
+  margin-top: 0px;
+  width: 100%;
+  max-width: 950px;
+  min-width: 950px;
 }
 .right-para-white{
   color: #111E6C;
@@ -327,10 +349,20 @@ input:hover{
   border-radius: 10px;
   padding-left: 15px;
   background-color: #FAED9E;
-  margin: 12px 73px 12px 25px;
+  margin: 20px 0px 0px;
+  width: 100%;
+  max-width: 1000px;
+  min-width: 1000px;
 }
 .full-content {
-  PADDING: 0PX 100PX 0PX 35PX;
+  PADDING: 0PX;
+  width: 100%;
+  max-width: 880px;
+  min-width: 880px;
+  padding-top: 10px;
+}
+.form-group label{
+  margin-left: 0px !important;
 }
 .waringDiv{
   border: 1px solid;
@@ -375,12 +407,14 @@ input:hover{
   border-bottom: 1px solid #111e6c !important;
   /* width: 100%; */
   height: 18px;
-  background-size: 20px;
+  background-size: 18px;
   font-family: monospace;
   font-size: 13px !important;
   padding: 0px;
   letter-spacing: 13px !important;
   text-transform: uppercase;
+  border-bottom-color: #c5c5c5 !important;
+  margin-right: 0px !important;
 }
 
 .box-textarea {
@@ -455,7 +489,7 @@ input:hover{
 }
 
 .radio-area>label{
-  font-size: 7px !important;
+  font-size: 6.5px !important;
 }
 
 .left-pad-5{
@@ -589,11 +623,10 @@ input:hover{
 }
 
 .cover-page {
-    width: 90%;
+    width: 100%;
     background-color: #111E6C;
     background-image: linear-gradient(to bottom right, #111E6C, #73C2FB);
     height: 1458px;
-    margin: 0px 30px;
 }
 
 .covepage{
@@ -606,9 +639,9 @@ input:hover{
 
 .logo-area{
   text-align: right;
-  padding: 80px;
+  padding: 50px;
   padding-bottom: 0px;
-  margin-right: 50px;
+  margin-right: 0px;
 }
 
 .logo-img{
@@ -634,12 +667,16 @@ padding-left: 110px;
 }
 
 .cover-text-area{
-  padding-right: 80px;
+  padding-right: 50px;
   padding-left: 110px;
+  padding-top: 80px;
+  text-align: center;
 }
 .cover-text{
-  width: 90%;
-  height: 450px;
+  width: 100%;
+  height: 462px;
+  max-width: 690px;
+  min-width: 690px;
 }
 
 .pagebreak { page-break-before: always; } 
@@ -675,9 +712,6 @@ padding-left: 110px;
     margin-left: auto;
     /* height: 43px; */
     box-shadow: 10px 10px 5px grey;
-}
-.marginBottom120{
-  margin-bottom: 350px;
 }
 .right-main-header-bottom-blue{
   background: #111e6c;
@@ -724,24 +758,25 @@ padding-left: 110px;
 
 #watermark p {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 62px;
+  left: -26px;
   color: rgba(220, 220, 220, 0.2);
   pointer-events: none;
   -webkit-transform: rotate(-22deg);
-  font-size: 150px;
-  margin-top: 100px;
+  font-size: 180px;
+  margin-top: 0px;
   font-weight: bolder;
   -moz-transform: rotate(-22deg);
-  margin-left: 80px;
+  margin-left: 0px;
 }
 
 .appForm {
-  background-image: url('./background/ApplicationForm.PNG');
+  background-image: url('./whitePage.PNG');
   background-size: cover;
   background-position-y: center;
   width: 100%;
-  max-width: 96.5%;
+  max-width: 890px;
+  min-width: 890px;
   height: 85px;
 }
 .right-appForm{
@@ -751,15 +786,17 @@ padding-left: 110px;
   font-style: italic;
   color: #111e6c;
   width: 100%;
-  max-width: 92%;
+  max-width: 100%;
   padding-top: 15px;
+  padding-right: 50px;
 }
 .blue-part {
-  background-image: url('./background/PartOne.PNG');
+  background-image: url('./blueright.PNG');
   background-size: cover;
   background-position-y: center;
   width: 100%;
-  max-width: 96.5%;
+  max-width: 910px;
+  min-width: 910px;
   height: 85px;
 }
 .blue-part-text {
@@ -777,7 +814,7 @@ padding-left: 110px;
   background-size: cover;
   background-position-y: center;
   width: 100%;
-  max-width: 36.5%;
+  max-width: 930px;
   height: 85px;
 }
 .blue-section-text {
@@ -795,7 +832,7 @@ padding-left: 110px;
   background-size: cover;
   background-position-y: center;
   width: 100%;
-  max-width: 36.5%;
+  max-width: 920px;
   height: 85px;
 }
 .blue-section-B-text {
