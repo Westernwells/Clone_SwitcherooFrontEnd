@@ -42,6 +42,9 @@
 .labelWidth200{
   width: 200px;
 }
+.widthlabel200{
+  width: 200px !important;
+}
 .labelWidth158{
   width: 158px;
 }
