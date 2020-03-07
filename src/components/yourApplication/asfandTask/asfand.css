@@ -9,7 +9,84 @@
   min-width: 890px;
 }
 /********************** New-CSS // New Form ***************/
-
+.paddingLeft23px{
+  padding-left: 23px;
+}
+.paddingLeft38px{
+  padding-left: 38px;
+}
+.paddingLeft30px{
+  padding-left: 30px;
+}
+.paddingLeft60px{
+  padding-left: 60px;
+}
+.paddingLeft15px{
+  padding-left: 15px;
+}
+.paddingLeft70px{
+  padding-left: 50px;
+}
+.paddingLeft18px{
+  padding-left: 18px;
+}
+.labelWidth170{
+  width: 170px;
+}
+.labelWidth160{
+  width: 160px;
+}
+.labelWidth270{
+  width: 270px;
+}
+.labelWidth200{
+  width: 200px;
+}
+.labelWidth158{
+  width: 158px;
+}
+.width138{
+  width: 138px;
+}
+.width210{
+  width: 210px;
+}
+.width217{
+  width: 217px;
+}
+.width113{
+  width: 113px;
+}
+.width180{
+  width: 180px;
+}
+.width185{
+  width: 185px;
+}
+.width183{
+  width: 183px;
+}
+.width188{
+  width: 188px;
+}
+.width190{
+  width: 190px;
+}
+.width168{
+  width: 168px;
+}
+.width78{
+  width: 78px;
+}
+.width148{
+  width: 148px;
+}
+.width157{
+  width: 157px;
+}
+.width20{
+  width: 20px;
+}
 label{
   color: #111e6c;
 }
@@ -148,8 +225,12 @@ label{
   margin-bottom: 0px !important;
 }
 
-
-
+.maxWidth76{
+  max-width: 76% !important;
+}
+.marginRight10{
+  margin-right: 10px !important;
+}
 .widthheight{
   width: 10px !important;
   height: 10px !important;
@@ -279,8 +360,13 @@ label{
     display: block;
   }
 }  */
-
-
+.maxWidth35{
+  max-width: 35% !important;
+}
+.labelMaxwidth13{
+  width: 100% !important;
+  max-width: 13%;
+}
 .form-outer {
   max-height: calc(100vh - 150px);
   margin: 30px 20px 20px 20px;
@@ -323,8 +409,8 @@ label{
   margin-bottom: 12px;
   margin-top: 0px;
   width: 100%;
-  max-width: 950px;
-  min-width: 950px;
+  max-width: 1000px;
+  min-width: 1000px;
 }
 .right-para-white{
   color: #111E6C;
