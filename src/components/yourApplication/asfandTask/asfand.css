@@ -18,6 +18,9 @@
 .paddingLeft30px{
   padding-left: 30px;
 }
+.paddingLeft33{
+  padding-left: 33px;
+}
 .paddingLeft60px{
   padding-left: 60px;
 }
@@ -29,6 +32,9 @@
 }
 .paddingLeft18px{
   padding-left: 18px;
+}
+.paddingLeft16px{
+  padding-left: 16px;
 }
 .labelWidth170{
   width: 170px;
@@ -234,6 +240,13 @@ label{
 .marginRight10{
   margin-right: 10px !important;
 }
+.marginLeft40{
+  margin-left: -40px !important;
+}
+.se{
+  margin-top: -17px;
+}
+
 .widthheight{
   width: 10px !important;
   height: 10px !important;
@@ -861,6 +874,133 @@ padding-left: 110px;
 
 .appForm {
   background-image: url('./whitePage.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.partOne {
+  background-image: url('./blueright.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionA {
+  background-image: url('./sectionA.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionB {
+  background-image: url('./sectionB.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionB2 {
+  background-image: url('./sectionB2.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionC {
+  background-image: url('./sectionC.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionC2 {
+  background-image: url('./sectionC2.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionD {
+  background-image: url('./sectionD.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionE {
+  background-image: url('./sectionE.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionE2 {
+  background-image: url('./sectionE2.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionF {
+  background-image: url('./sectionF.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+
+.sectionG {
+  background-image: url('./sectionG.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionG2 {
+  background-image: url('./sectionG2.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionH {
+  background-image: url('./sectionH.PNG');
+  background-size: cover;
+  background-position-y: center;
+  width: 100%;
+  max-width: 890px;
+  min-width: 890px;
+  height: 85px;
+}
+.sectionI {
+  background-image: url('./sectionI.PNG');
   background-size: cover;
   background-position-y: center;
   width: 100%;

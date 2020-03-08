@@ -6301,20 +6301,20 @@ const NewForm = () => {
                                 
                                 <div className="header">
                                 <div className="row">
-                                                <div className="col-lg-6">
+                                                <div className="col-lg-5">
                                                     <h5 className="header-txt" style={{"font-size":"14px"}}> CHECKLIST OF SUPPORTING DOCUMENTS</h5>
                                                 </div>
                                                 <div className="col-lg-3">
-                                                    <h5 className="header-txt" style={{"font-size":"14px"}}>   FIRST APPLICANT</h5>
+                                                    <h5 className="header-txt" style={{"font-size":"14px" , "margin-left":"-24px"}}>   FIRST APPLICANT</h5>
                                                 </div>
                                                 <div className="col-lg-3">
-                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> SECOND APPLICANT</h5>
+                                                    <h5 className="header-txt" style={{"font-size":"14px","margin-left":"-60px"}}> SECOND APPLICANT</h5>
                                                 </div>
                                             </div>
                                 </div>
 
                                 <form>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px" >
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Proof of Identity - Passport or Driving Licence </label>
                                         </div>
@@ -6339,7 +6339,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">proof of Residence - A recent utility bill* </label>
                                         </div>
@@ -6364,7 +6364,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Income Certificate completed by your Employer </label>
                                         </div>
@@ -6389,7 +6389,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">P60</label>
                                         </div>
@@ -6414,7 +6414,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 payslips </label>
                                         </div>
@@ -6439,7 +6439,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">*No more than 3 months old ie. ESB, telephone, Credit Card Statement  </label>
                                         </div>
@@ -6464,7 +6464,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 years audited accounts (For Self Employed)</label>
                                         </div>
@@ -6489,7 +6489,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Statement of Affairs</label>
                                         </div>
@@ -6514,7 +6514,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Confirmation of TAX Affaris</label>
                                         </div>
@@ -6539,7 +6539,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 months Bank Statements</label>
                                         </div>
@@ -6564,7 +6564,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Separation Agreement or Divorce</label>
                                         </div>
@@ -6589,7 +6589,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Term Loans</label>
                                         </div>
@@ -6614,7 +6614,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Mortgage Statement</label>
                                         </div>
@@ -6639,7 +6639,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Evidence of Deposit</label>
                                         </div>
@@ -6664,7 +6664,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Gift Letter</label>
                                         </div>
