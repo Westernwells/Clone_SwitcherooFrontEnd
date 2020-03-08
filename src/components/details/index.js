@@ -58,7 +58,7 @@ export class index extends Component {
   // changeProfRoute = key => this.setState({ selectedKey: key });
 
   profRouteRenderer = () => {
-    console.log('getUser',this.props.user)
+    console.log("getUser", this.props.user);
     const { selectedKeyUser1, selectedKeyUser2, defalutClient } = this.state;
     if (selectedKeyUser1 === 1 && defalutClient == "user1") {
       if (
@@ -71,8 +71,9 @@ export class index extends Component {
         return (
           <PersonalDetails1
             present={true}
-          
+            user={this.props.user}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
+            setProgress={arg => this.setState({ progressUser1: arg })}
             secPageMethod={(arg, data) =>
               this.setState({
                 secPageUser1: arg,
@@ -89,9 +90,10 @@ export class index extends Component {
         return (
           <PersonalDetails21a
             present={true}
-            changeProfRout={data => this.setState({ selectedKeyUser2: data })}
+            changeProfRout={data => this.setState({ selectedKeyUser1: data })}
             onSubmitData={this.onSubmitData}
             secPageMethod={arg => this.setState({ secPageUser1: arg })}
+            setProgress={arg => this.setState({ progressUser1: arg })}
             getData={data =>
               this.setState({
                 user1Data: { ...this.state.user1Data, ...data }
@@ -112,9 +114,10 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-            user="this.user1"
+          user={this.props.user}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
+            setProgress={arg => this.setState({ progressUser1: arg })}
             secPageMethod={(arg, data) =>
               this.setState({
                 secPageUser1: arg,
@@ -132,8 +135,9 @@ export class index extends Component {
           <PersonalDetails23a
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
-            secPageMethod={arg => this.setState({ secPageUser1: arg })}
             onSubmitData={this.onSubmitData}
+            secPageMethod={arg => this.setState({ secPageUser1: arg })}
+            setProgress={arg => this.setState({ progressUser1: arg })}
             getData={data =>
               this.setState({
                 user1Data: { ...this.state.user1Data, ...data }
@@ -156,7 +160,7 @@ export class index extends Component {
         return (
           <PersonalDetails1
             data={this.state.user1Data}
-            user = {this.props.user}
+            user={this.props.user}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
             setProgress={arg => this.setState({ progressUser1: arg })}
@@ -209,7 +213,10 @@ export class index extends Component {
         return (
           <PersonalDetails1
             present={true}
+            user2={this.props.financial_Health_Check}
+
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
+            setProgress={arg => this.setState({ progressUser2: arg })}
             secPageMethod={(arg, data) =>
               this.setState({
                 secPageUser2: arg,
@@ -226,8 +233,9 @@ export class index extends Component {
           <PersonalDetails21b
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
-            secPageMethod={arg => this.setState({ secPageUser2: arg })}
             onSubmitData={this.onSubmitData}
+            setProgress={arg => this.setState({ progressUser2: arg })}
+            secPageMethod={arg => this.setState({ secPageUser2: arg })}
             getData={data =>
               this.setState({
                 user2Data: { ...this.state.user2Data, ...data }
@@ -247,9 +255,10 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-            user="this.user1"
+          user2={this.props.financial_Health_Check}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
+            setProgress={arg => this.setState({ progressUser2: arg })}
             secPageMethod={(arg, data) =>
               this.setState({
                 secPageUser2: arg,
@@ -267,6 +276,7 @@ export class index extends Component {
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             onSubmitData={this.onSubmitData}
+            setProgress={arg => this.setState({ progressUser2: arg })}
             secPageMethod={arg => this.setState({ secPageUser2: arg })}
             getData={data =>
               this.setState({
@@ -289,7 +299,7 @@ export class index extends Component {
         return (
           <PersonalDetails1
             data={this.state.user1Data}
-            user2 = {this.props.financial_Health_Check}
+            user2={this.props.financial_Health_Check}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             setProgress={arg => this.setState({ progressUser2: arg })}
@@ -380,16 +390,15 @@ export class index extends Component {
 }
 
 const mapStateToProps = ({
-  userReducer: {
-    user
-  },
+  userReducer: { user },
   Financial_data: {
-    financial_Health_Check: { purposeOfMortgage },financial_Health_Check
+    financial_Health_Check: { purposeOfMortgage },
+    financial_Health_Check
   }
 }) => ({
   purposeOfMortgage,
   financial_Health_Check,
- user
+  user
 });
 
 const mapDispatchToProps = dispacth => ({

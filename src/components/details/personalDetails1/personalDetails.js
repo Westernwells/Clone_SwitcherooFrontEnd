@@ -179,19 +179,19 @@ function PersonalDetails1(props) {
     //   }
     // });
     // props.changeProfRout(2)
-    if (
-      questions.youGoBy != "" &&
-      // questions.firstName != "" &&
-      // questions.surName != "" &&
-      questions.middleName != "" &&
-      questions.maidenName != "" &&
-      // questions.phone != "" &&
-      questions.yourIdentification != "" 
-      // questions.email != ""
-    ) {
+    // if (
+    //   questions.youGoBy != "" &&
+    //   // questions.firstName != "" &&
+    //   // questions.surName != "" &&
+    //   questions.middleName != "" &&
+    //   questions.maidenName != "" &&
+    //   // questions.phone != "" &&
+    //   questions.yourIdentification != "" 
+    //   // questions.email != ""
+    // ) {
       props.secPageMethod(true, questions);
       props.setProgress(50);
-    }
+    // }
   }
   const handleRoute = route => {
     alert("asidflkj");
@@ -207,9 +207,9 @@ function PersonalDetails1(props) {
             Now let's get some personal details about yourself
           </h1>
           <h6 className="h61">You go by?</h6>
-          {isEmptyYouGoBy === true ? (
+          {/* {isEmptyYouGoBy === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
 
         <Col lg={24}>
@@ -241,9 +241,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your first name?</h6>
-          {isEmptyFirstName === true ? (
+          {/* {isEmptyFirstName === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -274,9 +274,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your surname?</h6>
-          {isEmptySurName === true ? (
+          {/* {isEmptySurName === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -306,9 +306,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your middle name if applicable?</h6>
-          {isEmptyMiddelName === true ? (
+          {/* {isEmptyMiddelName === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -330,9 +330,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">What is your maiden name if applicable?</h6>
-          {isEmptyMaiden === true ? (
+          {/* {isEmptyMaiden === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -354,9 +354,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">You identify yourself as </h6>
-          {isEmptyIdentify === true ? (
+          {/* {isEmptyIdentify === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1 q3">
           <div
@@ -420,9 +420,9 @@ function PersonalDetails1(props) {
         
         <Col lg={24}>
           <h6 className="h61">What's their Phone Number? </h6>
-          {isEmptyPhone === true ? (
+          {/* {isEmptyPhone === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>  
         <Col lg={24}>
         <div className="input">
@@ -470,9 +470,9 @@ function PersonalDetails1(props) {
 
         <Col lg={24}>
           <h6 className="h61">Whats your email address?</h6>
-          {isEmptyEmail === true ? (
+          {/* {isEmptyEmail === true ? (
             <span className="p-error-v">* This field cannot be empty</span>
-          ) : null}
+          ) : null} */}
         </Col>
         <Col lg={24} className="q1">
           <div
@@ -501,10 +501,10 @@ function PersonalDetails1(props) {
           </div> */}
         </Col>
         <Col lg={24}>
-          <h6 className="h61">What is your date of birth?</h6>
+          {/* <h6 className="h61">What is your date of birth?</h6>
           {dateOfBirthEmpty && (
             <span className="errormissting">* This field cannot be empty</span>
-          )}
+          )} */}
         </Col>
         <Col lg={24} className="q1">
           <div className="datepic">
