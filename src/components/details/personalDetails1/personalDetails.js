@@ -501,10 +501,10 @@ function PersonalDetails1(props) {
           </div> */}
         </Col>
         <Col lg={24}>
-          {/* <h6 className="h61">What is your date of birth?</h6>
-          {dateOfBirthEmpty && (
+           <h6 className="h61">What is your date of birth?</h6>
+          {/* {dateOfBirthEmpty && (
             <span className="errormissting">* This field cannot be empty</span>
-          )} */}
+          )}  */}
         </Col>
         <Col lg={24} className="q1">
           <div className="datepic">
