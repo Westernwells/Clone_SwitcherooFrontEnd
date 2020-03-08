@@ -1,13 +1,13 @@
-import React from "react";
-import { Menu, Icon } from "antd";
-import { withRouter, Link } from "react-router-dom";
-import "./leftbar.css";
+import React from 'react';
+import { Menu, Icon } from 'antd';
+import { withRouter, Link } from 'react-router-dom';
+import './leftbar.css';
 
 const { SubMenu } = Menu;
 
 class LeftBar extends React.Component {
   handleClick = e => {
-    console.log("click in menu ", e);
+    console.log('click in menu ', e);
   };
   handleRoute = route => {
     this.props.history.push(route);
@@ -21,11 +21,11 @@ class LeftBar extends React.Component {
         <Menu
           className="leftbar-menu"
           onClick={this.handleClick}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
           mode="inline"
         >
-          <Menu.Item key="1" onClick={() => this.handleRoute("/home")}>
+          <Menu.Item key="1" onClick={() => this.handleRoute('/home')}>
             <span className="menu-icon">
               <img src="images/home/icons/feed_icon.png" />
             </span>
@@ -36,7 +36,7 @@ class LeftBar extends React.Component {
             key="2"
             // className="lb"
             onClick={() => {
-              this.handleRoute("/home/financial-health");
+              this.handleRoute('/home/financial-health');
             }}
           >
             {/* <Link to="/home/financial-health"> */}
@@ -54,7 +54,7 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="3"
             onClick={() => {
-              this.handleRoute("/home/details");
+              this.handleRoute('/home/details');
             }}
             className="lb"
           >
@@ -69,7 +69,7 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="4"
             onClick={() => {
-              this.handleRoute("/home/yourDocumentation");
+              this.handleRoute('/home/yourDocumentation');
             }}
           >
             <span className="menu-icon">
@@ -80,7 +80,7 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             onClick={() => {
-              this.handleRoute("/home/expertChat");
+              this.handleRoute('/home/expertChat');
             }}
             key="5"
           >
@@ -90,7 +90,12 @@ class LeftBar extends React.Component {
             <p>Chat to an expert</p>
           </Menu.Item>
           <span className="connector"></span>
-          <Menu.Item key="6">
+          <Menu.Item
+            onClick={() => {
+              this.handleRoute('/home/yourRecommendation');
+            }}
+            key="6"
+          >
             <span className="menu-icon">
               <img src="images/home/icons/Group758.svg" />
             </span>
@@ -101,7 +106,7 @@ class LeftBar extends React.Component {
             key="7"
             className="lb"
             onClick={() => {
-              this.handleRoute("/home/yourApplication");
+              this.handleRoute('/home/yourApplication');
             }}
           >
             <span className="menu-icon">

@@ -1,0 +1,41 @@
+.recommendation-container {
+  margin: 0px 30px 50px 0px;
+  padding: 30px 30px 0px 50px;
+  box-shadow: 4px 4px 14px 8px rgba(230, 230, 230, 1);
+  border: 1px solid #b6b6b6;
+  border-radius: 8px;
+  height: 297mm;
+  overflow: hidden;
+}
+.recommendation-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #000000;
+}
+.recommendation-button {
+  width: 70%;
+  background-color: #fb9500;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 3px 0px;
+}
+
+#recommendation-cont-three {
+  position: absolute;
+  width: 96.2%;
+}
+#recommendationThree-content {
+  height: 100%;
+  position: relative;
+  top: 0;
+  /* padding: 20px 0; */
+  box-sizing: border-box;
+}
+#recommendation-footer {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+}
