@@ -1,14 +1,14 @@
-import React from 'react';
-import { Menu, Icon } from 'antd';
-import { withRouter, Link } from 'react-router-dom';
-import './leftbar.css';
-import { connect } from 'react-redux';
+import React from "react";
+import { Menu, Icon } from "antd";
+import { withRouter, Link } from "react-router-dom";
+import "./leftbar.css";
+import { connect } from "react-redux";
 
 const { SubMenu } = Menu;
 
 class LeftBar extends React.Component {
   handleClick = e => {
-    console.log('click in menu ', e);
+    console.log("click in menu ", e);
   };
   handleRoute = route => {
     this.props.history.push(route);
@@ -24,11 +24,11 @@ class LeftBar extends React.Component {
           className="leftbar-menu"
           // onClick={this.handleClick}
           // defaultSelectedKeys={["1"]}
-          defaultOpenKeys={['sub1']}
+          defaultOpenKeys={["sub1"]}
           mode="inline"
           selectedKeys={[this.props.location.pathname]}
         >
-          <Menu.Item key="/home" onClick={() => this.handleRoute('/home')}>
+          <Menu.Item key="/home" onClick={() => this.handleRoute("/home")}>
             <span className="menu-icon">
               <img src="images/home/icons/feed_icon.png" />
             </span>
@@ -37,13 +37,13 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             key={
-              this.props.location.pathname === '/home/relatedInformation'
-                ? '/home/relatedInformation'
-                : '/home/financial-health'
+              this.props.location.pathname === "/home/relatedInformation"
+                ? "/home/relatedInformation"
+                : "/home/financial-health"
             }
             // className="lb"
             onClick={() => {
-              this.handleRoute('/home/financial-health');
+              this.handleRoute("/home/financial-health");
             }}
           >
             {/* <Link to="/home/financial-health"> */}
@@ -61,7 +61,7 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="/home/details"
             onClick={() => {
-              this.handleRoute('/home/details');
+              this.handleRoute("/home/details");
             }}
           >
             <span className="menu-icon">
@@ -75,12 +75,8 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="4"
             onClick={() => {
-              this.handleRoute('/home/yourDocumentation');
+              this.handleRoute("/home/yourDocumentation");
             }}
-            // className =  {this.props.location.pathname === '/home/details' ? 'active' : ''}
-            // onClick={() => {
-            //   this.handleRoute("/home/yourApplication");
-            // }}
           >
             <span className="menu-icon">
               <img src="images/home/icons/document_icon.png" />
@@ -90,7 +86,7 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             onClick={() => {
-              this.handleRoute('/home/expertChat');
+              this.handleRoute("/home/expertChat");
             }}
             key="/home/expertChat"
           >
@@ -102,9 +98,9 @@ class LeftBar extends React.Component {
           <span className="connector"></span>
           <Menu.Item
             onClick={() => {
-              this.handleRoute('/home/yourRecommendation');
+              this.handleRoute("/home/yourRecommendation");
             }}
-            key="6"
+            key="/home/yourRecommendation"
           >
             <span className="menu-icon">
               <img src="images/home/icons/Group758.svg" />
@@ -115,7 +111,7 @@ class LeftBar extends React.Component {
           <Menu.Item
             key="/home/yourApplication"
             onClick={() => {
-              this.handleRoute('/home/yourApplication');
+              this.handleRoute("/home/yourApplication");
             }}
           >
             <span className="menu-icon">
