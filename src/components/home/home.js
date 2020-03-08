@@ -43,6 +43,7 @@ import EmploymentDetailsPAYE from "../details/EmploymentDetailsPAYE/EmploymentDe
 import SavingAccounts from "../details/SavingAccounts/SavingAccountsIndex";
 import Links from "../details/Links/Links";
 import NewForm from "../yourApplication/newForm/NewForm";
+import DemoForm from "../yourApplication/asfandTask/asfandTask"
 import CustDoc from "../yourDocumentation/custCard/step1";
 import AddDoc from "../yourDocumentation/addCard/step2";
 import BankStDoc from "../yourDocumentation/bankStCard/step3";
@@ -150,6 +151,11 @@ function Home(props) {
                       exact
                       path="/home/yourApplication/newForm"
                       component={NewForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/asfandTask"
+                      component={DemoForm}
                     />
                     <Route
                       exact
