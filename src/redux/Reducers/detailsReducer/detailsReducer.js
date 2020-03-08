@@ -4,6 +4,7 @@ const initialstate = {
   loading: false,
   monthlyOutgoings: {},
   creditCommitments: {},
+  personalDetails: {},
   errors: false,
   modal: false
 };
@@ -11,6 +12,12 @@ const initialstate = {
 function detailsReducer( state = initialstate, action ) {
   console.log( action )
   switch ( action.type ) {
+    case Action.SET_PERSONAL_DETAILS:
+      return {
+        ...state,
+        loading: false,
+        personalDetails: action.payload
+      };
     case Action.SET_DETAILS_DATA:
       return {
         ...state,

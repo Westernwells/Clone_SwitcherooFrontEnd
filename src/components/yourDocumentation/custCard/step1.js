@@ -6,6 +6,8 @@ import ReactShadowScroll from "react-shadow-scroll";
 import "../style.css";
 import "./styles.css";
 import CustIcon from "../../../assets/cust_icon.png";
+import axios from "axios";
+// import Api from "../../../redux/api/documentationApi";
 
 class StepOne extends Component {
   constructor(props) {
@@ -70,6 +72,7 @@ class StepOne extends Component {
 
   onChangeApplicant1 = event => {
     const { app1FileList } = this.state;
+    const data = new FormData();
 
     if (event.target.files[0].type === "application/pdf") {
       app1FileList.push({
@@ -77,6 +80,22 @@ class StepOne extends Component {
         title: event.target.files[0].name,
         files: "Passport back"
       });
+      data.append("applicant1FileName", event.target.files[0].name);
+      data.append("applicant1File", event.target.files[0]);
+
+      // this.props.DocData(data);
+      // dispatch(Api.docFiles(data));
+      axios
+        .post("http://localhost:8080/documentation/uploadDocument", data, {
+          // headers: {
+          //   Authorization:
+          //     "YOUR_API_AUTHORIZATION_KEY_SHOULD_GOES_HERE_IF_HAVE",
+          //   "Content-type": "multipart/form-data"
+          // }
+        })
+        .then(res => {
+          console.log("CHECK UPLOAD STATUS", res.statusText);
+        });
     }
 
     this.setState({ app1FileList });
@@ -476,4 +495,17 @@ class StepOne extends Component {
   }
 }
 
+// const mapStateToProps = ({
+//   userReducer: {
+//     user: { _id, firstName }
+//   }
+// }) => ({
+//   userId: _id,
+//   userFirstName: firstName
+// });
+
+// const mapDispatchToProps = dispatch => ({
+//   DocData: props => dispatch(Api.docFiles(props))
+// });
+// export default connect(null, mapDispatchToProps)(StepOne);
 export default StepOne;
