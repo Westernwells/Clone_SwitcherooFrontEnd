@@ -1,4 +1,4 @@
-.personal-details1 {
+.declarations {
   min-height: 80vh;
   margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 80px;
@@ -7,7 +7,7 @@
   font-family: Montserrat;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
 }
-.personal-details1 .q1 .radio-container {
+.declarations .q1 .radio-container {
   width: 37%;
   float: left;
   margin: 0 40px 0 0;
@@ -17,16 +17,16 @@
   border-radius: 20px;
   border: 2px solid gray;
 }
-.personal-details1 .q1 .radio-container:last-child {
+.declarations .q1 .radio-container:last-child {
   margin: 0 0 0 0;
 }
-.personal-details1 .q1 input[type="radio"]:checked,
-.personal-details1 .q1 input[type="radio"]:not(:checked) {
+.declarations .q1 input[type="radio"]:checked,
+.declarations .q1 input[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-.personal-details1 .q1 input[type="radio"]:checked + label,
-.personal-details1 .q1 input[type="radio"]:not(:checked) + label {
+.declarations .q1 input[type="radio"]:checked + label,
+.declarations .q1 input[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 40px;
   cursor: pointer;
@@ -38,8 +38,8 @@
   margin: 9px 0 0 30px;
 }
 
-.personal-details1 .q1 input[type="radio"]:checked + label:before,
-.personal-details1 .q1 input[type="radio"]:not(:checked) + label:before {
+.declarations .q1 input[type="radio"]:checked + label:before,
+.declarations .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -51,8 +51,8 @@
   background: #fff;
 }
 
-.personal-details1 .q1 input[type="radio"]:checked + label:after,
-.personal-details1 .q1 input[type="radio"]:not(:checked) + label:after {
+.declarations .q1 input[type="radio"]:checked + label:after,
+.declarations .q1 input[type="radio"]:not(:checked) + label:after {
   content: "";
   width: 12px;
   height: 12px;
@@ -65,94 +65,116 @@
   transition: all 0.2s ease;
 }
 
-.personal-details1 .q1 input[type="radio"]:not(:checked) + label:after {
+.declarations .q1 input[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-.personal-details1 .q1 input[type="radio"]:checked + label:after {
+.declarations .q1 input[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.personal-details1 .q3 .radio-container {
+.declarations .q3 .radio-container {
   float: none;
   width: 30%;
   margin: 0 0 10px 0;
 }
-.personal-details1 .q4 .radio-container {
+.declarations .q4 .radio-container {
   float: left;
   width: 30%;
   margin: 0 25px 0 0;
 }
 
-.personal-details1 .heading1 {
+.declarations .heading1 {
   font-size: 22px;
   color: #62635d;
   font-weight: 600;
   margin: 17px 0 40px 0;
-  font-style: italic;
+  /* font-style: italic; */
 }
-.personal-details1 .heading2 {
+.declarations .heading2 {
   margin: 35px 0 10px 0;
 }
-.personal-details1 .h61 {
+.declarations .h61 {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 15px 0;
   padding: 0 0 0 4px;
 }
-.personal-details1 .h61.mm {
+.declarations .h61.mm {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 0px 0;
   padding: 0 0 0 4px;
 }
-.personal-details1 .mini-msg {
+.declarations .mini-msg {
   font-size: 14px;
   color: #62635d;
   margin: 0 0 15px 0;
   padding: 0 0 0 4px;
 }
-.personal-details1 .select-option1 {
+.declarations .select-option1 {
   width: 30%;
   /* height: 50px; */
 }
-.personal-details1 .select-option2 {
+.declarations .select-option-big {
+  width: 47%;
+}
+.declarations .select-option2 {
   width: 17%;
   margin: 0 15px 0 0;
 }
-.personal-details1 .ant-select-selection--single {
-  background: rgb(251, 149, 0);
-  border: rgb(251, 149, 0);
+.declarations  .ant-select-selection--single {
+  background: #cccccc;
+  border:2px solid gray;
   border-radius: 20px;
-  height: 37px;
+  height: 41px;
 }
-.personal-details1 .ant-select-selection--single:active {
-  border: rgb(251, 149, 0);
+.declarations .ant-select-selection--single:active {
+  border: 2px solid gray;
   box-shadow: none;
 }
-.personal-details1 .ant-select-selection--single:focus {
-  border: rgb(251, 149, 0);
+.declarations .ant-select-selection--single:focus {
+  border: 2px solid gray;
   box-shadow: none;
 }
-.personal-details1 .ant-select-selection__rendered {
+.declarations .ant-select-selection-selected-value{
+  
+}
+
+
+.declarations .bg-o .ant-select-selection--single {
+  background: rgb(251, 149, 0);
+  border:2px solid rgb(251, 149, 0);
+  border-radius: 20px;
+  height: 41px;
+}
+.declarations .bg-o .ant-select-selection--single:active {
+  border:2px solid rgb(251, 149, 0);
+  box-shadow: none;
+}
+.declarations .bg-o .ant-select-selection--single:focus {
+  border:2px solid rgb(251, 149, 0);
+  box-shadow: none;
+}
+.declarations .ant-select-selection__rendered {
   line-height: 37px;
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
 }
-.personal-details1 .ant-select-arrow {
+.declarations .ant-select-arrow {
   color: white;
   padding: 0 10px 0 0;
 }
 
-.personal-details1 .ant-select-arrow path {
+.declarations .ant-select-arrow path {
   stroke-width: 161px;
   stroke: white;
 }
-.personal-details1 .btn-div button {
+.declarations .btn-div button {
   margin: 0 20px 0 0;
   padding: 10px 35px;
   border: none;
@@ -160,22 +182,22 @@
   font-weight: 600;
   color: white;
 }
-.personal-details1 .btn-div {
+.declarations .btn-div {
   margin: 20px 0 0 0;
 }
-.personal-details1 .btn-div .btn1 {
+.declarations .btn-div .btn1 {
   background: gray;
 }
-.personal-details1 .btn-div .btn2 {
+.declarations .btn-div .btn2 {
   background: #fb9500;
 }
-.personal-details1 .btn-div .btn2 {
+.declarations .btn-div .btn2 {
   height: 40px;
 }
-.personal-details1 .input {
+.declarations .input {
   margin: 0 0 22px 0;
 }
-.personal-details1 .input input {
+.declarations .input input {
   width: 47%;
   height: 40px;
   background: #cccccc;
@@ -186,12 +208,29 @@
   font-weight: 600;
   color: white;
 }
+.declarations .bg-orange input {
+  background: rgb(251, 149, 0);
+  border: 2px solid rgb(251, 149, 0);
+}
 
-.personal-details1 .input input::placeholder {
+.declarations .input input::placeholder {
   color: white;
 }
 
-.personal-details1 .input2 {
+.declarations .input2 {
+  margin: 0 0 0 0;
+  float: left;
+  border-radius: 20px;
+  border: 2px solid gray;
+  width: 30%;
+  height: 40px;
+  padding: 0 0 0 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  background: #cccccc;
+}
+.declarations .input2.bg-o {
   margin: 0 0 0 0;
   float: left;
   border-radius: 20px;
@@ -205,23 +244,23 @@
   background: rgb(251, 149, 0);
 }
 
-.personal-details1 .input2disabled{
+.declarations .input2disabled {
   background: #cccccc;
   border-radius: 20px;
   border: 2px solid gray;
 }
-.personal-details1 .input2disabled input{
+.declarations .input2disabled input {
   background: #cccccc !important;
 }
-.personal-details1 .input-edit-btn {
+.declarations .input-edit-btn {
   height: 40px;
   width: 70px;
   margin: 0 0 0 20px;
   float: left;
   cursor: pointer;
 }
-.personal-details1 .input-edit-btn span{
-  line-height:40px;
+.declarations .input-edit-btn span {
+  line-height: 40px;
   /* padding:0 0 0 10px; */
   font-size: 18px;
   font-weight: 600;
@@ -229,15 +268,26 @@
 
   /* font-family: inherit; */
 }
-.personal-details1 .input-edit-btn .span1::before{
-padding: 0 8px 0 0;
+.declarations .input-edit-btn .span1::before {
+  padding: 0 8px 0 0;
 }
-.personal-details1 .input2 .pre {
+.declarations .input2 .pre {
   line-height: 36px;
   float: left;
 }
 
-.personal-details1 .input2 input {
+.declarations .input2 input {
+  width: 85%;
+  height: 36px;
+  border: none;
+  outline: none;
+  background: #cccccc;
+  padding: 0 15px;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+}
+.declarations .input2.bg-o input {
   width: 85%;
   height: 36px;
   border: none;
@@ -248,18 +298,18 @@ padding: 0 8px 0 0;
   color: white;
   font-size: 16px;
 }
-.personal-details1 .input2simple input{
-  padding:0 0 0 5px;
+.declarations .input2simple input {
+  padding: 0 0 0 5px;
 }
 
-.personal-details1 .input2 input::placeholder {
+.declarations .input2 input::placeholder {
   color: white;
 }
 
-.personal-details1 .input3 {
+.declarations .input3 {
   margin: 0 0 0px 0;
 }
-.personal-details1 .input3 input {
+.declarations .input3 input {
   width: 30%;
   height: 40px;
   background: rgb(251, 149, 0);
@@ -271,14 +321,14 @@ padding: 0 8px 0 0;
   color: white;
 }
 
-.personal-details1 .input3 input::placeholder {
+.declarations .input3 input::placeholder {
   color: white;
 }
 
-.personal-details1 .textarea-input {
+.declarations .textarea-input {
   width: 47%;
 }
-.personal-details1 .textarea-input textarea {
+.declarations .textarea-input textarea {
   width: 100%;
   resize: none;
   height: 100px;
@@ -287,11 +337,18 @@ padding: 0 8px 0 0;
   color: white;
   padding: 10px 10px;
   border: none;
+  
+}
+.declarations .textarea-input.bg-o textarea{
   background: rgb(251, 149, 0);
 }
-.personal-details1 .textarea-input textarea::placeholder {
+.declarations .textarea-input textarea::placeholder {
   color: white;
 }
-.personal-details1 .textarea-input textarea:focus {
+.declarations .textarea-input textarea:focus {
   border: none;
+}
+
+.declarations .date-picker svg{
+  /* margin: 0 0 0 20px; */
 }
