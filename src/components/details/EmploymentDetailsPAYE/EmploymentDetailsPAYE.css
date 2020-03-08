@@ -1,4 +1,4 @@
-.personal-details2p3a {
+.emp-details {
   min-height: 80vh;
   margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 80px;
@@ -7,7 +7,7 @@
   font-family: Montserrat;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
 }
-.personal-details2p3a .q1 .radio-container {
+.emp-details .q1 .radio-container {
   width: 37%;
   float: left;
   margin: 0 40px 0 0;
@@ -17,16 +17,16 @@
   border-radius: 20px;
   border: 2px solid gray;
 }
-.personal-details2p3a .q1 .radio-container:last-child {
+.emp-details .q1 .radio-container:last-child {
   margin: 0 0 0 0;
 }
-.personal-details2p3a .q1 input[type="radio"]:checked,
-.personal-details2p3a .q1 input[type="radio"]:not(:checked) {
+.emp-details .q1 input[type="radio"]:checked,
+.emp-details .q1 input[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-.personal-details2p3a .q1 input[type="radio"]:checked + label,
-.personal-details2p3a .q1 input[type="radio"]:not(:checked) + label {
+.emp-details .q1 input[type="radio"]:checked + label,
+.emp-details .q1 input[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 40px;
   cursor: pointer;
@@ -38,8 +38,8 @@
   margin: 9px 0 0 30px;
 }
 
-.personal-details2p3a .q1 input[type="radio"]:checked + label:before,
-.personal-details2p3a .q1 input[type="radio"]:not(:checked) + label:before {
+.emp-details .q1 input[type="radio"]:checked + label:before,
+.emp-details .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -51,8 +51,8 @@
   background: #fff;
 }
 
-.personal-details2p3a .q1 input[type="radio"]:checked + label:after,
-.personal-details2p3a .q1 input[type="radio"]:not(:checked) + label:after {
+.emp-details .q1 input[type="radio"]:checked + label:after,
+.emp-details .q1 input[type="radio"]:not(:checked) + label:after {
   content: "";
   width: 12px;
   height: 12px;
@@ -65,121 +65,116 @@
   transition: all 0.2s ease;
 }
 
-.personal-details2p3a .q1 input[type="radio"]:not(:checked) + label:after {
+.emp-details .q1 input[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-.personal-details2p3a .q1 input[type="radio"]:checked + label:after {
+.emp-details .q1 input[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.personal-details2p3a .q3 .radio-container {
+.emp-details .q3 .radio-container {
   float: none;
   width: 30%;
   margin: 0 0 10px 0;
 }
-.personal-details2p3a .q4 .radio-container {
+.emp-details .q4 .radio-container {
   float: left;
   width: 30%;
   margin: 0 25px 0 0;
 }
 
-.personal-details2p3a .heading1 {
+.emp-details .heading1 {
   font-size: 22px;
   color: #62635d;
   font-weight: 600;
   margin: 17px 0 40px 0;
-  font-style: italic;
+  /* font-style: italic; */
 }
-.personal-details2p3a .heading2 {
+.emp-details .heading2 {
   margin: 35px 0 10px 0;
 }
-.personal-details2p3a .h61 {
+.emp-details .h61 {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 15px 0;
   padding: 0 0 0 4px;
 }
-.personal-details2p3a .h611 {
-  font-size: 16px;
-  display: inline-block;
-  color: #62635d;
-  margin: 35px 0 15px 0;
-  padding: 0 0 0 4px;
-}
-.personal-details2p3a .h61.mm {
+.emp-details .h61.mm {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 0px 0;
   padding: 0 0 0 4px;
 }
-.personal-details2p3a .mini-msg {
+.emp-details .mini-msg {
   font-size: 14px;
   color: #62635d;
   margin: 0 0 15px 0;
   padding: 0 0 0 4px;
 }
-.personal-details2p3a .select-option1 {
+.emp-details .select-option1 {
   width: 30%;
   /* height: 50px; */
 }
-.personal-details2p3a .select-option-big {
+.emp-details .select-option-big {
   width: 47%;
 }
-.personal-details2p3a .select-option2 {
+.emp-details .select-option2 {
   width: 17%;
   margin: 0 15px 0 0;
 }
-.personal-details2p3a .ant-select-selection--single {
+.emp-details  .ant-select-selection--single {
   background: #cccccc;
-  border: 2px solid gray;
+  border:2px solid gray;
   border-radius: 20px;
   height: 41px;
 }
-.personal-details2p3a .ant-select-selection--single:active {
+.emp-details .ant-select-selection--single:active {
   border: 2px solid gray;
   box-shadow: none;
 }
-.personal-details2p3a .ant-select-selection--single:focus {
+.emp-details .ant-select-selection--single:focus {
   border: 2px solid gray;
   box-shadow: none;
 }
-.personal-details2p3a .ant-select-selection-selected-value {
+.emp-details .ant-select-selection-selected-value{
+  
 }
 
-.personal-details2p3a .bg-o .ant-select-selection--single {
+
+.emp-details .bg-o .ant-select-selection--single {
   background: rgb(251, 149, 0);
-  border: 2px solid rgb(251, 149, 0);
+  border:2px solid rgb(251, 149, 0);
   border-radius: 20px;
   height: 41px;
 }
-.personal-details2p3a .bg-o .ant-select-selection--single:active {
-  border: 2px solid rgb(251, 149, 0);
+.emp-details .bg-o .ant-select-selection--single:active {
+  border:2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
-.personal-details2p3a .bg-o .ant-select-selection--single:focus {
-  border: 2px solid rgb(251, 149, 0);
+.emp-details .bg-o .ant-select-selection--single:focus {
+  border:2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
-.personal-details2p3a .ant-select-selection__rendered {
+.emp-details .ant-select-selection__rendered {
   line-height: 37px;
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
 }
-.personal-details2p3a .ant-select-arrow {
+.emp-details .ant-select-arrow {
   color: white;
   padding: 0 10px 0 0;
 }
 
-.personal-details2p3a .ant-select-arrow path {
+.emp-details .ant-select-arrow path {
   stroke-width: 161px;
   stroke: white;
 }
-.personal-details2p3a .btn-div button {
+.emp-details .btn-div button {
   margin: 0 20px 0 0;
   padding: 10px 35px;
   border: none;
@@ -187,22 +182,22 @@
   font-weight: 600;
   color: white;
 }
-.personal-details2p3a .btn-div {
+.emp-details .btn-div {
   margin: 20px 0 0 0;
 }
-.personal-details2p3a .btn-div .btn1 {
+.emp-details .btn-div .btn1 {
   background: gray;
 }
-.personal-details2p3a .btn-div .btn2 {
+.emp-details .btn-div .btn2 {
   background: #fb9500;
 }
-.personal-details2p3a .btn-div .btn2 {
+.emp-details .btn-div .btn2 {
   height: 40px;
 }
-.personal-details2p3a .input {
+.emp-details .input {
   margin: 0 0 22px 0;
 }
-.personal-details2p3a .input input {
+.emp-details .input input {
   width: 47%;
   height: 40px;
   background: #cccccc;
@@ -213,16 +208,16 @@
   font-weight: 600;
   color: white;
 }
-.personal-details2p3a .bg-orange input {
+.emp-details .bg-orange input {
   background: rgb(251, 149, 0);
   border: 2px solid rgb(251, 149, 0);
 }
 
-.personal-details2p3a .input input::placeholder {
+.emp-details .input input::placeholder {
   color: white;
 }
 
-.personal-details2p3a .input2 {
+.emp-details .input2 {
   margin: 0 0 0 0;
   float: left;
   border-radius: 20px;
@@ -235,7 +230,7 @@
   font-size: 20px;
   background: #cccccc;
 }
-.personal-details2p3a .input2.bg-o {
+.emp-details .input2.bg-o {
   margin: 0 0 0 0;
   float: left;
   border-radius: 20px;
@@ -249,24 +244,23 @@
   background: rgb(251, 149, 0);
 }
 
-.personal-details2p3a .input2disabled {
+.emp-details .input2disabled {
   background: #cccccc;
   border-radius: 20px;
   border: 2px solid gray;
 }
-.personal-details2p3a .input2disabled input {
+.emp-details .input2disabled input {
   background: #cccccc !important;
 }
-.personal-details2p3a .input-edit-btn {
+.emp-details .input-edit-btn {
   height: 40px;
   width: 70px;
-  display: inline-block;
-  margin: 10px 0 0 30%;
-  /* float: left; */
+  margin: 0 0 0 20px;
+  float: left;
   cursor: pointer;
 }
-.personal-details2p3a .input-edit-btn span {
-  line-height: 66px;
+.emp-details .input-edit-btn span {
+  line-height: 40px;
   /* padding:0 0 0 10px; */
   font-size: 18px;
   font-weight: 600;
@@ -274,15 +268,15 @@
 
   /* font-family: inherit; */
 }
-.personal-details2p3a .input-edit-btn .span1::before {
+.emp-details .input-edit-btn .span1::before {
   padding: 0 8px 0 0;
 }
-.personal-details2p3a .input2 .pre {
+.emp-details .input2 .pre {
   line-height: 36px;
   float: left;
 }
 
-.personal-details2p3a .input2 input {
+.emp-details .input2 input {
   width: 85%;
   height: 36px;
   border: none;
@@ -293,7 +287,7 @@
   color: white;
   font-size: 16px;
 }
-.personal-details2p3a .input2.bg-o input {
+.emp-details .input2.bg-o input {
   width: 85%;
   height: 36px;
   border: none;
@@ -304,18 +298,18 @@
   color: white;
   font-size: 16px;
 }
-.personal-details2p3a .input2simple input {
+.emp-details .input2simple input {
   padding: 0 0 0 5px;
 }
 
-.personal-details2p3a .input2 input::placeholder {
+.emp-details .input2 input::placeholder {
   color: white;
 }
 
-.personal-details2p3a .input3 {
+.emp-details .input3 {
   margin: 0 0 0px 0;
 }
-.personal-details2p3a .input3 input {
+.emp-details .input3 input {
   width: 30%;
   height: 40px;
   background: rgb(251, 149, 0);
@@ -327,13 +321,14 @@
   color: white;
 }
 
-.personal-details2p3a .input3 input::placeholder {
+.emp-details .input3 input::placeholder {
   color: white;
 }
-.personal-details2p3a .textarea-input {
+
+.emp-details .textarea-input {
   width: 47%;
 }
-.personal-details2p3a .textarea-input textarea {
+.emp-details .textarea-input textarea {
   width: 100%;
   resize: none;
   height: 100px;
@@ -342,53 +337,18 @@
   color: white;
   padding: 10px 10px;
   border: none;
+  
+}
+.emp-details .textarea-input.bg-o textarea{
   background: rgb(251, 149, 0);
 }
-.personal-details2p3a .textarea-input textarea::placeholder {
+.emp-details .textarea-input textarea::placeholder {
   color: white;
 }
-.personal-details2p3a .textarea-input textarea:focus {
+.emp-details .textarea-input textarea:focus {
   border: none;
 }
-.personal-details2p3a .checkbox {
-  margin-left: 100px;
-  font-size: 17px;
-  font-weight: 550;
-  color: #62635d;
-}
-.personal-details2p3a .ant-checkbox-wrapper {
-  margin: 0 0 0 30%;
-  font-size: 16px;
-  font-weight: 600;
-}
 
-.personal-details2p3a .ant-checkbox .ant-checkbox-inner {
-  background-color: #62635d !important;
-  border: 0 !important;
+.emp-details .date-picker svg{
+  /* margin: 0 0 0 20px; */
 }
-
-.personal-details2p3a .ant-checkbox-checked .ant-checkbox-inner {
-  background: #fb9500 !important;
-  border: 0 !important;
-}
-.personal-details2p3a .ant-checkbox .ant-checkbox-inner:hover {
-  border: 0 !important;
-}
-
-/* 
-.personal-details2p3a .input-edit-btn {
-  height: 40px;
-  width: 70px;
-  margin: 0 0 0 20px;
-  
-  cursor: pointer;
-}
-.personal-details2p3a .input-edit-btn span{
-  line-height:40px;
-  font-size: 18px;
-  font-weight: 600;
-  float: left;
-}
-.personal-details2p3a .input-edit-btn .span1::before{
-padding: 0 8px 0 0;
-} */

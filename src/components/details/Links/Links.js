@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Select, Button, DatePicker } from "antd";
-import "./MO.css";
+import "./MonthlyOutgoings.css";
 import { countries } from "./Countries";
 
 const { Option } = Select;
@@ -133,11 +133,72 @@ function Declaration(props) {
   for (var i = 1; i <= 35; i++) {
     years.push(i);
   }
+  function clickRadio(e) {
+    var label = e.target.childNodes[1];
+    if (label) {
+      label.click();
+    }
+  }
+  var handleQ = e => {
+    var radioContainers = e.target.parentNode.parentNode.childNodes;
+    var qs = questions;
+    qs[e.target.name] = e.target.value;
+    setQ4(!q4);
+    // validateRadio(e.target.name, e.target.value);
+    for (var i = 0; i < radioContainers.length; i++) {
+      var input = radioContainers[i].childNodes[0];
+      if (input.checked) {
+        input.parentNode.style.background = "#fb9500";
+        input.parentNode.style.border = "2px solid #fb9500";
+      } else {
+        input.parentNode.style.background = "lightgray";
+        input.parentNode.style.border = "2px solid gray";
+      }
+    }
+  };
   function handleAdditionalP(value) {
     setAddP(value);
   }
   function handleInput(e) {
     setQuestions({ ...questions, [e.target.name]: e.target.value });
+  }
+  function handleCounty(value, name) {
+    // console.log(`${name} ${value}`);
+    setQuestions({ ...questions, county: value });
+  }
+  function handleEmployersCounty(value) {
+    setQuestions({ ...questions, employersCounty: value });
+  }
+  function handleAccountantCounty(value) {
+    setQuestions({ ...questions, accountantCounty: value });
+  }
+  function handleBusinessCounty(value) {
+    setQuestions({ ...questions, businessCounty: value });
+  }
+  function handlePrevEmployersCounty(value) {
+    setQuestions({ ...questions, prevEmployersCounty: value });
+  }
+  function handlePreCounty(value, name) {
+    setQuestions({ ...questions, previous_county: value });
+  }
+  function handleChange(value, name) {
+    console.log(`${name} ${value}`);
+    // setQuestions({ ...questions, county: value });
+  }
+  function handleSource(value) {
+    setQuestions({ ...questions, source: value });
+  }
+  function handleEmploymentType(value) {
+    setQuestions({ ...questions, employmentType: value });
+  }
+  function handleOccupation(value) {
+    setQuestions({ ...questions, occupation: value });
+  }
+  function handleOccupationSector(value) {
+    setQuestions({ ...questions, occupationSector: value });
+  }
+  function handleResidentCountry(value) {
+    setQuestions({ ...questions, residentCountry: value });
   }
   function handleMaritalS(value) {
     setQuestions({ ...questions, maritalStatus: value });
@@ -173,8 +234,7 @@ function Declaration(props) {
     setQuestions({ ...questions, purpose: value });
   }
   const handleRoute = route => {
-    if (addP && addP > 0) props.history.push(route + "/" + addP);
-    else props.history.push("/home/details/final_page");
+    props.history.push(route);
   };
 
   console.log(questions);
@@ -183,113 +243,41 @@ function Declaration(props) {
     <div className="m-outgoings">
       <Row className="d-row-s1">
         <Col lg={24}>
-          <h1 className="heading1">Details of your financial wellbeing</h1>
-          <h6 className="h61">Do you have monthly childminding costs?</h6>
+          <h1 className="heading1 heading2">Links</h1>
         </Col>
 
-        <Col lg={24}>
-          <div
-            className={questions.childmindingCost ? "input2 bg-o" : "input2"}
-          >
-            <span className="pre">€</span>
-            <input
-              type="number"
-              name="childmindingCost"
-              onChange={handleInput}
-              placeholder=""
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h6 className="h61">
-            Do you have monthly spousal/maintenance costs?
-          </h6>
-        </Col>
-        <Col lg={24}>
-          <div className={questions.maintenanceCost ? "input2 bg-o" : "input2"}>
-            <span className="pre">€</span>
-            <input
-              type="number"
-              name="maintenanceCost"
-              onChange={handleInput}
-              placeholder=""
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h6 className="h61">Do you have private school fees? (annual)</h6>
-        </Col>
-        <Col lg={24}>
-          <div
-            className={questions.privateSchoolFees ? "input2 bg-o" : "input2"}
-          >
-            <span className="pre">€</span>
-            <input
-              type="number"
-              name="privateSchoolFees"
-              onChange={handleInput}
-              placeholder=""
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h6 className="h61">
-            Do you have social/sporting club subscriptions? (annual)
-          </h6>
-        </Col>
-        <Col lg={24}>
-          <div
-            className={
-              questions.socialClubSubscription ? "input2 bg-o" : "input2"
-            }
-          >
-            <span className="pre">€</span>
-            <input
-              type="number"
-              name="socialClubSubscription"
-              onChange={handleInput}
-              placeholder=""
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h1 className="heading1 heading2">
-            Ok, Now let's understand what credit commitments you have
-          </h1>
-        </Col>
-
-        <Col lg={10} offset={0}>
+        <Col lg={10}>
           <div className="btn-div">
-            <Button
+            {/* <Button
               style={{ height: "40px" }}
               onClick={() => window.history.back()}
               className="btn1"
             >
               Back
+            </Button> */}
+            <Button
+              onClick={() => handleRoute("/home/details/declarations")}
+              className="btn2 mb-2"
+            >
+              Declarations
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
-              className="btn2"
-              // loading={props.financial_data.loading}
-              // disabled={
-              //   (questions.filedBankruptcy &&
-              //     questions.failedToPayLoan &&
-              //     questions.purposeOfMortgage &&
-              //     questions.peopleOnMortgage === "one") ||
-              //     (questions.filedBankruptcy &&
-              //       questions.failedToPayLoan &&
-              //       questions.purposeOfMortgage &&
-              //       questions.peopleOnMortgage === "two" &&
-              //       questions.firstNameSecondApplicant &&
-              //       questions.lastNameSecondApplicant &&
-              //       questions.emailSecondApplicantValidation &&
-              //       questions.emailSecondApplicantreValidation)
-              //     ? false
-              //     : true
-              // }
+              onClick={() => handleRoute("/home/details/Emp")}
+              className="btn2 mb-2"
             >
-              Save & Countinue
+              Employement Details
+            </Button>
+            <Button
+              onClick={() => handleRoute("/home/details/mo")}
+              className="btn2 mb-2"
+            >
+              Monthly Outgoings
+            </Button>
+            <Button
+              onClick={() => handleRoute("/home/details/saving_accounts")}
+              className="btn2 mb-2"
+            >
+              Saving Accounts
             </Button>
           </div>
         </Col>
