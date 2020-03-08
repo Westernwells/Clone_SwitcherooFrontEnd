@@ -1048,7 +1048,7 @@ class KForm extends Component {
     }
 }
 
-export default class Example extends React.Component {
+export default class Print extends React.Component {
     render() {
       return (
         <div>

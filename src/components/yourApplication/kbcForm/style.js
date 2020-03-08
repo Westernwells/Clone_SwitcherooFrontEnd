@@ -440,28 +440,32 @@ width:30px;
     text-align:center;
 }
 `;
-const TableF = styled.table`
+const TableF = styled.div`
 width:100%;
-border:solid 1px #013A65;
 margin:10px 0;
-border-collapse: collapse;
-th{
-    border:solid 1px #013A65;
-    width:50%;
-    text-align:left;
-    padding:5px;
-    font-family: 'Neue Haas Grotesk Text Pro';
-
+.g1{
+width:100%;
+border-top:1px solid #003A65;
+border-right:1px solid #003A65;
+border-left:1px solid #003A65;
+  display:grid;
+grid-template-columns:repeat(2,1fr);
+p{
+padding:7px 5px;
 }
-td{
-    border:solid 1px #013A65;
-    width:50%;
-    text-align:left;
-    padding:5px;
-    font-family: 'Neue Haas Grotesk Text Pro';
-
 }
+.br{
+  border-right:solid 0.5px #003A65
+}
+.bl{
+  border-left:solid 0.5px #003A65
+}
+.g2{
+width:100%;
 
+  display:grid;
+grid-template-columns:repeat(2,1fr);
+}
 .no-padding{
     padding:0;
   border:solid 1px #013A65;
@@ -492,7 +496,11 @@ const Container = styled.div`
   margin:0 auto;
   padding:0 1%;
   position:relative;
-
+.psuedo{
+  height:100px;
+  display:block;
+  margin-bottom:100px;
+}
   .p-no{
     font-size:16px;
     color:#003A65;
@@ -649,6 +657,9 @@ font-family: 'Neue Haas Grotesk Text Pro';
   padding-top:10px;
   height:165px;
 }
+.mg{
+  margin-top:260px;
+}
 @media print{
   .logo-sm{
   margin-top:-5px;
@@ -672,12 +683,12 @@ font-family: 'Neue Haas Grotesk Text Pro';
   padding-top:10px;
    */
 }
-  .contain{
+  /* .contain{
     border-top:20px solid red;
     padding:0 20px;
     width:100%;
     margin:0 auto;
-  }
+  } */
   .p-show{
   display:block;
 }
@@ -697,7 +708,7 @@ font-family: 'Neue Haas Grotesk Text Pro';
 
 .headX{
   background-image:url(${img});
-height:1600px;
+height:1590px;
 width:100%;
 margin-top:-20px;
 margin:0 auto;

@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print';
  import KForm from './KForm'
  import style  from  './style.css'
  
-export default class Rough extends React.Component {
+export default class WithPrint extends React.Component {
   render() {
     return (
       <div>
