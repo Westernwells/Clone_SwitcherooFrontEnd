@@ -1,60 +1,61 @@
-import React from "react";
-import { Row, Col, Collapse } from "antd";
-import "./home.css";
-import Chat from "../chat/chat";
-import LeftBar from "./leftbar/leftbar";
-import SearchBar from "./searchbar/searchbar";
-import RightBar from "./rightbar/rightbar";
-import UserSettings from "../userSettings/userSettings";
-import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import Feed from "./feed/feed";
-import FinancialHealth from "../financialHealth/getStatetedText/getStartedText";
-import GetStarted from "../financialHealth/getStarted/getStarted";
-import DetailMover from "../details/detailMover/detailMover";
-import AfterIntial from "../financialHealth/afterintial/";
-import StepOne from "../details/step1/step1";
-import StepTwo from "../details/step2/step2";
-import StepThree from "../details/step3/step3";
-import StepFour from "../yourApplication/firstForm/step4";
-import SwitcherThree from "../details/switcher3/switcher3";
-import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
-import CreditCommittments from "../details/creditCommittments/CreditCommittments";
-import BankDetails from "../details/bankDetails/BankDetails";
+import React from 'react';
+import { Row, Col, Collapse } from 'antd';
+import './home.css';
+import Chat from '../chat/chat';
+import LeftBar from './leftbar/leftbar';
+import SearchBar from './searchbar/searchbar';
+import RightBar from './rightbar/rightbar';
+import UserSettings from '../userSettings/userSettings';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import Feed from './feed/feed';
+import FinancialHealth from '../financialHealth/getStatetedText/getStartedText';
+import GetStarted from '../financialHealth/getStarted/getStarted';
+import DetailMover from '../details/detailMover/detailMover';
+import AfterIntial from '../financialHealth/afterintial/';
+import StepOne from '../details/step1/step1';
+import StepTwo from '../details/step2/step2';
+import StepThree from '../details/step3/step3';
+import StepFour from '../yourApplication/firstForm/step4';
+import SwitcherThree from '../details/switcher3/switcher3';
+import MonthlyOutgoing from '../details/monthlyOutgoings/MonthlyOutgoings';
+import CreditCommittments from '../details/creditCommittments/CreditCommittments';
+import BankDetails from '../details/bankDetails/BankDetails';
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
-import YourDocumentation from "../yourDocumentation/intro/mDocMain";
-import YourApplication from "../yourApplication/intro/docMain";
-import PtsbForm from "../yourApplication/ptsbForm/Main";
-import fOne from "../yourApplication/threeForms/fOne/First";
-import fTwo from "../yourApplication/threeForms/fTwo/Second";
-import fThree from "../yourApplication/threeForms/fThree/Third";
-import IcsForm from "../yourApplication/icsForm/src/App";
-import KbcForm from "../yourApplication/kbcForm/index";
-import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
-import FinalPage from "../details/FinalPage/FinalPage";
-import ExpertChat from "../expertChat/expertChat";
-import Details from "../details";
+import YourDocumentation from '../yourDocumentation/intro/mDocMain';
+import YourApplication from '../yourApplication/intro/docMain';
+import YourRecommendation from '../yourRecommendation/YourRecommendation';
+import PtsbForm from '../yourApplication/ptsbForm/Main';
+import fOne from '../yourApplication/threeForms/fOne/First';
+import fTwo from '../yourApplication/threeForms/fTwo/Second';
+import fThree from '../yourApplication/threeForms/fThree/Third';
+import IcsForm from '../yourApplication/icsForm/src/App';
+import KbcForm from '../yourApplication/kbcForm/index';
+import AdditionalPropertyIndex from '../details/additionalProperty/additionalPropertyIndex';
+import FinalPage from '../details/FinalPage/FinalPage';
+import ExpertChat from '../expertChat/expertChat';
+import Details from '../details';
 // import NewForm from "../yourApplication/newForm/newForm";
-import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
+import MonthlyOutgoings from '../details/monthlyOutgoings/MonthlyOutgoings';
 // import Declarations from "../personalDetails/Declaration/Declaration";
-import Declarations from "../details/Declaration/Declaration";
-import EmploymentDetailsPAYE from "../details/EmploymentDetailsPAYE/EmploymentDetailsPAYE";
-import SavingAccounts from "../details/SavingAccounts/SavingAccountsIndex";
-import Links from "../details/Links/Links";
-import NewForm from "../yourApplication/newForm/NewForm";
-import DemoForm from "../yourApplication/asfandTask/asfandTask"
-import CustDoc from "../yourDocumentation/custCard/step1";
-import AddDoc from "../yourDocumentation/addCard/step2";
-import BankStDoc from "../yourDocumentation/bankStCard/step3";
-import SavingDoc from "../yourDocumentation/savingCard/step4";
-import BorrowDoc from "../yourDocumentation/borrowCard/step5";
-import CreditDoc from "../yourDocumentation/creditCard/step6";
-import MortgageDoc from "../yourDocumentation/mortgageCard/step7";
-import PayeeDoc from "../yourDocumentation/payeeCard/step8";
-import SelfDoc from "../yourDocumentation/selfCard/step9";
-import SourceDoc from "../yourDocumentation/sourceCard/step10";
-import OtherDoc from "../yourDocumentation/otherCard/step11";
+import Declarations from '../details/Declaration/Declaration';
+import EmploymentDetailsPAYE from '../details/EmploymentDetailsPAYE/EmploymentDetailsPAYE';
+import SavingAccounts from '../details/SavingAccounts/SavingAccountsIndex';
+import Links from '../details/Links/Links';
+import NewForm from '../yourApplication/newForm/NewForm';
+import DemoForm from '../yourApplication/asfandTask/asfandTask';
+import CustDoc from '../yourDocumentation/custCard/step1';
+import AddDoc from '../yourDocumentation/addCard/step2';
+import BankStDoc from '../yourDocumentation/bankStCard/step3';
+import SavingDoc from '../yourDocumentation/savingCard/step4';
+import BorrowDoc from '../yourDocumentation/borrowCard/step5';
+import CreditDoc from '../yourDocumentation/creditCard/step6';
+import MortgageDoc from '../yourDocumentation/mortgageCard/step7';
+import PayeeDoc from '../yourDocumentation/payeeCard/step8';
+import SelfDoc from '../yourDocumentation/selfCard/step9';
+import SourceDoc from '../yourDocumentation/sourceCard/step10';
+import OtherDoc from '../yourDocumentation/otherCard/step11';
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -269,6 +270,11 @@ function Home(props) {
                       exact
                       path="/home/expertChat"
                       component={ExpertChat}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourRecommendation"
+                      component={YourRecommendation}
                     />
                     <Route
                       exact
