@@ -32,7 +32,6 @@
     "pdfjs": "^2.3.4",
     "react": "^16.12.0",
     "react-calendar": "^2.19.2",
-    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.12.0",
     "react-gauge-chart": "^0.2.5",
     "react-input-mask": "^2.0.4",
@@ -48,8 +47,7 @@
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "socketio-file-upload": "^0.7.0",
-    "styled-components": "^5.0.1",
-    "react-code-input": "^3.9.0"
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
