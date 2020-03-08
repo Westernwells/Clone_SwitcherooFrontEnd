@@ -89,6 +89,16 @@ class docMain extends React.Component {
         >
           KBC Form
         </button>
+        <button
+          onClick={
+            () => this.props.history.push("/home/yourApplication/asfandTask")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          Demo Form
+        </button>
       </div>
     );
   }

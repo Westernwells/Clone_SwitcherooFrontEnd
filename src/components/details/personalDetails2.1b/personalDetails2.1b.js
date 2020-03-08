@@ -8,7 +8,7 @@ function PersonalDetails2p1b(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    q1: ""
+    
   });
   const purposes = [
     "Extension",
@@ -181,7 +181,13 @@ function PersonalDetails2p1b(props) {
   function onCheckChange(e) {
     console.log(`checked = ${e.target.checked}`);
   }
-
+  function onsubmitForm(e) {
+    console.log('data', questions);
+    props.getData(questions)
+    props.onSubmitData()
+    props.changeProfRout(2)
+    props.setProgress(0)
+  }
   return (
     <div className="personal-details2p1b">
       <Row className="d-row-s1">
@@ -477,14 +483,17 @@ function PersonalDetails2p1b(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => {
+                props.secPageMethod(false)
+                props.changeProfRout(1)
+                props.setProgress(0)}
+              }
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
+              onClick={onsubmitForm}
               className="btn2"
               // loading={props.financial_data.loading}
               // disabled={

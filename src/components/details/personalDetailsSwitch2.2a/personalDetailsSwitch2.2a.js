@@ -7,7 +7,7 @@ function PersonalDetailsSwitch2p2b(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    q1: ""
+   
   });
   const purposes = [
     "Extension",
@@ -183,7 +183,14 @@ function PersonalDetailsSwitch2p2b(props) {
   function onCheckChange(e) {
     console.log(`checked = ${e.target.checked}`);
   }
+  function onsubmitForm(e) {
+    console.log('data', questions);
+    props.getData(questions)
+    props.onSubmitData()
+    props.changeProfRout(2)
+    props.setProgress(0)
 
+  }
   return (
     <div className="personal-details2p2a">
       <Row className="d-row-s1">
@@ -582,32 +589,17 @@ function PersonalDetailsSwitch2p2b(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() =>{ 
+                props.secPageMethod(false)
+                props.changeProfRout(1)
+                props.setProgress(0)}}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
               className="btn2"
-              // loading={props.financial_data.loading}
-              // disabled={
-              //   (questions.filedBankruptcy &&
-              //     questions.failedToPayLoan &&
-              //     questions.purposeOfMortgage &&
-              //     questions.peopleOnMortgage === "one") ||
-              //     (questions.filedBankruptcy &&
-              //       questions.failedToPayLoan &&
-              //       questions.purposeOfMortgage &&
-              //       questions.peopleOnMortgage === "two" &&
-              //       questions.firstNameSecondApplicant &&
-              //       questions.lastNameSecondApplicant &&
-              //       questions.emailSecondApplicantValidation &&
-              //       questions.emailSecondApplicantreValidation)
-              //     ? false
-              //     : true
-              // }
+              onClick = {onsubmitForm}
             >
               Save & Countinue
             </Button>

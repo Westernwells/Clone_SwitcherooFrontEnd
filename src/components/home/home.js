@@ -33,11 +33,17 @@ import IcsForm from "../yourApplication/icsForm/src/App";
 import KbcForm from "../yourApplication/kbcForm/index";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
-import PersonalDetails1 from "../personalDetails/personalDetails1/personalDetails1";
 import ExpertChat from "../expertChat/expertChat";
 import Details from "../details";
-import PersonalDetails2p1a from "../personalDetails/personalDetails2.1a/personalDetails2.1a";
+// import NewForm from "../yourApplication/newForm/newForm";
+import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
+// import Declarations from "../personalDetails/Declaration/Declaration";
+import Declarations from "../details/Declaration/Declaration";
+import EmploymentDetailsPAYE from "../details/EmploymentDetailsPAYE/EmploymentDetailsPAYE";
+import SavingAccounts from "../details/SavingAccounts/SavingAccountsIndex";
+import Links from "../details/Links/Links";
 import NewForm from "../yourApplication/newForm/NewForm";
+import DemoForm from "../yourApplication/asfandTask/asfandTask"
 import CustDoc from "../yourDocumentation/custCard/step1";
 import AddDoc from "../yourDocumentation/addCard/step2";
 import BankStDoc from "../yourDocumentation/bankStCard/step3";
@@ -49,7 +55,6 @@ import PayeeDoc from "../yourDocumentation/payeeCard/step8";
 import SelfDoc from "../yourDocumentation/selfCard/step9";
 import SourceDoc from "../yourDocumentation/sourceCard/step10";
 import OtherDoc from "../yourDocumentation/otherCard/step11";
-import PersonalDetails2p1b from "../personalDetails/personalDetailsSwitch2.2a/personalDetailsSwitch2.2a";
 const { Panel } = Collapse;
 
 function Home(props) {
@@ -149,6 +154,11 @@ function Home(props) {
                     />
                     <Route
                       exact
+                      path="/home/yourApplication/asfandTask"
+                      component={DemoForm}
+                    />
+                    <Route
+                      exact
                       path="/home/yourApplication/kbcForm"
                       component={KbcForm}
                     />
@@ -182,18 +192,7 @@ function Home(props) {
                       path="/home/details/final_page"
                       component={FinalPage}
                     />
-                    <Route
-                      exact
-                      path="/home/details/personal_d1"
-                      component={PersonalDetails1}
-                    />
-                    <Route
-                      exact
-                      path="/home/details/personal2p1a"
-                      component={PersonalDetails2p1a}
-                      path="/home/yourDocumentation"
-                      component={YourDocumentation}
-                    />
+
                     <Route
                       exact
                       path="/home/yourDocumentation/step1"
@@ -214,6 +213,27 @@ function Home(props) {
                       path="/home/yourDocumentation/step4"
                       component={SavingDoc}
                     />
+                    <Route
+                      exact
+                      path="/home/details/declarations"
+                      component={Declarations}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/Emp"
+                      component={EmploymentDetailsPAYE}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/mo"
+                      component={MonthlyOutgoings}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/saving_accounts"
+                      component={SavingAccounts}
+                    />
+                    <Route exact path="/home/details/links" component={Links} />
                     <Route
                       exact
                       path="/home/yourDocumentation/step5"
@@ -244,13 +264,7 @@ function Home(props) {
                       path="/home/yourDocumentation/step10"
                       component={SourceDoc}
                     />
-                    <Route
-                      exact
-                      path="/home/yourDocumentation/step11"
-                      component={OtherDoc}
-                      path="/home/details/personal2p1b"
-                      component={PersonalDetails2p1b}
-                    />
+
                     <Route
                       exact
                       path="/home/expertChat"

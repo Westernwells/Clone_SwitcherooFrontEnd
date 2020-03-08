@@ -7,6 +7,7 @@ const { SubMenu } = Menu;
 
 class TopNavigation extends React.Component {
   render() {
+    console.log('defalutClient',this.props.defalutClient)
     return (
       <div className="topnaivetion_fi InDetailWhatYouNeed">
         <Menu
