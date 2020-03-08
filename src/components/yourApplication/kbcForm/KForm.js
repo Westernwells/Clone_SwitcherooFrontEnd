@@ -23,7 +23,6 @@ import svg from './images/loader/oval.svg'
 import './style.css'
 import ReactToPrint from 'react-to-print';
 
-import PrintProvider, { Print, NoPrint } from 'react-easy-print';
 class KForm extends Component {
     state = ({
         loading:false,
