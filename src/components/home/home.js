@@ -30,6 +30,7 @@ import fOne from "../yourApplication/threeForms/fOne/First";
 import fTwo from "../yourApplication/threeForms/fTwo/Second";
 import fThree from "../yourApplication/threeForms/fThree/Third";
 import IcsForm from "../yourApplication/icsForm/src/App";
+import KbcForm from "../yourApplication/kbcForm/index";
 import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import ExpertChat from "../expertChat/expertChat";
@@ -149,6 +150,11 @@ function Home(props) {
                       exact
                       path="/home/yourApplication/newForm"
                       component={NewForm}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/kbcForm"
+                      component={KbcForm}
                     />
                     <Route
                       exact

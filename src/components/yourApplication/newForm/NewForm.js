@@ -206,7 +206,7 @@ const NewForm = () => {
             <Form>
                 <Button type="primary">Submit Application</Button>
                 <Button type="primary" onClick={exportPdf}>Download PDF</Button>
-                <div className="form-outer">
+                <div className="form-outer" >
                     <div id="application_div">
                         <div className="cover-page">
                             <div className="logo-area">
@@ -217,6 +217,7 @@ const NewForm = () => {
                                 <p className="cover-sub-header">Application form</p>
                             </div>
                             <br /><br />
+                            
                             <div className="cover-text-area">
                                 <textarea className="cover-text" name="userId"  placeholder="PIBA Member" rows="4" cols="50" />
                             </div>
@@ -224,26 +225,23 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        {/* <div className="pagebreak"> </div>
-                        <br /><br /> */}
-                        <div className="right-main-header-container">
-                            {/* <div className="right-main-header-top"></div> */}
-                            {/* <div className="right-main-header-bottom"> */}
-                            <div>
-                                <i>
-                                    <p className="right-main-header-txt"> Application Form</p>
-                                </i>
+                        <br /><br /> 
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <h4 className="right-para">Application From</h4>
+                                </div>
                             </div>
                         </div>
-                        <br /> <br />
-                        <div className="header">
+                        <br />
+                        <div className="header1">
                             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
                         </div>
-                        <br />
+                       
                         <div className="full-content">
                             <div class="row" id="loginForm">
                                 <div className="form-group">
-                                    <label className="box-label">Brokerage Name</label>
+                                    <label className="box-label font-size-12">Brokerage Name</label>
                                     <input
                                         type="text"
                                         className="box-input"
@@ -252,7 +250,7 @@ const NewForm = () => {
                                         onChange={(e)=>handleInputChange(e,'introducingImmediately')}/>
                                 </div>
                                 <div className="form-group">
-                                    <label className="box-label">Address</label>
+                                    <label className="box-label font-size-12">Address</label>
                                     <textarea
                                         type="text" rows="3"
                                         className="box-textarea"
@@ -261,84 +259,94 @@ const NewForm = () => {
                                         onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
                                 </div>
                             </div>
-                            <div className="left-pane">
-                                <div className="form-group">
-                                    <label className="box-label">Telephone</label>
-                                    <input
-                                        type="text"
-                                        className="box-input"
-                                        name = 'telephone'
-                                        value = {form.introducingImmediately.telephone}
-                                        onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                            <div className="row">
+                                <div className="col-lg-6 noPadding">
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12">Telephone</label>
+                                        <input
+                                            type="text"
+                                            className="box-input"
+                                            name = 'telephone'
+                                            value = {form.introducingImmediately.telephone}
+                                            onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="right-pane">
-                                <div className="form-group">
-                                    <label className="box-label">Fax</label>
-                                    <input
-                                        type="text"
-                                        className="box-input"
-                                        name = 'fax'
-                                        value = {form.introducingImmediately.fax}
-                                        onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
-                                </div>
-                            </div>
-                            <div className="left-pane">
-                                <div className="form-group">
-                                    <label className="box-label">Email</label>
-                                    <input
-                                        type="text"
-                                        className="box-input"
-                                        name = 'email'
-                                        value = {form.introducingImmediately.email}
-                                        onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
-                                </div>
-                            </div>
-                            <div className="right-pane">
-                                <div className="form-group">
-                                    <label className="box-label">Authorization No.</label>
-                                    <input
-                                        type="text"
-                                        className="box-input"
-                                        name = 'authorizationNumber'
-                                        value = {form.introducingImmediately.authorizationNumber}
-                                        onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                                <div className="col-lg-6 noPadding">
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12">Fax</label>
+                                        <input
+                                            type="text"
+                                            className="box-input"
+                                            name = 'fax'
+                                            value = {form.introducingImmediately.fax}
+                                            onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                                    </div>
                                 </div>
                             </div>
                             <div className="row">
-                                <p>Disclosure of intermediary Status (where applicable). (e.g. only acts on behalf of one lender or one insurance company)</p>
+                                <div className="col-lg-6 noPadding">
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12">Email</label>
+                                        <input
+                                            type="text"
+                                            className="box-input"
+                                            name = 'email'
+                                            value = {form.introducingImmediately.email}
+                                            onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6 noPadding">
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12">Authorization No.</label>
+                                        <input
+                                            type="text"
+                                            className="box-input"
+                                            name = 'authorizationNumber'
+                                            value = {form.introducingImmediately.authorizationNumber}
+                                            onChange ={(e)=>handleInputChange(e,'introducingImmediately')} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                            <br/>
+                                <p className="font-size-12">Disclosure of intermediary Status (where applicable). (e.g. only acts on behalf of one lender or one insurance company)</p>
                                 <br/>
-                                <p>If this application has been introduced to you, by a thord party (including an appointed introducer) please provide the introducers name and address.</p>
+                                <p className="font-size-12">If this application has been introduced to you, by a thord party (including an appointed introducer) please provide the introducers name and address.</p>
                             </div>
                         </div>
-                        <br/>
-                        <div className="header">
+                        <div className="header1">
                             <h5 className="header-txt"> EXPLANATORY TEXT</h5>
                         </div>
-                        <br />
+                        <br/>
                         <div className="full-content">
                             <div className="row">
-                                <p>This application form is divided into two parts. The first part captures information about you, the applicant. The second part gives important information about mortgages offered by a given mortgage lender, including statutory warnings. In part two your signature is required in relation to your application for a mortgage loan and your consent is sought in relation to various matters.</p>
+                                <p className="font-size-12">This application form is divided into two parts. The first part captures information about you, the applicant. The second part gives important information about mortgages offered by a given mortgage lender, including statutory warnings. In part two your signature is required in relation to your application for a mortgage loan and your consent is sought in relation to various matters.</p>
                                 <br/>
                                 <h6 className="custom-sub-header">Please ensure that all applicants sign part one and two of the application.</h6>
                             </div>
                         </div>
-                        <br /><br />
-                        <div className="right-main-header-container">
+                        <br />
+                        <div className="right-main-header-container" style={{"margin-right":"75px"}}>
                             <div className="right-main-header-top-blue"></div>
                             <div className="right-main-header-bottom-blue">
                                 <i>
-                                    <p className="right-main-header-txt-white"> PART ONE</p>
+                                    <p className="right-main-header-txt-white" > PART ONE</p>
                                 </i>
                             </div>
                         </div>
-                        <br /> <br />
-                        <div className="header">
-                            <h5 className="header-txt"> NFORMATION ABOUT APPLICANT</h5>
+                        <br /> 
+                        <div className="container">  
+                        <div className="header1">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                        <h5 className="header-txt"> INFORMATION ABOUT APPLICANT</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <br />
-                        <p>Please indicate the reason for your application</p>
+                        
                         <div className="full-content">
+                            <p className="font-size-12">Please indicate the reason for your application</p>
                             <div className="radioBtnDiv">
                                 <div className="container">
                                     <div className="row">
@@ -430,9 +438,9 @@ const NewForm = () => {
                                     </div>
                                 </div>
                             </div>
-                            <br />
+                           
                             <div className="form-group">
-                                <p>If ‘Other’ please specify</p>
+                                <p className="font-size-12">If ‘Other’ please specify</p>
                                 <textarea
                                     type="text"
                                     rows="3"
@@ -442,28 +450,25 @@ const NewForm = () => {
                                     onChange ={(e)=>handleInputChange(e,'infoAboutApplicant')} />
                             </div>
                             <br />
-                            <p>Failure to disclose the above information may result in the withdrawal of a lender appointment.</p>
+                            <p className="font-size-12">Failure to disclose the above information may result in the withdrawal of a lender appointment.</p>
 
 
 
                             <div classNamec="container">
                                 <div className="row">
-                                    <div className="col-lg-7">
-                                        <label className="font-size-12">Have you or any of your staff met the customer face-to-face?</label>
-                                    </div>
-                                    <div className="col-lg-3 noPadding">
-                                        <label class="container noPadding font-size-12">Yes &nbsp;
-                                            <input
-                                                className="radioInput"
-                                                type="radio"
-                                                name='faceToFaceRadioType'
-                                                value='yes'
-                                                onChange ={(e)=>handleInputChange(e,'infoAboutApplicant')} />
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div className="col-lg-2 noPadding">
-                                        <label class="container noPadding font-size-12">No &nbsp;
+                                    <div className="col-lg-9">
+                                        <div className="displayFlex">
+                                            <label className="font-size-12 widthper100">Have you or any of your staff met the customer face-to-face?</label>
+                                            <label class="container noPadding font-size-12 width100">Yes &nbsp;
+                                                <input
+                                                    className="radioInput"
+                                                    type="radio"
+                                                    name='faceToFaceRadioType'
+                                                    value='yes'
+                                                    onChange ={(e)=>handleInputChange(e,'infoAboutApplicant')} />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container noPadding font-size-12 width100">No &nbsp;
                                             <input
                                                 className="radioInput"
                                                 type="radio"
@@ -472,13 +477,14 @@ const NewForm = () => {
                                                 onChange ={(e)=>handleInputChange(e,'infoAboutApplicant')} />
                                             <span class="checkmark"></span>
                                         </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="pagebreak"> </div>
+                      
                         <div className="full-content">
-                            <br />
+                            
                             <div className="main-header-container">
                                 <div className="main-header-top"></div>
                                 <div className="main-header-bottom">
@@ -493,7 +499,7 @@ const NewForm = () => {
                                             <h1 className="main-header">APPLICANT ONE</h1>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Forenames</label>
+                                            <label className="box-label font-size-12">Forenames</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -503,7 +509,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Surname</label>
+                                            <label className="box-label font-size-12">Surname</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -513,7 +519,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Other/Previous Names</label>
+                                            <label className="box-label font-size-12">Other/Previous Names</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -523,7 +529,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Date of Birth (dd/mm/yyyy)</label>
+                                            <label className="box-label font-size-12">Date of Birth (dd/mm/yyyy)</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -533,7 +539,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Nationality</label>
+                                            <label className="box-label font-size-12">Nationality</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -541,9 +547,9 @@ const NewForm = () => {
                                                 value={form.personalDetails.applicantOne.nationality}
                                                 onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
                                             />
-                                        </div>
+                                        </div> <br />
                                         <div className="form-group">
-                                            <label className="box-label">PPS Number</label>
+                                            <label className="box-label font-size-12">PPS Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -555,8 +561,9 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label width100 font-size-12">Marital Status</label>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='married'
@@ -567,8 +574,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='remarried'
@@ -579,8 +587,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='single'
@@ -591,8 +600,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='separated/devorced'
@@ -603,8 +613,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='widow/er'
@@ -615,8 +626,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='co HABITANT'
@@ -627,8 +639,9 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
+                                                <label class="container noPadding font-size-5 borderRight">
                                                     <input
+                                                        className="widthheight"
                                                         type="radio"
                                                         name='maritalStatus'
                                                         value='other'
@@ -638,9 +651,9 @@ const NewForm = () => {
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
-                                            <label className="box-label">No. of Children</label>
+                                            <label className="box-label font-size-12">No. of Children</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -650,7 +663,202 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Children’s Ages</label>
+                                            <label className="box-label font-size-12">Children’s Ages</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='childrenAges'
+                                                value={form.personalDetails.applicantOne.childrenAges}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <div className="header-container">
+                                            <h1 className="main-header">APPLICANT TWO</h1>
+                                        </div>
+                                        <div className="form-group">
+                                                <label class="container left-pad-5 font-size-12" 
+                                                       style={{marginTop:'-15px',marginBottom:'-3px'}}>
+                                                        Guarantor &nbsp;
+                                                    <input
+                                                        type="radio"
+                                                        className="radioBtn"
+                                                        name='Guarantor'
+                                                        value='Guarantor'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','leftCorrespondingCurrentAddress')}
+                                                    />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        <div className="form-group">
+                                            <br/>
+                                            <label className="box-label font-size-12">Forenames</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='forename'
+                                                value={form.personalDetails.applicantOne.forename}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">Surname</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='surname'
+                                                value={form.personalDetails.applicantOne.surname}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">Other/Previous Names</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='otherName'
+                                                value={form.personalDetails.applicantOne.otherName}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">Date of Birth (dd/mm/yyyy)</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='date'
+                                                value={form.personalDetails.applicantOne.date}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div><br />
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">Nationality</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='nationality'
+                                                value={form.personalDetails.applicantOne.nationality}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">PPS Number</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='ppsNumber'
+                                                value={form.personalDetails.applicantOne.ppsNumber}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label width100 font-size-12">Marital Status</label>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='married'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />married
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='remarried'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />remarried
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='single'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />single
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='separated/devorced'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />separated/devorced
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='widow/er'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />widow/er
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='co HABITANT'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />co HABITANT
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding font-size-5 borderRight">
+                                                    <input
+                                                        className="widthheight"
+                                                        type="radio"
+                                                        name='maritalStatus'
+                                                        value='other'
+                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                                    />
+                                                    <br />other
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div><br/>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">No. of Children</label>
+                                            <input
+                                                type="text"
+                                                className="box-input"
+                                                name='noOfChildren'
+                                                value={form.personalDetails.applicantOne.noOfChildren}
+                                                onChange={(e)=>handleInputChange(e,'personalDetails','applicantOne')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="box-label font-size-12">Children’s Ages</label>
                                             <input
                                                 type="text"
                                                 className="box-input"
@@ -664,8 +872,6 @@ const NewForm = () => {
                                 </div>
 
                                 <div className="currentAddressDiv">
-                                    <div className="row">
-                                        <div className="col-lg-12">
                                             <div className="header">
                                                 <div className="row">
                                                     <div className="col-lg-6">
@@ -676,19 +882,17 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <br />
+                                   
 
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
                                                 <label className="box-label width100 font-size-12">Are You :</label>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding">
+                                                    <label class="container noPadding">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='owner'
                                                             onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
@@ -698,10 +902,10 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding">
+                                                    <label class="container noPadding">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='tenant'
                                                             onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
@@ -711,10 +915,10 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding noborderRight">
+                                                    <label class="container noPadding noborderRight">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='WITH PARENTS/RELATIVES OR FRIENDS'
                                                             onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
@@ -724,11 +928,11 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className="box-label">Rent &euro;</label>
+                                                    <label className="box-label font-size-12">Rent &euro;</label>
                                                     <input
                                                         style={{ width: 66 + 'px' }}
                                                         type="text"
-                                                        className="box-input custom-width-input"
+                                                        className="box-input custom-width-input font-size-12 widthheight"
                                                         name='rent'
                                                         value={form.personalDetails.leftSideCurrentAddress.rent}
                                                         onChange={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
@@ -737,7 +941,7 @@ const NewForm = () => {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 1</label>
+                                                <label className="box-label font-size-12">Address Line 1</label>
                                                 <input
                                                     type="text"
                                                     className="box-input"
@@ -748,7 +952,7 @@ const NewForm = () => {
 
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 2</label>
+                                                <label className="box-label font-size-12">Address Line 2</label>
                                                 <input
                                                     type="text"
                                                     className="box-input"
@@ -758,7 +962,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 3</label>
+                                                <label className="box-label font-size-12">Address Line 3</label>
                                                 <input
                                                     type="text"
                                                     className="box-input"
@@ -768,7 +972,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">County</label>
+                                                <label className="box-label font-size-12">County</label>
                                                 <input
                                                     type="text"
                                                     className="box-input"
@@ -778,7 +982,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Country</label>
+                                                <label className="box-label font-size-12">Country</label>
                                                 <input
                                                     type="text"
                                                     className="box-input"
@@ -788,7 +992,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label" >Time at address</label>
+                                                <label className="box-label font-size-12" >Time at address</label>
                                                 <input
                                                     style={{ width: 66 + 'px' }}
                                                     type="text"
@@ -797,7 +1001,7 @@ const NewForm = () => {
                                                     value={form.personalDetails.leftSideCurrentAddress.time}
                                                     onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                 />
-                                                <label className="box-label">Years</label>
+                                                <label className="box-label font-size-12">Years</label>
                                                 <input
                                                     style={{ width: 66 + 'px' }}
                                                     type="text"
@@ -806,67 +1010,67 @@ const NewForm = () => {
                                                     value={form.personalDetails.leftSideCurrentAddress.month}
                                                     onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                 />
-                                                <label className="box-label">Month</label>
+                                                <label className="box-label font-size-12">Month</label>
                                             </div>
 
                                         </div>
                                         <div className="col-lg-6">
-                                            <div className="form-group">
+                                        <div className="form-group">
                                                 <label className="box-label width100 font-size-12">Are You :</label>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding">
+                                                    <label class="container noPadding">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='owner'
-                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
+                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                         />
                                                         <br />OWNER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding">
+                                                    <label class="container noPadding">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='tenant'
-                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
+                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                         />
                                                         <br />TENANT
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container five-padding noborderRight">
+                                                    <label class="container noPadding noborderRight">
                                                         <input
                                                             type="radio"
-                                                            className="radioBtn"
+                                                            className="radioBtn widthheight"
                                                             name='areYouRadioType'
                                                             value='WITH PARENTS/RELATIVES OR FRIENDS'
-                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
+                                                            onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                         />
                                                         <br />WITH PARENTS/RELATIVES OR FRIENDS
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className="box-label">Rent &euro;</label>
+                                                    <label className="box-label font-size-12">Rent &euro;</label>
                                                     <input
                                                         style={{ width: 66 + 'px' }}
                                                         type="text"
-                                                        className="box-input custom-width-input"
+                                                        className="box-input custom-width-input font-size-12 widthheight"
                                                         name='rent'
-                                                        value={form.personalDetails.RightSideCurrentAddress.rent}
-                                                        onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
+                                                        value={form.personalDetails.leftSideCurrentAddress.rent}
+                                                        onChange={(e)=>handleInputChange(e,'personalDetails','leftSideCurrentAddress')}
                                                     />
                                                     pm
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 1</label>
+                                                <label className="box-label font-size-12">Address Line 1</label>
                                                 <input
                                                     type="text"
                                                     className="box-input "
@@ -876,7 +1080,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 2</label>
+                                                <label className="box-label font-size-12">Address Line 2</label>
                                                 <input
                                                     type="text"
                                                     className="box-input "
@@ -886,7 +1090,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Address Line 3</label>
+                                                <label className="box-label font-size-12">Address Line 3</label>
                                                 <input
                                                     type="text"
                                                     className="box-input "
@@ -896,7 +1100,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">County</label>
+                                                <label className="box-label font-size-12">County</label>
                                                 <input
                                                     type="text"
                                                     className="box-input "
@@ -906,7 +1110,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label">Country</label>
+                                                <label className="box-label font-size-12">Country</label>
                                                 <input
                                                     type="text"
                                                     className="box-input "
@@ -916,7 +1120,7 @@ const NewForm = () => {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label className="box-label" >Time at address</label>
+                                                <label className="box-label font-size-12">Time at address</label>
                                                 <input
                                                     style={{ width: 66 + 'px' }}
                                                     type="text"
@@ -925,7 +1129,7 @@ const NewForm = () => {
                                                     value={form.personalDetails.RightSideCurrentAddress.time}
                                                     onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
                                                 />
-                                                <label className="box-label">Years</label>
+                                                <label className="box-label font-size-12">Years</label>
                                                 <input
                                                     style={{ width: 66 + 'px' }}
                                                     type="text"
@@ -934,13 +1138,13 @@ const NewForm = () => {
                                                     value={form.personalDetails.RightSideCurrentAddress.year}
                                                     onChange ={(e)=>handleInputChange(e,'personalDetails','RightSideCurrentAddress')}
                                                 />
-                                                <label className="box-label">Month</label>
+                                                <label className="box-label font-size-12">Month</label>
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+                               
                                 <div className="crosspondDiv">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -956,12 +1160,12 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
+                                 
 
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label class="container left-pad-5">Same as above &nbsp;
+                                                <label class="container left-pad-5 font-size-12">Same as above &nbsp;
                                                     <input
                                                         type="radio"
                                                         className="radioBtn"
@@ -976,23 +1180,23 @@ const NewForm = () => {
                                                 (
                                                     <>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 1</label>
+                                                            <label className="box-label font-size-12">Address Line 1</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.leftSideCurrentAddress.addressLine1}/>
                                                         </div>
                                                         <div  className="form-group">
-                                                            <label className="box-label">Address Line 2</label>
+                                                            <label className="box-label font-size-12">Address Line 2</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.leftSideCurrentAddress.addressLine2}/>
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 3</label>
+                                                            <label className="box-label font-size-12">Address Line 3</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.leftSideCurrentAddress.addressLine3}/>
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">County</label>
+                                                            <label className="box-label font-size-12">County</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.leftSideCurrentAddress.county} />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Country</label>
+                                                            <label className="box-label font-size-12">Country</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.leftSideCurrentAddress.country}/>
                                                         </div>
                                                     </>
@@ -1000,7 +1204,7 @@ const NewForm = () => {
                                                 (
                                                     <>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 1</label>
+                                                            <label className="box-label font-size-12">Address Line 1</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.leftSideCorrespondingAddress.addressLine1}
@@ -1009,7 +1213,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 2</label>
+                                                            <label className="box-label font-size-12">Address Line 2</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.leftSideCorrespondingAddress.addressLine2}
@@ -1018,7 +1222,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 3</label>
+                                                            <label className="box-label font-size-12">Address Line 3</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.leftSideCorrespondingAddress.addressLine3}
@@ -1027,7 +1231,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">County</label>
+                                                            <label className="box-label font-size-12">County</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.leftSideCorrespondingAddress.county}
@@ -1036,7 +1240,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Country</label>
+                                                            <label className="box-label font-size-12">Country</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.leftSideCorrespondingAddress.country}
@@ -1051,7 +1255,7 @@ const NewForm = () => {
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label class="container left-pad-5">Same as above &nbsp;
+                                                <label class="container left-pad-5 font-size-12">Same as above &nbsp;
                                                     <input
                                                         type="radio"
                                                         className="radioBtn"
@@ -1066,23 +1270,23 @@ const NewForm = () => {
                                                 (
                                                     <>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 1</label>
+                                                            <label className="box-label font-size-12">Address Line 1</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.RightSideCorrespondingAddress.addressLine1}/>
                                                         </div>
                                                         <div  className="form-group">
-                                                            <label className="box-label">Address Line 2</label>
+                                                            <label className="box-label font-size-12">Address Line 2</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.RightSideCorrespondingAddress.addressLine2}/>
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 3</label>
+                                                            <label className="box-label font-size-12">Address Line 3</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.RightSideCorrespondingAddress.addressLine3}/>
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">County</label>
+                                                            <label className="box-label font-size-12">County</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.RightSideCorrespondingAddress.county} />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Country</label>
+                                                            <label className="box-label font-size-12">Country</label>
                                                             <input type="text" className="box-input" value={form.personalDetails.RightSideCorrespondingAddress.country}/>
                                                         </div>
                                                     </>
@@ -1090,7 +1294,7 @@ const NewForm = () => {
                                                 (
                                                     <>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 1</label>
+                                                            <label className="box-label font-size-12">Address Line 1</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.RightSideCorrespondingAddress.addressLine1}
@@ -1099,7 +1303,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 2</label>
+                                                            <label className="box-label font-size-12">Address Line 2</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.RightSideCorrespondingAddress.addressLine2}
@@ -1108,7 +1312,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Address Line 3</label>
+                                                            <label className="box-label font-size-12">Address Line 3</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.RightSideCorrespondingAddress.addressLine3}
@@ -1117,7 +1321,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">County</label>
+                                                            <label className="box-label font-size-12">County</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.RightSideCorrespondingAddress.county}
@@ -1126,7 +1330,7 @@ const NewForm = () => {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label className="box-label">Country</label>
+                                                            <label className="box-label font-size-12">Country</label>
                                                             <input type="text"
                                                                    className="box-input"
                                                                    value={form.personalDetails.RightSideCorrespondingAddress.country}
@@ -1141,7 +1345,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br />
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -1160,7 +1364,7 @@ const NewForm = () => {
                                     <div className="col-lg-6">
                                         <br />
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 1</label>
+                                            <label className="box-label font-size-12">Address Line 1</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1170,7 +1374,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 2</label>
+                                            <label className="box-label font-size-12">Address Line 2</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1180,7 +1384,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 3</label>
+                                            <label className="box-label font-size-12">Address Line 3</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1190,7 +1394,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">County</label>
+                                            <label className="box-label font-size-12">County</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1200,7 +1404,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Country</label>
+                                            <label className="box-label font-size-12">Country</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1210,7 +1414,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label" >Time at address</label>
+                                            <label className="box-label font-size-12">Time at address</label>
                                             <input
                                                 style={{ width: 66 + 'px' }}
                                                 type="text"
@@ -1220,7 +1424,7 @@ const NewForm = () => {
                                                 onChange ={(e)=>handleInputChange(e,'personalDetails','leftSidePreviousAddress')}
                                             />
 
-                                            <label className="box-label">Years</label>
+                                            <label className="box-label font-size-12">Years</label>
                                             <input
                                                 style={{ width: 66 + 'px' }}
                                                 type="text"
@@ -1229,14 +1433,14 @@ const NewForm = () => {
                                                 value={form.personalDetails.leftSidePreviousAddress.year}
                                                 onChange ={(e)=>handleInputChange(e,'personalDetails','leftSidePreviousAddress')}
                                             />
-                                            <label className="box-label">Month</label>
+                                            <label className="box-label font-size-12">Month</label>
                                         </div>
                                         <p className="txtStyle font-size-10">Address description as per IIB HL from required for DOE House Price Survey</p>
                                     </div>
                                     <div className="col-lg-6">
                                         <br />
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 1</label>
+                                            <label className="box-label font-size-12">Address Line 1</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1246,7 +1450,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 2</label>
+                                            <label className="box-label font-size-12">Address Line 2</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1256,7 +1460,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Address Line 3</label>
+                                            <label className="box-label font-size-12">Address Line 3</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1266,7 +1470,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">County</label>
+                                            <label className="box-label font-size-12">County</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1276,7 +1480,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Country</label>
+                                            <label className="box-label font-size-12">Country</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1286,7 +1490,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label" >Time at address</label>
+                                            <label className="box-label font-size-12">Time at address</label>
                                             <input
                                                 style={{ width: 66 + 'px' }}
                                                 type="text"
@@ -1296,7 +1500,7 @@ const NewForm = () => {
                                                 onChange ={(e)=>handleInputChange(e,'personalDetails','RightSidePreviousAddress')}
                                             />
 
-                                            <label className="box-label">Years</label>
+                                            <label className="box-label font-size-12">Years</label>
                                             <input
                                                 style={{ width: 66 + 'px' }}
                                                 type="text"
@@ -1305,11 +1509,11 @@ const NewForm = () => {
                                                 value={form.personalDetails.RightSidePreviousAddress.year}
                                                 onChange ={(e)=>handleInputChange(e,'personalDetails','RightSidePreviousAddress')}
                                             />
-                                            <label className="box-label">Month</label>
+                                            <label className="box-label font-size-12">Month</label>
                                         </div>
                                     </div>
                                 </div>
-                                <br /><br />
+                               <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -1329,17 +1533,17 @@ const NewForm = () => {
                                     <div className="col-lg-6">
                                         <br />
                                         <div className="form-group">
-                                            <label className="box-label">Home Telephone Number</label>
+                                            <label className="box-label font-size-12">Home Telephone Number</label>
                                             <input
                                                 type="text"
-                                                className="box-input "
+                                                className="box-input"
                                                 name='homeNumber'
                                                 value={form.personalDetails.leftSideContactDetail.homeNumber}
                                                 onChange ={(e)=>handleInputChange(e,'personalDetails','leftSideContactDetail')}
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Work Telephone Number</label>
+                                            <label className="box-label font-size-12">Work Telephone Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1349,7 +1553,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Mobile Telephone Number</label>
+                                            <label className="box-label font-size-12">Mobile Telephone Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1359,7 +1563,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">E-mail</label>
+                                            <label className="box-label font-size-12">E-mail</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1373,7 +1577,7 @@ const NewForm = () => {
                                     <div className="col-lg-6">
                                         <br />
                                         <div className="form-group">
-                                            <label className="box-label">Home Telephone Number</label>
+                                            <label className="box-label font-size-12">Home Telephone Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1383,7 +1587,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Work Telephone Number</label>
+                                            <label className="box-label font-size-12">Work Telephone Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1393,7 +1597,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">Mobile Telephone Number</label>
+                                            <label className="box-label font-size-12">Mobile Telephone Number</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1403,7 +1607,7 @@ const NewForm = () => {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label">E-mail</label>
+                                            <label className="box-label font-size-12">E-mail</label>
                                             <input
                                                 type="text"
                                                 className="box-input "
@@ -1415,7 +1619,7 @@ const NewForm = () => {
                                         <br />
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="right-main-header-container">
                                     <div className="right-main-header-top-blue"></div>
                                     <div className="right-main-header-bottom-blue">
@@ -1431,13 +1635,13 @@ const NewForm = () => {
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT ONE</h1>
                                         </div>
-                                        <br />
+                                       
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT TWO</h1>
                                         </div>
-                                        <br />
+                                       
                                     </div>
                                 </div>
 
@@ -1456,7 +1660,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                        
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -1466,19 +1670,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1492,19 +1696,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1518,19 +1722,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1544,19 +1748,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1570,19 +1774,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1595,7 +1799,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Lodger income per annum &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Residential Investment income per annum &euro;</label>
                                             <input type="text" className="box-input" />
@@ -1611,7 +1815,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -1623,38 +1827,38 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />HOMEMAKER
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />HOMEMAKER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />OTHER
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />RETIRED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />SELF EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -1672,19 +1876,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1698,19 +1902,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1724,19 +1928,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1750,19 +1954,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1776,19 +1980,19 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />GUARANTEED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />REGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />IRREGULAR
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -1801,7 +2005,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Lodger income per annum &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Residential Investment income per annum &euro;</label>
                                             <input type="text" className="box-input" />
@@ -1817,7 +2021,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -1829,38 +2033,38 @@ const NewForm = () => {
                                         <div className="float-right">
                                             <div className="form-group">
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />EMPLOYED & SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />HOMEMAKER
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />HOMEMAKER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />OTHER
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />RETIRED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />SELF EMPLOYED
+                                                    <label class="container noPadding paddingBorder">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -1872,7 +2076,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/><br />
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -1888,7 +2092,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -1932,20 +2136,20 @@ const NewForm = () => {
                                             <div className="form-group">
 
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />OTHER
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />RETIRED
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />SELF EMPLOYED
+                                                    <label class="container noPadding">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -2007,20 +2211,20 @@ const NewForm = () => {
                                             <div className="form-group">
 
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />OTHER
+                                                    <label class="container  noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />RETIRED
+                                                    <label class="container  noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />RETIRED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />SELF EMPLOYED
+                                                    <label class="container  noPadding">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />SELF EMPLOYED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -2075,9 +2279,6 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-
-                                <br/><br />
-
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2118,7 +2319,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input" style={{ width: "70px" }} />
                                             <label className="box-label font-size-12">Country</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Occupation</label>
                                             <input type="text" className="box-input" />
@@ -2155,7 +2356,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input" style={{ width: "70px" }} />
                                             <label className="box-label font-size-12">Country</label>
                                             <input type="text" className="box-input" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Occupation</label>
                                             <input type="text" className="box-input" />
@@ -2177,19 +2378,17 @@ const NewForm = () => {
                                         <i><p className="main-header-txt"> Section B – Income & Employment</p></i>
                                     </div>
                                 </div>
-                                <br />
+                               <br />
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT ONE</h1>
                                         </div>
-                                        <br />
                                     </div>
                                     <div className="col-lg-6">
                                         <div className="header-container">
                                             <h1 className="main-header">APPLICANT TWO</h1>
-                                        </div>
-                                        <br />
+                                        </div>  
                                     </div>
                                 </div>
 
@@ -2211,7 +2410,7 @@ const NewForm = () => {
 
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <br />
+                                       
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Name of firm/company</label>
                                             <input type="text" className="box-input" />
@@ -2316,8 +2515,9 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
-                                        <br />
+                                    
                                         <div className="form-group">
+                                       
                                             <label className="box-label font-size-12">Name of firm/company</label>
                                             <input type="text" className="box-input" />
                                         </div>
@@ -2421,7 +2621,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /><br />
+                                <br />
                                 <div className="main-header-container">
                                     <div className="main-header-top"></div>
                                     <div className="main-header-bottom">
@@ -2518,7 +2718,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2530,7 +2730,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -2659,7 +2859,6 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -2677,8 +2876,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
-
+                            
                                 <div className="row">
                                     <div className="col-lg-4">
                                         <div className="form-group">
@@ -2688,7 +2886,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -2696,14 +2894,14 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Are you selling this property </label>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />yes
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />yes
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />no
+                                                <label class="container noPadding">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />no
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -2727,7 +2925,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -2767,31 +2965,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ANNUITY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ENDOWMENT
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -2804,31 +3002,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />FIXED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />Other
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -2845,7 +3043,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -2853,14 +3051,14 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Are you selling this property </label>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />yes
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />yes
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />no
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />no
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -2884,7 +3082,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -2924,31 +3122,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ANNUITY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ENDOWMENT
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -2961,31 +3159,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />FIXED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />Other
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3001,7 +3199,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mortgage Term</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br />
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Est. Sale Price &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3009,14 +3207,14 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Are you selling this property </label>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />yes
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />yes
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />no
+                                                <label class="container noPadding">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />no
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -3040,7 +3238,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3080,31 +3278,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ANNUITY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />ENDOWMENT
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3117,31 +3315,31 @@ const NewForm = () => {
 
                                                 <br />
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />FIXED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />PENSION
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding padding3border">
                                                         <input type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container noPadding">
                                                         <input type="radio" name="radio" /><br />Other
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3166,7 +3364,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3178,7 +3376,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -3186,7 +3384,7 @@ const NewForm = () => {
                                             <input type="text" className="box-input width50" />
                                             <label className="box-label font-size-12">Amount Borrowed</label>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div className="col-lg-6">
                                         <div className="row">
                                             <div className="col-lg-6">
@@ -3304,18 +3502,20 @@ const NewForm = () => {
                                                 <textarea class="box-textarea width70" type="input" row="4"></textarea>
                                             </div>
                                             <div className="col-lg-3">
-                                                <label className="box-label font-size-12">Final Payment Date </label>
+                                                <label className="box-label font-size-12">Refinance? </label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
                                                         <label class="container">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
+                                                            Yes
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
+                                                            No
                                                         </label>
                                                     </div>
                                                 </div>
@@ -3324,26 +3524,14 @@ const NewForm = () => {
                                                         <label class="container">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
+                                                            Yes
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div className="multiRadio">
-                                                    <div className="radio-area">
-                                                        <label class="container">
-                                                            <input type="radio" name="radio" /><br />
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                    <div className="radio-area">
-                                                        <label class="container">
-                                                            <input type="radio" name="radio" /><br />
-                                                            <span class="checkmark"></span>
+                                                            No
                                                         </label>
                                                     </div>
                                                 </div>
@@ -3352,12 +3540,30 @@ const NewForm = () => {
                                                         <label class="container">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
+                                                            Yes
                                                         </label>
                                                     </div>
+                                                    <div className="radio-area">
+                                                        <label class="container noBorder">
+                                                            <input type="radio" name="radio" /><br />
+                                                            <span class="checkmark"></span>
+                                                            No
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div className="multiRadio">
                                                     <div className="radio-area">
                                                         <label class="container">
                                                             <input type="radio" name="radio" /><br />
                                                             <span class="checkmark"></span>
+                                                            Yes
+                                                        </label>
+                                                    </div>
+                                                    <div className="radio-area">
+                                                        <label class="container noBorder">
+                                                            <input type="radio" name="radio" /><br />
+                                                            <span class="checkmark"></span>
+                                                            No
                                                         </label>
                                                     </div>
                                                 </div>
@@ -3380,7 +3586,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3392,16 +3598,16 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
-
+                                  
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">
                                             Have you ever:
                                         </label>
                                     </div>
-                                    <div className="col-lg-2 text-center">
+                                  <div className="col-lg-2 text-center">
                                         <label className="font-size-12">
                                             App1
                                         </label>
@@ -3424,7 +3630,7 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3444,13 +3650,13 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />No
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3471,7 +3677,7 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3491,13 +3697,13 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />No
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3518,7 +3724,7 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3538,13 +3744,13 @@ const NewForm = () => {
                                             <div className="col-lg-6">
                                                 <div className="multiRadio">
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />Yes
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container">
+                                                        <label class="container noBorder">
                                                             <input type="radio" name="radio" /><br />No
                                                             <span class="checkmark"></span>
                                                         </label>
@@ -3565,16 +3771,15 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br />
-                                <div className="main-header-container">
-                                    <div className="main-header-top-white"></div>
-                                    <div className="main-header-bottom-white">
+                                
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
                                         <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <br />
-
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3586,7 +3791,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-4">
@@ -3764,7 +3969,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -3776,7 +3981,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                            
 
 
                                 <div className="row">
@@ -3784,7 +3989,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Purchase price/cost of Building </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Site Price (if applicable) </label>
                                             <input type="text" className="box-input width50" />
@@ -3811,7 +4016,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Savings* </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Grant  </label>
                                             <input type="text" className="box-input width50" />
@@ -3943,7 +4148,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
                                 <div className="row">
@@ -3951,7 +4156,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Remortgage amount </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Property value  </label>
                                             <input type="text" className="box-input width50" />
@@ -3988,7 +4193,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4000,7 +4205,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
 
                                 <div className="row">
@@ -4027,42 +4232,42 @@ const NewForm = () => {
                                             <input type="text" className="box-input width50" />
                                         </div>
                                     </div>
-                                    <br/>
+                                   
                                     <div className="col-lg-6">
                                         <div className="multiRadio displayFlex">
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />TRACKER
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />TRACKER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />DISCOUNT VARIABLE
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />DISCOUNT VARIABLE
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />FIXED
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />FIXED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />PENSION
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio" /><br />OTHER
+                                                <label class="container noPadding padding3border">
+                                                    <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -4093,34 +4298,34 @@ const NewForm = () => {
                                             <input type="text" className="box-input" />
                                         </div>
                                         <div className="floatRight">
-                                            <div className="multiRadio displayFlex">
+                                            <div className="multiRadio displayFlex" style={{"margin-left":"122px"}}>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />ENDOWMENT MORTGAGE
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />ENDOWMENT MORTGAGE
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />INTEREST ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />OTHER
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />PENSION BACKED
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />PENSION BACKED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
-                                                        <input type="radio" name="radio" /><br />REPAYMENT/ANNUITY
+                                                    <label class="container noPadding padding3border">
+                                                        <input className="widthheight" type="radio" name="radio" /><br />REPAYMENT/ANNUITY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -4134,7 +4339,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4146,7 +4351,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
 
                                 <div className="row">
@@ -4158,7 +4363,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-
+                                <br/>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-group">
@@ -4224,17 +4429,15 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br /><br />
-                                <div className="right-main-header-container">
-                                    <div className="right-main-header-top"></div>
-                                    <div className="right-main-header-bottom">
-                                        <i>
-                                            <p className="right-main-header-txt"> Section E – Property Details</p>
-                                        </i>
+                                <br />
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                        <i><p className="right-para-white">Section E – Property Details</p></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <br /> <br />
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4246,7 +4449,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4269,7 +4472,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Country   </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <p>See page 2 for address requirements</p>
                                     </div>
 
@@ -4281,32 +4484,32 @@ const NewForm = () => {
                                             <div className="col-lg-8">
                                                 <div className="multiRadio displayFlex">
                                                     <div className="radio-area">
-                                                        <label class="container noPadding five-padding">
-                                                            <input type="radio" name="radio" /><br />ENDOWMENT MORTGAGE
+                                                        <label class="container noPadding padding3border">
+                                                            <input className="widthheight" type="radio" name="radio" /><br />ENDOWMENT MORTGAGE
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container noPadding five-padding">
-                                                            <input type="radio" name="radio" /><br />INTEREST ONLY
+                                                        <label class="container noPadding padding3border">
+                                                            <input className="widthheight" type="radio" name="radio" /><br />INTEREST ONLY
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container noPadding five-padding">
-                                                            <input type="radio" name="radio" /><br />OTHER
+                                                        <label class="container noPadding padding3border">
+                                                            <input className="widthheight" type="radio" name="radio" /><br />OTHER
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container noPadding five-padding">
-                                                            <input type="radio" name="radio" /><br />PENSION BACKED
+                                                        <label class="container noPadding padding3border">
+                                                            <input className="widthheight" type="radio" name="radio" /><br />PENSION BACKED
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div className="radio-area">
-                                                        <label class="container noPadding five-padding">
-                                                            <input type="radio" name="radio" /><br />REPAYMENT/ANNUITY
+                                                        <label class="container noPadding no">
+                                                            <input className="widthheight" type="radio" name="radio" /><br />REPAYMENT/ANNUITY
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
@@ -4327,7 +4530,7 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Number of floors in block (If apartment)   </label>
                                             <input type="text" className="box-input width50" />
@@ -4340,7 +4543,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4352,7 +4555,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4384,7 +4587,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4396,7 +4599,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -4644,7 +4847,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4656,7 +4859,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
 
                                 <div className="row">
@@ -4675,7 +4878,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4687,7 +4890,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                            
 
 
                                 <div className="row">
@@ -4729,7 +4932,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4741,7 +4944,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4797,7 +5000,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4809,7 +5012,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
                                 <div className="row">
@@ -4821,7 +5024,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Last Name  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Telephone Number  </label>
                                             <input type="text" className="box-input width50" />
@@ -4839,7 +5042,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 2  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div> <br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 3  </label>
                                             <input type="text" className="box-input width50" />
@@ -4864,7 +5067,7 @@ const NewForm = () => {
 
 
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4876,7 +5079,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -4892,7 +5095,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4904,7 +5107,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -4930,7 +5133,7 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -4942,7 +5145,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -4950,7 +5153,7 @@ const NewForm = () => {
                                     </div>
                                     <div className="col-lg-4">
                                         <div className="displayFlex">
-                                            <div className="form-group">
+                                            <div className="form-group width100">
                                                 <label className="box-label font-size-12">Yes</label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area radio-area-marginTop">
@@ -4985,14 +5188,14 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br />
+                               
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">Have there ever been any missed Repayments or revoked Credit Cards or Judgements?  </label>
                                     </div>
                                     <div className="col-lg-4">
                                         <div className="displayFlex">
-                                            <div className="form-group">
+                                            <div className="form-group width100">
                                                 <label className="box-label font-size-12">Yes</label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area radio-area-marginTop">
@@ -5017,12 +5220,12 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
                                             If yes, please specify by completing the following:
-                                        </label>
+                                        </label>  
                                         <div className="form-group">
                                             <label className="box-label font-size-12">1. Current Mortgage - Highest Number of Installment Arrears in last 12 months</label>
                                             <input type="text" className="box-input width50" />
@@ -5038,15 +5241,14 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
-
+                        
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
                                             Have any judgement proceedings relating to debt ever been brought against you or any Judgments made against you?
                                         </label>
                                         <div className="displayFlex">
-                                            <div className="form-group">
+                                            <div className="form-group width100">
                                                 <label className="box-label font-size-12">Yes</label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area radio-area-marginTop">
@@ -5068,7 +5270,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <label className="font-size-12">
                                             If yes, please specify by completing the following:
                                         </label>
@@ -5085,7 +5287,7 @@ const NewForm = () => {
                                     </div>
                                     <div className="col-lg-4">
                                         <div className="displayFlex">
-                                            <div className="form-group">
+                                            <div className="form-group width100">
                                                 <label className="box-label font-size-12">Yes</label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area radio-area-marginTop">
@@ -5124,7 +5326,7 @@ const NewForm = () => {
                                     </div>
                                     <div className="col-lg-4">
                                         <div className="displayFlex">
-                                            <div className="form-group">
+                                            <div className="form-group width100">
                                                 <label className="box-label font-size-12">Yes</label>
                                                 <div className="multiRadio">
                                                     <div className="radio-area radio-area-marginTop">
@@ -5168,7 +5370,7 @@ const NewForm = () => {
                                 </div>
                                 <br />
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5180,7 +5382,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <label className="font-size-12">Declarations have been signed</label>
@@ -5274,7 +5476,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5286,7 +5488,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5315,7 +5517,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div><br/>
                                         <div className="displayFlex">
                                             <label className="font-size-12 width100">Contact employer</label>
                                             <div className="form-group">
@@ -5370,7 +5572,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5382,7 +5584,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5393,7 +5595,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                              
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5405,7 +5607,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                              
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -5455,7 +5657,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/><br />
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5467,7 +5669,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -5527,8 +5729,7 @@ const NewForm = () => {
                                 <br />
 
 
-                                <br/>
-                                <div className="row">
+                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
                                             <div className="row">
@@ -5539,7 +5740,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
 
                                 <div className="row">
@@ -5581,7 +5782,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Work Telephone </label>
                                             <input type="text" className="box-input width50" />
-                                        </div>
+                                        </div><br/>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mobile Phone  </label>
                                             <input type="text" className="box-input width50" />
@@ -5606,7 +5807,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5618,7 +5819,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
 
                                 <div className="row">
                                     <div className="col-lg-8">
@@ -5712,7 +5913,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5733,7 +5934,7 @@ const NewForm = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -5767,7 +5968,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -5779,7 +5980,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
 
 
@@ -5857,12 +6058,9 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <br /><br />
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="header">
+                                        <div className="header" style={{"background-color":"#FAED9E"}}>
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <h5 className="header-txt">NOTES TO PART ONE OF THE APPLICATION FORM OCCUPATION (NOTE 2) </h5>
@@ -5871,8 +6069,8 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <br/>
-
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -5918,12 +6116,13 @@ const NewForm = () => {
 
 
                                 <br /><br />
-                                <div className="right-main-header-container">
-                                    <div className="right-main-header-top"></div>
-                                    <div className="right-main-header-bottom">
-                                        <i>
-                                            <p className="right-main-header-txt"> Section H – Notes & Messages</p>
-                                        </i>
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                            <i>
+                                                <p className="right-para-white"> Section H – Notes & Messages</p>
+                                            </i>
+                                        </div>
                                     </div>
                                 </div>
                                 <br /> <br />
@@ -5933,6 +6132,416 @@ const NewForm = () => {
                                         <textarea className="box-textarea textAreaHeightWidth" type="text" row="20"></textarea>
                                     </div>
                                 </div>
+
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                        <br />
+                                        <div className="main-header-container">
+                                            <div className="main-header-top-white"></div>
+                                            <div className="main-header-bottom-white">
+                                                <i><p className="main-header-txt-white">Section I – Checklist</p></i>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="header">
+                                <div className="row">
+                                                <div className="col-lg-6">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> CHECKLIST OF SUPPORTING DOCUMENTS</h5>
+                                                </div>
+                                                <div className="col-lg-3">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}>   FIRST APPLICANT</h5>
+                                                </div>
+                                                <div className="col-lg-3">
+                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> SECOND APPLICANT</h5>
+                                                </div>
+                                            </div>
+                                </div>
+
+                                <form>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Proof of Identity - Passport or Driving Licence </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">proof of Residence - A recent utility bill* </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Income Certificate completed by your Employer </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">P60</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 payslips </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">*No more than 3 months old ie. ESB, telephone, Credit Card Statement  </label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 years audited accounts (For Self Employed)</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Statement of Affairs</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Confirmation of TAX Affaris</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Last 3 months Bank Statements</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Separation Agreement or Divorce</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Term Loans</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Copy of Mortgage Statement</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Evidence of Deposit</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <label className="font-size-12">Gift Letter</label>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-3 text-center">
+                                            <div className="multiRadio">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                    <input type="radio" name="radio" /><br />
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                             
+                            
 
 
                             </div>
