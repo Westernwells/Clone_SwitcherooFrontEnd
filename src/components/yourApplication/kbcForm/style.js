@@ -697,7 +697,7 @@ font-family: 'Neue Haas Grotesk Text Pro';
 
 .headX{
   background-image:url(${img});
-height:1590px;
+height:1600px;
 width:100%;
 margin-top:-20px;
 margin:0 auto;
