@@ -4,6 +4,7 @@ import setMeeting from "./setmeeting/setmeeting"
 import Financial_data from "./financialReducer/financialReducer"
 import detailsReducer from "./detailsReducer/detailsReducer";
 import getStartedReducer from "./financialReducer/getStartedReducer";
+import calculateResultReducer from "./financialReducer/calculateResultReducer";
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
@@ -13,7 +14,8 @@ userReducer,
 detailsReducer,
 setMeeting,
 Financial_data,
-    getStartedReducer
+    getStartedReducer,
+    calculateResultReducer
 })
 
 const persistConfig = {

@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import "./topSteper.css";
 import { Steps, Popover } from "antd";
 import { connect } from "react-redux";
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 const { Step } = Steps;
 
-const customDot = (dot, { status, index }) => (
-  <Popover content={<span>step {index + 1}</span>}>{dot}</Popover>
-);
+const CustomDot = "";
 
 class TopSteper extends Component {
   render() {
     const { defaltSet } = this.props;
+    const { progress = 0 } = this.props;
     return (
       <div className="topStep_main">
         <h2 className="nameHeading">
@@ -23,10 +28,44 @@ class TopSteper extends Component {
         </h2>
         <div className="step_cont widthconcole">
           <div>
-            <Steps current={defaltSet} progressDot={customDot}>
+            <Steps
+              current={defaltSet}
+              progressDot={(dot, { status,description }) => {
+                // alert('working')
+                // console.log("props", progress);
+                console.log("dot", description);
+                console.log("status", status);
+                // console.log("index", index);
+                return (
+                  <div style={{ width: "100%" }}>
+                    <CircularProgressbar
+                      value={
+                        status == "finish"
+                          ? 100
+                          : status == "wait"
+                          ? 0
+                          : status == "process"
+                          ? progress
+                          : null
+                      }
+                      // className = 'progress'
+                      strokeWidth={50}
+                      background={true}
+                      styles={buildStyles({
+                        strokeLinecap: "butt",
+                        pathColor: "#FB9500",
+                        textColor: "#FB9500",
+                        trailColor: "#9999"
+                      })}
+                    />
+                  </div>
+                  // <Popover content={<span>step {index + 1}</span>}>{dot}</Popover>
+                );
+              }}
+            >
               <Step
                 className={defaltSet > 0 ? "complete" : "processing"}
-                title="Background"
+                title="Mortgage Details"
                 description="1"
               />
               <Step

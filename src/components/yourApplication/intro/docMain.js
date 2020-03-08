@@ -44,7 +44,40 @@ class docMain extends React.Component {
             // )
           }
         >
-          New Form
+          New PIBA Form
+        </button>
+        <button
+          onClick={
+            () =>
+              this.props.history.push("/home/yourApplication/threeForms/fOne")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          Sepa Direct Form
+        </button>
+        <button
+          onClick={
+            () =>
+              this.props.history.push("/home/yourApplication/threeForms/fTwo")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          Heaven Form
+        </button>
+        <button
+          onClick={
+            () =>
+              this.props.history.push("/home/yourApplication/threeForms/fThree")
+            // alert(
+            //   "Please link your PDF form on this button or create new button"
+            // )
+          }
+        >
+          Sepa Direct Debit Form
         </button>
       </div>
     );
