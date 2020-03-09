@@ -19,6 +19,19 @@ import PersonalDetails1 from "./personalDetails1/personalDetails";
 import SwitcherUser2 from "./personalDetailsSwitch2.2b/personalDetailsSwitch2.2b";
 import FTBUser2 from "./personalDetails2.1b/personalDetails2.1b";
 
+import EmployementDetails from "./EmploymentDetailsPAYE/EmploymentDetailsPAYE";
+import MonthlyOutgoings from "./monthlyOutgoings/MonthlyOutgoings";
+import SavingAccount from "./SavingAccounts/SavingAccountsIndex";
+import Declaration from "./Declaration/Declaration";
+import CreditCommentments from "./creditCommittments//CreditCommittments";
+
+import MortgageFrom1 from "./step1//step1";
+import MortgageFrom2 from "./step2//step2";
+import MortgageFrom3 from "./step3//step3";
+import MortgageFrom4 from "./detailMover/detailMover";
+import IncomeDetailsSE from "./incomDetailsSE/incomDetailsSE";
+import IncomeDetailsPYE from "./incomDetailsPAYE/incomDetailsPAYE";
+
 import { connect } from "react-redux";
 import Api from "../../redux/api/detailsApi";
 
@@ -30,14 +43,17 @@ import UserNav from "./userNavigation/topNavigation";
 
 export class index extends Component {
   state = {
-    selectedKeyUser1: 1,
+    selectedKeyUser1: 0,
     selectedKeyUser2: 1,
     progressUser1: 0,
     progressUser2: 0,
+    incomeDetails: "Self Employed",
     defalutClient: "user1",
     secPageUser1: false,
     secPageUser2: false,
     purposeOfMortgage: "",
+    MortgageFrom: "First Time Buyer",
+    isMortgageFrom: false,
     user1Data: {},
     user2Data: {}
   };
@@ -59,7 +75,63 @@ export class index extends Component {
 
   profRouteRenderer = () => {
     console.log("getUser", this.props.user);
-    const { selectedKeyUser1, selectedKeyUser2, defalutClient } = this.state;
+    const {
+      selectedKeyUser1,
+      selectedKeyUser2,
+      defalutClient,
+      MortgageFrom,
+      incomeDetails,
+      isMortgageFrom
+    } = this.state;
+    if (selectedKeyUser1 === 0 && isMortgageFrom == false) {
+      return (
+        <MortgageFrom1
+          isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
+          MortgageFrom={value => this.setState({ MortgageFrom: value })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (
+      selectedKeyUser1 === 0 &&
+      MortgageFrom == "First time Borrower" &&
+      isMortgageFrom == true
+    ) {
+      return (
+        <MortgageFrom2
+        isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (
+      selectedKeyUser1 === 0 &&
+      MortgageFrom == "Mortgage Switcher" &&
+      isMortgageFrom == true
+    ) {
+      return (
+        <MortgageFrom3
+        isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (
+      selectedKeyUser1 === 0 &&
+      MortgageFrom == "House Mover" &&
+      isMortgageFrom == true
+    ) {
+      return (
+        <MortgageFrom4
+        isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
     if (selectedKeyUser1 === 1 && defalutClient == "user1") {
       if (
         this.state.secPageUser1 == false &&
@@ -114,7 +186,7 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-          user={this.props.user}
+            user={this.props.user}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
             setProgress={arg => this.setState({ progressUser1: arg })}
@@ -214,7 +286,6 @@ export class index extends Component {
           <PersonalDetails1
             present={true}
             user2={this.props.financial_Health_Check}
-
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             setProgress={arg => this.setState({ progressUser2: arg })}
             secPageMethod={(arg, data) =>
@@ -255,7 +326,7 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-          user2={this.props.financial_Health_Check}
+            user2={this.props.financial_Health_Check}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             setProgress={arg => this.setState({ progressUser2: arg })}
@@ -341,6 +412,102 @@ export class index extends Component {
       }
       // }
     }
+    if (selectedKeyUser1 === 2 && defalutClient == "user1") {
+      return (
+        <EmployementDetails
+          getIncomeValue={value => this.setState({ incomeDetails: value })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 2 && defalutClient == "user2") {
+      return (
+        <EmployementDetails
+          getIncomeValue={value => this.setState({ incomeDetails: value })}
+          setProgress={arg => this.setState({ progressUser2: arg })}
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
+    if (selectedKeyUser1 === 3 && defalutClient == "user1") {
+      return incomeDetails == "Self Employed" ? (
+        <IncomeDetailsSE
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      ) : (
+        <IncomeDetailsPYE
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 3 && defalutClient == "user2") {
+      return incomeDetails == "Self Employed" ? (
+        <IncomeDetailsSE
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      ) : (
+        <IncomeDetailsPYE
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
+    if (selectedKeyUser1 === 4 && defalutClient == "user1") {
+      return (
+        <MonthlyOutgoings
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 4 && defalutClient == "user2") {
+      return (
+        <MonthlyOutgoings
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
+    if (selectedKeyUser1 === 5 && defalutClient == "user1") {
+      return (
+        <CreditCommentments
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 5 && defalutClient == "user2") {
+      return (
+        <CreditCommentments
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
+    if (selectedKeyUser1 === 6 && defalutClient == "user1") {
+      return (
+        <SavingAccount
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 6 && defalutClient == "user2") {
+      return (
+        <SavingAccount
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
+    if (selectedKeyUser1 === 7 && defalutClient == "user1") {
+      return (
+        <Declaration
+          changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
+        />
+      );
+    }
+    if (selectedKeyUser2 === 7 && defalutClient == "user2") {
+      return (
+        <Declaration
+          changeProfRoute={key => this.setState({ selectedKeyUser2: key })}
+        />
+      );
+    }
   };
   UserChange = e => {
     this.setState({
@@ -376,10 +543,12 @@ export class index extends Component {
               ""
             )}
             <div className="bottonItems">
-              <UserNav
-                defalutClient={this.state.defalutClient}
-                onchangeFunc={this.UserChange}
-              />
+              {this.state.selectedKeyUser1 != 0 ? (
+                <UserNav
+                  defalutClient={this.state.defalutClient}
+                  onchangeFunc={this.UserChange}
+                />
+              ) : null}
               {this.profRouteRenderer()}
             </div>
           </div>

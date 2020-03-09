@@ -206,67 +206,68 @@ class CreditCommittments extends Component {
             }
         } )
         console.log( this.props.loading );
-        if ( !this.props.loading ) {
-            this.props.changeProfRout( 7 );
-        }
+        let self = this
+        // if ( !this.props.loading ) {
+           
+        // }
 
     }
-    componentDidMount = () => {
-        const options = {
-            method: "GET",
-            headers: new Headers( {
-                Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
-                "Content-Type": "application/json"
-            } )
-        };
-        let url = `${ baseurl }/detailsYouNeed/getDetails/${ this.props.userId }`
-        fetch( url, options )
-            .then( res => {
-                console.log( res );
-                res.json().then( res => {
-                    console.log( "credic commentments===>", res );
-                    console.log( "responsed====>", res.creditCommitments );
-                    if ( res.creditCommitments.loanOrOverdraftCosts && res.creditCommitments.loanOrOverdraftCosts.length > 0 ) {
-                        console.log( "inside condition===>", res.creditCommitments.loanOrOverdraftCosts )
-                        this.props.setBanks( res.creditCommitments.loanOrOverdraftCosts );
-                    }
-                    if ( res.creditCommitments ) {
-                        const { currentAccIns,
-                            sortCode,
-                            credUnionLoc,
-                            institutionName,
-                            branchAddress,
-                            branchCity,
-                            branchCounty,
-                            accDuration,
-                            eirCode,
-                            accNum,
-                            comments,
-                            firstPaymentAcc } = res.creditCommitments
-                        this.setState( {
-                            currentAccIns,
-                            sortCode,
-                            credUnionLoc,
-                            institutionName,
-                            branchAddress,
-                            branchCity,
-                            branchCounty,
-                            accDuration,
-                            eirCode,
-                            accNum,
-                            comments,
-                            firstPaymentAcc
+    // componentDidMount = () => {
+    //     const options = {
+    //         method: "GET",
+    //         headers: new Headers( {
+    //             Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
+    //             "Content-Type": "application/json"
+    //         } )
+    //     };
+    //     let url = `${ baseurl }/detailsYouNeed/getDetails/${ this.props.userId }`
+    //     fetch( url, options )
+    //         .then( res => {
+    //             console.log( res );
+    //             res.json().then( res => {
+    //                 console.log( "credic commentments===>", res );
+    //                 console.log( "responsed====>", res.creditCommitments );
+    //                 if ( res.creditCommitments.loanOrOverdraftCosts && res.creditCommitments.loanOrOverdraftCosts.length > 0 ) {
+    //                     console.log( "inside condition===>", res.creditCommitments.loanOrOverdraftCosts )
+    //                     this.props.setBanks( res.creditCommitments.loanOrOverdraftCosts );
+    //                 }
+    //                 if ( res.creditCommitments ) {
+    //                     const { currentAccIns,
+    //                         sortCode,
+    //                         credUnionLoc,
+    //                         institutionName,
+    //                         branchAddress,
+    //                         branchCity,
+    //                         branchCounty,
+    //                         accDuration,
+    //                         eirCode,
+    //                         accNum,
+    //                         comments,
+    //                         firstPaymentAcc } = res.creditCommitments
+    //                     this.setState( {
+    //                         currentAccIns,
+    //                         sortCode,
+    //                         credUnionLoc,
+    //                         institutionName,
+    //                         branchAddress,
+    //                         branchCity,
+    //                         branchCounty,
+    //                         accDuration,
+    //                         eirCode,
+    //                         accNum,
+    //                         comments,
+    //                         firstPaymentAcc
 
-                        } )
-                    }
+    //                     } )
+    //                 }
 
-                } );
-            } )
-            .catch( err => {
-                console.log( err );
-                alert( err.msg );
-            } );
-    }
+    //             } );
+    //         } )
+    //         .catch( err => {
+    //             console.log( err );
+    //             alert( err.msg );
+    //         } );
+    // }
     renderCommentsBox = ( q ) => {
         const { comments } = this.state
         if ( q == "b" ) {
@@ -501,13 +502,16 @@ class CreditCommittments extends Component {
                         <div className="btn-div">
                             <Button
                                 style={{ height: "40px" }}
-                                onClick={() => this.props.changeProfRout( 5 )}
+                                onClick={() => this.props.changeProfRoute(4)}
                                 className="btn1"
                             >
                                 Back
                             </Button>
                             <Button
-                                onClick={() => this.handleSubmit()}
+                                onClick={() => {
+                                    this.handleSubmit()
+                                    this.props.changeProfRoute(6);
+                                }}
                                 className="btn2"
                                 loading={this.props.loading}
 
