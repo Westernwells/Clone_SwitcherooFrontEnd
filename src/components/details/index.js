@@ -19,6 +19,12 @@ import PersonalDetails1 from "./personalDetails1/personalDetails";
 import SwitcherUser2 from "./personalDetailsSwitch2.2b/personalDetailsSwitch2.2b";
 import FTBUser2 from "./personalDetails2.1b/personalDetails2.1b";
 
+import EmployementDetails from "./EmploymentDetailsPAYE/EmploymentDetailsPAYE";
+import MonthlyOutgoings from './monthlyOutgoings/MonthlyOutgoings'
+import SavingAccount from './SavingAccounts/SavingAccountsIndex'
+import Declaration from './Declaration/Declaration'
+import CreditCommentments from './creditCommittments//CreditCommittments'
+
 import { connect } from "react-redux";
 import Api from "../../redux/api/detailsApi";
 
@@ -114,7 +120,7 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-          user={this.props.user}
+            user={this.props.user}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser1: data })}
             setProgress={arg => this.setState({ progressUser1: arg })}
@@ -214,7 +220,6 @@ export class index extends Component {
           <PersonalDetails1
             present={true}
             user2={this.props.financial_Health_Check}
-
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             setProgress={arg => this.setState({ progressUser2: arg })}
             secPageMethod={(arg, data) =>
@@ -255,7 +260,7 @@ export class index extends Component {
         console.log(this.props.purposeOfMortgage);
         return (
           <PersonalDetails1
-          user2={this.props.financial_Health_Check}
+            user2={this.props.financial_Health_Check}
             present={true}
             changeProfRout={data => this.setState({ selectedKeyUser2: data })}
             setProgress={arg => this.setState({ progressUser2: arg })}
@@ -341,6 +346,41 @@ export class index extends Component {
       }
       // }
     }
+    if (selectedKeyUser1 === 2 && defalutClient == "user1") {
+      return <EmployementDetails 
+      setProgress={arg => this.setState({ progressUser1: arg })}
+      changeProfRoute={(key)=>this.setState({ selectedKeyUser1: key })} />;
+    }
+    if (selectedKeyUser2 === 2 && defalutClient == "user2") {
+      return <EmployementDetails 
+      setProgress={arg => this.setState({ progressUser2: arg })}
+      changeProfRoute={(key)=>this.setState({ selectedKeyUser2: key })} />;
+    }
+    if (selectedKeyUser1 === 4 && defalutClient == "user1") {
+      return <MonthlyOutgoings changeProfRoute={(key)=>this.setState({ selectedKeyUser1: key })} />;
+    }
+    if (selectedKeyUser2 === 4 && defalutClient == "user2") {
+      return <MonthlyOutgoings  changeProfRoute={(key)=>this.setState({ selectedKeyUser2: key })}/>;
+    }
+    if (selectedKeyUser1 === 5 && defalutClient == "user1") {
+      return <CreditCommentments changeProfRoute={(key)=>this.setState({ selectedKeyUser1: key })} />;
+    }
+    if (selectedKeyUser2 === 5 && defalutClient == "user2") {
+      return <CreditCommentments  changeProfRoute={(key)=>this.setState({ selectedKeyUser2: key })}/>;
+    }
+    if (selectedKeyUser1 === 6 && defalutClient == "user1") {
+      return <SavingAccount changeProfRoute={(key)=>this.setState({ selectedKeyUser1: key })} />;
+    }
+    if (selectedKeyUser2 === 6 && defalutClient == "user2") {
+      return <SavingAccount  changeProfRoute={(key)=>this.setState({ selectedKeyUser2: key })}/>;
+    }
+    if (selectedKeyUser1 === 7 && defalutClient == "user1") {
+      return <Declaration changeProfRoute={(key)=>this.setState({ selectedKeyUser1: key })} />;
+    }
+    if (selectedKeyUser2 === 7 && defalutClient == "user2") {
+      return <Declaration  changeProfRoute={(key)=>this.setState({ selectedKeyUser2: key })}/>;
+    }
+    
   };
   UserChange = e => {
     this.setState({

@@ -749,13 +749,13 @@ function Declaration(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => props.changeProfRoute(6)}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/additional_p")}
+              // onClick={() => handleRoute("/home/details/additional_p")}
               // onClick={onsubmitForm}
               className="btn2"
             // loading={props.financial_data.loading}

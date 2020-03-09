@@ -172,6 +172,9 @@ function Declaration(props) {
   function handlePurpose(value) {
     setQuestions({ ...questions, purpose: value });
   }
+  function onsubmitForm(value) {
+    props.changeProfRoute(5)
+  }
   const handleRoute = route => {
     if (addP && addP > 0) props.history.push(route + "/" + addP);
     else props.history.push("/home/details/final_page");
@@ -262,14 +265,14 @@ function Declaration(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => props.changeProfRoute(2)}
               className="btn1"
             >
               Back
             </Button>
             <Button
               onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
+              onClick={onsubmitForm}
               className="btn2"
               // loading={props.financial_data.loading}
               // disabled={
