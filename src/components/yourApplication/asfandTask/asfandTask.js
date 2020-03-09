@@ -160,7 +160,7 @@ const DemoForm = () => {
 
     const exportPdf = async () => {
         setLoading(true);
-        let pdf = new jsPDF('p', 'pt', 'letter');
+        let pdf = new jsPDF('p', 'pt', 'a4');
         let quotes = document.getElementById('application_div');
         for (let i = 0; i < quotes.childElementCount; i++) {
             await html2canvas(quotes.childNodes[i])
@@ -174,10 +174,10 @@ const DemoForm = () => {
                     ctx.drawImage(canvas, 0, 0, baseDimension.width, baseDimension.height, 0, 0, baseDimension.width, baseDimension.height)
                     let canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
 
-                    if (i > 0) { pdf.addPage(612,842) }
+                    if (i > 0) { pdf.addPage() }
 
                     pdf.setPage(i + 1);
-                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .67), (baseDimension.height * .52));
+                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .65), (baseDimension.height * .60));
 
                 }
             );
@@ -337,7 +337,7 @@ const DemoForm = () => {
                                 <div className="full-content">
                                     <div className="row">
                                         <div className="col-lg-12 paddingLeft30px">
-                                            <p className="font-size-12">This application form is divided into two parts.
+                                            <p className="font-size-12 explanatoryPara">This application form is divided into two parts.
                                                 The first part captures information about you, the applicant. The second
                                                 part gives important information about mortgages offered by a given
                                                 mortgage lender, including statutory warnings. In part two your
