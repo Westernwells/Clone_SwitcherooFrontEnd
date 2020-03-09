@@ -11,11 +11,11 @@ class docMain extends React.Component {
   render() {
     return (
       <div className="btn-div">
-        <button
+        {/* <button
           onClick={() => this.props.history.push("/home/yourApplication/form1")}
         >
           PIBA Form
-        </button>
+        </button> */}
         <button
           onClick={
             () => this.props.history.push("/home/yourApplication/ptsbForm")
