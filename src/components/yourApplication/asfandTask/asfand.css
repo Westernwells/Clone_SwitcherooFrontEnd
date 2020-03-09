@@ -466,12 +466,17 @@ input:hover{
 .form-group label{
   margin-left: 0px !important;
 }
+.spinner {
+  color:#1890ff;
+  margin-left:-71px;
+}
 .waringDiv{
   border: 1px solid;
   padding: 10px;
   text-align: center;
   margin-top: 24px;
   background: #261e6c1c;
+  margin-bottom: 20px;
 }
 .waringDiv label{
   font-weight: 600;
