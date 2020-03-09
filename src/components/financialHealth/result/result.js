@@ -83,29 +83,21 @@ class YourResult extends React.Component {
         if (res.status === 201)
           res.json().then(res => {
             console.log("[response-2]", res);
-            this.props.onCalculateResult(route, res.data);
+            this.props.onCalculateResult(route, res);
             this.success(message);
           });
-        if (res.status !== 201) {
-          console.log("response-error");
-          const error = "Result Not Found!";
-          this.props.onCalculateResult(route, error);
-          this.success(message);
-        }
       })
       .catch(err => {
         console.log(err);
-        const error = "Result Not Found!";
-        this.props.onCalculateResult(route, error);
         this.setState({ [route]: false });
         this.error("some thing going wrong testing");
       });
   };
 
   render() {
-    console.log(this.props.userId);
     const showProgress = e => {
       this.setState({ isProgressShow: true, isBtnShow: false });
+
       this.checkfillsheet("fillSpreadSheet", "fillSpreadSheet made success");
       this.checkfillsheet(
         "fillHavenSpreadSheet",

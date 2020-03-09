@@ -40,12 +40,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 class CheckResult extends React.Component {
-    state = {
-        bank1 : null, bank2 : null, bank3 : null, bank4 : null,
-        bank1Error : null, bank2Error : null, bank2Error : null, bank2Error : null,
-        click1: false,click2: false,click3: false,click4: false,
-        showResult:0, openModel:false
-    }
+  state = {
+    bank1: null,
+    bank2: null,
+    bank3: null,
+    bank4: null,
+    click1: false,
+    click2: false,
+    click3: false,
+    click4: false,
+    showResult: 0,
+    openModel: false
+  };
 
   Modal() {
     if (this.state.showResult >= 3) {
@@ -53,369 +59,76 @@ class CheckResult extends React.Component {
         this.setState({ openModel: true });
       }, 5000);
     }
-  
-    render() {
-        console.log("[props]",this.props)
-        console.log("results",this.props.result);
-        const handleRoute = () => {
-            this.props.onChangeKey("3");
-            this.props.history.push('/home/details')
-          
-        }
-        const getBank1ResultsHandler = () => {
-            if (this.props.result.fillSpreadSheet === "1") {
-                 this.setState({bank1:'yes'})
-            }
-            else if (this.props.result.fillSpreadSheet === "3") {
-                this.setState({bank1:'no'})
-            }
-              else if (this.props.result.fillSpreadSheet === "2"){
-                this.setState({bank1:'maybe'})
-            }
-            else {
-                this.setState({bank1:'Result Not Found!'})
-            }
-              this.setState({click1:true})
-              this.setState({showResult:this.state.showResult+1})
-             this.Modal();
-        }
-        const getBank2ResultsHandler = () => {
-            if (this.props.result.fillIcsSpreadSheet === "1") {
-                this.setState({bank2:'yes'})
-            }
-            else if (this.props.result.fillIcsSpreadSheet === "3") {
-                this.setState({bank2:'no'})
-            }
-            else if (this.props.result.fillIcsSpreadSheet === "2"){
-                this.setState({bank2:'maybe'})
-            }
-            else {
-                this.setState({bank2:'Result Not Found!'})
-            }
-            this.setState({click2:true})
-            this.setState({showResult:this.state.showResult+1})
-            this.Modal();
-        }
-        const getBank3ResultsHandler = () => {
-            if (this.props.result.fillPtsbSpreadSheet === "1") {
-                this.setState({bank3:'yes'})
-            }
-            else if (this.props.result.fillPtsbSpreadSheet === "3") {
-                this.setState({bank3:'no'})
-            }
-            else if (this.props.result.fillPtsbSpreadSheet === "2"){
-                this.setState({bank3:'maybe'})
-            }
-            else {
-                this.setState({bank3:'Result Not Found!'})
-            }
-            this.setState({click3:true})
-            this.setState({showResult:this.state.showResult+1})
-            this.Modal();
-        }
-        const getBank4ResultsHandler = () => {
-            if (this.props.result.fillHavenSpreadSheet === "1") {
-                this.setState({bank4:'yes'})
-            }
-            else if (this.props.result.fillHavenSpreadSheet === "3") {
-                this.setState({bank4:'no'})
-            }
-            else if (this.props.result.fillHavenSpreadSheet === "2"){
-                this.setState({bank4:'maybe'})
-            }
-            else {
-                this.setState({bank4:'Result Not Found!'})
-            }
-            this.setState({click4:true})
-            this.setState({showResult:this.state.showResult+1})
-            this.Modal();
-        }
-        return (
-            <div>
-                
-                    <div className="result-con">
+  }
 
-                        <div className="logo">
-                            <img src="images/home/logo.png" alt="logo"/>
-                        </div>
+  render() {
+    console.log("[props]", this.props);
+    const handleRoute = () => {
+      this.props.onChangeKey("3");
+      this.props.history.push("/home/details");
+    };
+    const getBank1ResultsHandler = () => {
+      if (this.props.result.fillSpreadSheet.data === "1") {
+        this.setState({ bank1: "yes" });
+      } else if (this.props.result.fillSpreadSheet.data === "3") {
+        this.setState({ bank1: "no" });
+      } else if (this.props.result.fillSpreadSheet.data === "2") {
+        this.setState({ bank1: "maybe" });
+      }
+      this.setState({ click1: true });
+      this.setState({ showResult: this.state.showResult + 1 });
+      this.Modal();
+    };
+    const getBank2ResultsHandler = () => {
+      if (this.props.result.fillIcsSpreadSheet.data === "1") {
+        this.setState({ bank2: "yes" });
+      } else if (this.props.result.fillIcsSpreadSheet.data === "3") {
+        this.setState({ bank2: "no" });
+      } else if (this.props.result.fillIcsSpreadSheet.data === "2") {
+        this.setState({ bank2: "maybe" });
+      }
+      this.setState({ click2: true });
+      this.setState({ showResult: this.state.showResult + 1 });
+      this.Modal();
+    };
+    const getBank3ResultsHandler = () => {
+      if (this.props.result.fillPtsbSpreadSheet.data === "1") {
+        this.setState({ bank3: "yes" });
+      } else if (this.props.result.fillPtsbSpreadSheet.data === "3") {
+        this.setState({ bank3: "no" });
+      } else if (this.props.result.fillPtsbSpreadSheet.data === "2") {
+        this.setState({ bank3: "maybe" });
+      }
+      this.setState({ click3: true });
+      this.setState({ showResult: this.state.showResult + 1 });
+      this.Modal();
+    };
+    const getBank4ResultsHandler = () => {
+      if (this.props.result.fillHavenSpreadSheet.data === "1") {
+        this.setState({ bank4: "yes" });
+      } else if (this.props.result.fillHavenSpreadSheet.data === "3") {
+        this.setState({ bank4: "no" });
+      } else if (this.props.result.fillHavenSpreadSheet.data === "2") {
+        this.setState({ bank4: "maybe" });
+      }
+      this.setState({ click4: true });
+      this.setState({ showResult: this.state.showResult + 1 });
+      this.Modal();
+    };
+    return (
+      <div>
+        <div className="result-con">
+          <div className="logo">
+            <img src="images/home/logo.png" alt="logo" />
+          </div>
 
-                        <div className="d1">
-                            <h1 className="h1">Your Financial Health Check Results</h1>
-                            <p className="p2">
-                                We are connecting to the banks affordability calculators to see whether they will lend
-                                your requested
-                                mortgage based upon the information you have provided.
-                            </p>
-
-                            {this.props.q4 === "No" ?
-                                (
-                                    <>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div className="amount-div">
-                                                    <h1>Bank 1</h1>
-                                                    {/* <i className="material-icons">error_outline</i> */}
-                                                    <hr className='hr'></hr>
-                                                    {
-                                                        (this.state.bank1 === "yes") ?
-                                                            <img src={bank1Yes} alt="Yes"/> :
-                                                            (this.state.bank1 === "no") ?
-                                                                <img src={bank1No} alt="No"/> :
-                                                                (this.state.bank1 === "maybe") ?
-                                                                    <img src={bank1Maybe} alt="May be"/> :
-                                                                    (this.state.bank1 === "Result Not Found!") ? null :
-                                                                    <img src={Logo} alt="Question Mark"/>
-                                                    }
-                                                    {
-                                                        (this.state.click1=== true && this.state.bank1 === "yes") ?
-                                                        (
-                                                            <div className="bank-1-4">
-                                                                <div>
-                                                                    <h1 style={{color:'#fb9500'}}>Good news,</h1>
-                                                                    <img src={happy} alt="Happy Emoji"/>
-                                                                </div>
-                                                                <p>Based upon the information provided we believe this
-                                                                    bank will lend to you</p>
-                                                            </div>
-                                                        ) :
-                                                            (this.state.click1=== true && this.state.bank1 === "no") ?
-                                                                (
-                                                                    <div className="bank-1-4">
-                                                                        <div>
-                                                                            <h2 style={{color:'#fb9500'}}>Sorry</h2>
-                                                                            <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading" style={{color:'#fb9500'}}>Bad News</h2>
-                                                                        </div>
-                                                                        <p>Based upon the information provided we believe this
-                                                                            bank will lend to you</p>
-                                                                    </div>
-                                                                ) :
-                                                                (this.state.click1=== true && this.state.bank1 === "maybe") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div>
-                                                                                <h3 style={{color:'#fb9500'}}>Manager Review Required</h3>
-                                                                            </div>
-                                                                            <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p>
-                                                                        </div>
-                                                                    ) :
-                                                                    (this.state.click1=== true && this.state.bank1 === "Result Not Found!") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div style={{margin:'180px 25px 180px 25px'}}>
-                                                                                <h3 style={{color:'#000000'}}>Result Not Found!</h3>
-                                                                            </div>
-                                                                            {/* <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p> */}
-                                                                        </div>
-                                                                    ) :
-                                                                    ( this.props.result.fillSpreadSheet === "Result Not Found!") ?
-                                                                    <button onClick={getBank1ResultsHandler}>Get Results</button> :
-                                                                <button onClick={getBank1ResultsHandler}>Get Results</button>
-                                                    }
-                                                </div>
-                                            </Col>
-                                            <Col lg={12}>
-                                                <div className="amount-div">
-                                                    <h1>Bank 2</h1>
-                                                    {/* <i className="material-icons">error_outline</i> */}
-                                                    <hr className='hr'></hr>
-                                                    {
-                                                        (this.state.bank2 === "yes") ?
-                                                            <img src={bank2Yes} alt="Yes"/> :
-                                                            (this.state.bank2 === "no") ?
-                                                                <img src={bank2No} alt="No"/> :
-                                                                (this.state.bank2 === "maybe") ?
-                                                                    <img src={bank2Maybe} alt="May be"/> :
-                                                                    (this.state.bank2 === "Result Not Found!") ? null :
-                                                                    <img src={Logo} alt="Question Mark"/>
-                                                    }
-                                                    {
-                                                        (this.state.click2=== true && this.state.bank2 === "yes") ?
-                                                            (
-                                                                <div className="bank-1-4">
-                                                                    <div>
-                                                                        <h1 style={{color:'#002efb73'}}>Good news,</h1>
-                                                                        <img src={happy} alt="Happy Emoji"/>
-                                                                    </div>
-                                                                    <p>Based upon the information provided we believe this
-                                                                        bank will lend to you</p>
-                                                                </div>
-                                                            ) :
-                                                            (this.state.click2=== true && this.state.bank2 === "no") ?
-                                                                (
-                                                                    <div className="bank-1-4">
-                                                                        <div>
-                                                                            <h2 style={{color:'#002efb73'}}>Sorry</h2>
-                                                                            <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading" style={{color:'#002efb73'}}>Bad News</h2>
-                                                                        </div>
-                                                                        <p>Based upon the information provided we believe this
-                                                                            bank will lend to you</p>
-                                                                    </div>
-                                                                ) :
-                                                                (this.state.click2=== true && this.state.bank2 === "maybe") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div>
-                                                                                <h3 style={{color:'#002efb73'}}>Manager Review Required</h3>
-                                                                            </div>
-                                                                            <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p>
-                                                                        </div>
-                                                                    ) : 
-                                                                    (this.state.click2=== true && this.state.bank2 === "Result Not Found!") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div style={{margin:'180px 25px 180px 25px'}}>
-                                                                                <h3 style={{color:'#000000'}}>Result Not Found!</h3>
-                                                                            </div>
-                                                                            {/* <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p> */}
-                                                                        </div>
-                                                                    ):
-                                                                    ( this.props.result.fillIcsSpreadSheet === "Result Not Found!") ?
-                                                                    <button onClick={getBank2ResultsHandler}>Get Results</button> :
-                                                        <button onClick={getBank2ResultsHandler}>Get Results</button>
-                                                    }
-                                                </div>
-                                            </Col>
-                                        </Row>
-
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div className="amount-div">
-                                                    <h1>Bank 3</h1>
-                                                    {/* <i className="material-icons">error_outline</i> */}
-                                                    <hr className='hr'></hr>
-                                                    {
-                                                        (this.state.bank3 === "yes") ?
-                                                            <img src={bank3Yes} alt="Yes"/> :
-                                                            (this.state.bank3 === "no") ?
-                                                                <img src={bank3No} alt="No"/> :
-                                                                (this.state.bank3 === "maybe") ?
-                                                                    <img src={bank3Maybe} alt="May be"/> :
-                                                                    (this.state.bank3 === "Result Not Found!") ? null :
-                                                                    <img src={Logo} alt="Question Mark"/>
-                                                    }
-                                                    {
-                                                        (this.state.click3=== true && this.state.bank3 === "yes") ?
-                                                                (
-                                                                    <div className="bank-1-4">
-                                                                        <div>
-                                                                            <h1 style={{color:'#53c742'}}>Good news,</h1>
-                                                                            <img src={happy} alt="Happy Emoji"/>
-                                                                        </div>
-                                                                        <p>Based upon the information provided we believe this
-                                                                            bank will lend to you</p>
-                                                                    </div>
-                                                                ) :
-                                                                (this.state.click3=== true && this.state.bank3 === "no") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div>
-                                                                                <h2 style={{color:'#53c742'}}>Sorry</h2>
-                                                                                <img src={sad} alt="Sad Emoji"/>
-                                                                                <h2 className="heading" style={{color:'#53c742'}}>Bad News</h2>
-                                                                            </div>
-                                                                            <p>Based upon the information provided we believe this
-                                                                                bank will lend to you</p>
-                                                                        </div>
-                                                                    ) :
-                                                                    (this.state.click3=== true && this.state.bank3 === "maybe") ?
-                                                                        (
-                                                                            <div className="bank-1-4">
-                                                                                <div>
-                                                                                    <h3 style={{color:'#53c742'}}>Manager Review Required</h3>
-                                                                                </div>
-                                                                                <p>We believe you are in the bank's lending criteria but will
-                                                                                    require a more senior level of approval</p>
-                                                                            </div>
-                                                                        ) :
-                                                                        (this.state.click3=== true && this.state.bank3 === "Result Not Found!") ?
-                                                                        (
-                                                                            <div className="bank-1-4">
-                                                                                <div style={{margin:'180px 25px 180px 25px'}}>
-                                                                                    <h3 style={{color:'#000000'}}>Result Not Found!</h3>
-                                                                                </div>
-                                                                                {/* <p>We believe you are in the bank's lending criteria but will
-                                                                                    require a more senior level of approval</p> */}
-                                                                            </div>
-                                                                        ):
-                                                                        ( this.props.result.fillPtsbSpreadSheet === "Result Not Found!") ?
-                                                                        <button onClick={getBank3ResultsHandler}>Get Results</button> :
-                                                        <button onClick={getBank3ResultsHandler}>Get Results</button>
-                                                    }
-                                                </div>
-                                            </Col>
-                                            <Col lg={12}>
-                                                <div className="amount-div">
-                                                    <h1>Bank 4</h1>
-                                                    {/* <i className="material-icons">error_outline</i> */}
-                                                    <hr className='hr'></hr>
-                                                    {
-                                                        (this.state.bank4 === "yes") ?
-                                                            <img src={bank4Yes} alt="Yes"/> :
-                                                            (this.state.bank4 === "no") ?
-                                                                <img src={bank4No} alt="No"/> :
-                                                                (this.state.bank4 === "maybe") ?
-                                                                    <img src={bank4Maybe} alt="May be"/> :
-                                                                    (this.state.bank4 === "Result Not Found!") ? null :
-                                                                    <img src={Logo} alt="Question Mark"/>
-                                                    }
-                                                    {
-                                                        (this.state.click4 === true && this.state.bank4 === "yes") ?
-                                                            (
-                                                                <div className="bank-1-4">
-                                                                    <div>
-                                                                        <h1 style={{color:'#e18494'}}>Good news,</h1>
-                                                                        <img src={happy} alt="Happy Emoji"/>
-                                                                    </div>
-                                                                    <p>Based upon the information provided we believe this
-                                                                        bank will lend to you</p>
-                                                                </div>
-                                                            ) :
-                                                            (this.state.click4 === true && this.state.bank4 === "no") ?
-                                                                (
-                                                                    <div className="bank-1-4">
-                                                                        <div>
-                                                                            <h2 style={{color:'#e18494'}}>Sorry</h2>
-                                                                            <img src={sad} alt="Sad Emoji"/>
-                                                                            <h2 className="heading" style={{color:'#e18494'}}>Bad News</h2>
-                                                                        </div>
-                                                                        <p>Based upon the information provided we believe this
-                                                                            bank will lend to you</p>
-                                                                    </div>
-                                                                ) :
-                                                                (this.state.click4 === true && this.state.bank4 === "maybe") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div>
-                                                                                <h3 style={{color:'#e18494'}}>Manager Review Required</h3>
-                                                                            </div>
-                                                                            <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p>
-                                                                        </div>
-                                                                    ) :
-                                                                    (this.state.click4=== true && this.state.bank4 === "Result Not Found!") ?
-                                                                    (
-                                                                        <div className="bank-1-4">
-                                                                            <div  style={{margin:'180px 25px 180px 25px'}}>
-                                                                                <h3 style={{color:'#000000'}}>Result Not Found!</h3>
-                                                                            </div>
-                                                                            {/* <p>We believe you are in the bank's lending criteria but will
-                                                                                require a more senior level of approval</p> */}
-                                                                        </div>
-                                                                    ):
-                                                                    ( this.props.result.fillHavenSpreadSheet === "Result Not Found!") ?
-                                                                        <button onClick={getBank4ResultsHandler}>Get Results</button> :
-                                                                    
-                                                        <button onClick={getBank4ResultsHandler}>Get Results</button>
-                                                    }
-                                                </div>
-                                            </Col>
-                                        </Row>
+          <div className="d1">
+            <h1 className="h1">Your Financial Health Check Results</h1>
+            <p className="p2">
+              We are connecting to the banks affordability calculators to see
+              whether they will lend your requested mortgage based upon the
+              information you have provided.
+            </p>
 
             {this.props.q4 === "No" ? (
               <>
@@ -576,11 +289,6 @@ class CheckResult extends React.Component {
                             Based upon the information provided we believe this
                             bank will lend to you
                           </p>
-                
-                <div className="footerDiv">
-                    <div className="bgClr">
-                        <div className="bgInnerDiv">
-                            <h2>This does not represent a formal mortgage offer or a guarantee of a mortgages</h2>
                         </div>
                       ) : this.state.click3 === true &&
                         this.state.bank3 === "no" ? (
