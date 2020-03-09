@@ -42,6 +42,8 @@ import YourDocumentation from "../yourDocumentation/intro/mDocMain";
 import Declarations from "../details/Declaration/Declaration";
 import EmploymentDetailsPAYE from "../details/EmploymentDetailsPAYE/EmploymentDetailsPAYE";
 import SavingAccounts from "../details/SavingAccounts/SavingAccountsIndex";
+import IncomDetailsPAYE from "../details/incomDetailsPAYE/incomDetailsPAYE";
+import IncomDetailsSE from "../details/incomDetailsSE/incomDetailsSE";
 import Links from "../details/Links/Links";
 import NewForm from "../yourApplication/newForm/NewForm";
 import DemoForm from "../yourApplication/asfandTask/asfandTask";
@@ -223,6 +225,16 @@ function Home(props) {
                       exact
                       path="/home/details/declarations"
                       component={Declarations}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/incom-details"
+                      component={IncomDetailsPAYE}
+                    />
+                    <Route
+                      exact
+                      path="/home/details/incom-details-se"
+                      component={IncomDetailsSE}
                     />
                     <Route
                       exact

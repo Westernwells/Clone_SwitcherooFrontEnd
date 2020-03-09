@@ -175,13 +175,14 @@ function StepTwo(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => props.isMortgageFrom(false)}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => handleRoute("/home/details/s3")}
+                            onClick={() => props.changeProfRoute(1)}
+
               // onClick={onsubmitForm}
               className="btn2"
             // loading={props.financial_data.loading}
