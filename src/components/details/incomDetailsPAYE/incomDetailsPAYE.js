@@ -184,10 +184,10 @@ function IncomeDetailsPAYE(props) {
     else props.history.push("/home/details/final_page");
   };
   function onsubmitForm(e) {
-    props.getData(questions);
-    props.onSubmitData();
-    props.changeProfRout(2);
-    props.setProgress(0);
+    // props.getData(questions);
+    // props.onSubmitData();
+    props.changeProfRoute(4);
+    // props.setProgress(0);
   }
   return (
     <div className="incom-details-paye">
@@ -548,9 +548,9 @@ function IncomeDetailsPAYE(props) {
             <Button
               style={{ height: "40px" }}
               onClick={() => {
-                props.secPageMethod(false);
-                props.changeProfRout(1);
-                props.setProgress(0);
+                // props.secPageMethod(false);
+                props.changeProfRoute(2);
+                // props.setProgress(0);
               }}
               className="btn1"
             >

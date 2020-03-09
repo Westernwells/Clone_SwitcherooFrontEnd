@@ -233,7 +233,8 @@ function Declaration(props) {
     setQuestions({ ...questions, purpose: value });
   }
   function onsubmitForm(value) {
-    props.changeProfRoute(4)
+    props.getIncomeValue(questions.employmentType)
+    props.changeProfRoute(3)
   }
   const handleRoute = route => {
     if (addP && addP > 0) props.history.push(route + "/" + addP);

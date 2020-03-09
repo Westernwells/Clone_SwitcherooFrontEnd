@@ -265,7 +265,7 @@ function Declaration(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => props.changeProfRoute(2)}
+              onClick={() => props.changeProfRoute(3)}
               className="btn1"
             >
               Back
