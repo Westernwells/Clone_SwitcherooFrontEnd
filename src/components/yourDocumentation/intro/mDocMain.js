@@ -42,7 +42,7 @@ class mDocMain extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -74,7 +74,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -101,7 +101,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -135,7 +135,7 @@ class mDocMain extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -169,7 +169,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -201,7 +201,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -235,7 +235,7 @@ class mDocMain extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -267,7 +267,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -299,7 +299,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -333,7 +333,7 @@ class mDocMain extends React.Component {
             </div>
             <div className="row">
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>
@@ -367,7 +367,7 @@ class mDocMain extends React.Component {
                 </div>
               </div>
               <div className="col-md-4 mb-4">
-                <div className="cardc border bord m-2 ">
+                <div className="cardc border bord mt-2 ">
                   <div className="m-3">
                     <div className="card-text">
                       <i className="fa fa-check-circle fa-cus-2x"></i>

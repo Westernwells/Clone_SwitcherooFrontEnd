@@ -6,6 +6,7 @@ import ReactShadowScroll from "react-shadow-scroll";
 import "../style.css";
 import "./styles.css";
 import AddIcon from "../../../assets/add_icon.png";
+import FileUploadIcon from "../../../assets/icon-file-upload.png";
 
 class StepTwo extends Component {
   constructor(props) {
@@ -305,7 +306,8 @@ class StepTwo extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                3 files ready to upload
+                                {this.state.app1FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -350,7 +352,12 @@ class StepTwo extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
@@ -392,7 +399,8 @@ class StepTwo extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                3 files ready to upload
+                                {this.state.app2FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -436,7 +444,12 @@ class StepTwo extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>

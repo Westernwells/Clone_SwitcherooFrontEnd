@@ -6,6 +6,8 @@ import ReactShadowScroll from "react-shadow-scroll";
 import "../style.css";
 import "./styles.css";
 import SourceIcon from "../../../assets/source_icon.png";
+import FileUploadIcon from "../../../assets/icon-file-upload.png";
+import HandRightIcon from "../../../assets/icon-hand-right.png";
 
 class StepTen extends Component {
   constructor(props) {
@@ -185,7 +187,7 @@ class StepTen extends Component {
                 {/* <i className="fas fa-coins fac fa-5x"></i> */}
                 <img className="" src={SourceIcon} width={75} alt="" />
               </div>
-              <div className="col-md-5 text-left pt-4">
+              <div className="col-md-5 text-left pt-1">
                 <h1 className="text-secondary title">
                   Source of Balance of deposit
                 </h1>
@@ -205,7 +207,22 @@ class StepTen extends Component {
                     <br />
                     1). A gift from parents who want you out of their house.
                     Please download the gift letter form attached, have the
-                    donor complete it and upload it <br />
+                    donor complete it and upload it
+                    <div className="row">
+                      <div className="col-md-6"></div>
+                      <div className="col-md-6">
+                        <img
+                          className="fileUp"
+                          src={HandRightIcon}
+                          width={75}
+                          alt=""
+                        />
+                        <button className="upload-btn ml-4 pt-2 pb-2">
+                          Gift Declaration
+                        </button>
+                      </div>
+                    </div>
+                    <br />
                     2). Inheritance from your favorite uncle. Please provide a
                     solicitor's letter outlining the details of the inheritance
                     and verifying that all tax issues have been dealt with{" "}
@@ -328,7 +345,8 @@ class StepTen extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                3 files ready to upload
+                                {this.state.app1FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -373,7 +391,12 @@ class StepTen extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
@@ -426,7 +449,8 @@ class StepTen extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                3 files ready to upload
+                                {this.state.app2FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -470,7 +494,12 @@ class StepTen extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
