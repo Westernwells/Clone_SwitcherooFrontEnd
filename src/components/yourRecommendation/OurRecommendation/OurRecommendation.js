@@ -17,9 +17,9 @@ class OurRecommendation extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      prevProps !== this.props &&
+      this.props.recommendation !== prevProps.recommendation
       // heightOfPara > contOneAllowedHeight
-      this.props.extra.length === 0
+      // this.props.extra.length === 0
     ) {
       console.log('length: ', this.props.extra.length);
       const contOneHeight =
