@@ -108,8 +108,6 @@ const DemoForm = () => {
             },
         }
     });
-    const refSplit =  React.useRef(null);
-    const ref2Split =  React.useRef(null);
     // componentDidMount() {
     //     axios.get(`https://switchroo.herokuapp.com/detailsYouNeed/getDetails/5e1cad6962b8dc001761e3cd`)
     //         .then(res => {
@@ -182,7 +180,7 @@ const DemoForm = () => {
             );
         }
         pdf.save('Test.pdf');
-    }
+    };
 
     return (
         <div>
