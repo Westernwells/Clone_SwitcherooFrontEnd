@@ -7,6 +7,7 @@ import html2pdf from "html2pdf.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
+
 const NewForm = () => {
     const [form,setForm] = useState({
         introducingImmediately: {
@@ -163,20 +164,20 @@ const NewForm = () => {
        .then((canvas) => {
              //! MAKE YOUR PDF
              var pdf = new jsPDF('p', 'pt', 'letter');
-             for (var i = 0; i <= quotes.clientHeight/980; i++) {
+             for (var i = 0; i <= quotes.clientHeight/1460; i++) {
                  //! This is all just html2canvas stuff
                  var srcImg  = canvas;
                  var sX      = 0;
-                 var sY      = 980*i; // start 980 pixels down for every new page
+                 var sY      = 1460*i; // start 1460 pixels down for every new page
                  var sWidth  = 900;
-                 var sHeight = 980;
+                 var sHeight = 1460;
                  var dX      = 0;
                  var dY      = 0;
                  var dWidth  = 900;
-                 var dHeight = 980;
+                 var dHeight = 1460;
                  const onePageCanvas = document.createElement("canvas");
                  onePageCanvas.setAttribute('width', 900);
-                 onePageCanvas.setAttribute('height', 980);
+                 onePageCanvas.setAttribute('height', 1460);
                  var ctx = onePageCanvas.getContext('2d');
                  // details on this usage of this function: 
                  // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images#Slicing
@@ -225,15 +226,36 @@ const NewForm = () => {
                                 <p class="wm-text">MORTGAGE</p>
                             </div>
                         </div>
-                        <br /><br /> 
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12">
+                        {/* <br /><br /> 
+                       
                                     <h4 className="right-para">Application From</h4>
                                 </div>
                             </div>
                         </div>
-                        <br />
+                        <br /> */}
+                        <br/>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    {/* <div className="right-main-header-container" style={{"margin-right":"75px"}}>
+                                                <div className="right-main-header-top"></div>
+                                                <div className="right-main-header-bottom">
+                                                    <i>
+                                                        <p className="right-para"> Application From</p>
+                                                    </i>
+                                                    
+                                                </div>
+                                </div> */}
+                                <div className = "appForm"> 
+                                    <p className="right-appForm"> 
+                                        Application From
+                                    </p>
+                                 </div>
+                               
+                            </div>
+                            </div>
+                        </div>
+                                <br />
                         <div className="header1">
                             <h5 className="header-txt"> DETAILS OF INTRODUCING INTERMEDIARY</h5>
                         </div>
@@ -317,7 +339,7 @@ const NewForm = () => {
                         <div className="header1">
                             <h5 className="header-txt"> EXPLANATORY TEXT</h5>
                         </div>
-                        <br/>
+                        
                         <div className="full-content">
                             <div className="row">
                                 <p className="font-size-12">This application form is divided into two parts. The first part captures information about you, the applicant. The second part gives important information about mortgages offered by a given mortgage lender, including statutory warnings. In part two your signature is required in relation to your application for a mortgage loan and your consent is sought in relation to various matters.</p>
@@ -326,13 +348,18 @@ const NewForm = () => {
                             </div>
                         </div>
                         <br />
-                        <div className="right-main-header-container" style={{"margin-right":"75px"}}>
-                            <div className="right-main-header-top-blue"></div>
+                        <div className="right-main-header-container" >
+                            {/* <div className="right-main-header-top-blue"></div>
                             <div className="right-main-header-bottom-blue">
                                 <i>
                                     <p className="right-main-header-txt-white" > PART ONE</p>
                                 </i>
-                            </div>
+                            </div> */}
+                            <div className = "blue-part"> 
+                                    <p className="blue-part-text"> 
+                                        PART ONE
+                                    </p>
+                                 </div>
                         </div>
                         <br /> 
                         <div className="container">  
@@ -482,14 +509,19 @@ const NewForm = () => {
                                 </div>
                             </div>
                         </div>
-                      
+                      <div className="marginBottom120"></div>
                         <div className="full-content">
                             
                             <div className="main-header-container">
-                                <div className="main-header-top"></div>
+                                {/* <div className="main-header-top"></div>
                                 <div className="main-header-bottom">
                                     <i><p className="main-header-txt"> Section A – Personal Details</p></i>
-                                </div>
+                                </div> */}
+                                 <div className = "blue-section"> 
+                                    <p className="blue-section-text"> 
+                                    Section A – Personal Details
+                                    </p>
+                                 </div>
                             </div>
                             <br />
                             <div className="container">
@@ -651,7 +683,7 @@ const NewForm = () => {
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">No. of Children</label>
                                             <input
@@ -693,7 +725,7 @@ const NewForm = () => {
                                                 </label>
                                             </div>
                                         <div className="form-group">
-                                            <br/>
+                                         
                                             <label className="box-label font-size-12">Forenames</label>
                                             <input
                                                 type="text"
@@ -846,7 +878,7 @@ const NewForm = () => {
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">No. of Children</label>
                                             <input
@@ -1513,7 +1545,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                               <br/>
+                            
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="header">
@@ -1620,14 +1652,24 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                
-                                <div className="right-main-header-container">
-                                    <div className="right-main-header-top-blue"></div>
+                                {/* <div className="right-main-header-container"> */}
+                                    {/* <div className="right-main-header-top-blue"></div>
                                     <div className="right-main-header-bottom-blue">
                                         <i>
                                             <p className="right-main-header-txt-white"> Section B - Income & Employment</p>
                                         </i>
-                                    </div>
-                                </div>
+                                    </div> */}
+                                      
+                            
+                            <div className="main-header-container">
+                                      <div className = "blue-section-B"> 
+                                    <p className="blue-section-B-text"> 
+                                    Section B - Income & Employment
+                                    </p>
+                                 </div>
+                              
+                                 </div>
+                                {/* </div> */}
                                 <br />
 
                                 <div className="row">
@@ -1815,7 +1857,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -2021,7 +2063,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total NET income per mont &euro;</label>
                                             <input type="text" className="box-input" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Nature of Income </label>
                                             <input type="text" className="box-input" />
@@ -2372,12 +2414,20 @@ const NewForm = () => {
                                 </div>
 
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top"></div>
                                     <div className="main-header-bottom">
                                         <i><p className="main-header-txt"> Section B – Income & Employment</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                  <div className="main-header-container">
+                                      <div className = "blue-section-B-2"> 
+                                    <p className="blue-section-B-text-2"> 
+                                    Section B – Income & Employment
+                                    </p>
+                                 </div>
+                              
+                                 </div>
                                <br />
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -2622,12 +2672,19 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top"></div>
                                     <div className="main-header-bottom">
                                         <i><p className="main-header-txt"> Section C – Financial & Credit History</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                 <div className="main-header-container">
+                                      <div className = "blue-section-C"> 
+                                    <p className="blue-section-C-text"> 
+                                    Section C – Financial & Credit History
+                                    </p>
+                                 </div>
+                                 </div>
                                 <br />
 
                                 <div className="row">
@@ -2849,14 +2906,21 @@ const NewForm = () => {
 
 
                                 <br/>
-                                <div className="right-main-header-container">
+                                {/* <div className="right-main-header-container">
                                     <div className="right-main-header-top-blue"></div>
                                     <div className="right-main-header-bottom-blue">
                                         <i>
                                             <p className="right-main-header-txt-white"> Section C – Financial & Credit History</p>
                                         </i>
                                     </div>
-                                </div>
+                                </div> */}
+                                <div className="main-header-container">
+                                      <div className = "blue-section-C-2"> 
+                                    <p className="blue-section-C-text-2"> 
+                                    Section C – Financial & Credit History
+                                    </p>
+                                 </div>
+                                 </div>
                                 <br />
 
                                 <div className="row">
@@ -2925,7 +2989,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3082,7 +3146,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3238,7 +3302,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Balance Due &euro;</label>
                                             <input type="text" className="box-input width100" />
@@ -3348,7 +3412,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                               
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <label className="font-size-12">
@@ -3775,7 +3839,20 @@ const NewForm = () => {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
-                                        <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                        {/* <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i> */}
+                                        {/* <br />
+                                        <div className="main-header-container">
+                                            <div className="main-header-top-white"></div>
+                                            <div className="main-header-bottom-white">
+                                                <i><p className="main-header-txt-white"><span>PART TWO</span> Section D – Mortgage Details</p></i>
+                                            </div>
+                                        </div>
+                                        <br /> */}
+                                    
+                                      <div className = "blue-section-D">
+                                        <p className="blue-section-D-text"> <span>PART TWO</span>  Section D Mortgage Details</p>
+                                        </div>
+    
                                         </div>
                                     </div>
                                 </div>
@@ -3989,7 +4066,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Purchase price/cost of Building </label>
                                             <input type="text" className="box-input width50" />
-                                        </div> <br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Site Price (if applicable) </label>
                                             <input type="text" className="box-input width50" />
@@ -4016,7 +4093,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Savings* </label>
                                             <input type="text" className="box-input width50" />
-                                        </div> <br/>
+                                        </div> 
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Grant  </label>
                                             <input type="text" className="box-input width50" />
@@ -4029,7 +4106,7 @@ const NewForm = () => {
                                             <label className="box-label font-size-12">Other funds* </label>
                                             <input type="text" className="box-input width50" />
                                         </div>
-                                        <br/>
+                                       
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Total Finance </label>
                                             <input type="text" className="box-input width50" />
@@ -4156,7 +4233,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Remortgage amount </label>
                                             <input type="text" className="box-input width50" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Property value  </label>
                                             <input type="text" className="box-input width50" />
@@ -4363,7 +4440,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br/>
+                                
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-group">
@@ -4429,14 +4506,30 @@ const NewForm = () => {
                                     </div>
                                 </div>
 
-                                <br />
+                                {/* <br />
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
                                         <i><p className="right-para-white">Section E – Property Details</p></i>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
+                              
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                           
+                               
+                                      <div className = "blue-section-E"> 
+                                    <p className="blue-section-E-text"> 
+                                    Section E – Property Details
+                                    </p>
+                                 </div>
+                                
+                            </div>
+                            </div>
+                        </div>
+                                <br />
                                 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -4472,7 +4565,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Country   </label>
                                             <input type="text" className="box-input width50" />
-                                        </div><br/>
+                                        </div>
                                         <p>See page 2 for address requirements</p>
                                     </div>
 
@@ -4530,7 +4623,7 @@ const NewForm = () => {
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Number of floors in block (If apartment)   </label>
                                             <input type="text" className="box-input width50" />
@@ -5024,7 +5117,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Last Name  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div> <br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Telephone Number  </label>
                                             <input type="text" className="box-input width50" />
@@ -5042,7 +5135,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 2  </label>
                                             <input type="text" className="box-input width50" />
-                                        </div> <br/>
+                                        </div> 
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Address Line 3  </label>
                                             <input type="text" className="box-input width50" />
@@ -5057,12 +5150,20 @@ const NewForm = () => {
 
 
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top-white"></div>
                                     <div className="main-header-bottom-white">
                                         <i><p className="main-header-txt-white">Section E – Property Details</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                <div className="main-header-container">
+                                <div className = "blue-section-E-2"> 
+                                    <p className="blue-section-E-text-2"> 
+                                    Section E – Property Details
+                                    </p>
+                                 </div>
+                                 </div>
+                                
                                 <br />
 
 
@@ -5125,12 +5226,19 @@ const NewForm = () => {
 
 
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top-white"></div>
                                     <div className="main-header-bottom-white">
                                         <i><p className="main-header-txt-white">Section F – Alternative Lending</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                 <div className="main-header-container">
+                                <div className = "blue-section-F"> 
+                                    <p className="blue-section-F-text"> 
+                                    Section F – Alternative Lending
+                                    </p>
+                                 </div>
+                                 </div>
                                 <br />
 
                                
@@ -5270,7 +5378,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><br/>
+                                        </div>
                                         <label className="font-size-12">
                                             If yes, please specify by completing the following:
                                         </label>
@@ -5362,12 +5470,19 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top-white"></div>
                                     <div className="main-header-bottom-white">
                                         <i><p className="main-header-txt-white">Section G – Declarations</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                 <div className="main-header-container">
+                                <div className = "blue-section-G"> 
+                                    <p className="blue-section-G-text"> 
+                                    Section G – Declarations
+                                    </p>
+                                 </div>
+                                 </div>
                                 <br />
 
                                
@@ -5517,7 +5632,7 @@ const NewForm = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><br/>
+                                        </div>
                                         <div className="displayFlex">
                                             <label className="font-size-12 width100">Contact employer</label>
                                             <div className="form-group">
@@ -5720,12 +5835,19 @@ const NewForm = () => {
                                 </div>
 
                                 <br />
-                                <div className="main-header-container">
+                                {/* <div className="main-header-container">
                                     <div className="main-header-top-white"></div>
                                     <div className="main-header-bottom-white">
                                         <i><p className="main-header-txt-white">Section G – Declarations</p></i>
                                     </div>
-                                </div>
+                                </div> */}
+                                 <div className="main-header-container">
+                                <div className = "blue-section-G-2"> 
+                                    <p className="blue-section-G-text-2"> 
+                                    Section G – Declarations
+                                    </p>
+                                 </div>
+                                 </div>
                                 <br />
 
 
@@ -5782,7 +5904,7 @@ const NewForm = () => {
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Work Telephone </label>
                                             <input type="text" className="box-input width50" />
-                                        </div><br/>
+                                        </div>
                                         <div className="form-group">
                                             <label className="box-label font-size-12">Mobile Phone  </label>
                                             <input type="text" className="box-input width50" />
@@ -5925,7 +6047,7 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br/>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -6070,7 +6192,7 @@ const NewForm = () => {
                                     </div>
                                 </div>
                                
-                                <br/>
+                             
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="form-group">
@@ -6115,7 +6237,7 @@ const NewForm = () => {
                                 </div>
 
 
-                                <br /><br />
+                                {/* <br /><br />
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -6125,7 +6247,31 @@ const NewForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <br /> <br />
+                                <br /> <br /> */}
+
+
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    {/* <div className="right-main-header-container">
+                                                <div className="right-main-header-top"></div>
+                                                <div className="right-main-header-bottom">
+                                                    <i>
+                                                        <p className="right-para"> Section H – Notes & Messages</p>
+                                                    </i>
+                                                </div>
+                                </div> */}
+                           
+                                <div className = "blue-section-H"> 
+                                    <p className="blue-section-H-text"> 
+                                    Section H – Notes & Messages
+                                    </p>
+                                 </div>
+                                 
+                            </div>
+                            </div>
+                        </div>
+                                
 
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -6136,34 +6282,39 @@ const NewForm = () => {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-lg-12">
-                                        <br />
-                                        <div className="main-header-container">
+                                       
+                                        {/* <div className="main-header-container">
                                             <div className="main-header-top-white"></div>
                                             <div className="main-header-bottom-white">
                                                 <i><p className="main-header-txt-white">Section I – Checklist</p></i>
                                             </div>
-                                        </div>
-                                        <br />
+                                        </div> */}
+                                          <div className = "blue-section-I"> 
+                                    <p className="blue-section-I-text"> 
+                                    Section I – Checklist
+                                    </p>
+                                 </div>
+                                        
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div className="header">
                                 <div className="row">
-                                                <div className="col-lg-6">
+                                                <div className="col-lg-5">
                                                     <h5 className="header-txt" style={{"font-size":"14px"}}> CHECKLIST OF SUPPORTING DOCUMENTS</h5>
                                                 </div>
                                                 <div className="col-lg-3">
-                                                    <h5 className="header-txt" style={{"font-size":"14px"}}>   FIRST APPLICANT</h5>
+                                                    <h5 className="header-txt" style={{"font-size":"14px" , "margin-left":"-24px"}}>   FIRST APPLICANT</h5>
                                                 </div>
                                                 <div className="col-lg-3">
-                                                    <h5 className="header-txt" style={{"font-size":"14px"}}> SECOND APPLICANT</h5>
+                                                    <h5 className="header-txt" style={{"font-size":"14px","margin-left":"-60px"}}> SECOND APPLICANT</h5>
                                                 </div>
                                             </div>
                                 </div>
 
                                 <form>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px" >
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Proof of Identity - Passport or Driving Licence </label>
                                         </div>
@@ -6188,7 +6339,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">proof of Residence - A recent utility bill* </label>
                                         </div>
@@ -6213,7 +6364,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Income Certificate completed by your Employer </label>
                                         </div>
@@ -6238,7 +6389,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">P60</label>
                                         </div>
@@ -6263,7 +6414,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 payslips </label>
                                         </div>
@@ -6288,7 +6439,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">*No more than 3 months old ie. ESB, telephone, Credit Card Statement  </label>
                                         </div>
@@ -6313,7 +6464,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 years audited accounts (For Self Employed)</label>
                                         </div>
@@ -6338,7 +6489,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Statement of Affairs</label>
                                         </div>
@@ -6363,7 +6514,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Confirmation of TAX Affaris</label>
                                         </div>
@@ -6388,7 +6539,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Last 3 months Bank Statements</label>
                                         </div>
@@ -6413,7 +6564,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Separation Agreement or Divorce</label>
                                         </div>
@@ -6438,7 +6589,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Term Loans</label>
                                         </div>
@@ -6463,7 +6614,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Copy of Mortgage Statement</label>
                                         </div>
@@ -6488,7 +6639,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Evidence of Deposit</label>
                                         </div>
@@ -6513,7 +6664,7 @@ const NewForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row paddingLeft18px">
                                         <div className="col-lg-6">
                                             <label className="font-size-12">Gift Letter</label>
                                         </div>

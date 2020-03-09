@@ -1,22 +1,22 @@
-import * as actions from "../actions/userActions/userActions";
+import * as actions from '../actions/userActions/userActions';
 
-// export const baseurl =
-//   window.location.origin === "http://localhost:3000"
-//     ? "http://swticherootesting.herokuapp.com"
-//     : window.location.origin;
 export const baseurl =
   window.location.origin === "http://localhost:3000"
-    ? "http://localhost:8080"
+    ? "http://swticherootesting.herokuapp.com"
     : window.location.origin;
+// export const baseurl =
+//   window.location.origin === 'http://localhost:3000'
+//     ? 'http://localhost:8080'
+//     : window.location.origin;
 
 const post = (url, data, auth, dispatch, callback) => {
   dispatch(actions.Loading(true));
   const options = {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({ ...data }),
     headers: new Headers({
-      Authorization: "Bearer " + auth,
-      "Content-Type": "application/json"
+      Authorization: 'Bearer ' + auth,
+      'Content-Type': 'application/json'
     })
   };
   fetch(baseurl + url, options)
@@ -49,10 +49,10 @@ const post = (url, data, auth, dispatch, callback) => {
 const get = (url, data, auth, dispatch, callback) => {
   dispatch(actions.Loading(true));
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: new Headers({
-      Authorization: "Bearer " + auth,
-      "Content-Type": "application/json"
+      Authorization: 'Bearer ' + auth,
+      'Content-Type': 'application/json'
     })
   };
   fetch(baseurl + url, options)
@@ -83,11 +83,11 @@ const get = (url, data, auth, dispatch, callback) => {
 const put = (url, data, auth, dispatch, callback) => {
   dispatch(actions.Loading(true));
   const options = {
-    method: "PUT",
+    method: 'PUT',
     body: JSON.stringify({ ...data }),
     headers: new Headers({
-      Authorization: "Bearer " + auth,
-      "Content-Type": "application/json"
+      Authorization: 'Bearer ' + auth,
+      'Content-Type': 'application/json'
     })
   };
   fetch(baseurl + url, options)

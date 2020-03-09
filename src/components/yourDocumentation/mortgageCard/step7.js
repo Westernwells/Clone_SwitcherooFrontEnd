@@ -6,6 +6,7 @@ import ReactShadowScroll from "react-shadow-scroll";
 import "../style.css";
 import "./styles.css";
 import MortIcon from "../../../assets/mort_icon.png";
+import FileUploadIcon from "../../../assets/icon-file-upload.png";
 
 class StepSeven extends Component {
   constructor(props) {
@@ -214,7 +215,7 @@ class StepSeven extends Component {
                 <img className="" src={MortIcon} width={75} alt="" />
                 {/* <i className="fas fas fa-hand-holding-usd fac fa-6x"></i> */}
               </div>
-              <div className="col-md-6 text-left pt-4">
+              <div className="col-md-6 text-left pt-3">
                 <h1 className="text-secondary title">Mortgages</h1>
               </div>
             </div>
@@ -381,7 +382,12 @@ class StepSeven extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
@@ -469,7 +475,12 @@ class StepSeven extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>

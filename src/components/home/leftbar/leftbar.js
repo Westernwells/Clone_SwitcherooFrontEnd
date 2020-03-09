@@ -77,10 +77,6 @@ class LeftBar extends React.Component {
             onClick={() => {
               this.handleRoute("/home/yourDocumentation");
             }}
-            // className =  {this.props.location.pathname === '/home/details' ? 'active' : ''}
-            // onClick={() => {
-            //   this.handleRoute("/home/yourApplication");
-            // }}
           >
             <span className="menu-icon">
               <img src="images/home/icons/document_icon.png" />
@@ -100,7 +96,12 @@ class LeftBar extends React.Component {
             <p>Chat to an expert</p>
           </Menu.Item>
           <span className="connector"></span>
-          <Menu.Item key="6">
+          <Menu.Item
+            onClick={() => {
+              this.handleRoute("/home/yourRecommendation");
+            }}
+            key="/home/yourRecommendation"
+          >
             <span className="menu-icon">
               <img src="images/home/icons/Group758.svg" />
             </span>

@@ -23,8 +23,8 @@ import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
-import YourDocumentation from "../yourDocumentation/intro/mDocMain";
 import YourApplication from "../yourApplication/intro/docMain";
+import YourRecommendation from "../yourRecommendation/YourRecommendation";
 import PtsbForm from "../yourApplication/ptsbForm/Main";
 import fOne from "../yourApplication/threeForms/fOne/First";
 import fTwo from "../yourApplication/threeForms/fTwo/Second";
@@ -38,6 +38,7 @@ import Details from "../details";
 // import NewForm from "../yourApplication/newForm/newForm";
 import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
 // import Declarations from "../personalDetails/Declaration/Declaration";
+import YourDocumentation from "../yourDocumentation/intro/mDocMain";
 import Declarations from "../details/Declaration/Declaration";
 import EmploymentDetailsPAYE from "../details/EmploymentDetailsPAYE/EmploymentDetailsPAYE";
 import SavingAccounts from "../details/SavingAccounts/SavingAccountsIndex";
@@ -45,6 +46,7 @@ import IncomDetailsPAYE from "../details/incomDetailsPAYE/incomDetailsPAYE";
 import IncomDetailsSE from "../details/incomDetailsSE/incomDetailsSE";
 import Links from "../details/Links/Links";
 import NewForm from "../yourApplication/newForm/NewForm";
+import DemoForm from "../yourApplication/asfandTask/asfandTask";
 import CustDoc from "../yourDocumentation/custCard/step1";
 import AddDoc from "../yourDocumentation/addCard/step2";
 import BankStDoc from "../yourDocumentation/bankStCard/step3";
@@ -155,6 +157,11 @@ function Home(props) {
                     />
                     <Route
                       exact
+                      path="/home/yourApplication/asfandTask"
+                      component={DemoForm}
+                    />
+                    <Route
+                      exact
                       path="/home/yourApplication/kbcForm"
                       component={KbcForm}
                     />
@@ -172,6 +179,11 @@ function Home(props) {
                       exact
                       path="/home/details/bank-details"
                       component={BankDetails}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation"
+                      component={YourDocumentation}
                     />
                     <Route
                       exact
@@ -270,11 +282,21 @@ function Home(props) {
                       path="/home/yourDocumentation/step10"
                       component={SourceDoc}
                     />
+                    <Route
+                      exact
+                      path="/home/yourDocumentation/step11"
+                      component={OtherDoc}
+                    />
 
                     <Route
                       exact
                       path="/home/expertChat"
                       component={ExpertChat}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourRecommendation"
+                      component={YourRecommendation}
                     />
                     <Route
                       exact

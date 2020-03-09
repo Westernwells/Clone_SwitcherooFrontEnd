@@ -6,6 +6,8 @@ import ReactShadowScroll from "react-shadow-scroll";
 import "../style.css";
 import "./styles.css";
 import PayeeIcon from "../../../assets/payee_icon.png";
+import FileUploadIcon from "../../../assets/icon-file-upload.png";
+import HandRightIcon from "../../../assets/icon-hand-right.png";
 
 class StepEight extends Component {
   constructor(props) {
@@ -234,8 +236,23 @@ class StepEight extends Component {
                     3). If any of your income consists of bonus/commission/shift
                     allowance or other non standard income, please provide your
                     last 3 years P60 or P21 <br />
-                    4). Please provide your validated salary certificate. Get
-                    your salary certificate template here
+                    <div className="row">
+                      <div className="col-md-6">
+                        4). Please provide your validated salary certificate.
+                        Get your salary certificate template here
+                      </div>
+                      <div className="col-md-6">
+                        <img
+                          className="fileUp"
+                          src={HandRightIcon}
+                          width={75}
+                          alt=""
+                        />
+                        <button className="upload-btn ml-4 pt-2 pb-2">
+                          Salary Certificate
+                        </button>
+                      </div>
+                    </div>
                   </span>
                 </div>
                 {this.state.uploadApplicant1 || this.state.uploadApplicant2 ? (
@@ -394,7 +411,12 @@ class StepEight extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
@@ -493,7 +515,12 @@ class StepEight extends Component {
                                   className="km-button km-button--primary km-btn-file-label upload-btn addMoreApp1"
                                 >
                                   Add more files
-                                  <i className="fa fa-cloud-upload fa-1x pl-2"></i>
+                                  <img
+                                    className="fileUp"
+                                    src={FileUploadIcon}
+                                    width={22}
+                                    alt=""
+                                  />
                                 </label>
                               </div>
                             </div>
