@@ -6,8 +6,10 @@ import axios from 'axios';
 import html2pdf from "html2pdf.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const DemoForm = () => {
+    const [loading,setLoading] = useState(false);
     const [form,setForm] = useState({
         introducingImmediately: {
             brokerysName: '',
@@ -157,6 +159,7 @@ const DemoForm = () => {
 
 
     const exportPdf = async () => {
+        setLoading(true);
         let pdf = new jsPDF('p', 'pt', 'letter');
         let quotes = document.getElementById('application_div');
         for (let i = 0; i < quotes.childElementCount; i++) {
@@ -180,13 +183,24 @@ const DemoForm = () => {
             );
         }
         pdf.save('Test.pdf');
+        setLoading(false);
     };
 
     return (
         <div>
             <Form>
+               
+                <div>
                 <Button type="primary">Submit Application</Button>
-                <Button type="primary" onClick={exportPdf}>Download PDF</Button>
+                    <Button 
+                        type="primary" 
+                        disabled={loading}
+                        onClick={exportPdf}>
+                            Download PDF
+                    </Button>
+                    {loading && <CircularProgress size={24} className="spinner"/>}
+                </div>
+                
                 <div id="form_outer" className="form-outer">
                     <div id="application_div">
                         <div id="pdf2" className="pdf1">
@@ -5357,7 +5371,7 @@ const DemoForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div id="pdf2A">
+                        <div id="pdf2">
                             <div className="row">
                                 <div className="col-lg-12 paddingLeft16px">
                                     <div className="sectionG"></div>
@@ -5697,7 +5711,7 @@ const DemoForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div id="pdf2B">
+                        <div id="pdf2">
                             <div className="row">
                                 <div className="col-lg-12 paddingLeft16px">
                                     <div className="sectionG2"></div>
