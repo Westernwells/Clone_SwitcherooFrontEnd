@@ -1298,3 +1298,13 @@ padding-left: 110px;
     max-width: 42%;
     padding-top: 24px;
 }
+.explanatoryPara{
+  text-align: justify;
+  line-height: 2;
+  font-weight: 500;
+  color:#033375
+}
+.colorPara{
+  font-weight: 500;
+  color:#033375
+}
