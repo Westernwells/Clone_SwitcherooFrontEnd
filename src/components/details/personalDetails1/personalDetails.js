@@ -258,7 +258,7 @@ function PersonalDetails1(props) {
             <input
               type="text"
               // disabled={disEstimate}
-              disabled={true}
+              // disabled={true}
             
               name="firstName"
               placeholder="First name"
@@ -289,7 +289,7 @@ function PersonalDetails1(props) {
             <input
               type="text"
               // disabled={disEstimate}
-              disabled={true}
+              // disabled={true}
              
               name="surName"
               placeholder="Surname"
@@ -435,7 +435,7 @@ function PersonalDetails1(props) {
               >
                 <PhoneInput
                 //  disabled={disEstimate}
-                 disabled={true}
+                //  disabled={true}
                 // readOnly
                   country={"ie"}
                   value={questions.phone}
@@ -487,7 +487,7 @@ function PersonalDetails1(props) {
             <input
               type="email"
               // disabled={disEstimate}
-              disabled={true}
+              // disabled={true}
               name="email"
               placeholder="Email Address"
               onChange={handleInput}
