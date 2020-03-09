@@ -44,7 +44,7 @@ import UserNav from "./userNavigation/topNavigation";
 export class index extends Component {
   state = {
     selectedKeyUser1: 0,
-    selectedKeyUser2: 0,
+    selectedKeyUser2: 1,
     progressUser1: 0,
     progressUser2: 0,
     incomeDetails: "Self Employed",
