@@ -508,6 +508,7 @@ input:hover{
   margin-top: 24px;
   background: #261e6c1c;
   margin-bottom: 20px;
+  width: 99%;
 }
 .waringDiv label{
   font-weight: 700;
@@ -1341,7 +1342,8 @@ padding-left: 110px;
   text-align: justify;
   line-height: 2;
   font-weight: 500;
-  color:#033375
+  color:#033375;
+  width: 98%;
 }
 .colorPara{
   font-weight: 500;

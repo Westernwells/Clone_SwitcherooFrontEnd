@@ -177,7 +177,7 @@ const DemoForm = () => {
                     if (i > 0) { pdf.addPage() }
 
                     pdf.setPage(i + 1);
-                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .65), (baseDimension.height * .60));
+                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .65), (baseDimension.height * .61));
 
                 }
             );
