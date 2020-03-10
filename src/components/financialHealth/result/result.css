@@ -29,7 +29,7 @@
 }
 .progress-bar {
   margin: auto;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
   height: 31px;
   width: 281px;
   box-shadow: 0 1px 5px #fff inset, 0 1px 0 #fff;
@@ -227,8 +227,9 @@
 }
 .content p {
   font-size: 15px;
-  padding: 15px 16px;
+  padding: 15px 5px;
   font-weight: 500;
   color: rgb(88, 88, 88);
+  text-align: justify;
   text-align: center;
 }
