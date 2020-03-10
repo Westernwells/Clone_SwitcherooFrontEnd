@@ -7,6 +7,7 @@ import ContTwoHeader from './RecommendationHeader/ContTwoHeader';
 import YourCircumstances from './YourCircumstances/YourCircumstances';
 import OurRecommendation from './OurRecommendation/OurRecommendation';
 import Extras from './extras/Extras';
+import ExtrasFromPageTwo from './extras/ExtrasFromPageTwo';
 import Risk from './risk/Risk';
 import NextSteps from './nextSteps/NextSteps';
 import Signature from './signature/Signature';
@@ -138,23 +139,44 @@ class YourRecommendation extends Component {
     }
   }
 
-  print = () => {
-    const input = document.getElementById('recommendation-cont-one');
-    html2canvas(input).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 0, 0);
-      // pdf.output('dataurlnewwindow');
-      pdf.save('download.pdf');
+  downloadPdf = () => {
+    const input1 = document.getElementsByClassName(
+      'recommendation-firstpage'
+    )[0];
+
+    const input2 = document.getElementsByClassName(
+      'recommendation-secondpage'
+    )[0];
+    const input3 = document.getElementsByClassName(
+      'recommendation-thirdpage'
+    )[0];
+    html2canvas(input1).then(canvas1 => {
+      html2canvas(input2).then(canvas2 => {
+        html2canvas(input3).then(canvas3 => {
+          const imgData1 = canvas1.toDataURL('image/png');
+          const imgData2 = canvas2.toDataURL('image/png');
+          const imgData3 = canvas3.toDataURL('image/png');
+          const pdf = new jsPDF();
+          pdf.addImage(imgData1, 'PNG', 0, 0);
+          pdf.addPage();
+          pdf.addImage(imgData2, 'PNG', 0, 0);
+          pdf.addPage();
+          pdf.addImage(imgData3, 'PNG', 0, 0);
+          // pdf.output('dataurlnewwindow');
+          pdf.save('download.pdf');
+        });
+      });
     });
   };
 
-  componentDidUpdate() {
-    const contTwo = document.getElementById('recommendation-cont-two');
-    const contTwoHeight = contTwo.clientHeight;
-    const contTwoChildren = contTwo.children[0].children;
-    console.log(contTwoHeight, contTwoChildren.length);
-  }
+  printPdf = () => {
+    // const backUp = document.body.innerHTML;
+    // document.body.innerHTML = document.getElementsByClassName(
+    //   'recommendation-toPrint'
+    // )[0].innerHTML;
+    // window.print();
+    // document.body.innerHTML = backUp;
+  };
 
   render() {
     return (
@@ -170,7 +192,7 @@ class YourRecommendation extends Component {
             <div style={{ flex: '1', textAlign: 'center' }}>
               <button
                 className="recommendation-button"
-                // onClick={() => downloadPdf()}
+                onClick={() => this.downloadPdf()}
               >
                 Download
                 {/* <FontAwesomeIcon icon={faDownload} /> */}
@@ -179,7 +201,7 @@ class YourRecommendation extends Component {
             <div style={{ flex: '1', textAlign: 'center' }}>
               <button
                 className="recommendation-button"
-                onClick={() => this.print()}
+                onClick={() => this.printPdf()}
               >
                 Print
                 {/* <FontAwesomeIcon icon={faPrint} /> */}
@@ -192,38 +214,48 @@ class YourRecommendation extends Component {
               </button>
             </div>
           </div>
-          <div
-            id="recommendation-cont-one"
-            className="recommendation-container"
-          >
-            <ContOneHeader />
-            <div style={{ paddingRight: '20px' }}>
-              <YourCircumstances />
-              <OurRecommendation />
-            </div>
-          </div>
-          <div
-            id="recommendation-cont-two"
-            className="recommendation-container"
-          >
-            <div id="recommendationThree-content">
-              <ContTwoHeader />
-              <Extras />
-              <Risk />
-              <NextSteps />
-              <div id="recommendation-footer">
-                <Footer />
+          <div className="recommendation-toPrint">
+            <div className="recommendation-page-wrapper">
+              <div className="recommendation-firstpage">
+                <div id="recommendation-firstpage-content">
+                  <ContOneHeader />
+                  <YourCircumstances />
+                  <OurRecommendation />
+                </div>
+                <div id="recommendation-firstpage-footer">
+                  <p>
+                    Switcheroo.ie, 13 Baggot Street Upper, Dublin 4, D04 W7K5
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            id="recommendation-cont-three"
-            className="recommendation-container"
-          >
-            <div id="recommendationThree-content">
-              <ContTwoHeader />
-              <div id="recommendation-footer">
-                <Signature />
+            <div className="recommendation-page-wrapper">
+              <div className="recommendation-secondpage">
+                <div id="recommendation-secondpage-content">
+                  <ContTwoHeader />
+                  <Extras />
+                  <Risk />
+                  <NextSteps />
+                  <Signature />
+                </div>
+                <div id="recommendation-secondpage-footer">
+                  <p>
+                    Switcheroo.ie, 13 Baggot Street Upper, Dublin 4, D04 W7K5
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="recommendation-page-wrapper">
+              <div className="recommendation-thirdpage">
+                <div id="recommendation-thirdpage-content">
+                  <ContTwoHeader />
+                  <ExtrasFromPageTwo />
+                </div>
+                <div id="recommendation-thirdpage-footer">
+                  <p>
+                    Switcheroo.ie, 13 Baggot Street Upper, Dublin 4, D04 W7K5
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -241,7 +273,8 @@ class YourRecommendation extends Component {
 
 const mapStateToProps = state => {
   return {
-    recommendation: state.yourRecommendationReducer.recommendation
+    recommendation: state.yourRecommendationReducer.recommendation,
+    extraFromPageTwo: state.yourRecommendationReducer.extraFromPageTwo
   };
 };
 
