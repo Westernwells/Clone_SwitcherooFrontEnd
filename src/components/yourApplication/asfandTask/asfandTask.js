@@ -160,7 +160,7 @@ const DemoForm = () => {
 
     const exportPdf = async () => {
         setLoading(true);
-        let pdf = new jsPDF('p', 'pt', 'letter');
+        let pdf = new jsPDF('p', 'pt', 'a4');
         let quotes = document.getElementById('application_div');
         for (let i = 0; i < quotes.childElementCount; i++) {
             await html2canvas(quotes.childNodes[i])
@@ -174,10 +174,10 @@ const DemoForm = () => {
                     ctx.drawImage(canvas, 0, 0, baseDimension.width, baseDimension.height, 0, 0, baseDimension.width, baseDimension.height)
                     let canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
 
-                    if (i > 0) { pdf.addPage(612,842) }
+                    if (i > 0) { pdf.addPage() }
 
                     pdf.setPage(i + 1);
-                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .67), (baseDimension.height * .52));
+                    pdf.addImage(canvasDataURL, 'PNG', 5, -7, (baseDimension.width * .65), (baseDimension.height * .60));
 
                 }
             );
@@ -318,10 +318,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-12 paddingLeft30px">
-                                            <p className="font-size-12">Disclosure of intermediary Status (where
+                                            <p className="font-size-12 paraClr font-weight-500 line-height">Disclosure of intermediary Status (where
                                                 applicable). (e.g. only acts on behalf of one lender or one insurance
                                                 company)</p>
-                                            <p className="font-size-12">If this application has been introduced to you,
+                                            <p className="font-size-12 paraClr font-weight-500 line-height">If this application has been introduced to you,
                                                 by a thord party (including an appointed introducer) please provide the
                                                 introducers name and address.</p>
                                         </div>
@@ -337,7 +337,7 @@ const DemoForm = () => {
                                 <div className="full-content">
                                     <div className="row">
                                         <div className="col-lg-12 paddingLeft30px">
-                                            <p className="font-size-12">This application form is divided into two parts.
+                                            <p className="font-size-12 explanatoryPara">This application form is divided into two parts.
                                                 The first part captures information about you, the applicant. The second
                                                 part gives important information about mortgages offered by a given
                                                 mortgage lender, including statutory warnings. In part two your
@@ -372,13 +372,13 @@ const DemoForm = () => {
                                     </div>
                                 </div>
                                 <div className="full-content">
-                                    <p className="font-size-12 paddingLeft15px">Please indicate the reason for your
+                                    <p className="font-size-12 paddingLeft15px paraClr nomarginBottom font-weight-500">Please indicate the reason for your
                                         application</p>
                                     <div className="radioBtnDiv paddingLeft15px">
                                         <div className="container">
                                             <div className="row">
                                                 <div className="col-lg-2 noPadding">
-                                                    <label class="container noPadding">First time buyer &nbsp;
+                                                    <label class="container noPadding font-weight-500">First time buyer &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -389,8 +389,8 @@ const DemoForm = () => {
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
-                                                <div className="col-lg-3 noPadding">
-                                                    <label class="container">Re-Mortgage &nbsp;
+                                                <div className="col-lg-2 noPadding">
+                                                    <label class="container font-weight-500">Re-Mortgage &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -401,7 +401,7 @@ const DemoForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="col-lg-2 noPadding">
-                                                    <label class="container">Purchase &nbsp;
+                                                    <label class="container font-weight-500">Purchase &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -411,7 +411,7 @@ const DemoForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="col-lg-5 noPadding">
-                                                    <label class="container">Residential Investment Property &nbsp;
+                                                    <label class="container font-weight-500">Residential Investment Property &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -423,7 +423,7 @@ const DemoForm = () => {
                                             </div>
                                             <div className="row">
                                                 <div className="col-lg-2 noPadding">
-                                                    <label class="container noPadding">Let to Buy &nbsp;
+                                                    <label class="container noPadding font-weight-500">Let to Buy &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -432,8 +432,8 @@ const DemoForm = () => {
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
-                                                <div className="col-lg-3 noPadding">
-                                                    <label class="container">Top-up &nbsp;
+                                                <div className="col-lg-2 noPadding">
+                                                    <label class="container font-weight-500">Top-up &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -443,7 +443,7 @@ const DemoForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="col-lg-2 noPadding">
-                                                    <label class="container">Switcher &nbsp;
+                                                    <label class="container font-weight-500">Switcher &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -453,7 +453,7 @@ const DemoForm = () => {
                                                     </label>
                                                 </div>
                                                 <div className="col-lg-5 noPadding">
-                                                    <label class="container">Other &nbsp;
+                                                    <label class="container font-weight-500">Other &nbsp;
                                                         <input
                                                             type="radio"
                                                             name='radioType'
@@ -468,7 +468,7 @@ const DemoForm = () => {
 
                                     <div className="form-group">
                                         <div className="displayFlex widthper100 paddingLeft15px">
-                                            <p className="font-size-12 nomarginBottom">If ‘Other’ please specify</p>
+                                            <p className="font-size-12 nomarginBottom paraClr font-weight-500">If ‘Other’ please specify</p>
                                             <input type="text" className="box-input noMargin"/>
                                         </div>
                                     </div>
@@ -476,15 +476,16 @@ const DemoForm = () => {
                                            className="box-input widthper100"/>
                                     <br/>
                                     <br/>
-                                    <p className="font-size-12 marginBottom5 paddingLeft15px">Failure to disclose the
+                                    <br/>
+                                    <p className="font-size-12 marginBottom5 paddingLeft15px font-weight-500 paraClr">Failure to disclose the
                                         above information may result in the withdrawal of a lender appointment.</p>
                                     <div classNamec="container">
                                         <div className="row">
                                             <div className="col-lg-9">
                                                 <div className="displayFlex paddingLeft15px">
-                                                    <label className="font-size-12 widthper100">Have you or any of your
+                                                    <label className="font-size-12 widthper100 font-weight-500 paraClr">Have you or any of your
                                                         staff met the customer face-to-face?</label>
-                                                    <label class="container noPadding font-size-12 width100">Yes &nbsp;
+                                                    <label class="container noPadding font-size-12 width100 font-weight-500 paraClr">Yes &nbsp;
                                                         <input
                                                             className="radioInput"
                                                             type="radio"
@@ -493,7 +494,7 @@ const DemoForm = () => {
                                                             onChange={(e) => handleInputChange(e, 'infoAboutApplicant')}/>
                                                         <span class="checkmark"></span>
                                                     </label>
-                                                    <label class="container noPadding font-size-12 width100">No &nbsp;
+                                                    <label class="container noPadding font-size-12 width100 font-weight-500 paraClr">No &nbsp;
                                                         <input
                                                             className="radioInput"
                                                             type="radio"
@@ -510,30 +511,18 @@ const DemoForm = () => {
                             </div>
                         </div>
                         <div id="pdf2">
-                            {/* <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="main-header-container">
-                                        <div className = "blue-section">
-                                            <p className="blue-section-text">
-                                            Section A – Personal Details
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                             <div className="row">
                                 <div className="col-lg-12 .five-padding">
                                     <div className="sectionA"></div>
                                 </div>
                             </div>
-                            <br/>
                             <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 noPaddingRight">
                                     <div className="header-container">
                                         <h1 className="main-header">APPLICANT ONE</h1>
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Forenames</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Forenames</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -542,8 +531,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Surname</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Surname</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -552,8 +541,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Other/Previous Names</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Other/Previous Names</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -562,8 +551,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Date of Birth (dd/mm/yyyy)</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Date of Birth (dd/mm/yyyy)</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -572,8 +561,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Nationality</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Nationality</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -582,8 +571,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">PPS Number</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">PPS Number</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -592,11 +581,11 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label width100 font-size-12">Marital Status</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label width100 font-size-12 font-weight-500">Marital Status</label>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -610,7 +599,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -624,7 +613,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -638,7 +627,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -652,7 +641,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -666,7 +655,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -679,7 +668,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding font-size-5 nomarginBottom">
+                                            <label class="container noPadding font-size-5 nomarginBottom font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -692,8 +681,8 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">No. of Children</label>
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">No. of Children</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -701,9 +690,9 @@ const DemoForm = () => {
                                             value={form.personalDetails.applicantOne.noOfChildren}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
-                                    </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Children’s Ages</label>
+                                    </div> 
+                                    <div className="form-group paddingLeft15px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Children’s Ages</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -714,12 +703,12 @@ const DemoForm = () => {
                                     </div>
                                     <br/>
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 noPaddingLeft">
                                     <div className="header-container">
                                         <h1 className="main-header">APPLICANT TWO</h1>
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label class="container left-pad-5 font-size-12"
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label class="container noPadding font-size-12 font-weight-500"
                                                style={{marginTop: '-15px', marginBottom: '-3px'}}>
                                             Guarantor &nbsp;
                                             <input
@@ -732,9 +721,9 @@ const DemoForm = () => {
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    <div className="form-group paddingLeft23px">
+                                    <div className="form-group paddingLeft23px paddingRight20px">
 
-                                        <label className="box-label font-size-12">Forenames</label>
+                                        <label className="box-label font-size-12 font-weight-500">Forenames</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -743,8 +732,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Surname</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Surname</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -753,8 +742,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Other/Previous Names</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Other/Previous Names</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -763,8 +752,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Date of Birth (dd/mm/yyyy)</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Date of Birth (dd/mm/yyyy)</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -773,8 +762,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Nationality</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Nationality</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -783,8 +772,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">PPS Number</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">PPS Number</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -793,11 +782,11 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label width100 font-size-12">Marital Status</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label width100 font-size-12 font-weight-500">Marital Status</label>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -811,7 +800,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -825,7 +814,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -839,7 +828,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -853,7 +842,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -867,7 +856,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="radio-area">
                                             <label
-                                                class="container noPadding font-size-5 nomarginBottom padding3border">
+                                                class="container noPadding font-size-5 nomarginBottom padding3border font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -880,7 +869,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding font-size-5 nomarginBottom">
+                                            <label class="container noPadding font-size-5 nomarginBottom font-weight-500">
                                                 <input
                                                     className="widthheight"
                                                     type="radio"
@@ -893,8 +882,8 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">No. of Children</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">No. of Children</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -903,8 +892,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'applicantOne')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Children’s Ages</label>
+                                    <div className="form-group paddingLeft23px paddingRight20px">
+                                        <label className="box-label font-size-12 font-weight-500">Children’s Ages</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -922,7 +911,7 @@ const DemoForm = () => {
                                         <h5 className="header-txt"> CURRENT ADDRESS</h5>
                                     </div>
                                     <div className="col-lg-8">
-                                        <h5 className="header-txt" style={{"paddingLeft": "130px"}}> CURRENT
+                                        <h5 className="header-txt" style={{"paddingLeft": "148px"}}> CURRENT
                                             ADDRESS</h5>
                                     </div>
                                 </div>
@@ -930,10 +919,10 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label width100 font-size-12 labelMaxwidth13">Are You
+                                        <label className="box-label width100 font-size-12 labelMaxwidth13 font-weight-500">Are You
                                             :</label>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -946,7 +935,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -959,7 +948,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding marginRight10">
+                                            <label class="container noPadding marginRight10 font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -972,7 +961,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="form-group maxWidth35">
-                                            <label className="box-label font-size-12">Rent &euro;</label>
+                                            <label className="box-label font-size-12 font-weight-500">Rent &euro;</label>
                                             <input
                                                 style={{width: 66 + 'px'}}
                                                 type="text"
@@ -985,7 +974,7 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -996,7 +985,7 @@ const DemoForm = () => {
 
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1006,7 +995,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1016,7 +1005,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500">County</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1026,7 +1015,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500">Country</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1036,7 +1025,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group maxWidth76 paddingLeft15px">
-                                        <label className="box-label font-size-12">Time at address</label>
+                                        <label className="box-label font-size-12 font-weight-500">Time at address</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1045,7 +1034,7 @@ const DemoForm = () => {
                                             value={form.personalDetails.leftSideCurrentAddress.time}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
-                                        <label className="box-label font-size-12">Years</label>
+                                        <label className="box-label font-size-12 font-weight-500">Years</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1054,15 +1043,15 @@ const DemoForm = () => {
                                             value={form.personalDetails.leftSideCurrentAddress.month}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500">Month</label>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label width100 font-size-12 labelMaxwidth13">Are You
+                                    <div className="form-group">
+                                        <label className="box-label width100 font-size-12 labelMaxwidth13 font-weight-500">Are You
                                             :</label>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -1075,7 +1064,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -1088,7 +1077,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding marginRight10">
+                                            <label class="container noPadding marginRight10 font-weight-500">
                                                 <input
                                                     type="radio"
                                                     className="radioBtn widthheight"
@@ -1101,7 +1090,7 @@ const DemoForm = () => {
                                             </label>
                                         </div>
                                         <div className="form-group maxWidth35">
-                                            <label className="box-label font-size-12">Rent &euro;</label>
+                                            <label className="box-label font-size-12 font-weight-500">Rent &euro;</label>
                                             <input
                                                 style={{width: 66 + 'px'}}
                                                 type="text"
@@ -1113,8 +1102,8 @@ const DemoForm = () => {
                                             pm
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1124,8 +1113,8 @@ const DemoForm = () => {
                                         />
 
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1134,8 +1123,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1144,8 +1133,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">County</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1154,8 +1143,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Country</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Country</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1164,8 +1153,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
                                     </div>
-                                    <div className="form-group maxWidth76 paddingLeft23px">
-                                        <label className="box-label font-size-12">Time at address</label>
+                                    <div className="form-group maxWidth76">
+                                        <label className="box-label font-size-12 font-weight-500">Time at address</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1174,7 +1163,7 @@ const DemoForm = () => {
                                             value={form.personalDetails.leftSideCurrentAddress.time}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
-                                        <label className="box-label font-size-12">Years</label>
+                                        <label className="box-label font-size-12 font-weight-500">Years</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1183,7 +1172,7 @@ const DemoForm = () => {
                                             value={form.personalDetails.leftSideCurrentAddress.month}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                         />
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500">Month</label>
                                     </div>
                                 </div>
                             </div>
@@ -1197,7 +1186,7 @@ const DemoForm = () => {
                                             </div>
                                             <div className="col-lg-8">
                                                 <h5 className="header-txt"
-                                                    style={{"paddingLeft": "130px"}}> CORRESPONDENCE ADDRESS</h5>
+                                                    style={{"paddingLeft": "148px"}}> CORRESPONDENCE ADDRESS</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -1206,7 +1195,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label class="container left-pad-5 font-size-12">Same as above &nbsp;
+                                        <label class="container left-pad-5 font-size-12 font-weight-500">Same as above &nbsp;
                                             <input
                                                 type="radio"
                                                 className="radioBtn"
@@ -1221,27 +1210,27 @@ const DemoForm = () => {
                                         (
                                             <>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 1</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.leftSideCurrentAddress.addressLine1}/>
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 2</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.leftSideCurrentAddress.addressLine2}/>
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 3</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.leftSideCurrentAddress.addressLine3}/>
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">County</label>
+                                                    <label className="box-label font-size-12 font-weight-500">County</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.leftSideCurrentAddress.county}/>
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Country</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Country</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.leftSideCurrentAddress.country}/>
                                                 </div>
@@ -1250,7 +1239,7 @@ const DemoForm = () => {
                                         (
                                             <>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 1</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.leftSideCorrespondingAddress.addressLine1}
@@ -1259,7 +1248,7 @@ const DemoForm = () => {
                                                     />
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 2</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.leftSideCorrespondingAddress.addressLine2}
@@ -1268,7 +1257,7 @@ const DemoForm = () => {
                                                     />
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Address Line 3</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.leftSideCorrespondingAddress.addressLine3}
@@ -1277,7 +1266,7 @@ const DemoForm = () => {
                                                     />
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">County</label>
+                                                    <label className="box-label font-size-12 font-weight-500">County</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.leftSideCorrespondingAddress.county}
@@ -1286,7 +1275,7 @@ const DemoForm = () => {
                                                     />
                                                 </div>
                                                 <div className="form-group paddingLeft15px">
-                                                    <label className="box-label font-size-12">Country</label>
+                                                    <label className="box-label font-size-12 font-weight-500">Country</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.leftSideCorrespondingAddress.country}
@@ -1300,8 +1289,8 @@ const DemoForm = () => {
                                     <br/>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft23px">
-                                        <label class="container left-pad-5 font-size-12">Same as above &nbsp;
+                                    <div className="form-group">
+                                        <label class="container left-pad-5 font-size-12 font-weight-500">Same as above &nbsp;
                                             <input
                                                 type="radio"
                                                 className="radioBtn"
@@ -1315,28 +1304,28 @@ const DemoForm = () => {
                                     {form.personalDetails.RightSideCorrespondingAddress.sameAsAbove = "Same as Above" ?
                                         (
                                             <>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 1</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine1}/>
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 2</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine2}/>
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 3</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine3}/>
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">County</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">County</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.county}/>
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Country</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Country</label>
                                                     <input type="text" className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.country}/>
                                                 </div>
@@ -1344,8 +1333,8 @@ const DemoForm = () => {
                                         ) :
                                         (
                                             <>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 1</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine1}
@@ -1353,8 +1342,8 @@ const DemoForm = () => {
                                                            onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideCorrespondingAddress')}
                                                     />
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 2</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine2}
@@ -1362,8 +1351,8 @@ const DemoForm = () => {
                                                            onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideCorrespondingAddress')}
                                                     />
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Address Line 3</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.addressLine3}
@@ -1371,8 +1360,8 @@ const DemoForm = () => {
                                                            onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideCorrespondingAddress')}
                                                     />
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">County</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">County</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.county}
@@ -1380,8 +1369,8 @@ const DemoForm = () => {
                                                            onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideCorrespondingAddress')}
                                                     />
                                                 </div>
-                                                <div className="form-group paddingLeft23px">
-                                                    <label className="box-label font-size-12">Country</label>
+                                                <div className="form-group">
+                                                    <label className="box-label font-size-12 font-weight-500">Country</label>
                                                     <input type="text"
                                                            className="box-input"
                                                            value={form.personalDetails.RightSideCorrespondingAddress.country}
@@ -1404,8 +1393,8 @@ const DemoForm = () => {
                                                 </h5>
                                             </div>
                                             <div className="col-lg-7">
-                                                <h5 className="header-txt" style={{"paddingLeft": "50px"}}> PREVIOUS
-                                                    ADDRESS</h5>
+                                                <h5 className="header-txt" style={{"paddingLeft": "75px"}}> PREVIOUS
+                                                    ADDRESS <span className="spanTxt">(if less than 3 years at existing address)</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -1414,7 +1403,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1424,7 +1413,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1434,7 +1423,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1444,7 +1433,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500">County</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1454,7 +1443,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500">Country</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1464,7 +1453,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Time at address</label>
+                                        <label className="box-label font-size-12 font-weight-500">Time at address</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1474,7 +1463,7 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSidePreviousAddress')}
                                         />
 
-                                        <label className="box-label font-size-12">Years</label>
+                                        <label className="box-label font-size-12 font-weight-500">Years</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1483,14 +1472,14 @@ const DemoForm = () => {
                                             value={form.personalDetails.leftSidePreviousAddress.year}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSidePreviousAddress')}
                                         />
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500">Month</label>
                                     </div>
-                                    <p className="txtStyle font-size-10">Address description as per IIB HL from required
+                                    <p className="txtStyle font-size-10 font-weight-500 paddingLeft15px paraClr">Address description as per IIB HL from required
                                         for DOE House Price Survey</p>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 1</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1499,8 +1488,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 2</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1509,8 +1498,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Address Line 3</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1519,8 +1508,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">County</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1529,8 +1518,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Country</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Country</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1539,8 +1528,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Time at address</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Time at address</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1550,7 +1539,7 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
 
-                                        <label className="box-label font-size-12">Years</label>
+                                        <label className="box-label font-size-12 font-weight-500">Years</label>
                                         <input
                                             style={{width: 66 + 'px'}}
                                             type="text"
@@ -1559,7 +1548,7 @@ const DemoForm = () => {
                                             value={form.personalDetails.RightSidePreviousAddress.year}
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSidePreviousAddress')}
                                         />
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500">Month</label>
                                     </div>
                                 </div>
                             </div>
@@ -1571,7 +1560,7 @@ const DemoForm = () => {
                                                 <h5 className="header-txt"> CONTACT DETAIL</h5>
                                             </div>
                                             <div className="col-lg-8">
-                                                <h5 className="header-txt" style={{"paddingLeft": "130px"}}> CONTACT
+                                                <h5 className="header-txt" style={{"paddingLeft": "148px"}}> CONTACT
                                                     DETAIL</h5>
                                             </div>
                                         </div>
@@ -1581,7 +1570,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Home Telephone Number</label>
+                                        <label className="box-label font-size-12 font-weight-500">Home Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input"
@@ -1591,7 +1580,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Work Telephone Number</label>
+                                        <label className="box-label font-size-12 font-weight-500">Work Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1601,7 +1590,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Mobile Telephone Number</label>
+                                        <label className="box-label font-size-12 font-weight-500">Mobile Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1611,7 +1600,7 @@ const DemoForm = () => {
                                         />
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">E-mail</label>
+                                        <label className="box-label font-size-12 font-weight-500">E-mail</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1623,8 +1612,8 @@ const DemoForm = () => {
                                     <br/>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Home Telephone Number</label>
+                                    <div className="form-group ">
+                                        <label className="box-label font-size-12 font-weight-500">Home Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1633,8 +1622,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideContactDetail')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Work Telephone Number</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Work Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1643,8 +1632,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideContactDetail')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">Mobile Telephone Number</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Mobile Telephone Number</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1653,8 +1642,8 @@ const DemoForm = () => {
                                             onChange={(e) => handleInputChange(e, 'personalDetails', 'RightSideContactDetail')}
                                         />
                                     </div>
-                                    <div className="form-group paddingLeft23px">
-                                        <label className="box-label font-size-12">E-mail</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">E-mail</label>
                                         <input
                                             type="text"
                                             className="box-input "
@@ -1668,29 +1657,19 @@ const DemoForm = () => {
                             </div>
                         </div>
                         <div id="pdf2">
-
-                            {/* <div className="col-lg-12">
-                                    <div className="main-header-container">
-                                        <div className = "blue-section-B">
-                                            <p className="blue-section-B-text">
-                                            Section B - Income & Employment
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div> */}
                             <div className="row">
                                 <div className="col-lg-12 paddingLeft16px">
                                     <div className="sectionB"></div>
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 noPaddingRight">
                                     <div className="header-container">
                                         <h1 className="main-header">APPLICANT ONE</h1>
                                     </div>
 
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 noPaddingLeft">
                                     <div className="header-container">
                                         <h1 className="main-header">APPLICANT TWO</h1>
                                     </div>
@@ -1701,11 +1680,11 @@ const DemoForm = () => {
                                 <div className="col-lg-12">
                                     <div className="header">
                                         <div className="row">
-                                            <div className="col-lg-6">
+                                            <div className="col-lg-4">
                                                 <h5 className="header-txt"> CURRENT INCOMES</h5>
                                             </div>
-                                            <div className="col-lg-6">
-                                                <h5 className="header-txt"> CURRENT INCOMES</h5>
+                                            <div className="col-lg-8">
+                                                <h5 className="header-txt" style={{paddingLeft:"150px"}}> CURRENT INCOMES</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -1714,26 +1693,26 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Gross basic wage/salary
+                                        <label className="box-label font-size-12 font-weight-500">Gross basic wage/salary
                                             pa &euro;</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -1741,26 +1720,26 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Overtime per annum </label>
-                                        <span className="paddingLeft70px">&euro;<input type="text"
+                                        <label className="box-label font-size-12 font-weight-500">Overtime per annum </label>
+                                        <span className="paddingLeft70px font-weight-500 font-size-12 paraClr">&euro;<input type="text"
                                                                                        className="box-input width210"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -1768,26 +1747,26 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Bonuses per annum</label>
-                                        <span className="paddingLeft70px">&euro;<input type="text"
+                                        <label className="box-label font-size-12 font-weight-500">Bonuses per annum</label>
+                                        <span className="paddingLeft70px font-weight-500 font-size-12 paraClr">&euro;<input type="text"
                                                                                        className="box-input width210"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -1795,26 +1774,26 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Commissions per annum</label>
-                                        <span className="paddingLeft18px">&euro;<input type="text"
+                                        <label className="box-label font-size-12 font-weight-500">Commissions per annum</label>
+                                        <span className="paddingLeft18px font-weight-500 font-size-12 paraClr">&euro;<input type="text"
                                                                                        className="box-input width217"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -1822,27 +1801,27 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 labelWidth170">Other income per annum
+                                        <label className="box-label font-size-12 labelWidth170 font-weight-500">Other income per annum
                                             (non rental)</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
                                                                                           className="box-input width217"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -1850,76 +1829,76 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Lodger income per annum</label>
-                                        <span style={{"paddingLeft": "5px"}}>&euro;<input type="text"
+                                        <label className="box-label font-size-12 font-weight-500">Lodger income per annum</label>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "5px"}}>&euro;<input type="text"
                                                                                           className="box-input width217"/></span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 labelWidth270">Residential Investment
+                                        <label className="box-label font-size-12 labelWidth270 font-weight-500">Residential Investment
                                             income per annum</label>
-                                        <span>&euro;<input type="text" className="box-input width113"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr">&euro;<input type="text" className="box-input width113"/></span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 labelWidth200">Total gross income per
+                                        <label className="box-label font-size-12 labelWidth200 font-weight-500">Total gross income per
                                             annum</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
                                                                                           className="box-input width185"/></span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 labelWidth200">Total joint financial
+                                        <label className="box-label font-size-12 labelWidth200 font-weight-500">Total joint financial
                                             income pa</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
                                                                                           className="box-input width185"/></span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 labelWidth200">Total NET income per
+                                        <label className="box-label font-size-12 labelWidth200 font-weight-500">Total NET income per
                                             mont</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
                                                                                           className="box-input width185"/></span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Nature of Income </label>
+                                        <label className="box-label font-size-12 font-weight-500">Nature of Income </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Employment Status </label>
+                                        <label className="box-label font-size-12 font-weight-500">Employment Status </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>EMPLOYED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>EMPLOYED
                                                     & SELF EMPLOYED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>HOMEMAKER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>RETIRED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500 noBorder">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>SELF
                                                     EMPLOYED
                                                     <span class="checkmark"></span>
@@ -1930,217 +1909,217 @@ const DemoForm = () => {
 
 
                                 </div>
-                                <div className="col-lg-6">
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Gross basic wage/salary
+                                <div className="col-lg-6" style={{"paddingLeft":""}}>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Gross basic wage/salary
                                             pa &euro;</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth158">Overtime per
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth158 font-weight-500">Overtime per
                                             annum </label>
-                                        <span className="">&euro;<input type="text"
-                                                                        className="box-input width190"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr">&euro;<input type="text"
+                                                                        className="box-input width230"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth158">Bonuses per
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth158 font-weight-500">Bonuses per
                                             annum</label>
-                                        <span className="">&euro;<input type="text"
-                                                                        className="box-input width190"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr">&euro;<input type="text"
+                                                                        className="box-input width230"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth158">Commissions per
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth158 font-weight-500">Commissions per
                                             annum</label>
-                                        <span className="">&euro;<input type="text"
-                                                                        className="box-input width190"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr">&euro;<input type="text"
+                                                                        className="box-input width230"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth160">Other income per annum
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth160 font-weight-500">Other income per annum
                                             (non rental)</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
-                                                                                          className="box-input width188"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                                                                          className="box-input width230"/></span>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>GUARANTEED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500">
                                                     <input type="radio" name="radio"/><br/>REGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 noBorder">
                                                     <input type="radio" name="radio"/><br/>IRREGULAR
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 width180">Lodger income per
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 width180 font-weight-500">Lodger income per
                                             annum</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
-                                                                                          className="box-input width168"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input type="text"
+                                                                                          className="box-input widthlabel200"/></span>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth270">Residential Investment
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth270 font-weight-500">Residential Investment
                                             income per annum</label>
-                                        <span>&euro;<input type="text" className="box-input width78"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr">&euro;<input style={{width:"117px"}} type="text" className="box-input"/></span>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12 labelWidth200">Total gross income per
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 labelWidth200 font-weight-500">Total gross income per
                                             annum</label>
-                                        <span style={{"paddingLeft": "0px"}}>&euro;<input type="text"
-                                                                                          className="box-input width148"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "0px"}}>&euro;<input style={{width:"190px"}} type="text"
+                                                                                          className="box-input"/></span>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Total joint financial income
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Total joint financial income
                                             pa</label>
-                                        <span style={{"paddingLeft": "9px"}}>&euro;<input type="text"
-                                                                                          className="box-input width157"/></span>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "9px"}}>&euro;<input style={{width:"190px"}} type="text"
+                                                                                          className="box-input"/></span>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Total NET income per mont</label>
-                                        <span style={{"paddingLeft": "25px"}}>&euro;<input type="text"
-                                                                                           className="box-input width157"/></span>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Total NET income per mont</label>
+                                        <span className="font-weight-500 font-size-12 paraClr" style={{"paddingLeft": "25px"}}>&euro;<input style={{width:"190px"}} type="text"
+                                                                                           className="box-input"/></span>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Nature of Income </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Nature of Income </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Employment Status </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500">Employment Status </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>EMPLOYED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>EMPLOYED
                                                     & SELF EMPLOYED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>HOMEMAKER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>RETIRED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding paddingBorder">
+                                                <label class="container noPadding paddingBorder font-weight-500 noBorder">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>SELF
                                                     EMPLOYED
                                                     <span class="checkmark"></span>
@@ -2156,11 +2135,11 @@ const DemoForm = () => {
                                 <div className="col-lg-12">
                                     <div className="header">
                                         <div className="row">
-                                            <div className="col-lg-6">
+                                            <div className="col-lg-4">
                                                 <h5 className="header-txt">EMPLOYMENT DETAILS</h5>
                                             </div>
-                                            <div className="col-lg-6">
-                                                <h5 className="header-txt"> EMPLOYMENT DETAILS </h5>
+                                            <div className="col-lg-8">
+                                                <h5 className="header-txt" style={{paddingLeft:"150px"}}> EMPLOYMENT DETAILS </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -2168,15 +2147,15 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <label class="font-size-12 paddingLeft15px">
+                                    <label class="font-size-12 paddingLeft15px  font-weight-500 paraClr">
                                         Please choose a category for each applicant from the attached list – Note 1
                                         (Section G)
                                     </label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="appdiv">
-                                        <label style={{"paddingLeft": "13px"}} className="font-size-12">App1</label>
-                                        <label className="font-size-12">App2</label>
+                                        <label style={{"paddingLeft": "13px"}} className="font-size-12  font-weight-500 paraClr">App1</label>
+                                        <label className="font-size-12  font-weight-500 paraClr">App2</label>
                                     </div>
                                     <div className="inputDiv">
                                         <input type="text" className="box-input"/>
@@ -2186,7 +2165,7 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <label class="font-size-12 paddingLeft15px">
+                                    <label class="font-size-12 paddingLeft15px  font-weight-500 paraClr">
                                         Please choose a category for each applicant from the attached list – Note 2
                                         (Section G)
                                     </label>
@@ -2201,26 +2180,26 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Occupation </label>
+                                        <label className="box-label font-size-12  font-weight-500 paraClr">Occupation </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
 
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border  font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border  font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>RETIRED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding  font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>SELF
                                                     EMPLOYED
                                                     <span class="checkmark"></span>
@@ -2229,75 +2208,75 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Employer's Name </label>
+                                        <label className="box-label font-size-12  font-weight-500 paraClr">Employer's Name </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12  font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12  font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
 
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group paddingLeft15px">
-                                                <label className="box-label font-size-12">County </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                                 <input type="text" className="box-input width100"/>
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Country </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                                 <input type="text" className="box-input width100"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Nature of Business </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Nature of Business </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             Employer</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Occupation </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Occupation </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="float-right">
                                         <div className="form-group">
 
                                             <div className="radio-area">
-                                                <label class="container  noPadding padding3border">
+                                                <label class="container  noPadding padding3border font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container  noPadding padding3border">
+                                                <label class="container  noPadding padding3border font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>RETIRED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container  noPadding">
+                                                <label class="container  noPadding font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>SELF
                                                     EMPLOYED
                                                     <span class="checkmark"></span>
@@ -2305,52 +2284,52 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Employer's Name </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Employer's Name </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
 
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            <div className="form-group paddingLeft60px">
-                                                <label className="box-label font-size-12">County </label>
+                                            <div className="form-group">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                                 <input type="text" className="box-input width100"/>
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Country </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                                 <input type="text" className="box-input width100"/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Nature of Business </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Nature of Business </label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             Employer</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                 </div>
                             </div>
@@ -2358,13 +2337,13 @@ const DemoForm = () => {
                                 <div className="col-lg-12">
                                     <div className="header">
                                         <div className="row">
-                                            <div className="col-lg-6 displayFlex">
-                                                <h5 className="header-txt"> PREVIOUS EMPLOYMENT</h5> (if less than 1
-                                                years at current employer)
+                                            <div className="col-lg-4 displayFlex">
+                                                <h5 className="header-txt"> PREVIOUS EMPLOYMENT <span class="spanTxt">(if less than 1
+                                                years at current employer)</span></h5> 
                                             </div>
-                                            <div className="col-lg-6 displayFlex">
-                                                <h5 className="header-txt"> PREVIOUS EMPLOYMENT</h5> (if less than 1
-                                                years at current employer)
+                                            <div className="col-lg-8 displayFlex">
+                                                <h5 className="header-txt" style={{paddingLeft:"150px"}}> PREVIOUS EMPLOYMENT <span class="spanTxt">(if less than 1
+                                                years at current employer)</span></h5> 
                                             </div>
                                         </div>
                                     </div>
@@ -2373,75 +2352,75 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Employer’s Name</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Employer’s Name</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Occupation</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Occupation</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             employer</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
 
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Employer’s Name</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Employer’s Name</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Occupation</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Occupation</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             employer</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                 </div>
                             </div>
@@ -2457,11 +2436,11 @@ const DemoForm = () => {
                                 <div className="col-lg-12">
                                     <div className="header">
                                         <div className="row">
-                                            <div className="col-lg-6">
+                                            <div className="col-lg-4">
                                                 <h5 className="header-txt"> SELF EMPLOYED DETAILS</h5>
                                             </div>
-                                            <div className="col-lg-6">
-                                                <h5 className="header-txt"> SELF EMPLOYED DETAILS</h5>
+                                            <div className="col-lg-8">
+                                                <h5 className="header-txt" style={{paddingLeft:"150px"}}> SELF EMPLOYED DETAILS</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -2470,107 +2449,107 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name of firm/company</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of firm/company</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Nature of Business</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Nature of Business</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">How long has the business been
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">How long has the business been
                                             established</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Time Involved</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Time Involved</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Average profit over three
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Average profit over three
                                             years &euro;</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Percentage shareholding/partnership
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Percentage shareholding/partnership
                                             interest</label>
                                         <input type="text" className="box-input"/> %
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name of accountant</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of accountant</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name of accounting firm</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of accounting firm</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Telephone number</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Fax Number</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Fax Number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">3 years audited accounts
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">3 years audited accounts
                                             available</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             employer</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Tax affairs up to date </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Tax affairs up to date </label>
                                         <div className="radio-area">
-                                            <label class="container">
+                                            <label class="container font-weight-500 paraClr">
                                                 <input type="radio" name="radio"/><br/>yes
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container">
+                                            <label class="container font-weight-500 paraClr">
                                                 <input type="radio" name="radio"/><br/>no
                                                 <span class="checkmark"></span>
                                             </label>
@@ -2579,109 +2558,109 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-6">
 
-                                    <div className="form-group paddingLeft60px">
+                                    <div className="form-group">
 
-                                        <label className="box-label font-size-12">Name of firm/company</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of firm/company</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Nature of Business</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Nature of Business</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">How long has the business been
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">How long has the business been
                                             established</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Time Involved</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Time Involved</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Average profit over three
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Average profit over three
                                             years &euro;</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Percentage shareholding/partnership
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Percentage shareholding/partnership
                                             interest</label>
                                         <input type="text" className="box-input"/> %
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Name of accountant</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of accountant</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Name of accounting firm</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr ">Name of accounting firm</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Telephone number</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Fax Number</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Fax Number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">3 years audited accounts
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">3 years audited accounts
                                             available</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Length of Service with
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Length of Service with
                                             employer</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Tax affairs up to date </label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Tax affairs up to date </label>
                                         <div className="radio-area">
-                                            <label class="container">
+                                            <label class="container font-weight-500 paraClr">
                                                 <input type="radio" name="radio"/><br/>yes
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container">
+                                            <label class="container font-weight-500 paraClr">
                                                 <input type="radio" name="radio"/><br/>no
                                                 <span class="checkmark"></span>
                                             </label>
@@ -2697,88 +2676,88 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Current Bank/Building Society</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Current Bank/Building Society</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Account Type</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Account Type</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Account Number</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Account Number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Sort Code</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Sort Code</label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">I have held this account for</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">I have held this account for</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Current Bank/Building Society</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Current Bank/Building Society</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">County</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County</label>
                                         <input type="text" className="box-input" style={{width: "70px"}}/>
-                                        <label className="box-label font-size-12">Country</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Account Type</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Account Type</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Account Number</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Account Number</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">Sort Code</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Sort Code</label>
                                         <input type="text" className="box-input"/>
                                     </div>
-                                    <div className="form-group paddingLeft60px">
-                                        <label className="box-label font-size-12">I have held this account for</label>
+                                    <div className="form-group">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">I have held this account for</label>
                                         <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Years</label>
-                                        <input type="text" className="box-input" style={{width: 66 + 'px'}}/>
-                                        <label className="box-label font-size-12">Month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">years</label>
+                                        <input type="text" className="box-input" style={{width: 41 + 'px'}}/>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">months</label>
                                     </div>
                                 </div>
                             </div>
@@ -2797,7 +2776,7 @@ const DemoForm = () => {
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            <h6 className="font-size-12 paddingLeft15px">Financial Institution</h6>
+                                            <h6 className="font-size-12 paddingLeft15px font-weight-500 paraClr">Financial Institution</h6>
                                             <div className="form-group paddingLeft15px">
                                                 <input type="text" className="box-input"/>
                                             </div>
@@ -2812,7 +2791,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
-                                            <h6 className="font-size-12"> A/C Number</h6>
+                                            <h6 className="font-size-12 font-weight-500 paraClr"> A/C Number</h6>
                                             <div className="form-group">
                                                 <input type="text" className="box-input"/>
                                             </div>
@@ -2832,7 +2811,7 @@ const DemoForm = () => {
                                     <div className="montlyDiv">
                                         <div className="row">
                                             <div className="col-lg-4">
-                                                <h6 className="font-size-12">Monthly Savings </h6>
+                                                <h6 className="font-size-12 font-weight-500 paraClr">Monthly Savings </h6>
                                                 <div className="form-group">
                                                     <input type="text" className="box-input width110"/>
                                                 </div>
@@ -2847,7 +2826,7 @@ const DemoForm = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-2 text-center">
-                                                <h6 className="font-size-12">App1 </h6>
+                                                <h6 className="font-size-12 font-weight-500 paraClr">App1 </h6>
                                                 <div className="form-group">
                                                     <div class="radio-area"><label class="container"><input type="radio"
                                                                                                             name="radio"/><span
@@ -2870,7 +2849,7 @@ const DemoForm = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-2 text-center">
-                                                <h6 className="font-size-12">App2 </h6>
+                                                <h6 className="font-size-12 font-weight-500 paraClr">App2 </h6>
                                                 <div className="form-group">
                                                     <div class="radio-area"><label class="container"><input type="radio"
                                                                                                             name="radio"/><span
@@ -2893,7 +2872,7 @@ const DemoForm = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-4">
-                                                <h6 className="font-size-12">Balance</h6>
+                                                <h6 className="font-size-12 font-weight-500 paraClr">Balance</h6>
                                                 <div className="form-group">
                                                     <label>
                                                         &euro;
@@ -2950,120 +2929,120 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-4">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Inception Date</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Inception Date</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Mortgage Term</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Term</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <br/>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Est. Sale Price &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Are you selling this property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Are you selling this property </label>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>yes
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding">
+                                            <label class="container noPadding font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>no
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of Lender</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Acct. No.</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Lender</label>
                                         <textarea type="text" rows="3" className="box-textarea width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Property Value &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Property Value &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Year Purchased</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Year Purchased</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">If fixed, for how many years</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If fixed, for how many years</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Payments missed in last 6
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 6
                                             months</label>
                                         <input type="text" className="box-input width20"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Payments missed in last 12
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 12
                                             months</label>
                                         <input type="text" className="box-input width20"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Payments per month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments per month</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Rental Income per month &euro;</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address of Property</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Property</label>
                                         <textarea type="text" rows="3" className="box-textarea"/>
                                     </div>
                                     <br/>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft15px">Type of
+                                        <label className="box-label font-size-12 paddingLeft15px font-weight-500 paraClr">Type of
                                             Mortgage </label>
                                         <div className="form-group paddingLeft15px">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ANNUITY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ENDOWMENT
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3071,36 +3050,36 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft15px">Type of Rate </label>
+                                        <label className="box-label font-size-12 paddingLeft15px font-weight-500 paraClr">Type of Rate </label>
                                         <div className="form-group ">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>DISCOUNT VARIABLE
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>FIXED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>Other
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3111,120 +3090,120 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12 ">Inception Date</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Inception Date</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Mortgage Term</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Term</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <br/>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Est. Sale Price &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Are you selling this property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Are you selling this property </label>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>yes
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>no
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                <input className="widthheight noBorder" type="radio" name="radio"/><br/>no
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Name of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of Lender</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Acct. No.</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Address of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Lender</label>
                                         <textarea type="text" rows="3" className="box-textarea width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Property Value &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Property Value &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Year Purchased</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Year Purchased</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">If fixed, for how many years</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If fixed, for how many years</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Payments missed in last 6
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 6
                                             months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Payments missed in last 12
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 12
                                             months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Payments per month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments per month</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Rental Income per month &euro;</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft46px">
-                                        <label className="box-label font-size-12">Address of Property</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Property</label>
                                         <textarea type="text" rows="3" className="box-textarea"/>
                                     </div>
                                     <br/>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft46px">Type of
+                                        <label className="box-label font-size-12 paddingLeft46px font-weight-500 paraClr">Type of
                                             Mortgage </label>
                                         <div className="form-group">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ANNUITY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ENDOWMENT
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3232,36 +3211,36 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft46px">Type of Rate </label>
+                                        <label className="box-label font-size-12 paddingLeft46px font-weight-500 paraClr">Type of Rate </label>
                                         <div className="form-group">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>DISCOUNT VARIABLE
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
-                                            <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                            <div className="radio-area"> 
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>FIXED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>Other
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3271,120 +3250,120 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Inception Date</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Inception Date</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Mortgage Term</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Term</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <br/>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Est. Sale Price &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Est. Sale Price &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Are you selling this property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Are you selling this property </label>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>yes
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding">
+                                            <label class="container noPadding font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>no
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Name of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name of Lender</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Mortgage Acct. No.</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mortgage Acct. No.</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Address of Lender</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Lender</label>
                                         <textarea type="text" rows="3" className="box-textarea width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Property Value &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Property Value &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Balance Due &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Balance Due &euro;</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Year Purchased</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Year Purchased</label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">If fixed, for how many years</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If fixed, for how many years</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Payments missed in last 6
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 6
                                             months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Payments missed in last 12
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments missed in last 12
                                             months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Payments per month</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Payments per month</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Rental Income per month &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Rental Income per month &euro;</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft75px">
-                                        <label className="box-label font-size-12">Address of Property</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address of Property</label>
                                         <textarea type="text" rows="3" className="box-textarea"/>
                                     </div>
                                     <br/>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft75px">Type of
+                                        <label className="box-label font-size-12 paddingLeft75px font-weight-500 paraClr">Type of
                                             Mortgage </label>
                                         <div className="form-group">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ANNUITY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>ENDOWMENT
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3392,36 +3371,36 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="radioBtnDiv">
-                                        <label className="box-label font-size-12 paddingLeft75px">Type of Rate </label>
+                                        <label className="box-label font-size-12 paddingLeft75px font-weight-500 paraClr">Type of Rate </label>
                                         <div className="form-group">
 
                                             <br/>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>DISCOUNT VARIABLE
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>FIXED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>PENSION
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>INTEREST ONLY
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding">
+                                                <label class="container noPadding font-weight-500 paraClr">
                                                     <input type="radio" name="radio"/><br/>Other
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -3432,7 +3411,7 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <label className="font-size-12 paddingLeft15px">
+                                    <label className="font-size-12 paddingLeft15px font-weight-500 paraClr">
                                         Is property registered in any name other than that of the applicant
                                     </label>
                                 </div>
@@ -3440,7 +3419,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Details</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Details</label>
                                         <textarea type="text" rows="2" className="box-textarea"/>
                                     </div>
                                 </div>
@@ -3459,23 +3438,23 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">How many existing loans do you
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">How many existing loans do you
                                             have</label>
                                         <input type="text" className="box-input width50"/>
-                                        <label className="box-label font-size-12">Amount Borrowed</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Amount Borrowed</label>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Applicant 1 </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Applicant 1 </label>
                                                 <input type="text" className="box-input width50"/>
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Applicant 2 </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Applicant 2 </label>
                                                 <input type="text" className="box-input width50"/>
                                             </div>
                                         </div>
@@ -3486,12 +3465,12 @@ const DemoForm = () => {
                                 <div className="col-lg-4">
                                     <div className="row paddingLeft15px">
                                         <div className="col-lg-6">
-                                            <label className="box-label font-size-12">Financial Institution </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Financial Institution </label>
                                             <textarea style={{height: "90px", width: "100px"}} type="input"
                                                       className="box-textarea" row="5"></textarea>
                                         </div>
                                         <div className="col-lg-6">
-                                            <label className="box-label font-size-12">Account Number: </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Account Number: </label>
                                             <textarea style={{height: "90px", width: "120px"}} type="input"
                                                       className="box-textarea" row="5"></textarea>
                                         </div>
@@ -3500,7 +3479,7 @@ const DemoForm = () => {
                                 <div className="col-lg-2">
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            <label className="box-label font-size-12">App1 </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">App1 </label>
                                             <div className="radioBtnDiv radioBtnDivWidth">
                                                 <div className="radio-area">
                                                     <label class="container">
@@ -3529,7 +3508,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
-                                            <label className="box-label font-size-12">App1 </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">App1 </label>
                                             <div className="radioBtnDiv radioBtnDivWidth">
                                                 <div className="radio-area">
                                                     <label class="container">
@@ -3562,7 +3541,7 @@ const DemoForm = () => {
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-3">
-                                            <label className="box-label font-size-12">Payment (Mly) </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Payment (Mly) </label>
                                             <label className="font-size-12">&euro;
                                                 <input type="text" className="box-input width40"/></label>
                                             <label className="font-size-12">&euro;
@@ -3573,25 +3552,25 @@ const DemoForm = () => {
                                                 <input type="text" className="box-input width40"/></label>
                                         </div>
                                         <div className="col-lg-3">
-                                            <label className="box-label font-size-12"> Purpose </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr"> Purpose </label>
                                             <textarea class="box-textarea width70" type="input" row="4"></textarea>
                                         </div>
                                         <div className="col-lg-3">
-                                            <label className="box-label font-size-12">Final Payment Date </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Final Payment Date </label>
                                             <textarea class="box-textarea width70" type="input" row="4"></textarea>
                                         </div>
                                         <div className="col-lg-3">
-                                            <label className="box-label font-size-12">Refinance? </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Refinance? </label>
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         Yes
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         No
@@ -3600,14 +3579,14 @@ const DemoForm = () => {
                                             </div>
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         Yes
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         No
@@ -3616,14 +3595,14 @@ const DemoForm = () => {
                                             </div>
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         Yes
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         No
@@ -3632,14 +3611,14 @@ const DemoForm = () => {
                                             </div>
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         Yes
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>
                                                         <span class="checkmark"></span>
                                                         No
@@ -3653,11 +3632,11 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-17px'}}>
                                 <div className="col-lg-8">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Rent &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Rent &euro;</label>
                                         <input type="text" className="box-input width50"/>
-                                        <label className="box-label font-size-12">Maintenance Payments &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Maintenance Payments &euro;</label>
                                         <input type="text" className="box-input width50"/>
-                                        <label className="box-label font-size-12">Total &euro;</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Total &euro;</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -3675,24 +3654,24 @@ const DemoForm = () => {
                             </div>
                             <div className="row" style={{marginTop: '-13px'}}>
                                 <div className="col-lg-8">
-                                    <label className="font-size-12 paddingLeft15px">
+                                    <label className="font-size-12 paddingLeft15px font-weight-500 paraClr">
                                         Have you ever:
                                     </label>
                                 </div>
                                 <div className="col-lg-2 text-center">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         App1
                                     </label>
                                 </div>
                                 <div className="col-lg-2 text-center">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         App2
                                     </label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12 paddingLeft15px">
+                                    <label className="font-size-12 paddingLeft15px font-weight-500 paraClr">
                                         Been refused a mortgage on this or any other property
                                     </label>
                                 </div>
@@ -3701,13 +3680,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3721,13 +3700,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3739,7 +3718,7 @@ const DemoForm = () => {
                             </div>
                             <div className="row" style={{marginTop: '-11px'}}>
                                 <div className="col-lg-8">
-                                    <label className="font-size-12 paddingLeft15px">
+                                    <label className="font-size-12 paddingLeft15px font-weight-500 paraClr">
                                         Had a court order registered against you
                                     </label>
                                 </div>
@@ -3748,13 +3727,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3768,13 +3747,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3786,7 +3765,7 @@ const DemoForm = () => {
                             </div>
                             <div className="row" style={{marginTop: '-11px'}}>
                                 <div className="col-lg-8">
-                                    <label className="font-size-12 paddingLeft15px">
+                                    <label className="font-size-12 paddingLeft15px font-weight-500 paraClr">
                                         Been insolvent, declared bankrupt or made any arrangements with creditors or any
                                         other action pending
                                     </label>
@@ -3796,13 +3775,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container">
+                                                    <label class="container font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3816,13 +3795,13 @@ const DemoForm = () => {
                                         <div className="col-lg-6">
                                             <div className="multiRadio">
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>Yes
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noBorder">
+                                                    <label class="container noBorder font-weight-500 paraClr">
                                                         <input type="radio" name="radio"/><br/>No
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -3835,7 +3814,7 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-8px'}}>
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Details</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Details</label>
                                         <textarea type="text" rows="2" className="box-textarea"/>
                                     </div>
                                 </div>
@@ -3862,7 +3841,7 @@ const DemoForm = () => {
                                 <div className="col-lg-4">
                                     <div className="row">
                                         <div className="col-lg-8">
-                                            <label className="box-label font-size-12">First Time Buyer</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">First Time Buyer</label>
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="radioBtnDiv">
@@ -3877,7 +3856,7 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-8">
-                                            <label className="box-label font-size-12">Remortgage House</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Remortgage House</label>
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="radioBtnDiv">
@@ -3892,7 +3871,7 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-8">
-                                            <label className="box-label font-size-12">Second Property </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Second Property </label>
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="radioBtnDiv">
@@ -3907,7 +3886,7 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-8">
-                                            <label className="box-label font-size-12">RP</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">RP</label>
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="radioBtnDiv">
@@ -3923,14 +3902,14 @@ const DemoForm = () => {
                                 </div>
 
                                 <div className="col-lg-4">
-                                    <label className="box-label font-size-12">Max Approval Required</label>
-                                    <label className="box-label font-size-12">First Applicant</label>
-                                    <label className="box-label font-size-12">Second Applicant</label>
+                                    <label className="box-label font-size-12 font-weight-500 paraClr widthper100">Max Approval Required</label>
+                                    <label className="box-label font-size-12 font-weight-500 paraClr widthper100">First Applicant</label>
+                                    <label className="box-label font-size-12 font-weight-500 paraClr widthper100">Second Applicant</label>
                                 </div>
 
                                 <div className="col-lg-2">
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Yes</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">Yes</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -3941,7 +3920,7 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Yes</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">Yes</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -3952,7 +3931,7 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Yes</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">Yes</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -3965,7 +3944,7 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-2">
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">No</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">No</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -3976,7 +3955,7 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">No</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">No</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -3987,7 +3966,7 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">No</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">No</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -4001,12 +3980,12 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">If joint application, is title of property to be in
+                                    <label className="font-size-12 font-weight-500 paraClr">If joint application, is title of property to be in
                                         joint names</label>
                                 </div>
                                 <div className="col-lg-2">
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Yes</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">Yes</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -4019,7 +3998,7 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-2">
                                     <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">No</lable>
+                                        <lable className="font-size-12 font-weight-500 paraClr">No</lable>
                                         <div className="radioBtnDiv">
                                             <div className="radio-area">
                                                 <label class="container">
@@ -4045,131 +4024,124 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Purchase price/cost of
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Purchase price/cost of
                                             Building </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Site Price (if applicable) </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Site Price (if applicable) </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Legal & stamp duty (if
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Legal & stamp duty (if
                                             applicable) </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Repairs/Renovations </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Repairs/Renovations </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Other costs* </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Other costs* </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Total Expenditure </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Total Expenditure </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-2"></div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Savings* </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Savings* </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Grant </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Grant </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Gifts </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Gifts </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Other funds* </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Other funds* </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
 
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Total Finance </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Total Finance </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">*Please supply details of other cost
+                                    <div className="form-group paddingLeft15px displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">*Please supply details of other cost
                                             and/or savings, or other funding sources </label>
-                                        <textarea type="text" row="2" className="box-textarea"/>
+                                        <input type="text" className="box-input width50"/>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="widthper100 box-input"/>
                                 </div>
                             </div>
                             <div className="row paddingLeft15px">
-                                <div className="col-lg-2">
-                                    <label className="font-size-12">Is purchase: </label>
-                                </div>
-                                <div className="col-lg-2">
-                                    <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Local Authority Housing Scheme</lable>
-                                        <div className="radioBtnDiv">
-                                            <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio"/><br/>
-                                                    <span class="checkmark"></span>
-                                                </label>
+                                <div className="col-lg-12">
+                                    <div className="displayFlex">
+                                        <label className="font-size-12 font-weight-500 paraClr">Is purchase: </label>
+                                        <div className="optionalDiv displayFlex" style={{paddingLeft:"5px"}}>
+                                            <lable className="font-size-10 font-weight-500 paraClr">Local Authority Housing Scheme</lable>
+                                            <div className="radioBtnDiv">
+                                                <div className="radio-area width20">
+                                                    <label class="container">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2">
-                                    <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Affordable Housing</lable>
-                                        <div className="radioBtnDiv">
-                                            <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio"/><br/>
-                                                    <span class="checkmark"></span>
-                                                </label>
+                                        <div className="optionalDiv displayFlex" style={{paddingLeft:"5px"}}>
+                                            <lable className="font-size-10 font-weight-500 paraClr">Affordable Housing</lable>
+                                            <div className="radioBtnDiv">
+                                                <div className="radio-area width20">
+                                                    <label class="container">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2">
-                                    <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Shared Ownership</lable>
-                                        <div className="radioBtnDiv">
-                                            <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio"/><br/>
-                                                    <span class="checkmark"></span>
-                                                </label>
+                                        <div className="optionalDiv displayFlex" style={{paddingLeft:"5px"}}>
+                                            <lable className="font-size-10 font-weight-500 paraClr">Shared Ownership</lable>
+                                            <div className="radioBtnDiv">
+                                                <div className="radio-area width20">
+                                                    <label class="container">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2">
-                                    <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Affordable Housing</lable>
-                                        <div className="radioBtnDiv">
-                                            <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio"/><br/>
-                                                    <span class="checkmark"></span>
-                                                </label>
+                                        <div className="optionalDiv displayFlex" style={{paddingLeft:"5px"}}>
+                                            <lable className="font-size-10 font-weight-500 paraClr">Affordable Housing</lable>
+                                            <div className="radioBtnDiv">
+                                                <div className="radio-area width20">
+                                                    <label class="container">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2">
-                                    <div className="optionalDiv displayFlex">
-                                        <lable className="font-size-12">Local Authority Tenant Purchase</lable>
-                                        <div className="radioBtnDiv">
-                                            <div className="radio-area">
-                                                <label class="container">
-                                                    <input type="radio" name="radio"/><br/>
-                                                    <span class="checkmark"></span>
-                                                </label>
+                                        <div className="optionalDiv displayFlex" style={{paddingLeft:"5px"}}>
+                                            <lable className="font-size-10 font-weight-500 paraClr">Local Authority Tenant Purchase</lable>
+                                            <div className="radioBtnDiv">
+                                                <div className="radio-area width20">
+                                                    <label class="container">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4177,17 +4149,17 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-4">
-                                    <lable className="font-size-12">If affordable House, please provide:</lable>
+                                    <lable className="font-size-12 font-weight-500 paraClr">If affordable House, please provide:</lable>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Purchase Price </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Purchase Price </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Market Value </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Market Value </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4206,31 +4178,31 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Remortgage amount </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Remortgage amount </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Property value </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Property value </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Loan Value % </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Loan Value % </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Year of original purchase </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Year of original purchase </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Current mortgage outstanding </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Current mortgage outstanding </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Age of property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Age of property </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">New Mortgage required </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">New Mortgage required </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4238,7 +4210,7 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Purpose of additional
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Purpose of additional
                                             borrowing </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
@@ -4258,29 +4230,14 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-8">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">What type of repayment method do you
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">What type of repayment method do you
                                             require </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Other/Initial years </label>
-                                        <input type="text" className="box-input width100"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row paddingLeft15px">
-                                <div className="col-lg-8">
-                                    <div className="form-group">
-                                        <label className="box-label font-size-12">What type of repayment method do you
-                                            require </label>
-                                        <input type="text" className="box-input width50"/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4">
-                                    <div className="form-group">
-                                        <label className="box-label font-size-12">Other/Initial years </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Other/Initial years </label>
                                         <input type="text" className="box-input width100"/>
                                     </div>
                                 </div>
@@ -4288,8 +4245,7 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">What type of repayment method do you
-                                            require </label>
+                                        <label className="box-label font-size-12  font-weight-500 paraClr">Mortgage term (Years)</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4297,40 +4253,32 @@ const DemoForm = () => {
                                 <div className="col-lg-6">
                                     <div className="multiRadio displayFlex">
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>TRACKER
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                <input className="widthheight" type="radio" name="radio"/><br/>ENDOWMENT MORTGAGE
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>DISCOUNT
-                                                VARIABLE
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                <input className="widthheight" type="radio" name="radio"/><br/>INTEREST ONLY
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
                                         <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>FIXED
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>PENSION
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div className="radio-area">
-                                            <label class="container noPadding padding3border">
-                                                <input className="widthheight" type="radio" name="radio"/><br/>INTEREST
-                                                ONLY
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div className="radio-area">
-                                            <label class="container noPadding padding3border">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
                                                 <input className="widthheight" type="radio" name="radio"/><br/>OTHER
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div className="radio-area">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                <input className="widthheight" type="radio" name="radio"/><br/>PENSION BACKED
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div className="radio-area">
+                                            <label class="container noPadding padding3border font-weight-500 paraClr noBorder">
+                                                <input className="widthheight" type="radio" name="radio"/><br/>REPAYMENT/ANNUITY
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
@@ -4340,13 +4288,13 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Loan amount </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Loan amount </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Commencement date </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Commencement date </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4354,41 +4302,44 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Type of rate required </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Type of rate required </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="floatRight">
                                         <div className="multiRadio displayFlex" style={{"margin-left": "122px"}}>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
-                                                    <input className="widthheight" type="radio" name="radio"/><br/>ENDOWMENT
-                                                    MORTGAGE
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                    <input className="widthheight" type="radio" name="radio"/><br/>TRACKER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
-                                                    <input className="widthheight" type="radio" name="radio"/><br/>INTEREST
-                                                    ONLY
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                    <input className="widthheight" type="radio" name="radio"/><br/>DISCOUNT VARIABLE
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
-                                                    <input className="widthheight" type="radio" name="radio"/><br/>OTHER
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                    <input className="widthheight" type="radio" name="radio"/><br/>FIXED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
                                                     <input className="widthheight" type="radio" name="radio"/><br/>PENSION
-                                                    BACKED
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div className="radio-area">
-                                                <label class="container noPadding padding3border">
-                                                    <input className="widthheight" type="radio" name="radio"/><br/>REPAYMENT/ANNUITY
+                                                <label class="container noPadding padding3border font-weight-500 paraClr">
+                                                    <input className="widthheight" type="radio" name="radio"/><br/>INTEREST ONLY
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <div className="radio-area">
+                                                <label class="container noPadding padding3border font-weight-500 paraClr noBorder">
+                                                    <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -4397,7 +4348,7 @@ const DemoForm = () => {
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Fixed for (years) </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Fixed for (years) </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4416,7 +4367,7 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-15px'}}>
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Solicitor Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Solicitor Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4424,7 +4375,15 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
+                                        <input type="text" className="box-input width50"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="form-group paddingLeft15px"> 
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4432,15 +4391,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
-                                        <input type="text" className="box-input width50"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4449,11 +4400,11 @@ const DemoForm = () => {
                                 <div className="col-lg-8">
                                     <div className="displayFlex">
                                         <div className="form-group paddingLeft15px">
-                                            <label className="box-label font-size-12">County </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                             <input type="text" className="box-input width50"/>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Country </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                             <input type="text" className="box-input width50"/>
                                         </div>
                                     </div>
@@ -4462,7 +4413,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-8">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Phone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Phone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4470,17 +4421,19 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-8">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Mobile Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mobile Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Fax Number </label>
-                                        <textarea type="text" className="box-textarea "/>
+                                    <div className="form-group paddingLeft15px displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Fax Number </label>
+                                        <input type="text" className="box-input width50"/>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
                                 </div>
                             </div>
                         </div>
@@ -4504,64 +4457,64 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-8px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Country </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
-                                    <p className="paddingLeft15px">See page 2 for address requirements</p>
+                                    <p className="paddingLeft15px font-weight-500 paraClr">See page 2 for address requirements</p>
                                 </div>
 
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-4">
-                                            <label className="box-label font-size-12">Type of Property </label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Type of Property </label>
                                         </div>
                                         <div className="col-lg-8">
                                             <div className="multiRadio displayFlex">
                                                 <div className="radio-area">
-                                                    <label class="container noPadding padding3border">
+                                                    <label class="container noPadding padding3border font-weight-500 paraClr">
                                                         <input className="widthheight" type="radio" name="radio"/><br/>ENDOWMENT
                                                         MORTGAGE
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noPadding padding3border">
+                                                    <label class="container noPadding padding3border font-weight-500 paraClr">
                                                         <input className="widthheight" type="radio" name="radio"/><br/>INTEREST
                                                         ONLY
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noPadding padding3border">
+                                                    <label class="container noPadding padding3border font-weight-500 paraClr">
                                                         <input className="widthheight" type="radio" name="radio"/><br/>OTHER
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noPadding padding3border">
+                                                    <label class="container noPadding padding3border font-weight-500 paraClr">
                                                         <input className="widthheight" type="radio" name="radio"/><br/>PENSION
                                                         BACKED
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                                 <div className="radio-area">
-                                                    <label class="container noPadding no">
+                                                    <label class="container noPadding no font-weight-500 paraClr">
                                                         <input className="widthheight" type="radio" name="radio"/><br/>REPAYMENT/ANNUITY
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -4570,12 +4523,12 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Estimated completion/closing
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Estimated completion/closing
                                             date </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">New Property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">New Property </label>
                                         <div className="multiRadio">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
@@ -4586,12 +4539,12 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Number of floors in block (If
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Number of floors in block (If
                                             apartment) </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Estimated Value </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Estimated Value </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4610,29 +4563,29 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-13px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Living rooms </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Living rooms </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Bedrooms </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Bedrooms </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Kitchens </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Kitchens </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Dining rooms </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Dining rooms </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Bedrooms </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Bedrooms </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Kitchens </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Kitchens </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4651,8 +4604,8 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-9px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Homebuilders Bond </label>
-                                        <div className="multiRadio">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Homebuilders Bond </label>
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4662,8 +4615,8 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Part of a development </label>
-                                        <div className="multiRadio">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Part of a development </label>
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4673,8 +4626,8 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Premier Guarantee </label>
-                                        <div className="multiRadio">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Premier Guarantee </label>
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4684,9 +4637,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Is fixed price contract in
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Is fixed price contract in
                                             place </label>
-                                        <div className="multiRadio">
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4698,14 +4651,14 @@ const DemoForm = () => {
 
                                     <div className="row paddingLeft15px">
                                         <div className="col-lg-5">
-                                            <label className="font-size-12">
+                                            <label className="font-size-12 font-weight-500 paraClr">
                                                 Tenure of property
                                             </label>
                                         </div>
                                         <div className="col-lg-3">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Freehold </label>
-                                                <div className="multiRadio">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Freehold </label>
+                                                <div className="multiRadio height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4717,8 +4670,8 @@ const DemoForm = () => {
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Leasehold </label>
-                                                <div className="multiRadio">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Leasehold </label>
+                                                <div className="multiRadio height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4732,14 +4685,14 @@ const DemoForm = () => {
 
                                     <div className="row paddingLeft15px">
                                         <div className="col-lg-5">
-                                            <label className="font-size-12">
+                                            <label className="font-size-12 font-weight-500 paraClr">
                                                 Vacant possession
                                             </label>
                                         </div>
                                         <div className="col-lg-">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Yes </label>
-                                                <div className="multiRadio">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Yes </label>
+                                                <div className="multiRadio height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4751,8 +4704,8 @@ const DemoForm = () => {
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">No </label>
-                                                <div className="multiRadio">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">No </label>
+                                                <div className="multiRadio height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4764,9 +4717,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">HB47/architects certificate
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">HB47/architects certificate
                                             available </label>
-                                        <div className="multiRadio">
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4781,9 +4734,9 @@ const DemoForm = () => {
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Direct labour
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Direct labour
                                                     construction </label>
-                                                <div className="multiRadio">
+                                                <div className="multiRadio width20 height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4795,8 +4748,8 @@ const DemoForm = () => {
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Employee Labour </label>
-                                                <div className="multiRadio">
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Employee Labour </label>
+                                                <div className="multiRadio height20">
                                                     <div className="radio-area radio-area-marginTop">
                                                         <label class="container no-border-Right">
                                                             <input type="radio" name="radio"/><br/>
@@ -4808,8 +4761,8 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Stage payment required </label>
-                                        <div className="multiRadio">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Stage payment required </label>
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4819,13 +4772,13 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Number of payments </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Number of payments </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Architect’s level of
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Architect’s level of
                                             supervision </label>
-                                        <div className="multiRadio">
+                                        <div className="multiRadio height20">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
                                                     <input type="radio" name="radio"/><br/>
@@ -4835,12 +4788,12 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Number of years remaining on
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Number of years remaining on
                                             lease </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Age of property </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Age of property </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
 
@@ -4849,7 +4802,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Type of construction </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Type of construction </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4858,13 +4811,13 @@ const DemoForm = () => {
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            <label className="font-size-12">Private Owner Occupation Only</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">Private Owner Occupation Only</label>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="displayFlex">
                                                 <div className="form-group">
-                                                    <label className="box-label font-size-12">Yes </label>
-                                                    <div className="multiRadio">
+                                                    <label className="box-label font-size-12 font-weight-500 paraClr">Yes </label>
+                                                    <div className="multiRadio height20">
                                                         <div className="radio-area radio-area-marginTop">
                                                             <label class="container no-border-Right">
                                                                 <input type="radio" name="radio"/><br/>
@@ -4874,8 +4827,8 @@ const DemoForm = () => {
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label className="box-label font-size-12">No </label>
-                                                    <div className="multiRadio">
+                                                    <label className="box-label font-size-12 font-weight-500 paraClr">No </label>
+                                                    <div className="multiRadio height20">
                                                         <div className="radio-area radio-area-marginTop">
                                                             <label class="container no-border-Right">
                                                                 <input type="radio" name="radio"/><br/>
@@ -4888,7 +4841,7 @@ const DemoForm = () => {
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <label className="box-label font-size-12">Purpose </label>
+                                                <label className="box-label font-size-12 font-weight-500 paraClr">Purpose </label>
                                                 <input type="text" className="box-input width50"/>
                                             </div>
                                         </div>
@@ -4908,15 +4861,15 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px" style={{marginTop: '-9px'}}>
                                 <div className="col-lg-4">
-                                    <label className="font-size-12 width100">Full Name </label>
+                                    <label className="font-size-12 width100 font-weight-500 paraClr">Full Name </label>
                                     <textarea className="box-textarea widthper100" row="3"></textarea>
                                 </div>
                                 <div className="col-lg-4">
-                                    <label className="font-size-12 width100"> Date of Birth </label>
+                                    <label className="font-size-12 width100 font-weight-500 paraClr"> Date of Birth </label>
                                     <textarea className="box-textarea widthper100" row="3"></textarea>
                                 </div>
                                 <div className="col-lg-4">
-                                    <label className="font-size-12 widthlabel200">Relationship with applicant </label>
+                                    <label className="font-size-12 widthlabel200 font-weight-500 paraClr">Relationship with applicant </label>
                                     <textarea className="box-textarea widthper100" row="3"></textarea>
                                 </div>
                             </div>
@@ -4934,37 +4887,37 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-11px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">First Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">First Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Last Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Last Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -4983,45 +4936,45 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-11px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">First Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">First Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Last Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Last Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Company Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Company Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">PIBA To Pay</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">PIBA To Pay</label>
                                         <div className="multiRadio">
                                             <div className="radio-area radio-area-marginTop">
                                                 <label class="container no-border-Right">
@@ -5047,37 +5000,37 @@ const DemoForm = () => {
                             <div className="row" style={{marginTop: '-16px'}}>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">First Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">First Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Last Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Last Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5103,13 +5056,13 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5128,13 +5081,13 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Name </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Telephone Number </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Telephone Number </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5158,13 +5111,13 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Have you had a mortgage on any other property other
+                                    <label className="font-size-12 font-weight-500 paraClr">Have you had a mortgage on any other property other
                                         than previously detailed? </label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group width100">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5175,7 +5128,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5190,21 +5143,23 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">If yes, please give Details </label>
-                                        <textarea type="text" className="box-textarea "/>
+                                    <div className="form-group paddingLeft15px displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If yes, please give Details </label>
+                                        <input type="text" className="box-input"/>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
                                 </div>
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Have there ever been any missed Repayments or
+                                    <label className="font-size-12 font-weight-500 paraClr">Have there ever been any missed Repayments or
                                         revoked Credit Cards or Judgements? </label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group width100">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5215,7 +5170,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5230,21 +5185,21 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         If yes, please specify by completing the following:
                                     </label>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">1. Current Mortgage - Highest Number
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">1. Current Mortgage - Highest Number
                                             of Installment Arrears in last 12 months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">2. Current Mortgage - Highest Number
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">2. Current Mortgage - Highest Number
                                             of Installment Arrears in last 6 months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">3. Other Facilities - Highest Number
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">3. Other Facilities - Highest Number
                                             of Other Arrears in last 12 months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
@@ -5252,13 +5207,13 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         Have any judgement proceedings relating to debt ever been brought against you or
                                         any Judgments made against you?
                                     </label>
                                     <div className="displayFlex">
                                         <div className="form-group width100">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5269,7 +5224,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5280,11 +5235,11 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         If yes, please specify by completing the following:
                                     </label>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">1. Judgments - Total Value Judgments
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">1. Judgments - Total Value Judgments
                                             Outstanding in last 24 months</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
@@ -5292,13 +5247,13 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Have you ever had a mortgage application declined on
+                                    <label className="font-size-12 font-weight-500 paraClr">Have you ever had a mortgage application declined on
                                         this or any other property?</label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group width100">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5309,7 +5264,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5324,21 +5279,23 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">If yes, please give Details </label>
-                                        <textarea type="text" className="box-textarea "/>
+                                    <div className="form-group paddingLeft15px displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If yes, please give Details </label>
+                                        <input type="text" className="box-input"/>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
                                 </div>
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Are there any matters which should be brought to the
+                                    <label className="font-size-12 font-weight-500 paraClr">Are there any matters which should be brought to the
                                         Lenders Attention?</label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group width100">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5349,7 +5306,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5364,10 +5321,12 @@ const DemoForm = () => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">If yes, please give Details </label>
-                                        <textarea type="text" className="box-textarea "/>
+                                    <div className="form-group paddingLeft15px displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If yes, please give Details </label>
+                                        <input type="text" className="box-input"/>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
                                 </div>
                             </div>
                         </div>
@@ -5390,12 +5349,12 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Declarations have been signed</label>
+                                    <label className="font-size-12 font-weight-500 paraClr">Declarations have been signed</label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5406,7 +5365,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5421,13 +5380,13 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Customer has consented to Consumer Credit
+                                    <label className="font-size-12 font-weight-500 paraClr">Customer has consented to Consumer Credit
                                         Act</label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5438,7 +5397,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5453,13 +5412,13 @@ const DemoForm = () => {
                             </div>
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-8">
-                                    <label className="font-size-12">Customer has consented to Data Protection
+                                    <label className="font-size-12 font-weight-500 paraClr">Customer has consented to Data Protection
                                         Act </label>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="displayFlex">
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5470,7 +5429,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
@@ -5498,9 +5457,9 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
                                     <div className="displayFlex">
-                                        <label className="font-size-12 width100">At Home</label>
+                                        <label className="font-size-12 width100 font-weight-500 paraClr">At Home</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5511,9 +5470,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="displayFlex">
-                                        <label className="font-size-12">Leave message at home</label>
+                                        <label className="font-size-12 width100 font-weight-500 paraClr">At Work</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5524,9 +5483,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="displayFlex">
-                                        <label className="font-size-12 width100">Contact employer</label>
+                                        <label className="font-size-12 font-weight-500 paraClr labelWidth200">Leave message at home</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5537,9 +5496,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="displayFlex">
-                                        <label className="font-size-12 width100">Email</label>
+                                        <label className="font-size-12 labelWidth170 font-weight-500 paraClr">Contact employer</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5550,9 +5509,9 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="displayFlex">
-                                        <label className="font-size-12 width100">SMS</label>
+                                        <label className="font-size-12 width100 font-weight-500 paraClr">Email</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5563,9 +5522,22 @@ const DemoForm = () => {
                                         </div>
                                     </div>
                                     <div className="displayFlex">
-                                        <label className="font-size-12 width100">Consented to be contacted</label>
+                                        <label className="font-size-12 width100 font-weight-500 paraClr">SMS</label>
                                         <div className="form-group">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="displayFlex">
+                                        <label className="font-size-12 font-weight-500 paraClr labelwidth210">Consented to be contacted</label>
+                                        <div className="form-group">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -5591,11 +5563,12 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Day of Month to Debit Account</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Day of Month to Debit Account</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                             </div>
+                            <br/>
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="header">
@@ -5610,7 +5583,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Bank Name</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Bank Name</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5618,41 +5591,42 @@ const DemoForm = () => {
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Name(s) of Account</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Name(s) of Account</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Bank Sort Code</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Bank Sort Code</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Account Number</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Account Number</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 1</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 2</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Address Line 3</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Country </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                             </div>
+                            <br/>
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="header">
@@ -5667,13 +5641,13 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 1 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 1 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12">Date Signed </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Date Signed </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5681,7 +5655,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 2 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 2 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5689,7 +5663,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address Line 3 </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Address Line 3 </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5697,7 +5671,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">County </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">County </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5705,7 +5679,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Country </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Country </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5734,7 +5708,7 @@ const DemoForm = () => {
 
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         Some mortgage lenders may request that another party guarantee the loan. If
                                         another individual is to guarantee the loan, please enter their details in this
                                         section.
@@ -5745,45 +5719,49 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">First Name(s) </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">First Name(s) </label>
+                                        <input type="text" className="box-input width50"/>
+                                    </div>
+                                    <div className="form-group paddingLeft15px ">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Date of Birth </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Date of Birth </label>
-                                        <input type="text" className="box-input width50"/>
+                                        <div className="displayFlex widthper100">
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Address</label>
+                                            <input type="text" className="box-input widthper100"/>
+                                        </div>
                                     </div>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
+                                    <input style={{marginLeft:"15px"}} type="text" className="box-input widthper100"/>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Address
-                                            <textarea type="text" className="box-textarea widthper100" row="3"/></label>
-                                    </div>
-                                    <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Occupation </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Occupation </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Surname </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Surname </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Home Telephone </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Home Telephone </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Work Telephone </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Work Telephone </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Mobile Phone </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Mobile Phone </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">E-mail </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">E-mail </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Basic Income </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Basic Income </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5792,7 +5770,7 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Relationship to applicant(s) </label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Relationship to applicant(s) </label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5814,7 +5792,7 @@ const DemoForm = () => {
 
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-10">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         Are you aware of any health issues that may affect your ability to work and meet
                                         the repayments of this facility?
                                     </label>
@@ -5822,7 +5800,7 @@ const DemoForm = () => {
                                 <div className="col-lg-2 marginLeft40">
                                     <div className="displayFlex">
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Yes</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label className="container no-border-Right">
@@ -5833,7 +5811,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">No</label>
+                                            <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
                                             <div className="multiRadio">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label className="container no-border-Right">
@@ -5850,11 +5828,12 @@ const DemoForm = () => {
 
                             <div className="row paddingLeft15px marginTop-17">
                                 <div className="col-lg-12">
-                                    <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">If yes, please provide
-                                            details
-                                            <textarea type="text" className="box-textarea widthper100" row="2"/></label>
+                                    <div className="form-group displayFlex">
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">If yes, please provide
+                                            details</label>
+                                            <input type="text" className="box-input widthper100"/>
                                     </div>
+                                    <input type="text" className="box-input widthper100"/>
                                 </div>
                             </div>
 
@@ -5862,13 +5841,13 @@ const DemoForm = () => {
                                 <div className="col-lg-12">
                                     <div className="displayFlex">
                                         <div className="form-group">
-                                            <label className="box-label font-size-12">Are you aware of any possible
+                                            <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Are you aware of any possible
                                                 changes to your future circumstances that would affect your ability to
                                                 meet repayments on this facility?
                                                 <div className="displayFlex">
                                                     <div className="form-group formwidth10">
-                                                        <label className="box-label font-size-12">Yes</label>
-                                                        <div className="multiRadio">
+                                                        <label className="box-label font-size-12 font-weight-500 paraClr">Yes</label>
+                                                        <div className="multiRadio height20">
                                                             <div className="radio-area radio-area-marginTop">
                                                                 <label className="container no-border-Right">
                                                                     <input type="radio" name="radio"/><br/>
@@ -5878,8 +5857,8 @@ const DemoForm = () => {
                                                         </div>
                                                     </div>
                                                     <div className="form-group formwidth10">
-                                                        <label className="box-label font-size-12">No</label>
-                                                        <div className="multiRadio">
+                                                        <label className="box-label font-size-12 font-weight-500 paraClr">No</label>
+                                                        <div className="multiRadio height20">
                                                             <div className="radio-area radio-area-marginTop">
                                                                 <label className="container no-border-Right">
                                                                     <input type="radio" name="radio"/><br/>
@@ -5888,9 +5867,11 @@ const DemoForm = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    <textarea type="text" className="box-textarea" row="2"/>
+                                                    <label className="box-label font-size-12 font-weight-500 paraClr">If yes, please provide
+                                                        details</label>
+                                                    <input type="text" className="box-input widthper100"/>
                                                 </div>
+                                                <input type="text" className="box-input widthper100"/>
                                             </label>
                                         </div>
                                     </div>
@@ -5926,7 +5907,7 @@ const DemoForm = () => {
 
                             <div className="row paddingLeft15px">
                                 <div className="col-lg-12">
-                                    <label className="font-size-12">
+                                    <label className="font-size-12 font-weight-500 paraClr">
                                         I/we hereby declare that I/we have read and understood this part of the mortgage
                                         application form and that the information I/we have tendered herein is correct.
                                     </label>
@@ -5937,14 +5918,15 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Signed</label>
-                                        <span>(Applicant 2 if applicable) </span>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Signed</label>
+                                        
                                         <input type="text" className="box-input width50"/>
                                     </div>
+                                    <span className="paddingLeft15px font-weight-500 paraClr">(Applicant 2 if applicable) </span>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Dated</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Dated</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5953,13 +5935,13 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Signed</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Signed</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12">Dated</label>
+                                        <label className="box-label font-size-12 font-weight-500 paraClr">Dated</label>
                                         <input type="text" className="box-input width50"/>
                                     </div>
                                 </div>
@@ -5983,86 +5965,86 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-5">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Agriculture, Hunting,
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Agriculture, Hunting,
                                             Forestry </label>
-                                        <span className="font-size-12">A</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">A</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Fishing</label>
-                                        <span className="font-size-12">B</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Fishing</label>
+                                        <span className="font-size-12 font-weight-500 paraClr">B</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Mining and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Mining and
                                             Quarring</label>
-                                        <span className="font-size-12">C</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">C</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Manufacturing</label>
-                                        <span className="font-size-12">D</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Manufacturing</label>
+                                        <span className="font-size-12 font-weight-500 paraClr">D</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Electricity, Gas and Water
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Electricity, Gas and Water
                                             Supply</label>
-                                        <span className="font-size-12">E</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">E</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Construction</label>
-                                        <span className="font-size-12">F</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Construction</label>
+                                        <span className="font-size-12 font-weight-500 paraClr">F</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Wholesale and Retail
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Wholesale and Retail
                                             Trade</label>
-                                        <span className="font-size-12">G</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">G</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Hotel and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Hotel and
                                             Restaurant</label>
-                                        <span className="font-size-12">H</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">H</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Transport, Storage and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Transport, Storage and
                                             Communications </label>
-                                        <span className="font-size-12">I</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">I</span>
                                     </div>
                                 </div>
                                 <div className="col-lg-5">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Financial
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Financial
                                             Intermediation</label>
-                                        <span className="font-size-12">J</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">J</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Real Estate, Renting and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Real Estate, Renting and
                                             Business Activities</label>
-                                        <span className="font-size-12">K</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">K</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Public Administration and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Public Administration and
                                             Defence</label>
-                                        <span className="font-size-12">L</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">L</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Education </label>
-                                        <span className="font-size-12">M</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Education </label>
+                                        <span className="font-size-12 font-weight-500 paraClr">M</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Health and Social
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Health and Social
                                             Work</label>
-                                        <span className="font-size-12">N</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">N</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Other Services </label>
-                                        <span className="font-size-12">O</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Other Services </label>
+                                        <span className="font-size-12 font-weight-500 paraClr">O</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Private Household with
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Private Household with
                                             Employed Persons </label>
-                                        <span className="font-size-12">P</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">P</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Extra-territorial
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Extra-territorial
                                             Organisations and Bodies </label>
-                                        <span className="font-size-12">Q</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">Q</span>
                                     </div>
                                 </div>
                             </div>
@@ -6083,47 +6065,47 @@ const DemoForm = () => {
                             <div className="row">
                                 <div className="col-lg-5">
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Manager or
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Manager or
                                             Administrator</label>
-                                        <span className="font-size-12">1</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">1</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Professional </label>
-                                        <span className="font-size-12">2</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Professional </label>
+                                        <span className="font-size-12 font-weight-500 paraClr">2</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Associate Professional and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Associate Professional and
                                             Technical</label>
-                                        <span className="font-size-12">3</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">3</span>
                                     </div>
                                     <div className="form-group paddingLeft15px">
-                                        <label className="box-label font-size-12 widthper100">Clerical and
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Clerical and
                                             Secretarial</label>
-                                        <span className="font-size-12">4</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">4</span>
                                     </div>
                                 </div>
                                 <div className="col-lg-5">
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Craft and Related</label>
-                                        <span className="font-size-12">5</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Craft and Related</label>
+                                        <span className="font-size-12 font-weight-500 paraClr">5</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Personal and Protective
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Personal and Protective
                                             Services</label>
-                                        <span className="font-size-12">6</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">6</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Sales</label>
-                                        <span className="font-size-12">7</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Sales</label>
+                                        <span className="font-size-12 font-weight-500 paraClr">7</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Plant and Machine
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Plant and Machine
                                             Operatives</label>
-                                        <span className="font-size-12">8</span>
+                                        <span className="font-size-12 font-weight-500 paraClr">8</span>
                                     </div>
                                     <div className="form-group">
-                                        <label className="box-label font-size-12 widthper100">Other </label>
-                                        <span className="font-size-12">9</span>
+                                        <label className="box-label font-size-12 widthper100 font-weight-500 paraClr">Other </label>
+                                        <span className="font-size-12 font-weight-500 paraClr">9</span>
                                     </div>
                                 </div>
                             </div>
@@ -6175,11 +6157,11 @@ const DemoForm = () => {
                                 <form>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Proof of Identity - Passport or Driving
+                                            <label className="font-size-12 font-weight-500 paraClr">Proof of Identity - Passport or Driving
                                                 Licence </label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6189,7 +6171,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6201,11 +6183,11 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">proof of Residence - A recent utility
+                                            <label className="font-size-12 font-weight-500 paraClr">proof of Residence - A recent utility
                                                 bill* </label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6215,7 +6197,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6227,11 +6209,11 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Income Certificate completed by your
+                                            <label className="font-size-12 font-weight-500 paraClr">Income Certificate completed by your
                                                 Employer </label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6241,7 +6223,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6253,10 +6235,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">P60</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">P60</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6266,32 +6248,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row paddingLeft33">
-                                        <div className="col-lg-8">
-                                            <label className="font-size-12">Last 3 payslips </label>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6303,11 +6260,36 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">*No more than 3 months old ie. ESB,
+                                            <label className="font-size-12 font-weight-500 paraClr">Last 3 payslips </label>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row paddingLeft33">
+                                        <div className="col-lg-8">
+                                            <label className="font-size-12 font-weight-500 paraClr">*No more than 3 months old ie. ESB,
                                                 telephone, Credit Card Statement </label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6317,7 +6299,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6329,11 +6311,11 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Last 3 years audited accounts (For Self
+                                            <label className="font-size-12 font-weight-500 paraClr">Last 3 years audited accounts (For Self
                                                 Employed)</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6343,7 +6325,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6355,10 +6337,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Statement of Affairs</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">Statement of Affairs</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6368,32 +6350,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row paddingLeft33">
-                                        <div className="col-lg-8">
-                                            <label className="font-size-12">Confirmation of TAX Affaris</label>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6405,10 +6362,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Last 3 months Bank Statements</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">Confirmation of TAX Affaris</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6418,7 +6375,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6430,11 +6387,36 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Copy of Separation Agreement or
+                                            <label className="font-size-12 font-weight-500 paraClr">Last 3 months Bank Statements</label>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row paddingLeft33">
+                                        <div className="col-lg-8">
+                                            <label className="font-size-12 font-weight-500 paraClr">Copy of Separation Agreement or
                                                 Divorce</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6444,32 +6426,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row paddingLeft33">
-                                        <div className="col-lg-8">
-                                            <label className="font-size-12">Copy of Term Loans</label>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6481,10 +6438,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Copy of Mortgage Statement</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">Copy of Term Loans</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6494,32 +6451,7 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row paddingLeft33">
-                                        <div className="col-lg-8">
-                                            <label className="font-size-12">Evidence of Deposit</label>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
-                                                <div className="radio-area radio-area-marginTop">
-                                                    <label class="container no-border-Right">
-                                                        <input type="radio" name="radio"/><br/>
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6531,10 +6463,10 @@ const DemoForm = () => {
                                     </div>
                                     <div className="row paddingLeft33">
                                         <div className="col-lg-8">
-                                            <label className="font-size-12">Gift Letter</label>
+                                            <label className="font-size-12 font-weight-500 paraClr">Copy of Mortgage Statement</label>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
@@ -6544,7 +6476,57 @@ const DemoForm = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-2 text-center">
-                                            <div className="multiRadio">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row paddingLeft33">
+                                        <div className="col-lg-8">
+                                            <label className="font-size-12 font-weight-500 paraClr">Evidence of Deposit</label>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row paddingLeft33">
+                                        <div className="col-lg-8">
+                                            <label className="font-size-12 font-weight-500 paraClr">Gift Letter</label>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
+                                                <div className="radio-area radio-area-marginTop">
+                                                    <label class="container no-border-Right">
+                                                        <input type="radio" name="radio"/><br/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-2 text-center">
+                                            <div className="multiRadio height20">
                                                 <div className="radio-area radio-area-marginTop">
                                                     <label class="container no-border-Right">
                                                         <input type="radio" name="radio"/><br/>
