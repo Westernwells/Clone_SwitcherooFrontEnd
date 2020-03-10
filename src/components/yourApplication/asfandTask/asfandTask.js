@@ -1099,7 +1099,7 @@ const DemoForm = () => {
                                                 value={form.personalDetails.leftSideCurrentAddress.rent}
                                                 onChange={(e) => handleInputChange(e, 'personalDetails', 'leftSideCurrentAddress')}
                                             />
-                                            pm
+                                            <p style={{marginRight:'8px'}}>pm</p>
                                         </div>
                                     </div>
                                     <div className="form-group">
@@ -2602,7 +2602,7 @@ const DemoForm = () => {
                                     <div className="form-group">
                                         <label className="box-label font-size-12 font-weight-500 paraClr">Percentage shareholding/partnership
                                             interest</label>
-                                        <input type="text" className="box-input"/> %
+                                        <input type="text" className="box-input"/> <p style={{marginRight:'10px'}}>%</p>
                                     </div>
                                     <div className="form-group">
                                         <label className="box-label font-size-12 font-weight-500 paraClr">Name of accountant</label>
