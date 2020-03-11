@@ -37,4 +37,13 @@ const setExtras = payload => ({
   payload
 });
 
-export { setText, setExtras };
+const setExtrasFromPageTwo = payload => ({
+  type: actions.SET_EXTRAS_FROM_PAGE_TWO,
+  payload
+});
+
+const clearExtrasFromPageTwo = () => ({
+  type: actions.CLEAR_EXTRAS_FROM_PAGE_TWO
+});
+
+export { setText, setExtras, setExtrasFromPageTwo, clearExtrasFromPageTwo };
