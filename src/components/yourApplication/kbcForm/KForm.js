@@ -23,7 +23,7 @@ import svg from './images/loader/oval.svg'
 import './style.css'
 import ReactToPrint from 'react-to-print';
 
-class KForm extends Component {
+export class KForm extends Component {
     state = ({
         loading:false,
         aSur: "",
@@ -134,7 +134,7 @@ class KForm extends Component {
             const { bSur,bFirst,bMaiden,bSex,bAddress1,bAddress2,bPostcode,bDOB,bMobile,bEmail,bCOB,bCOR,bEmp,bEmpDet,bEmpCon,bEmpConDet,bFutCha,bFutChaDet,bOp,bOpDet,bCit,bTr,bTin,bOc,bOcName,bOcTin,bMMName,bPOB,bFavCol,bMPE,bMPS,bMPP,bMPL,bDS,bDD,bCS,bCD} = this.state
         return (
             <>
-            <div className="psuedo"></div>
+            <div className="print">
             <Container className="contain mg bg">
             
             <Just className="blink" />
@@ -830,7 +830,7 @@ class KForm extends Component {
 
                 {/**page ends here */}
                     {/**page 3 starts here */}
-                <HeaderX className="head">
+                <HeaderX className="head3">
                 <img src={pg3x} className='awo' />
                 </HeaderX>
                 <p className="p-no p-show">3</p>
@@ -838,7 +838,7 @@ class KForm extends Component {
                 {/**Page break here */}
                 {/**page 3 ends here */}
                 {/**page 4 starts here */}
-               <HeaderX className="head">
+               <HeaderX className="head3">
                
                 <img src={pg4a} className='awo' alt="" srcset=""/>
                 <Applicants style={{width:'97%', margin:'0 auto'}}>
@@ -922,7 +922,7 @@ class KForm extends Component {
 
                 {/**Page 5 satrts here */}
                 <div className="page-break"></div>
-                <HeaderX className="head">
+                <HeaderX className="head5">
                 {/**
                     <img src={pg5_} className="p-show" />
                 */}
@@ -1042,6 +1042,7 @@ class KForm extends Component {
 
             </div>
             </Container>
+            </div>
             </>
         )
     }
