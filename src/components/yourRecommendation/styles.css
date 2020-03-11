@@ -4,12 +4,6 @@
   border-radius: 8px;
   margin: 0px 30px 50px 0px;
 }
-.recommendation-container {
-  margin: 0px 30px 50px 0px;
-  padding: 30px 30px 0px 50px;
-  height: 297mm;
-  overflow: hidden;
-}
 .recommendation-text {
   font-size: 0.9rem;
   line-height: 1.5;
@@ -24,37 +18,11 @@
   border: none;
   padding: 3px 0px;
 }
-
-#recommendation-cont-three {
-  position: absolute;
-  width: 96.2%;
+.recommendation-btn-clicked {
+  opacity: 0.6 !important;
 }
-#recommendationThree-content {
-  height: 100%;
-  position: relative;
-  top: 0;
-  /* padding: 20px 0; */
-  box-sizing: border-box;
-}
-#recommendationTwo-content {
-  height: 100%;
-  position: relative;
-  top: 0;
-  /* padding: 20px 0; */
-  box-sizing: border-box;
-}
-#recommendationOne-content {
-  height: 100%;
-  position: relative;
-  top: 0;
-  /* padding: 20px 0; */
-  box-sizing: border-box;
-}
-#recommendation-footer {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  bottom: 0;
+.set-width-A4 {
+  width: 210mm !important;
 }
 
 /*  */
