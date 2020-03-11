@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import './styles.css';
-import { Col } from 'antd';
-import Rightbar from '../home/rightbar/rightbar';
-import ContOneHeader from './RecommendationHeader/ContOneHeader';
-import ContTwoHeader from './RecommendationHeader/ContTwoHeader';
-import YourCircumstances from './YourCircumstances/YourCircumstances';
-import OurRecommendation from './OurRecommendation/OurRecommendation';
-import Extras from './extras/Extras';
-import Risk from './risk/Risk';
-import NextSteps from './nextSteps/NextSteps';
-import Signature from './signature/Signature';
-import Footer from './Footer/Footer';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { setText } from '../../redux/actions/yourRecommendation/recommendationAction';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect } from "react";
+import "./styles.css";
+import { Col } from "antd";
+import Rightbar from "../home/rightbar/rightbar";
+import ContOneHeader from "./RecommendationHeader/ContOneHeader";
+import ContTwoHeader from "./RecommendationHeader/ContTwoHeader";
+import YourCircumstances from "./YourCircumstances/YourCircumstances";
+import OurRecommendation from "./OurRecommendation/OurRecommendation";
+import Extras from "./extras/Extras";
+import Risk from "./risk/Risk";
+import NextSteps from "./nextSteps/NextSteps";
+import Signature from "./signature/Signature";
+import Footer from "./Footer/Footer";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { setText } from "../../redux/actions/yourRecommendation/recommendationAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDownload,
   faPrint,
   faUpload
-} from '@fortawesome/free-solid-svg-icons';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+} from "@fortawesome/free-solid-svg-icons";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const YourRecommendation = ({ setText, recommendation }) => {
   const downloadPdf = () => {
@@ -34,13 +34,13 @@ const YourRecommendation = ({ setText, recommendation }) => {
     //   pdf.addImage(imgData, 'JPEG', 0, 0);
     //   pdf.save('Switcheroo-Recommendation.pdf');
     // });
-    const input = document.getElementById('recommendation-cont-one');
+    const input = document.getElementById("recommendation-cont-one");
     html2canvas(input).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 0, 0);
+      pdf.addImage(imgData, "PNG", 0, 0);
       // pdf.output('dataurlnewwindow');
-      pdf.save('download.pdf');
+      pdf.save("download.pdf");
     });
   };
 
@@ -52,15 +52,15 @@ const YourRecommendation = ({ setText, recommendation }) => {
 
   return (
     <>
-      <Col style={{ height: 'calc(100vh - 100px)' }} lg={18}>
+      <Col style={{ height: "calc(100vh - 100px)" }} lg={18}>
         <div
           style={{
-            display: 'flex',
-            margin: '9px 30px 29px 0px',
-            padding: '0px 40px'
+            display: "flex",
+            margin: "9px 30px 29px 0px",
+            padding: "0px 40px"
           }}
         >
-          <div style={{ flex: '1', textAlign: 'center' }}>
+          <div style={{ flex: "1", textAlign: "center" }}>
             <button
               className="recommendation-button"
               onClick={() => downloadPdf()}
@@ -68,12 +68,12 @@ const YourRecommendation = ({ setText, recommendation }) => {
               Download <FontAwesomeIcon icon={faDownload} />
             </button>
           </div>
-          <div style={{ flex: '1', textAlign: 'center' }}>
+          <div style={{ flex: "1", textAlign: "center" }}>
             <button className="recommendation-button">
               Print <FontAwesomeIcon icon={faPrint} />
             </button>
           </div>
-          <div style={{ flex: '1', textAlign: 'center' }}>
+          <div style={{ flex: "1", textAlign: "center" }}>
             <button className="recommendation-button">
               Upload <FontAwesomeIcon icon={faUpload} />
             </button>
@@ -81,7 +81,7 @@ const YourRecommendation = ({ setText, recommendation }) => {
         </div>
         <div id="recommendation-cont-one" className="recommendation-container">
           <ContOneHeader />
-          <div style={{ paddingRight: '20px' }}>
+          <div style={{ paddingRight: "20px" }}>
             <YourCircumstances />
             <OurRecommendation />
           </div>
