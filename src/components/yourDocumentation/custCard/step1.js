@@ -57,30 +57,30 @@ class StepOne extends Component {
           // }
         ],
         2: [
-          {
-            id: 99908,
-            fileType: "Passport front",
-            fileName: "Sample 2",
-            file: null,
-            fileTags: {
-              accountNumber: 8934758345,
-              fileMonth: "June"
-            }
-          },
-          {
-            id: 8947982,
-            fileType: "Passport back",
-            fileName: "Sample 25",
-            file: null,
-            fileTags: {
-              accountNumber: 3452445,
-              fileMonth: "Dec"
-            }
-          }
+          // {
+          //   id: 99908,
+          //   fileType: "Passport front",
+          //   fileName: "Sample 2",
+          //   file: null,
+          //   fileTags: {
+          //     accountNumber: 8934758345,
+          //     fileMonth: "June"
+          //   }
+          // },
+          // {
+          //   id: 8947982,
+          //   fileType: "Passport back",
+          //   fileName: "Sample 25",
+          //   file: null,
+          //   fileTags: {
+          //     accountNumber: 3452445,
+          //     fileMonth: "Dec"
+          //   }
+          // }
         ]
-      },
-      app1FileList: [],
-      app2FileList: []
+      }
+      // app1FileList: [],
+      // app2FileList: []
     };
   }
 
@@ -137,7 +137,8 @@ class StepOne extends Component {
 
   handleRemove = (item, applicant) => {
     const { appsFileList } = this.state;
-    let filteredList = JSON.parse(JSON.stringify(appsFileList));
+    // console.log("CHECK REMOVE", appsFileList);
+    let filteredList = appsFileList;
 
     filteredList[applicant] = filteredList[applicant].filter(
       f => f.id !== item
@@ -246,18 +247,18 @@ class StepOne extends Component {
   onChangeApplicant2 = event => {
     const { appsFileList } = this.state;
 
-    if (event.target.files[0].type === "application/pdf") {
-      appsFileList[2].push({
-        id: this.generateKey("app1"),
-        fileType: "Passport back",
-        fileName: event.target.files[0].name,
-        file: event.target.files[0],
-        fileTags: {
-          accountNumber: 38678592,
-          fileMonth: "June"
-        }
-      });
-    }
+    // if (event.target.files[0].type === "application/pdf") {
+    appsFileList[2].push({
+      id: this.generateKey("app1"),
+      fileType: "Passport back",
+      fileName: event.target.files[0].name,
+      file: event.target.files[0],
+      fileTags: {
+        accountNumber: 38678592,
+        fileMonth: "June"
+      }
+    });
+    // }
 
     this.setState({ appsFileList });
   };

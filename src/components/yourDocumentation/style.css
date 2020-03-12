@@ -86,3 +86,8 @@ small {
   border-color: transparent transparent transparent !important;
   border-bottom: 4px solid #daa81b !important;
 }
+
+#nav-home,
+#nav-profile {
+  border-radius: 20px;
+}
