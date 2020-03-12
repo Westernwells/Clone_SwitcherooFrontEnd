@@ -27,10 +27,10 @@ const text = `
 //   />
 // );
 const customPanelStyle = {
-  background: '#62635d',
+  background: "#62635d",
   marginBottom: 24,
   border: "none",
-  overflow: 'hidden',
+  overflow: "hidden"
 };
 
 class AdditionalPropertyIndex extends React.Component {
@@ -56,17 +56,17 @@ class AdditionalPropertyIndex extends React.Component {
   };
 
   callback = key => {
-    this.setState({ key })
+    this.setState({ key });
   };
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="add-p-index">
         <Row>
           <Col lg={24}>
             <h1 className="heading1">
               Let's get the details on your additional properties
-          </h1>
+            </h1>
           </Col>
         </Row>
         {/* {this.state.array.map(() => {
@@ -83,15 +83,17 @@ class AdditionalPropertyIndex extends React.Component {
           expandIconPosition={"right"}
         >
           {this.state.array.map((value, index) => {
-            return <Panel
-              style={customPanelStyle}
-              showArrow={this.state.key !== index}
-              header={`Additional Property ${index + 1}`}
-              key={index}
-            // className="ant-collapse-header"
-            >
-              <AdditionalProperty />
-            </Panel>;
+            return (
+              <Panel
+                style={customPanelStyle}
+                showArrow={this.state.key !== index}
+                header={`Additional Property ${index + 1}`}
+                key={index}
+                // className="ant-collapse-header"
+              >
+                <AdditionalProperty />
+              </Panel>
+            );
           })}
           {/* <Panel header="This is panel header 2" key="2">
             <p>{text}</p>
@@ -109,13 +111,13 @@ class AdditionalPropertyIndex extends React.Component {
                 className="btn1"
               >
                 Back
-            </Button>
+              </Button>
               <Button
                 // onClick={() => handleRoute("/home/details/switcher3")}
                 className="btn2"
               >
                 Countinue
-            </Button>
+              </Button>
             </div>
           </Col>
         </Row>
