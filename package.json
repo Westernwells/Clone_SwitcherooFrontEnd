@@ -63,7 +63,7 @@
     "eject": "react-scripts eject",
     "dev": "nodemon ./server/server"
   },
-  "proxy": "http://swticherootesting.herokuapp.com",
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
