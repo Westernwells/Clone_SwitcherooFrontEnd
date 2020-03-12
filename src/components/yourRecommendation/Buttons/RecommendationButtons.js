@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import $ from 'jquery';
+import { Tooltip } from 'antd';
 
 class RecommendationButtons extends Component {
   constructor(props) {
@@ -132,14 +133,16 @@ class RecommendationButtons extends Component {
           </button>
         </div>
         <div style={{ flex: '1', textAlign: 'center' }}>
-          <button
-            id="recommendation-print-btn"
-            className="recommendation-button"
-            onClick={() => this.asyncPrintPdf()}
-          >
-            Print
-            {/* <FontAwesomeIcon icon={faPrint} /> */}
-          </button>
+          <Tooltip title="Please turn off adblock and then try">
+            <button
+              id="recommendation-print-btn"
+              className="recommendation-button"
+              onClick={() => this.asyncPrintPdf()}
+            >
+              Print
+              {/* <FontAwesomeIcon icon={faPrint} /> */}
+            </button>
+          </Tooltip>
         </div>
         <div style={{ flex: '1', textAlign: 'center' }}>
           <button
