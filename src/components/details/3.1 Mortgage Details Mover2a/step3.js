@@ -9,6 +9,7 @@ function StepThree(props) {
     q1: ""
   });
   const lenders = ["KBC", "Ulster Bank", "AIB", "Bank of Ireland", "ICS", "PTSB", "EBS", "Other"]
+  const bedrooms = [1, 2, 3, 4, 5, "5+"];
   const years = [];
   for (var i = 1; i <= 35; i++) {
     years.push(i);
@@ -39,6 +40,9 @@ function StepThree(props) {
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
+  function handleBedroms(value) {
+    setQuestions({ ...questions, bedrooms: value })
+  }
   const handleRoute = route => {
     props.history.push(route);
   };
@@ -50,11 +54,11 @@ function StepThree(props) {
             Let's get some details on your current property and mortgage
           </h1>
           <h6 className="h61">
-            What year did you buy the property?
+            What type of property are you currently in?
           </h6>
         </Col>
 
-        {/* <Col lg={24} className="q1 q3">
+        <Col lg={24} className="q1 q3">
           <div
             onClick={e => clickRadio(e)}
             className={
@@ -77,7 +81,7 @@ function StepThree(props) {
           <div
             onClick={clickRadio}
             className={
-              questions.purposeOfMortgage === "House Mover"
+              questions.r1 === "Appartment"
                 ? "radio-container container_malta"
                 : "radio-container"
             }
@@ -89,7 +93,7 @@ function StepThree(props) {
               id="r12"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
-              value="b"
+              value="Appartment"
             />
             <label for="r12">Appartment</label>
           </div>
@@ -103,18 +107,18 @@ function StepThree(props) {
             <Select
               className="select-option1"
               defaultValue="Select from options"
-              onChange={handleChange}
+              onChange={handleBedroms}
             >
-              <Option value="2">2</Option>
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
+              {bedrooms.map((value, index) => {
+                return <Option key={index} value={value}>{value}</Option>
+              })}
             </Select>
           </div>
-        </Col> */}
+        </Col>
 
-        {/* <Col lg={24}>
+        <Col lg={24}>
           <h6 className="h61">What year did you buy the property?</h6>
-        </Col> */}
+        </Col>
         <Col lg={24}>
           <div className="input3">
             <input type="text" placeholder="What year" />
@@ -129,8 +133,6 @@ function StepThree(props) {
             <input type="text" placeholder="Years" />
           </div>
         </Col>
-
-
         <Col lg={24}>
           <h6 className="h61">What was the purchase price when you bought the property?</h6>
         </Col>
@@ -394,14 +396,20 @@ function StepThree(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => props.isMortgageFrom(false)}
+              onClick={() => {
+                props.isMortgageFrom(0)
+                props.setProgress(0)
+              }}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => props.changeProfRoute(1)}
-            
+              onClick={() => {
+                props.isMortgageFrom(2)
+                props.setProgress(50)
+              }}
+
               // onClick={onsubmitForm}
               className="btn2"
             // loading={props.financial_data.loading}

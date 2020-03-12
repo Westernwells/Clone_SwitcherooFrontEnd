@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Select, Button } from "antd";
-import "./step2.css";
+import "./1.1MortgageDetailsFTB.css";
 
 const { Option } = Select;
-function StepTwo(props) {
+function MortgageDetailsFTB1p1(props) {
   const [q4, setQ4] = useState(false);
   const [disDutyTaxes, setDisDutyTaxes] = useState(true);
   const [disRegistrationFee, setDisRegistrationFee] = useState(true);
@@ -11,8 +11,15 @@ function StepTwo(props) {
   const [questions, setQuestions] = useState({
     q1: ""
   });
-  const sourcesOfDeposit = ["earnings", "gift", "inheritance", "sale of assets", "equity relase", "other"];
-  const years=[];
+  const sourcesOfDeposit = [
+    "earnings",
+    "gift",
+    "inheritance",
+    "sale of assets",
+    "equity relase",
+    "other"
+  ];
+  const years = [];
   for (var i = 1; i <= 35; i++) {
     years.push(i);
   }
@@ -47,16 +54,12 @@ function StepTwo(props) {
   };
 
   return (
-    <div className="details-step-two">
+    <div className="MortgageDetailsFTB1p1">
       <Row className="d-row-s1">
         <Col lg={24}>
           <h1 className="heading1">Details about your loan</h1>
-          <h6 className="h61">
-            What is the value of the property?
-          </h6>
-          <h6 className="h61">
-
-          </h6>
+          <h6 className="h61">What is the value of the property?</h6>
+          <h6 className="h61"></h6>
         </Col>
 
         <Col lg={24}>
@@ -66,7 +69,9 @@ function StepTwo(props) {
           </div>
         </Col>
         <Col lg={24}>
-          <h6 className="h61">How much of a deposit/saving do you have for the property?</h6>
+          <h6 className="h61">
+            How much of a deposit/saving do you have for the property?
+          </h6>
         </Col>
         <Col lg={24} className="q1">
           <div className="input2">
@@ -86,31 +91,37 @@ function StepTwo(props) {
               onChange={handleChange}
             >
               {sourcesOfDeposit.map((value, index) => {
-                return <Option key={index} value={value}>{value}</Option>
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
               })}
-
             </Select>
           </div>
         </Col>
 
-
         <Col lg={24}>
-          <h6 className="h61">
-            There will be the stamp duty taxes of:
-          </h6>
+          <h6 className="h61">There will be the stamp duty taxes of:</h6>
         </Col>
         <Col lg={24} className="q1">
           <div className={disDutyTaxes ? "input2 input2disabled" : "input2"}>
             <span className="pre">€</span>
-            <input type="text" disabled={disDutyTaxes} name="dutyTaxes" placeholder="########" />
+            <input
+              type="text"
+              disabled={disDutyTaxes}
+              name="dutyTaxes"
+              placeholder="########"
+            />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisDutyTaxes(false)} >
+          <div
+            className="input-edit-btn"
+            onClick={() => setDisDutyTaxes(false)}
+          >
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
           </div>
         </Col>
-
-
 
         <Col lg={24}>
           <h6 className="h61">
@@ -118,32 +129,47 @@ function StepTwo(props) {
           </h6>
         </Col>
         <Col lg={24} className="q1">
-          <div className={disRegistrationFee ? "input2 input2disabled" : "input2"}>
+          <div
+            className={disRegistrationFee ? "input2 input2disabled" : "input2"}
+          >
             <span className="pre">€</span>
-            <input type="text" disabled={disRegistrationFee} name="registrationSurvayFee" placeholder="########" />
+            <input
+              type="text"
+              disabled={disRegistrationFee}
+              name="registrationSurvayFee"
+              placeholder="########"
+            />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisRegistrationFee(false)}>
+          <div
+            className="input-edit-btn"
+            onClick={() => setDisRegistrationFee(false)}
+          >
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
           </div>
         </Col>
 
         <Col lg={24}>
-          <h6 className="h61">
-            So, you need loan of...
-          </h6>
+          <h6 className="h61">So, you need loan of...</h6>
         </Col>
         <Col lg={24} className="q1">
           <div className={disLoanAmount ? "input2 input2disabled" : "input2"}>
             <span className="pre">€</span>
-            <input type="text" disabled={disLoanAmount} name="loanAmount" placeholder="########" />
+            <input
+              type="text"
+              disabled={disLoanAmount}
+              name="loanAmount"
+              placeholder="########"
+            />
           </div>
-          <div className="input-edit-btn" onClick={() => setDisLoanAmount(false)}>
+          <div
+            className="input-edit-btn"
+            onClick={() => setDisLoanAmount(false)}
+          >
             <span className="far fa-edit span1"></span>
             <span className=".span">Edit</span>
           </div>
         </Col>
-
 
         <Col lg={24}>
           <h6 className="h61">How many years are you looking to borrow for?</h6>
@@ -156,52 +182,59 @@ function StepTwo(props) {
               onChange={handleChange}
             >
               {years.map((value, index) => {
-                return <Option key={index} value={value}>{value}</Option>
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
               })}
-
             </Select>
           </div>
         </Col>
 
-
-
-
         <Col lg={24}>
           <br />
-          <h1 className="heading1 heading2">Thanks for those details - now let's get further details about yourself</h1>
+          <h1 className="heading1 heading2">
+            Thanks for those details - now let's get further details about
+            yourself
+          </h1>
         </Col>
 
         <Col lg={10} offset={0}>
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => props.isMortgageFrom(false)}
+              onClick={() => {
+                props.isMortgageFrom(0)
+                props.setProgress(0)
+              }}
               className="btn1"
             >
               Back
             </Button>
             <Button
-                            onClick={() => props.changeProfRoute(1)}
-
+              onClick={() => {props.changeProfRoute(1)
+                props.setProgress(0)
+              }}
               // onClick={onsubmitForm}
               className="btn2"
-            // loading={props.financial_data.loading}
-            // disabled={
-            //   (questions.filedBankruptcy &&
-            //     questions.failedToPayLoan &&
-            //     questions.purposeOfMortgage &&
-            //     questions.peopleOnMortgage === "one") ||
-            //     (questions.filedBankruptcy &&
-            //       questions.failedToPayLoan &&
-            //       questions.purposeOfMortgage &&
-            //       questions.peopleOnMortgage === "two" &&
-            //       questions.firstNameSecondApplicant &&
-            //       questions.lastNameSecondApplicant &&
-            //       questions.emailSecondApplicantValidation &&
-            //       questions.emailSecondApplicantreValidation)
-            //     ? false
-            //     : true
-            // }
+              // loading={props.financial_data.loading}
+              // disabled={
+              //   (questions.filedBankruptcy &&
+              //     questions.failedToPayLoan &&
+              //     questions.purposeOfMortgage &&
+              //     questions.peopleOnMortgage === "one") ||
+              //     (questions.filedBankruptcy &&
+              //       questions.failedToPayLoan &&
+              //       questions.purposeOfMortgage &&
+              //       questions.peopleOnMortgage === "two" &&
+              //       questions.firstNameSecondApplicant &&
+              //       questions.lastNameSecondApplicant &&
+              //       questions.emailSecondApplicantValidation &&
+              //       questions.emailSecondApplicantreValidation)
+              //     ? false
+              //     : true
+              // }
             >
               Save & Countinue
             </Button>
@@ -211,4 +244,4 @@ function StepTwo(props) {
     </div>
   );
 }
-export default StepTwo;
+export default MortgageDetailsFTB1p1;

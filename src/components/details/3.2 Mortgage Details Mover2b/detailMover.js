@@ -254,13 +254,19 @@ function DetailMover(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => props.isMortgageFrom(false)}
+              onClick={() => {
+                props.isMortgageFrom(1)
+                props.setProgress(25)
+              }}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => props.changeProfRoute(1)}
+               onClick={() => {
+                props.isMortgageFrom(3)
+                props.setProgress(75)
+              }}
               // onClick={onsubmitForm}
               className="btn2"
               // loading={props.financial_data.loading}

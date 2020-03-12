@@ -531,9 +531,15 @@ function PersonalDetails1(props) {
             <Button
               style={{ height: "40px" }}
               onClick={() => {
-                props.secPageMethod(false)
-                props.changeProfRout(1)
-                props.setProgress(0)}
+                // props.secPageMethod(false)
+                props.changeProfRoute(0)
+                props.setProgress(  props.userType == "First time Borrower"
+                ? 50
+                : props.userType === "Mortgage Switcher"
+                ? 66
+                : props.userType == "House Mover"
+                ? 75
+                : 0)}
               }
               className="btn1"
             >
