@@ -1,6 +1,5 @@
 .pdf1{
-  background-color: #111E6C;
-  background-image: linear-gradient(to bottom right, #111E6C, #73C2FB);
+  background: linear-gradient(#013474, #2b91cd);
 }
 #pdf2{
   width: 100%;
@@ -9,8 +8,17 @@
   min-width: 890px;
 }
 /********************** New-CSS // New Form ***************/
+.font-weight-500{
+  font-weight: 500 !important;
+}
+.font-weight-600{
+  font-weight: 600 !important;
+}
+.line-height{
+  line-height: 2;
+}
 .paddingLeft23px{
-  padding-left: 23px;
+  padding-left: 16px;
 }
 .paddingLeft38px{
   padding-left: 38px;
@@ -20,6 +28,9 @@
 }
 .paddingLeft33{
   padding-left: 33px;
+}
+.paddingRight20px{
+  padding-right: 20px;
 }
 .paddingLeft60px{
   padding-left: 60px;
@@ -36,6 +47,9 @@
 .paddingLeft16px{
   padding-left: 16px;
 }
+.paddingLeft20px{
+  padding-left: 20px;
+}
 .labelWidth170{
   width: 170px;
 }
@@ -50,6 +64,9 @@
 }
 .widthlabel200{
   width: 200px !important;
+}
+.labelwidth210{
+  width: 210px !important;
 }
 .labelWidth158{
   width: 158px;
@@ -94,10 +111,13 @@
   width: 157px;
 }
 .width20{
-  width: 20px;
+  width: 20px !important;
+}
+.width230{
+  width: 230px;
 }
 label{
-  color: #111e6c;
+  color: #033375;
 }
 .page1 label {
   font-size: 0.7rem;
@@ -124,7 +144,12 @@ label{
 }
 
 
-
+.noPaddingRight{
+  padding-right: 0px;
+}
+.noPaddingLeft{
+  padding-left: 0px;
+}
 .noPadding{
   padding: 0px;
 }
@@ -132,7 +157,8 @@ label{
   padding: 5px;
 }
 .spanTxt{
-  font-size: 7px;
+  font-size: 10px;
+  font-weight: 500;
 }
 .txtStyle{
   font-style: italic;
@@ -181,6 +207,9 @@ label{
   border-right: 1px solid;
   padding-right: 5px;
 }
+.height20{
+  height: 20px;
+}
 .noBorder{
   border: none !important;
 }
@@ -210,6 +239,7 @@ label{
 }
 .radioBtnDiv label{
   font-size: 10px;
+  color: #033375;
 }
 .radioInput{
   border-radius: 100%;
@@ -229,6 +259,7 @@ label{
 .header-container h1{
   font-size: 25px;
   font-weight: 800 !important;
+  color: #033375;
 }
 .form-group{
   margin-bottom: 0px !important;
@@ -417,16 +448,16 @@ label{
 
 .header {
   border: 1px solid #000000;
-  padding: 3px;
+  padding: 3px 15px 3px 15px !important;
   padding-bottom: 0px;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   padding-left: 15px;
   background-color: #FAED9E;
   margin-bottom: 12px;
   margin-top: 0px;
   width: 100%;
-  max-width: 1000px;
-  min-width: 1000px;
+  max-width: 890px;
+  min-width: 890px;
 }
 .right-para-white{
   color: #111E6C;
@@ -446,15 +477,15 @@ input:hover{
 }
 .header1 {
   border: 1px solid #000000;
-  padding: 3px;
+  padding: 3px 15px 3px 15px !important;
   padding-bottom: 0px;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   padding-left: 15px;
-  background-color: #FAED9E;
+  background-color: #fde6a1;
   margin: 20px 0px 0px;
   width: 100%;
-  max-width: 1000px;
-  min-width: 1000px;
+  max-width: 890px;
+  min-width: 890px;
 }
 .full-content {
   PADDING: 0PX;
@@ -466,20 +497,26 @@ input:hover{
 .form-group label{
   margin-left: 0px !important;
 }
+.spinner {
+  color:#1890ff;
+  margin-left:-71px;
+}
 .waringDiv{
   border: 1px solid;
   padding: 10px;
   text-align: center;
   margin-top: 24px;
   background: #261e6c1c;
+  margin-bottom: 20px;
+  width: 99%;
 }
 .waringDiv label{
-  font-weight: 600;
+  font-weight: 700;
 }
 .header-txt {
   font-weight: 900;
   margin: 0px;
-  color: rgb(17, 30, 108);
+  color: #033375;
   font-size: 14px;
 }
 
@@ -501,12 +538,14 @@ input:hover{
   display: flex;
 
 }
-
+.paraClr{
+  color: #033375 !important;
+}
 .box-input {
   flex: 2;
   background-image: url("../../../assets/input-border-croped.gif");
   border: 3px solid #FFFFFF !important;
-  border-bottom: 1px solid #111e6c !important;
+  border-bottom: 1px solid #033375 !important;
   /* width: 100%; */
   height: 18px;
   background-size: 18px;
@@ -557,10 +596,11 @@ input:hover{
 
 
 .custom-sub-header{
-  font-weight: bold;
+  font-weight: 600;
   font-style: italic;
   font-size: 13px;
-  color: #111e6c;
+  color: #033375;
+  margin-bottom: 50px;
 }
 
 .header-container{
@@ -571,6 +611,9 @@ input:hover{
   padding-left: 15px;
   background-image: linear-gradient(#FAED9E, #FFFFFF);
   text-align: center;
+  width: 415px;
+  margin: auto;
+  height: 58px;
 }
 
 .main-header{
@@ -755,6 +798,7 @@ padding-left: 110px;
 }
 
 .cover-main-header{
+  opacity: .5;
   font-size: 72px;
   margin-bottom: auto;
   color: #FFFFFF;
@@ -762,6 +806,7 @@ padding-left: 110px;
 }
 
 .cover-sub-header{
+  opacity: .5;
   font-size: 22px;
   color: #FFFFFF;
   font-weight: 600;
@@ -1292,4 +1337,15 @@ padding-left: 110px;
     width: 100%;
     max-width: 42%;
     padding-top: 24px;
+}
+.explanatoryPara{
+  text-align: justify;
+  line-height: 2;
+  font-weight: 500;
+  color:#033375;
+  width: 98%;
+}
+.colorPara{
+  font-weight: 500;
+  color:#033375
 }

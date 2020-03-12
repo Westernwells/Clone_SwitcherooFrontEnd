@@ -89,6 +89,9 @@ function AdditionalPropertyIndex(props) {
   function addAccount() {
     setArray([...array, array.length + 1]);
   }
+  function onsubmitForm() {
+    props.changeProfRoute(7)
+  }
 
   console.log(state);
   return (
@@ -174,13 +177,14 @@ function AdditionalPropertyIndex(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => props.changeProfRoute(5)}
               className="btn1"
             >
               Back
             </Button>
             <Button
               // onClick={() => handleRoute("/home/details/switcher3")}
+              onClick = {onsubmitForm}
               className="btn2"
             >
               Countinue

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactToPrint from 'react-to-print';
- import KForm from './KForm'
+ import Print, {KForm} from './KForm'
  import style  from  './style.css'
  
 export default class WithPrint extends React.Component {
@@ -10,7 +10,7 @@ export default class WithPrint extends React.Component {
       <KForm ref={el => (this.componentRef = el)} />
         <ReactToPrint
         
-          trigger={() => <a className="printButton" href="#">Print</a>}
+          trigger={() => <button className="printButton">Print</button>}
           content={() => this.componentRef}
           pageStyle={style}
         />
