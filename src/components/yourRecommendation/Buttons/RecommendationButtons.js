@@ -97,11 +97,12 @@ class RecommendationButtons extends Component {
 
   asyncPrintPdf = () => {
     const btn = document.getElementById('recommendation-print-btn');
-    btn.classList.add('recommendation-btn-clicked');
+    // btn.classList.add('recommendation-btn-clicked');
+    btn.style.opacity = '0.6';
     const backupBtnText = btn.innerHTML;
     btn.innerHTML = 'please wait...';
     this.printPdf().then(() => {
-      btn.classList.remove('recommendation-btn-clicked');
+      btn.style.opacity = '1';
       btn.innerHTML = backupBtnText;
     });
   };
