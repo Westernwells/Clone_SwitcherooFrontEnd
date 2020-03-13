@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Select, Button } from "antd";
-import "./step1.css";
+import "./MortgageDetailsStep1.css";
 
 const { Option } = Select;
-function StepOne(props) {
+function MortgageDetailsStep1(props) {
   const [q4, setQ4] = useState(false);
   const [questions, setQuestions] = useState({
     address1: "",
@@ -99,7 +99,7 @@ function StepOne(props) {
     props.history.push(route);
   };
   return (
-    <div className="details-step-one">
+    <div className="MortgageDetailsStep1">
       {console.log(questions)}
       <Row className="d-row-s1">
         <Col lg={24}>
@@ -430,8 +430,16 @@ function StepOne(props) {
                 // props.changeProfRoute(1)
                 console.log(questions);
                 props.MortgageFrom(questions.situation);
-                props.isMortgageFrom(true);
-                props.setProgress(50)
+                props.isMortgageFrom(1);
+                props.setProgress(
+                  questions.situation == "First time Borrower"
+                    ? 50
+                    : questions.situation === "Mortgage Switcher"
+                    ? 33
+                    : questions.situation == "House Mover"
+                    ? 25
+                    : 0
+                );
               }}
               className="btn2"
               // loading={props.financial_data.loading}
@@ -460,4 +468,4 @@ function StepOne(props) {
     </div>
   );
 }
-export default StepOne;
+export default MortgageDetailsStep1;

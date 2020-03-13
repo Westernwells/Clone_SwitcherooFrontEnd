@@ -657,9 +657,9 @@ font-family: 'Neue Haas Grotesk Text Pro';
   padding-top:10px;
   height:165px;
 }
-.mg{
+/* .mg{
   margin-top:260px;
-}
+} */
 @media print{
   .logo-sm{
   margin-top:-5px;
@@ -672,6 +672,7 @@ font-family: 'Neue Haas Grotesk Text Pro';
   padding-top:10px;
   */
 }
+
 .logox-sm{
   margin-top:-30px;
   margin-bottom:20px;
@@ -708,7 +709,7 @@ font-family: 'Neue Haas Grotesk Text Pro';
 
 .headX{
   background-image:url(${img});
-height:1590px;
+height:1600px;
 width:100%;
 margin-top:-20px;
 margin:0 auto;
@@ -720,6 +721,30 @@ size:0.65%;
 .head{
   background-image:url(${img});
 height:1620px;
+width:100%;
+
+margin:0 auto;
+background-repeat: no-repeat;
+background-size:100% 100%;
+border-top:solid 10px transparent;
+padding:10px 20px;
+size:0.65%;
+}
+.head3{
+  background-image:url(${img});
+height:1640px;
+width:100%;
+
+margin:0 auto;
+background-repeat: no-repeat;
+background-size:100% 100%;
+border-top:solid 10px transparent;
+padding:10px 20px;
+size:0.65%;
+}
+.head5{
+  background-image:url(${img});
+height:1500px;
 width:100%;
 
 margin:0 auto;

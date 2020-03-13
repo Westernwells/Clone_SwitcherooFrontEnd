@@ -1,4 +1,4 @@
-.details-step-one {
+.MortgageDetailsStep1 {
   min-height: 80vh;
   margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 80px;
@@ -7,7 +7,7 @@
   font-family: Montserrat;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
 }
-.details-step-one .q1 .radio-container {
+.MortgageDetailsStep1 .q1 .radio-container {
   width: 37%;
   float: left;
   margin: 0 40px 0 0;
@@ -17,16 +17,16 @@
   border-radius: 20px;
   border: 2px solid gray;
 }
-.details-step-one .q1 .radio-container:last-child {
+.MortgageDetailsStep1 .q1 .radio-container:last-child {
   margin: 0 0 0 0;
 }
-.details-step-one .q1 input[type="radio"]:checked,
-.details-step-one .q1 input[type="radio"]:not(:checked) {
+.MortgageDetailsStep1 .q1 input[type="radio"]:checked,
+.MortgageDetailsStep1 .q1 input[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-.details-step-one .q1 input[type="radio"]:checked + label,
-.details-step-one .q1 input[type="radio"]:not(:checked) + label {
+.MortgageDetailsStep1 .q1 input[type="radio"]:checked + label,
+.MortgageDetailsStep1 .q1 input[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 40px;
   cursor: pointer;
@@ -38,8 +38,8 @@
   margin: 9px 0 0 30px;
 }
 
-.details-step-one .q1 input[type="radio"]:checked + label:before,
-.details-step-one .q1 input[type="radio"]:not(:checked) + label:before {
+.MortgageDetailsStep1 .q1 input[type="radio"]:checked + label:before,
+.MortgageDetailsStep1 .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -51,8 +51,8 @@
   background: #fff;
 }
 
-.details-step-one .q1 input[type="radio"]:checked + label:after,
-.details-step-one .q1 input[type="radio"]:not(:checked) + label:after {
+.MortgageDetailsStep1 .q1 input[type="radio"]:checked + label:after,
+.MortgageDetailsStep1 .q1 input[type="radio"]:not(:checked) + label:after {
   content: "";
   width: 12px;
   height: 12px;
@@ -65,88 +65,88 @@
   transition: all 0.2s ease;
 }
 
-.details-step-one .q1 input[type="radio"]:not(:checked) + label:after {
+.MortgageDetailsStep1 .q1 input[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-.details-step-one .q1 input[type="radio"]:checked + label:after {
+.MortgageDetailsStep1 .q1 input[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.details-step-one .q3 .radio-container {
+.MortgageDetailsStep1 .q3 .radio-container {
   float: none;
   width: 47%;
   margin: 0 0 10px 0;
 }
-.details-step-one .q4 .radio-container {
+.MortgageDetailsStep1 .q4 .radio-container {
   float: none;
   width: 40%;
   margin: 0 0 10px 0;
 }
 
-.details-step-one .heading1 {
+.MortgageDetailsStep1 .heading1 {
   font-size: 22px;
   color: #62635d;
   font-weight: 600;
   margin: 17px 0 40px 0;
   font-style: italic;
 }
-.details-step-one .heading2 {
+.MortgageDetailsStep1 .heading2 {
   margin: 35px 0 10px 0;
 }
-.details-step-one .h61 {
+.MortgageDetailsStep1 .h61 {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 15px 0;
   padding: 0 0 0 4px;
 }
-.details-step-one .select-option1 {
+.MortgageDetailsStep1 .select-option1 {
   width: 30%;
   /* height: 50px; */
 }
-.details-step-one .select-option-big {
+.MortgageDetailsStep1 .select-option-big {
   width: 47%;
   /* height: 50px; */
 }
-.details-step-one .ant-select-selection--single {
+.MortgageDetailsStep1 .ant-select-selection--single {
   background: rgb(251, 149, 0);
   border: rgb(251, 149, 0);
   border-radius: 20px;
   height: 37px;
 }
-.details-step-one .ant-select-selection--single:active {
+.MortgageDetailsStep1 .ant-select-selection--single:active {
   border: rgb(251, 149, 0);
   box-shadow: none;
 }
-.details-step-one .ant-select-selection--single:focus {
+.MortgageDetailsStep1 .ant-select-selection--single:focus {
   border: rgb(251, 149, 0);
   box-shadow: none;
 }
-.details-step-one .ant-select-selection__rendered {
+.MortgageDetailsStep1 .ant-select-selection__rendered {
   line-height: 37px;
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
 }
-.details-step-one .select-option-big .ant-select-selection__rendered {
+.MortgageDetailsStep1 .select-option-big .ant-select-selection__rendered {
   line-height: 37px;
   color: white;
   font-weight: 600;
   padding: 0 0 0 32px;
 }
-.details-step-one .ant-select-arrow {
+.MortgageDetailsStep1 .ant-select-arrow {
   color: white;
   padding: 0 10px 0 0;
 }
 
-.details-step-one .ant-select-arrow path {
+.MortgageDetailsStep1 .ant-select-arrow path {
   stroke-width: 161px;
   stroke: white;
 }
-.details-step-one .btn-div button {
+.MortgageDetailsStep1 .btn-div button {
   margin: 0 20px 0 0;
   padding: 10px 35px;
   border: none;
@@ -154,23 +154,23 @@
   font-weight: 600;
   color: white;
 }
-.details-step-one .btn-div {
+.MortgageDetailsStep1 .btn-div {
   margin: 20px 0 0 0;
 }
-.details-step-one .btn-div .btn1 {
+.MortgageDetailsStep1 .btn-div .btn1 {
   background: gray;
 }
-.details-step-one .btn-div .btn2 {
+.MortgageDetailsStep1 .btn-div .btn2 {
   background: #fb9500;
 }
-.details-step-one .btn-div .btn2 {
+.MortgageDetailsStep1 .btn-div .btn2 {
   height: 40px;
 }
-.details-step-one .input {
+.MortgageDetailsStep1 .input {
   margin: 0 0 22px 0;
 }
 
-.details-step-one .input input {
+.MortgageDetailsStep1 .input input {
   width: 47%;
   height: 40px;
   background: #cccccc;
@@ -181,17 +181,17 @@
   font-weight: 600;
   color: white;
 }
-.details-step-one .bg-orange input {
+.MortgageDetailsStep1 .bg-orange input {
   background: rgb(251, 149, 0);
   border: 2px solid rgb(251, 149, 0);
   
 }
 
-.details-step-one .input input::placeholder {
+.MortgageDetailsStep1 .input input::placeholder {
   color: white;
 }
 
-.details-step-one .input2 {
+.MortgageDetailsStep1 .input2 {
   margin: 0 0 22px 0;
   border-radius: 20px;
   border: 2px solid rgb(251, 149, 0);
@@ -203,12 +203,12 @@
   font-size: 20px;
   background: rgb(251, 149, 0);
 }
-.details-step-one .input2 .pre {
+.MortgageDetailsStep1 .input2 .pre {
   line-height: 36px;
   float: left;
 }
 
-.details-step-one .input2 input {
+.MortgageDetailsStep1 .input2 input {
   width: 90%;
   height: 36px;
   border: none;
@@ -220,6 +220,6 @@
   font-size: 16px;
 }
 
-.details-step-one .input2 input::placeholder {
+.MortgageDetailsStep1 .input2 input::placeholder {
   color: white;
 }
