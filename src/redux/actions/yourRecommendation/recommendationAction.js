@@ -1,10 +1,10 @@
-import * as actions from './RecommendationTypes';
-import axios from 'axios';
-
+import * as actions from "./RecommendationTypes";
+import axios from "axios";
+import { baseurl } from "../../../redux/api/index";
 const setText = () => async dispatch => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/recommendation/getRecommendation/5e42a0ff47752a001769dead'
+      baseurl + `/recommendation/getRecommendation/${this.props.userId}`
     );
     const { data } = res;
 
