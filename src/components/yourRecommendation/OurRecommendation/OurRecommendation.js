@@ -17,13 +17,13 @@ class OurRecommendation extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.recommendation !== prevProps.recommendation
+      prevProps !== this.props &&
       // heightOfPara > contOneAllowedHeight
-      // this.props.extra.length === 0
+      this.props.extra.length === 0
     ) {
+      console.log('length: ', this.props.extra.length);
       const contOneHeight =
-        document.getElementsByClassName('recommendation-firstpage')[0]
-          .clientHeight - 30;
+        document.getElementById('recommendation-cont-one').clientHeight - 30;
       const para = document.getElementsByClassName(
         'recommendation-recommendation'
       )[0];

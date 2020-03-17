@@ -20,8 +20,8 @@ const ContTwoHeader = () => {
           </h5>
         </div>
 
-        <div style={{ flex: '1', paddingTop: '29px' }}>
-          <h5 style={{ fontSize: '1.02rem', color: '#97999b' }}>02-12-2020</h5>
+        <div style={{ flex: '1', paddingTop: '25px' }}>
+          <h5 style={{ fontSize: '1.1rem', color: '#97999b' }}>02-12-2020</h5>
         </div>
       </div>
     </>

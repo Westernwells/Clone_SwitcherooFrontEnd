@@ -12,13 +12,13 @@ import { Route, Switch } from "react-router-dom";
 import Feed from "./feed/feed";
 import FinancialHealth from "../financialHealth/getStatetedText/getStartedText";
 import GetStarted from "../financialHealth/getStarted/getStarted";
-import DetailMover from "../details/3.2 Mortgage Details Mover2b/detailMover";
+import DetailMover from "../details/detailMover/detailMover";
 import AfterIntial from "../financialHealth/afterintial/";
-// import StepOne from "../details/step1/step1";
-import StepTwo from "../details/1.1 Mortgage Details FTB/1.1MortgageDetailsFTB";
-import StepThree from "../details/2.2 Mortgage Details Switcher2a/step3";
+import StepOne from "../details/step1/step1";
+import StepTwo from "../details/step2/step2";
+import StepThree from "../details/step3/step3";
 import StepFour from "../yourApplication/firstForm/step4";
-import SwitcherThree from "../details/2.3 Mortgage Details Switcher2b/switcher3";
+import SwitcherThree from "../details/switcher3/switcher3";
 import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
@@ -31,10 +31,10 @@ import fTwo from "../yourApplication/threeForms/fTwo/Second";
 import fThree from "../yourApplication/threeForms/fThree/Third";
 import IcsForm from "../yourApplication/icsForm/src/App";
 import KbcForm from "../yourApplication/kbcForm/index";
-import AdditionalPropertyIndex from "../details/Additional Properties/additionalPropertyIndex";
+import AdditionalPropertyIndex from "../details/additionalProperty/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import ExpertChat from "../expertChat/expertChat";
-import Details from "../details"; 
+import Details from "../details";
 // import NewForm from "../yourApplication/newForm/newForm";
 import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
 // import Declarations from "../personalDetails/Declaration/Declaration";
@@ -190,11 +190,11 @@ function Home(props) {
                       path="/home/details/switcher3"
                       component={SwitcherThree}
                     />
-                    {/* <Route
+                    <Route
                       exact
                       path="/home/details/additional_p/:number"
                       component={AdditionalPropertyIndex}
-                    /> */}
+                    />
                     <Route
                       exact
                       path="/home/details/final_page"

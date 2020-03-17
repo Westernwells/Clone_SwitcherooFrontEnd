@@ -742,18 +742,6 @@ border-top:solid 10px transparent;
 padding:10px 20px;
 size:0.65%;
 }
-.head4{
-  background-image:url(${img});
-height:1660px;
-width:100%;
-
-margin:0 auto;
-background-repeat: no-repeat;
-background-size:100% 100%;
-border-top:solid 10px transparent;
-padding:10px 20px;
-size:0.65%;
-}
 .head5{
   background-image:url(${img});
 height:1500px;

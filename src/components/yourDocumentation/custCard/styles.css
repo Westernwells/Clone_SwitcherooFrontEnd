@@ -49,17 +49,17 @@ nav a:hover {
   background-color: #62635d;
 } */
 
-/* .project-tab {
+.project-tab {
   padding: 10%;
   margin-top: -8%;
-} */
-/* .project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-  color: #fff !important;
-  background-color: transparent !important;
-  border-color: transparent transparent transparent !important;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent transparent transparent;
   border-bottom: 4px solid #daa81b !important;
-} */
+}
 .project-tab .nav-link {
   font-size: 16px;
   font-weight: 600;
@@ -97,7 +97,6 @@ nav a:hover {
 .filesContainer li {
   font-size: 14px;
   list-style: none;
-  color: #333;
 }
 .fa-pdf {
   color: #fb9500;

@@ -838,7 +838,7 @@ export class KForm extends Component {
                 {/**Page break here */}
                 {/**page 3 ends here */}
                 {/**page 4 starts here */}
-               <HeaderX className="head4">
+               <HeaderX className="head3">
                
                 <img src={pg4a} className='awo' alt="" srcset=""/>
                 <Applicants style={{width:'97%', margin:'0 auto'}}>

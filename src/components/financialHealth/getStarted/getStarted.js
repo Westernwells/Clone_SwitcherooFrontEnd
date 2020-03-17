@@ -6,7 +6,7 @@ import Api from "../../../redux/api/financialHealthCheck";
 import { connect } from "react-redux";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import * as Actions from "../../../redux/actions/financial_health/getStarted_Action";
+import * as Actions from '../../../redux/actions/financial_health/getStarted_Action';
 
 const phoneno = /^\d{10}$/;
 const { Option } = Select;
@@ -72,11 +72,11 @@ function GetStarted(props) {
 
     overAllFormValidate: false
   });
-  const [q4, setQ4] = useState("");
+  const [q4,setQ4] = useState("")
 
-  useEffect(() => {
+  useEffect( () => {
     props.onSaveQ4Data(questions.filedBankruptcy);
-  }, [questions.filedBankruptcy]);
+  },[questions.filedBankruptcy])
 
   function clickRadio(e) {
     var label = e.target.childNodes[1];
@@ -84,8 +84,8 @@ function GetStarted(props) {
       label.click();
     }
   }
-  console.log("Q4", q4);
-  console.log("questions.filedBankruptcy", questions.filedBankruptcy);
+   console.log('Q4',q4)
+  console.log("questions.filedBankruptcy",questions.filedBankruptcy);
 
   const validateRadio = (name, value) => {
     switch (name) {
@@ -577,6 +577,8 @@ function GetStarted(props) {
           </p>
         </Col>
 
+
+        
         <Col lg={24} className="q1">
           <div
             onClick={e => clickRadio(e)}
@@ -617,6 +619,15 @@ function GetStarted(props) {
             <label for="q42">Two</label>
           </div>
         </Col>
+
+
+
+
+
+
+
+
+
 
         {questions.peopleOnMortgage === "two" && (
           <Col lg={24}>
@@ -871,7 +882,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispacth => ({
   set_financial_BackGround: (props, callback) =>
     dispacth(Api.financialDataPost(props, callback)),
-  onSaveQ4Data: data => dispacth(Actions.saveQ4Data(data))
+   onSaveQ4Data : (data) => dispacth(Actions.saveQ4Data(data))
 });
 
 export default connect(

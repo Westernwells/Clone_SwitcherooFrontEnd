@@ -34,7 +34,6 @@ const financialDataPost = (data, callback) => dispatch => {
 };
 
 const financialDataGet = id => dispatch => {
-  console.log("TEST");
   dispatch(actions.LoadingFinancialData(true));
 
   const options = {

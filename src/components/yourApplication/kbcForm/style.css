@@ -1,6 +1,6 @@
 @media print {
   .print {
-    zoom: 0.85;
+    zoom: 0.87;
     margin-top: 0;
     -webkit-print-color-adjust: exact;
   }
@@ -91,10 +91,10 @@
   text-decoration: none;
 }
 
-/* @page {
+@page {
   margin: 20px 0 0 0;
 }
 
 @page: first-of-type {
   margin: -5px 0 0 0;
-} */
+}

@@ -8,32 +8,17 @@ import "./styles.css";
 import CustIcon from "../../../assets/cust_icon.png";
 import FileUploadIcon from "../../../assets/icon-file-upload.png";
 import axios from "axios";
-// import _ from "lodash";
-import Api from "../../../redux/api/financialHealthCheck";
-import { BallBeat } from "react-pure-loaders";
-
-export const baseurl =
-  window.location.origin === "http://localhost:3000"
-    ? "http://localhost:8080"
-    : window.location.origin;
+// import Api from "../../../redux/api/documentationApi";
 
 class StepOne extends Component {
   constructor(props) {
     super(props);
-    console.log("PROPS 1", props);
     this.state = {
       tab1: true,
       tab2: false,
       uploadApplicant1: false,
       uploadApplicant2: false,
-      applicant1User: this.props.userFirstName,
-      applicant2User: this.props.financial_data.firstNameSecondApplicant,
       isEdit: false,
-      isLoadingApplicant1: false,
-      isLoadingApplicant2: false,
-      isdisabled1: false,
-      isdisabled2: false,
-      isUploadError: false,
       currentList: null,
       selectedOption: null,
       filesType: [
@@ -42,11 +27,8 @@ class StepOne extends Component {
         "Passport back",
         "Passport front"
       ],
-      appsFileList: {
-        tile: "customerId",
-        1: [],
-        2: []
-      }
+      app1FileList: [],
+      app2FileList: []
     };
   }
 
@@ -54,25 +36,16 @@ class StepOne extends Component {
     this.props.history.push(route);
   };
 
-  handleLoading = applicant => {
-    applicant === 1
-      ? this.setState({ isLoadingApplicant1: !this.state.isLoadingApplicant1 })
-      : this.setState({ isLoadingApplicant2: !this.state.isLoadingApplicant2 });
-  };
-
   applicant1Updates = item => {
     const { isEdit, selectedOption } = this.state;
-    let app1Items = this.state.appsFileList;
+    let items = [...this.state.app1FileList];
 
-    let items = [...app1Items[1]];
-    let index = items.findIndex(obj => obj.id === item.id);
+    let index = items.indexOf(item);
     let itm = { ...items[index] };
-    itm.fileType = selectedOption;
+    itm.files = selectedOption;
     items[index] = itm;
-    app1Items[1] = items;
-
     this.setState({
-      appsFileList: app1Items,
+      app1FileList: items,
       isEdit: !isEdit,
       currentList: item.id
     });
@@ -80,17 +53,14 @@ class StepOne extends Component {
 
   applicant2Updates = item => {
     const { isEdit, selectedOption } = this.state;
-    let app2Items = this.state.appsFileList;
+    let items = [...this.state.app2FileList];
 
-    let items = [...app2Items[2]];
-    let index = items.findIndex(obj => obj.id === item.id);
+    let index = items.indexOf(item);
     let itm = { ...items[index] };
-    itm.fileType = selectedOption;
+    itm.files = selectedOption;
     items[index] = itm;
-    app2Items[2] = items;
-
     this.setState({
-      appsFileList: app2Items,
+      app2FileList: items,
       isEdit: !isEdit,
       currentList: item.id
     });
@@ -101,6 +71,51 @@ class StepOne extends Component {
     return pre + "_" + uniqueTime;
   };
 
+  onChangeApplicant1 = event => {
+    const { app1FileList } = this.state;
+    const data = new FormData();
+
+    if (event.target.files[0].type === "application/pdf") {
+      app1FileList.push({
+        id: this.generateKey("app1"),
+        title: event.target.files[0].name,
+        files: "Passport back"
+      });
+      data.append("applicant1FileName", event.target.files[0].name);
+      data.append("applicant1File", event.target.files[0]);
+
+      // this.props.DocData(data);
+      // dispatch(Api.docFiles(data));
+      axios
+        .post("http://localhost:8080/documentation/uploadDocument", data, {
+          // headers: {
+          //   Authorization
+          //     "YOUR_API_AUTHORIZATION_KEY_SHOULD_GOES_HERE_IF_HAVE",
+          //   "Content-type": "multipart/form-data"
+          // }
+        })
+        .then(res => {
+          console.log("CHECK UPLOAD STATUS", res.statusText);
+        });
+    }
+
+    this.setState({ app1FileList });
+  };
+
+  onChangeApplicant2 = event => {
+    const { app2FileList } = this.state;
+
+    if (event.target.files[0].type === "application/pdf") {
+      app2FileList.push({
+        id: this.generateKey("app2"),
+        title: event.target.files[0].name,
+        files: "Passport back"
+      });
+    }
+
+    this.setState({ app2FileList });
+  };
+
   handleTabClasses = applicant => {
     let classes = "nav-item nav-link ";
     classes += applicant ? "active" : "";
@@ -108,31 +123,29 @@ class StepOne extends Component {
   };
 
   handleRemove = (item, applicant) => {
-    const { appsFileList } = this.state;
-    let filteredList = appsFileList;
-
-    filteredList[applicant] = filteredList[applicant].filter(
-      f => f.id !== item
+    const { app1FileList, app2FileList } = this.state;
+    const files = (applicant === 1 ? app1FileList : app2FileList).filter(
+      file => file.id !== item
     );
-    this.setState({ appsFileList: filteredList });
+    applicant === 1
+      ? this.setState({ app1FileList: files })
+      : this.setState({ app2FileList: files });
   };
 
   getFilesList = applicant => {
-    const { isEdit, currentList, appsFileList } = this.state;
+    const { app1FileList, isEdit, currentList, app2FileList } = this.state;
 
-    let filesList = Object.entries(appsFileList[applicant]).map(([key, f]) => (
+    let filesList = (applicant === 1 ? app1FileList : app2FileList).map(f => (
       <li className="row pt-4 mb-2" key={f.id}>
         <i className="fa fa-pdf fa-file-pdf fa-2x pl-0 col-md-1 text-right"></i>
-        <span className="col-md-6 text-left">{f.fileName}</span>
+        <span className="col-md-6 text-left">{f.title}</span>
         {isEdit && currentList === f.id ? (
           <>
             <select
               className="col-md-3 filesOptions"
               onChange={e => this.setState({ selectedOption: e.target.value })}
               value={
-                this.state.selectedOption
-                  ? this.state.selectedOption
-                  : f.fileType
+                this.state.selectedOption ? this.state.selectedOption : f.files
               }
             >
               {this.state.filesType.map(ft => (
@@ -152,7 +165,7 @@ class StepOne extends Component {
           </>
         ) : (
           <>
-            <span className="col-md-3">{f.fileType}</span>
+            <span className="col-md-3">{f.files}</span>
             <i
               className="fa fa-edit col-md-1 text-right fa-cus-2x"
               onClick={() =>
@@ -171,72 +184,8 @@ class StepOne extends Component {
     return filesList;
   };
 
-  onUploadFiles = applicant => {
-    const { appsFileList } = this.state;
-    const count = appsFileList[applicant].length;
-
-    for (let i = 0; i < count; i++) {
-      // console.log(appsFileList[applicant][i]);
-
-      const data = new FormData();
-      data.append("applicantTile", "customerId");
-      data.append("applicants", JSON.stringify(appsFileList[applicant][i]));
-      data.append("applicant1File", appsFileList[applicant][i].file);
-
-      axios
-        .post(baseurl + "/documentation/uploadDocument", data, {})
-        .then(res => {
-          this.handleLoading(applicant);
-          console.log("CHECK UPLOAD STATUS", res);
-        });
-    }
-  };
-
-  onChangeApplicant1 = event => {
-    const { appsFileList } = this.state;
-
-    appsFileList[1].push({
-      id: this.generateKey("app1"),
-      fileType: "Passport back",
-      fileName: event.target.files[0].name,
-      file: event.target.files[0],
-      fileTags: {
-        accountNumber: 38678592,
-        fileMonth: "June"
-      }
-    });
-
-    this.setState({ appsFileList });
-  };
-
-  onChangeApplicant2 = event => {
-    const { appsFileList } = this.state;
-
-    appsFileList[2].push({
-      id: this.generateKey("app1"),
-      fileType: "Passport back",
-      fileName: event.target.files[0].name,
-      file: event.target.files[0],
-      fileTags: {
-        accountNumber: 38678592,
-        fileMonth: "June"
-      }
-    });
-
-    this.setState({ appsFileList });
-  };
-
   render() {
-    const {
-      tab1,
-      tab2,
-      applicant1User,
-      applicant2User,
-      isLoadingApplicant1,
-      isLoadingApplicant2,
-      isdisabled1,
-      isdisabled2
-    } = this.state;
+    const { tab1, tab2 } = this.state;
 
     return (
       <div class="ant-col ant-col-lg-24">
@@ -253,6 +202,8 @@ class StepOne extends Component {
             {/* Section 1 */}
             <div className="row p-3">
               <div className="col-md-6 text-right">
+                {/* <i className="fas fa-address-card fac fa-6x"></i> */}
+
                 <img className="" src={CustIcon} width={75} alt="" />
               </div>
               <div className="col-md-4 text-left pt-1">
@@ -314,34 +265,29 @@ class StepOne extends Component {
                       <div>
                         <i className="fas fa-user-alt fa-1x"></i>
                         <br />
-                        {/* Applicant 1 */}
-                        <span>{applicant1User}</span>
+                        <span>Applicant 1</span>
                       </div>
                     </a>
-                    {applicant2User ? (
-                      <a
-                        className={this.handleTabClasses(tab2)}
-                        id="nav-home-tab"
-                        data-toggle="tab"
-                        role="tab"
-                        aria-controls="nav-home"
-                        aria-selected="true"
-                        onClick={() =>
-                          this.setState({
-                            tab1: false,
-                            tab2: true
-                          })
-                        }
-                      >
-                        <div>
-                          <i className="fas fa-user-alt fa-1x"></i>
-                          <br />
-                          <span>{applicant2User}</span>
-                        </div>
-                      </a>
-                    ) : (
-                      <></>
-                    )}
+                    <a
+                      className={this.handleTabClasses(tab2)}
+                      id="nav-home-tab"
+                      data-toggle="tab"
+                      role="tab"
+                      aria-controls="nav-home"
+                      aria-selected="true"
+                      onClick={() =>
+                        this.setState({
+                          tab1: false,
+                          tab2: true
+                        })
+                      }
+                    >
+                      <div>
+                        <i className="fas fa-user-alt fa-1x"></i>
+                        <br />
+                        <span>Applicant 2</span>
+                      </div>
+                    </a>
                   </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -354,7 +300,7 @@ class StepOne extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for {applicant1User}</h1>
+                        <h1>Upload document for Applicant 1</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant1 ? (
@@ -386,19 +332,11 @@ class StepOne extends Component {
                         </div>
                       ) : (
                         <div>
-                          {this.state.isUploadError ? (
-                            <div class="alert alert-danger" role="alert">
-                              Please select a file before upload
-                            </div>
-                          ) : (
-                            <></>
-                          )}
-
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                {this.state.appsFileList[1].length} files ready
-                                to upload
+                                {this.state.app1FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -412,24 +350,9 @@ class StepOne extends Component {
                             isShadow={false}
                             scrollWidth={4}
                           >
-                            {isLoadingApplicant1 ? (
-                              <div
-                                style={{
-                                  paddingTop: 50,
-                                  paddingBottom: 50,
-                                  paddingLeft: 320
-                                }}
-                              >
-                                <BallBeat
-                                  color={"#d3d0d0"}
-                                  loading={isLoadingApplicant1}
-                                />
-                              </div>
-                            ) : (
-                              <ul className="filesContainer">
-                                {this.getFilesList(1)}
-                              </ul>
-                            )}
+                            <ul className="filesContainer">
+                              {this.getFilesList(1)}
+                            </ul>
                           </ReactShadowScroll>
 
                           <div className="row p-3">
@@ -437,15 +360,7 @@ class StepOne extends Component {
                               <button
                                 className="upload-btn uploadApp1"
                                 onClick={() =>
-                                  this.getFilesList(1).length !== 0
-                                    ? (this.handleLoading(1),
-                                      this.onUploadFiles(1),
-                                      this.setState({
-                                        isUploadError: false
-                                      }))
-                                    : this.setState({
-                                        isUploadError: !this.state.isUploadError
-                                      })
+                                  this.setState({ uploadApplicant1: true })
                                 }
                               >
                                 Upload
@@ -472,6 +387,7 @@ class StepOne extends Component {
                                     width={22}
                                     alt=""
                                   />
+                                  {/* <i className="fa fa-cloud-upload fa-1x pl-2"></i> */}
                                 </label>
                               </div>
                             </div>
@@ -489,7 +405,7 @@ class StepOne extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for {applicant2User}</h1>
+                        <h1>Upload document for Applicant 2</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant2 ? (
@@ -524,8 +440,8 @@ class StepOne extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
-                                {this.state.appsFileList[2].length} files ready
-                                to upload
+                                {this.state.app2FileList.length} files ready to
+                                upload
                               </span>
                             </div>
                             <div className="col-md-5">
@@ -547,7 +463,9 @@ class StepOne extends Component {
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() => this.onUploadFiles(2)}
+                                onClick={() =>
+                                  this.setState({ uploadApplicant1: true })
+                                }
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -591,18 +509,17 @@ class StepOne extends Component {
   }
 }
 
-const mapStateToProps = ({
-  userReducer: {
-    user: { _id, firstName }
-  },
-  Financial_data: { financial_Health_Check }
-}) => ({
-  financial_data: financial_Health_Check,
-  userId: _id,
-  userFirstName: firstName
-});
+// const mapStateToProps = ({
+//   userReducer: {
+//     user: { _id, firstName }
+//   }
+// }) => ({
+//   userId: _id,
+//   userFirstName: firstName
+// });
 
-const mapDispatchToProps = dispatch => ({
-  Get_Financial_data: props => dispatch(Api.financialDataGet(props))
-});
-export default connect(mapStateToProps, mapDispatchToProps)(StepOne);
+// const mapDispatchToProps = dispatch => ({
+//   DocData: props => dispatch(Api.docFiles(props))
+// });
+// export default connect(null, mapDispatchToProps)(StepOne);
+export default StepOne;

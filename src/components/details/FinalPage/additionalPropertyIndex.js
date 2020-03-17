@@ -1,6 +1,6 @@
 import React from "react";
 import { Collapse, Icon, Select, Row, Col, Button } from "antd";
-import AdditionalProperty from "./FinalPage";
+import AdditionalProperty from "./AdditionalProperty";
 // import "./AdditionalProperty.css";
 import property from "../../financialHealth/afterintial/property";
 
@@ -40,8 +40,8 @@ class AdditionalPropertyIndex extends React.Component {
     key: -1
   };
   componentDidMount() {
-    // if (this.props.match.params.number) {
-      const properties =this.props.number
+    if (this.props.match.params.number) {
+      const properties = this.props.match.params.number;
       var array = [];
       for (var i = 0; i < properties; i++) {
         array.push(i);
@@ -49,7 +49,7 @@ class AdditionalPropertyIndex extends React.Component {
           this.setState({ array });
         }
       }
-    // }
+    }
   }
   onPositionChange = expandIconPosition => {
     this.setState({ expandIconPosition });
@@ -90,12 +90,7 @@ class AdditionalPropertyIndex extends React.Component {
               key={index}
             // className="ant-collapse-header"
             >
-              <AdditionalProperty  
-              // isMortgageFrom = {this.props.isMortgageFrom}
-              // setProgress = {this.props.setProgress}
-              // isMortgageFrom = {this.props.changeProfRoute}
-              
-              />
+              <AdditionalProperty />
             </Panel>;
           })}
           {/* <Panel header="This is panel header 2" key="2">
@@ -110,24 +105,13 @@ class AdditionalPropertyIndex extends React.Component {
             <div className="btn-div">
               <Button
                 style={{ height: "40px" }}
-                onClick={() => {
-                  this.props.changeProfRoute(0)
-                  this.props.setProgress(60)
-                  this.props.isMortgageFrom(2)
-                }}
+                onClick={() => window.history.back()}
                 className="btn1"
               >
                 Back
             </Button>
-            </div>
-            </Col>
-            <Col className="btn-col" lg={10} offset={0}>
-               <div className="btn-div">
               <Button
-                onClick={() => {
-                  this.props.changeProfRoute(1)
-                  this.props.setProgress(0)
-                }}
+                // onClick={() => handleRoute("/home/details/switcher3")}
                 className="btn2"
               >
                 Countinue

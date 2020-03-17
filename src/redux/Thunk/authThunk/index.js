@@ -1,7 +1,6 @@
 import * as actions from "../../actions/userActions/userActions";
 import api from "../../api/index";
 import { notification } from "antd";
-import * as AccActions from "../../../redux/actions/backAccounts/bankAcc";
 
 const savetoken = token => {
   localStorage.setItem("tokenas", token);
@@ -48,7 +47,6 @@ const loadUser = () => dispatch => {
       console.log(res, err);
     });
 };
-
 const login = (data, props) => dispatch => {
   api.post("/api/auth/login", data, null, dispatch, (err, res) => {
     console.log(data);
@@ -128,25 +126,6 @@ const resetpassword = (state, props) => dispatch => {
   );
 };
 
-const loadUserAccountNumbers = () => dispatch => {
-  const token = localStorage.getItem("tokenas");
-
-  if (token)
-    api.get(
-      "/documentation/accNumbers/5e39814edbebc641e42ebefa",
-      null,
-      token,
-      dispatch,
-      (err, res) => {
-        // console.log("MMJKFHJGDJHF", res);
-        if (!err) {
-          dispatch(AccActions.LoadingAccountsData(true));
-        }
-        console.log(res, err);
-      }
-    );
-};
-
 export {
   SignUp,
   loadUser,
@@ -155,6 +134,5 @@ export {
   deleteUser,
   resendEmail,
   recover,
-  resetpassword,
-  loadUserAccountNumbers
+  resetpassword
 };
