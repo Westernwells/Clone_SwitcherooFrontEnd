@@ -4,9 +4,10 @@ export const baseurl =
   window.location.origin === "http://localhost:3000"
     ? "http://swticherootesting.herokuapp.com"
     : window.location.origin;
+
 // export const baseurl =
-//   window.location.origin === 'http://localhost:3000'
-//     ? 'http://localhost:8080'
+//   window.location.origin === "http://localhost:3000"
+//     ? "http://localhost:8080"
 //     : window.location.origin;
 
 const post = (url, data, auth, dispatch, callback) => {

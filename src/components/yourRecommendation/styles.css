@@ -1,11 +1,9 @@
-.recommendation-container {
-  margin: 0px 30px 50px 0px;
-  padding: 30px 30px 0px 50px;
+.recommendation-page-wrapper {
   box-shadow: 4px 4px 14px 8px rgba(230, 230, 230, 1);
   border: 1px solid #b6b6b6;
   border-radius: 8px;
-  height: 297mm;
-  overflow: hidden;
+  margin: 0px 0px 50px 0px;
+  text-align: justify;
 }
 .recommendation-text {
   font-size: 0.9rem;
@@ -21,21 +19,83 @@
   border: none;
   padding: 3px 0px;
 }
+.recommendation-btn-clicked {
+  opacity: 0.6 !important;
+}
+.set-width-A4 {
+  width: 210mm !important;
+}
 
-#recommendation-cont-three {
-  position: absolute;
-  width: 96.2%;
+/*  */
+.recommendation-firstpage {
+  margin-bottom: 50px;
+  height: 297mm;
+  width: 210mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-#recommendationThree-content {
-  height: 100%;
-  position: relative;
-  top: 0;
-  /* padding: 20px 0; */
-  box-sizing: border-box;
+#recommendation-firstpage-content {
+  flex: 1 0 auto;
+  padding: 65px 85px;
 }
-#recommendation-footer {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  bottom: 0;
+#recommendation-firstpage-footer {
+  flex-shrink: 0;
+  padding-left: 85px;
+}
+#recommendation-firstpage-footer p {
+  margin: 0px;
+  margin-top: -36px !important;
+  color: #535353;
+  font-size: 0.9rem;
+}
+
+.recommendation-secondpage {
+  margin-bottom: 50px;
+  height: 297mm;
+  width: 210mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#recommendation-secondpage-content {
+  flex: 1 0 auto;
+  padding: 65px 85px;
+  overflow: hidden;
+  max-height: 288mm;
+}
+#recommendation-secondpage-footer {
+  flex-shrink: 0;
+  padding-left: 85px;
+}
+#recommendation-secondpage-footer p {
+  margin: 0px;
+  /* margin-top: -35px !important; */
+  color: #535353;
+  font-size: 0.9rem;
+}
+
+.recommendation-thirdpage {
+  margin-bottom: 50px;
+  height: 297mm;
+  width: 210mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#recommendation-thirdpage-content {
+  flex: 1 0 auto;
+  padding: 65px 85px;
+  overflow: hidden;
+  max-height: 288mm;
+}
+#recommendation-thirdpage-footer {
+  flex-shrink: 0;
+  padding-left: 85px;
+}
+#recommendation-thirdpage-footer p {
+  margin: 0px;
+  /* margin-top: -35px !important; */
+  color: #535353;
+  font-size: 0.9rem;
 }

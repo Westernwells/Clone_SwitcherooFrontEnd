@@ -5,6 +5,7 @@ const initialState = {
   circumstances: [],
   recommendation: [],
   extraFromPageOne: [],
+  extraFromPageTwo: [],
   applicant1Name: '',
   applicant2Name: '',
   loading: true
@@ -28,6 +29,17 @@ export default function(state = initialState, action) {
         ...state,
         recommendation: payload.updatedRecommendation,
         extraFromPageOne: payload.extras
+      };
+
+    case actions.SET_EXTRAS_FROM_PAGE_TWO:
+      return {
+        ...state,
+        extraFromPageTwo: payload
+      };
+    case actions.CLEAR_EXTRAS_FROM_PAGE_TWO:
+      return {
+        ...state,
+        extraFromPageTwo: []
       };
     default:
       return state;

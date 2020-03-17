@@ -21,6 +21,7 @@ class mDocMain extends React.Component {
   };
 
   render() {
+    console.log("HISTORY", this.props);
     return (
       <div class="ant-col ant-col-lg-24">
         <div class="obord m-4">
