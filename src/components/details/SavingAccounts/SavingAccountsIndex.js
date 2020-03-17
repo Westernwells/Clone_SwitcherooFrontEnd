@@ -38,6 +38,7 @@ function AdditionalPropertyIndex(props) {
     key: -1
   });
   const [array, setArray] = useState([]);
+  const [toggleBtn, setToggleBtn] = useState(false)
   const [expandIconPosition, setExpandIconPosition] = useState("right");
   function clickRadio(e) {
     var label = e.target.childNodes[1];
@@ -51,8 +52,11 @@ function AdditionalPropertyIndex(props) {
     var radioContainers = e.target.parentNode.parentNode.childNodes;
     var qs = questions;
     qs[e.target.name] = e.target.value;
+    if (e.target.name === "haveAccount" && e.target.value === "Yes") {
+      setToggleBtn(true);
+    }
     if (e.target.name === "haveAccount" && e.target.value === "No") {
-      setArray([]);
+      setToggleBtn(false);
     }
     setQ4(!q4);
     // validateRadio(e.target.name, e.target.value);
@@ -86,8 +90,8 @@ function AdditionalPropertyIndex(props) {
   const callback = key => {
     setState({ key });
   };
-  function addAccount() {
-    setArray([...array, array.length + 1]);
+  function addAccount(type) {
+    setArray([...array, type]);
   }
   function onsubmitForm() {
     props.changeProfRoute(7)
@@ -107,9 +111,9 @@ function AdditionalPropertyIndex(props) {
             <Panel
               style={customPanelStyle}
               showArrow={state.key !== index}
-              header={`Saving Account ${index + 1}`}
+              header={`${value} Account ${index + 1}`}
               key={index}
-              // className="ant-collapse-header"
+            // className="ant-collapse-header"
             >
               <SavingAccounts />
             </Panel>
@@ -118,7 +122,7 @@ function AdditionalPropertyIndex(props) {
       </Collapse>
       <Row>
         <Col lg={24}>
-          <h6 className="h61">Do you have any saving/investment account?</h6>
+          <h6 className="h61">Do you have any {array.length !== 0 && "other"} saving/investment account?</h6>
         </Col>
         <Col lg={24} className="q1 q4">
           <div
@@ -160,13 +164,56 @@ function AdditionalPropertyIndex(props) {
             <label for="haveAccount2">No</label>
           </div>
         </Col>
-        {questions.haveAccount && questions.haveAccount === "Yes" && (
+        {/* <Col lg={24}>
+          <h6 className="h61">Do you have any other saving/investment account?</h6>
+        </Col>
+        <Col lg={24} className="q1 q4">
+          <div
+            onClick={e => clickRadio(e)}
+            className={
+              questions.haveOtherAccount === "Yes"
+                ? "radio-container container_malta"
+                : "radio-container"
+            }
+          >
+            <input
+              onChange={e => handleQ(e)}
+              type="radio"
+              name="haveOtherAccount"
+              id="haveOtherAccount1"
+              className=""
+              // checked={questions.purposeOfMortgage === "a"}
+              value="Yes"
+            />
+            <label for="haveOtherAccount1">Yes</label>
+          </div>
+          <div
+            onClick={clickRadio}
+            className={
+              questions.haveOtherAccount === "No"
+                ? "radio-container container_malta"
+                : "radio-container"
+            }
+          >
+            <input
+              onChange={e => handleQ(e)}
+              type="radio"
+              name="haveOtherAccount"
+              id="haveOtherAccount2"
+              // checked={questions.purposeOfMortgage === "House Mover"}
+              className=""
+              value="No"
+            />
+            <label for="haveOtherAccount2">No</label>
+          </div>
+        </Col> */}
+        {toggleBtn && (
           <Col lg={24}>
             <div className="account-btns">
-              <Button onClick={() => addAccount()} className="btn1">
+              <Button onClick={() => addAccount("Saving")} className="btn1">
                 <b>+</b> Saving Account
               </Button>
-              <Button onClick={() => addAccount()} className="btn1">
+              <Button onClick={() => addAccount("Investment")} className="btn1">
                 <b>+</b> Investment Account
               </Button>
             </div>
@@ -184,7 +231,7 @@ function AdditionalPropertyIndex(props) {
             </Button>
             <Button
               // onClick={() => handleRoute("/home/details/switcher3")}
-              onClick = {onsubmitForm}
+              onClick={onsubmitForm}
               className="btn2"
             >
               Countinue

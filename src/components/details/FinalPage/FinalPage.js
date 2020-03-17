@@ -276,13 +276,33 @@ function FinalPage(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() => window.history.back()}
+              onClick={() => {
+                if (props.MortgageFrom == "House Mover") {
+                  props.numberOfForm != 0
+                    ? props.isMortgageFrom(4)
+                    : props.isMortgageFrom(3);
+                  props.numberOfForm != 0
+                    ? props.setProgress(80)
+                    : props.setProgress(70);
+                } else {
+                  props.numberOfForm != 0
+                    ? props.isMortgageFrom(3)
+                    : props.isMortgageFrom(2);
+                  props.numberOfForm != 0
+                    ? props.setProgress(75)
+                    : props.setProgress(60);
+                }
+                // props.setProgress(80)
+              }}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              // onClick={() => handleRoute("/home/details/switcher3")}
+              onClick={() => {
+                props.changeProfRoute(1);
+                props.setProgress(0);
+              }}
               className="btn2"
             >
               Countinue

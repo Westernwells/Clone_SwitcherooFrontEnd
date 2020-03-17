@@ -7,7 +7,7 @@ export default class WithPrint extends React.Component {
   render() {
     return (
       <div>
-      <KForm ref={el => (this.componentRef = el)} />
+      <Print ref={el => (this.componentRef = el)} />
         <ReactToPrint
         
           trigger={() => <button className="printButton">Print</button>}

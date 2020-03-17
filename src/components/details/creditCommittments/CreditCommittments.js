@@ -509,8 +509,18 @@ class CreditCommittments extends Component {
                             </Button>
                             <Button
                                 onClick={() => {
-                                    this.handleSubmit()
-                                    this.props.changeProfRoute(6);
+                                    // if(questions.firstPaymentAcc == 'a'){
+                                        console.log(questions)
+                                        this.handleSubmit()
+                                        // this.props.changeProfRoute(6);
+                                        this.props.changeForm(2)
+                                        this.props.setProgress(50)
+                                        this.props.getData(questions.firstPaymentAcc)
+                                    // }else {
+                                        // this.props.changeProfRoute(6);
+
+                                    // }
+                                   
                                 }}
                                 className="btn2"
                                 loading={this.props.loading}

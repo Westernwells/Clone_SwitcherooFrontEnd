@@ -24,9 +24,7 @@ const ContOneHeader = ({ introduction }) => {
           </h5>
         </div>
         <div style={{ flex: '1' }}>
-          <p
-            style={{ color: '#97999b', lineHeight: '1.3', fontSize: '0.75rem' }}
-          >
+          <p className="recommendation-text" style={{ lineHeight: '1.3' }}>
             Switcheroo.ie <br /> 13 Bagget Street Upper Dublin 4 <br /> D04W7K5
             <br />
             02-12-2020
@@ -37,7 +35,7 @@ const ContOneHeader = ({ introduction }) => {
         <img
           src={YourRecommendationHeaderText1}
           alt="..."
-          style={{ width: '75%', margin: 'auto', display: 'block' }}
+          style={{ width: '85%', margin: 'auto', display: 'block' }}
         />
       </div>
       <div className="recommendation-para">
