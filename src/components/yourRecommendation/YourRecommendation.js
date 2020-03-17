@@ -1,41 +1,47 @@
-import React, { useEffect, Component } from "react";
-import "./styles.css";
-import { Col } from "antd";
-import Rightbar from "../home/rightbar/rightbar";
-import ContOneHeader from "./RecommendationHeader/ContOneHeader";
-import ContTwoHeader from "./RecommendationHeader/ContTwoHeader";
-import YourCircumstances from "./YourCircumstances/YourCircumstances";
-import OurRecommendation from "./OurRecommendation/OurRecommendation";
-import Extras from "./extras/Extras";
-import ExtrasFromPageTwo from "./extras/ExtrasFromPageTwo";
-import Risk from "./risk/Risk";
-import NextSteps from "./nextSteps/NextSteps";
-import Signature from "./signature/Signature";
-import RecommendationButtons from "./Buttons/RecommendationButtons";
-import Footer from "./Footer/Footer";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { setText } from "../../redux/actions/yourRecommendation/recommendationAction";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, Component } from 'react';
+import './styles.css';
+import { Col } from 'antd';
+import Rightbar from '../home/rightbar/rightbar';
+import ContOneHeader from './RecommendationHeader/ContOneHeader';
+import ContTwoHeader from './RecommendationHeader/ContTwoHeader';
+import YourCircumstances from './YourCircumstances/YourCircumstances';
+import OurRecommendation from './OurRecommendation/OurRecommendation';
+import Extras from './extras/Extras';
+import ExtrasFromPageTwo from './extras/ExtrasFromPageTwo';
+import Risk from './risk/Risk';
+import NextSteps from './nextSteps/NextSteps';
+import Signature from './signature/Signature';
+import RecommendationButtons from './Buttons/RecommendationButtons';
+import Footer from './Footer/Footer';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { setText } from '../../redux/actions/yourRecommendation/recommendationAction';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faDownload,
   faPrint,
   faUpload
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 class YourRecommendation extends Component {
   state = {};
 
   componentDidMount() {
-    if (this.props.recommendation.length === 0) {
-      this.props.setText();
+    if (this.props.recommendation.length === 0 && this.props.userId !== null) {
+      this.props.setText(this.props.userId);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.userId !== prevProps.userId) {
+      this.props.setText(this.props.userId);
     }
   }
 
   render() {
     return (
       <>
-        <Col style={{ height: "calc(100vh - 100px)" }} lg={18}>
+        <Col style={{ height: 'calc(100vh - 100px)' }} lg={18}>
           <RecommendationButtons />
           <div className="recommendation-toPrint">
             <div className="recommendation-page-wrapper">
@@ -97,7 +103,8 @@ class YourRecommendation extends Component {
 const mapStateToProps = state => {
   return {
     recommendation: state.yourRecommendationReducer.recommendation,
-    extraFromPageTwo: state.yourRecommendationReducer.extraFromPageTwo
+    extraFromPageTwo: state.yourRecommendationReducer.extraFromPageTwo,
+    userId: state.userReducer.user._id
   };
 };
 

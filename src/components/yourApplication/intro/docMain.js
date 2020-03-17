@@ -36,7 +36,7 @@ class docMain extends React.Component {
         >
           ICS Form
         </button>
-        <button
+        {/* <button
           onClick={
             () => this.props.history.push("/home/yourApplication/newForm")
             // alert(
@@ -45,7 +45,7 @@ class docMain extends React.Component {
           }
         >
           New PIBA Form
-        </button>
+        </button> */}
         <button
           onClick={
             () =>
@@ -97,7 +97,7 @@ class docMain extends React.Component {
             // )
           }
         >
-          Demo Form
+          PIBA Form
         </button>
       </div>
     );

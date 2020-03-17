@@ -46,18 +46,16 @@ class BankDetails extends Component {
     questions: {
       q: ""
     }
-
   };
 
   clickRadio = e => {
     var label = e.target.childNodes[1];
-    if ( label ) {
+    if (label) {
       label.click();
     }
   };
-  // Create new Acount 
-  generateAcount = ( type ) => {
-
+  // Create new Acount
+  generateAcount = type => {
     let newAcount = {
       accType: type,
       accPurpose: "",
@@ -71,89 +69,91 @@ class BankDetails extends Component {
       arrears: "",
       finalPayDate: "",
       clearing: "",
-      isActive: true,
-    }
-    for ( let i = 0; i < this.state.loanOrOverdraftCosts.length; i++ ) {
+      isActive: true
+    };
+    for (let i = 0; i < this.state.loanOrOverdraftCosts.length; i++) {
       this.state.loanOrOverdraftCosts[i].isActive = false;
     }
-    this.setState( {
-      loanOrOverdraftCosts: [...this.state.loanOrOverdraftCosts, { ...newAcount }]
-    } );
-  }
-  handleClick = ( index ) => {
-    for ( let i = 0; i < this.state.loanOrOverdraftCosts.length; i++ ) {
-      if ( i !== index ) {
+    this.setState({
+      loanOrOverdraftCosts: [
+        ...this.state.loanOrOverdraftCosts,
+        { ...newAcount }
+      ]
+    });
+  };
+  handleClick = index => {
+    for (let i = 0; i < this.state.loanOrOverdraftCosts.length; i++) {
+      if (i !== index) {
         this.state.loanOrOverdraftCosts[i].isActive = false;
       }
     }
-    this.setState( ( { loanOrOverdraftCosts, questions } ) => ( {
+    this.setState(({ loanOrOverdraftCosts, questions }) => ({
       questions: { ...questions, q3: "" },
       loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
+        ...loanOrOverdraftCosts.slice(0, index),
         {
           ...loanOrOverdraftCosts[index],
-          isActive: !this.state.loanOrOverdraftCosts[index].isActive,
+          isActive: !this.state.loanOrOverdraftCosts[index].isActive
         },
-        ...loanOrOverdraftCosts.slice( index + 1 )
+        ...loanOrOverdraftCosts.slice(index + 1)
       ]
-
-    } ) );
-  }
-  //handle purpose select 
-  handlePurposeChange = ( value, index ) => {
-    this.setState( ( { loanOrOverdraftCosts } ) => ( {
-      loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
-        {
-          ...loanOrOverdraftCosts[index],
-          accPurpose: value,
-        },
-        ...loanOrOverdraftCosts.slice( index + 1 )
-      ]
-    } ) );
+    }));
   };
-  handleLenderChange = ( value, index ) => {
-    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+  //handle purpose select
+  handlePurposeChange = (value, index) => {
+    this.setState(({ loanOrOverdraftCosts }) => ({
       loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
+        ...loanOrOverdraftCosts.slice(0, index),
         {
           ...loanOrOverdraftCosts[index],
-          lenderName: value,
+          accPurpose: value
         },
-        ...loanOrOverdraftCosts.slice( index + 1 )
+        ...loanOrOverdraftCosts.slice(index + 1)
       ]
-    } ) );
-  }
-  handleInputChange = ( event, index ) => {
+    }));
+  };
+  handleLenderChange = (value, index) => {
+    this.setState(({ loanOrOverdraftCosts }) => ({
+      loanOrOverdraftCosts: [
+        ...loanOrOverdraftCosts.slice(0, index),
+        {
+          ...loanOrOverdraftCosts[index],
+          lenderName: value
+        },
+        ...loanOrOverdraftCosts.slice(index + 1)
+      ]
+    }));
+  };
+  handleInputChange = (event, index) => {
     const { name, value, validity } = event.target;
-    if ( name === "creditUnionLoc" || name === "creditUnionName" ) {
-      this.setState( ( { loanOrOverdraftCosts } ) => ( {
+    if (name === "creditUnionLoc" || name === "creditUnionName") {
+      this.setState(({ loanOrOverdraftCosts }) => ({
         loanOrOverdraftCosts: [
-          ...loanOrOverdraftCosts.slice( 0, index ),
+          ...loanOrOverdraftCosts.slice(0, index),
           {
             ...loanOrOverdraftCosts[index],
-            [name]: value,
+            [name]: value
           },
-          ...loanOrOverdraftCosts.slice( index + 1 )
+          ...loanOrOverdraftCosts.slice(index + 1)
         ]
-      } ) );
+      }));
     } else {
-      this.setState( ( { loanOrOverdraftCosts } ) => ( {
+      this.setState(({ loanOrOverdraftCosts }) => ({
         loanOrOverdraftCosts: [
-          ...loanOrOverdraftCosts.slice( 0, index ),
+          ...loanOrOverdraftCosts.slice(0, index),
           {
             ...loanOrOverdraftCosts[index],
-            [name]: validity.valid ? value : loanOrOverdraftCosts[index][name],
+            [name]: validity.valid ? value : loanOrOverdraftCosts[index][name]
           },
-          ...loanOrOverdraftCosts.slice( index + 1 )
+          ...loanOrOverdraftCosts.slice(index + 1)
         ]
-      } ) );
+      }));
     }
-  }
+  };
   handleSubmit = () => {
-    let { loanOrOverdraftCosts } = this.state
+    let { loanOrOverdraftCosts } = this.state;
 
-    this.props.bankDetailsPost( {
+    this.props.bankDetailsPost({
       userId: this.props.userId,
       monthlyOutgoings: {
         ...this.state.monthlyOutgoings
@@ -162,136 +162,140 @@ class BankDetails extends Component {
         ...this.state.creditCommitments,
         loanOrOverdraftCosts: [...loanOrOverdraftCosts]
       }
-    } )
+    });
     // console.log( this.props.loading );
     // if ( !this.props.loading ) {
     //   this.props.changeProfRout( 7 );
     // }
-
-  }
+  };
   componentDidMount = () => {
     const options = {
       method: "GET",
-      headers: new Headers( {
-        Authorization: "Bearer " + localStorage.getItem( "tokenas" ),
+      headers: new Headers({
+        Authorization: "Bearer " + localStorage.getItem("tokenas"),
         "Content-Type": "application/json"
-      } )
+      })
     };
-    let url = `${ baseurl }/detailsYouNeed/getDetails/${ this.props.userId }`
-    fetch( url, options )
-      .then( res => {
-        console.log( res );
-        res.json().then( res => {
-          console.log( "responsed====>", res );
-          if ( res.creditCommitments.loanOrOverdraftCosts ) {
-            this.setState( {
+    let url = `${baseurl}/detailsYouNeed/getDetails/${this.props.userId}`;
+    fetch(url, options)
+      .then(res => {
+        console.log(res);
+        res.json().then(res => {
+          console.log("responsed====>", res);
+          if (res.creditCommitments.loanOrOverdraftCosts) {
+            this.setState({
               creditCommitments: res.creditCommitments,
               monthlyOutgoings: res.monthlyOutgoings,
-              loanOrOverdraftCosts: [...res.creditCommitments.loanOrOverdraftCosts]
-            } )
+              loanOrOverdraftCosts: [
+                ...res.creditCommitments.loanOrOverdraftCosts
+              ]
+            });
           } else {
-            this.setState( {
+            this.setState({
               creditCommitments: res.creditCommitments,
-              monthlyOutgoings: res.monthlyOutgoings,
-            } )
+              monthlyOutgoings: res.monthlyOutgoings
+            });
           }
-
-        } );
-      } )
-      .catch( err => {
-        console.log( err );
-        alert( err.msg );
-      } );
-  }
-  handleCommentsChange = ( evt, index ) => {
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        alert(err.msg);
+      });
+  };
+  handleCommentsChange = (evt, index) => {
     const { value } = evt.target;
-    console.log( "index", index )
-    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+    console.log("index", index);
+    this.setState(({ loanOrOverdraftCosts }) => ({
       loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
+        ...loanOrOverdraftCosts.slice(0, index),
         {
           ...loanOrOverdraftCosts[index],
-          comments: value.length < 256 ? value : loanOrOverdraftCosts[index].comments,
+          comments:
+            value.length < 256 ? value : loanOrOverdraftCosts[index].comments
         },
-        ...loanOrOverdraftCosts.slice( index + 1 )
+        ...loanOrOverdraftCosts.slice(index + 1)
       ]
-    } ) );
-  }
-  onDateChange = ( date, dateString, index ) => {
-    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+    }));
+  };
+  onDateChange = (date, dateString, index) => {
+    this.setState(({ loanOrOverdraftCosts }) => ({
       loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
+        ...loanOrOverdraftCosts.slice(0, index),
         {
           ...loanOrOverdraftCosts[index],
-          finalPayDate: dateString,
+          finalPayDate: dateString
         },
-        ...loanOrOverdraftCosts.slice( index + 1 )
+        ...loanOrOverdraftCosts.slice(index + 1)
       ]
-    } ) );
-  }
+    }));
+  };
 
   //loan acount methods
   handleQ = e => {
     const { questions } = this.state;
     var radioContainers = e.target.parentNode.parentNode.childNodes;
-    console.log( "readio =====>", radioContainers );
+    console.log("readio =====>", radioContainers);
     var qs = questions;
     qs[e.target.name] = e.target.value;
-    console.log( qs );
-    this.setState( {
+    console.log(qs);
+    this.setState({
       q4: !this.state.q4
-    } );
+    });
   };
-  handleRadioButton = ( e, index ) => {
-    const value = e
-    console.log( "value     ==>", value );
+  handleRadioButton = (e, index) => {
+    const value = e;
+    console.log("value     ==>", value);
     // console.log("value=====>",e.target.value)
-    this.setState( ( { loanOrOverdraftCosts } ) => ( {
+    this.setState(({ loanOrOverdraftCosts }) => ({
       loanOrOverdraftCosts: [
-        ...loanOrOverdraftCosts.slice( 0, index ),
+        ...loanOrOverdraftCosts.slice(0, index),
         {
           ...loanOrOverdraftCosts[index],
-          clearing: value,
+          clearing: value
         },
-        ...loanOrOverdraftCosts.slice( index + 1 )
+        ...loanOrOverdraftCosts.slice(index + 1)
       ]
-    } ) );
-  }
+    }));
+  };
 
   renderAcount = () => {
     return (
       <React.Fragment>
-        <AddAcount name="Loan Account" handleAddAccount={() => this.generateAcount( "loan" )} />
+        <AddAcount
+          name="Loan Account"
+          handleAddAccount={() => this.generateAcount("loan")}
+        />
         <AddAcount
           name="Overdraft Account"
-          handleAddAccount={() => this.generateAcount( "overdraft" )}
+          handleAddAccount={() => this.generateAcount("overdraft")}
         />
         <AddAcount
           name="Credit Card Account"
-          handleAddAccount={() => this.generateAcount( "credit" )}
+          handleAddAccount={() => this.generateAcount("credit")}
         />
       </React.Fragment>
     );
   };
   componentWillMount() {
-    this.setState( {
-      loanOrOverdraftCosts: this.props.loanOrOverdraftCosts ? this.props.loanOrOverdraftCosts : []
-    } )
+    this.setState({
+      loanOrOverdraftCosts: this.props.loanOrOverdraftCosts
+        ? this.props.loanOrOverdraftCosts
+        : []
+    });
   }
 
   render() {
-    const { questions, loanOrOverdraftCosts } = this.state
-    console.log( "Accounts details =====>", this.state );
+    const { questions, loanOrOverdraftCosts } = this.state;
+    console.log("Accounts details =====>", this.state);
     return (
       <div className="credit-commitments">
         <Row className="d-row-s1">
           <Col lg={24}>
             <h1 className="heading1">Let's get some details of your account</h1>
           </Col>
-          {loanOrOverdraftCosts.map( ( rec, index ) => {
-
+          {loanOrOverdraftCosts.map((rec, index) => {
             return (
-
               <Col lg={19}>
                 <BankCollapse
                   accType={rec.accType}
@@ -310,19 +314,17 @@ class BankDetails extends Component {
                   creditUnionLoc={rec.creditUnionLoc}
                   outstandingBal={rec.outstandingBal}
                   clearing={rec.clearing}
-                  handleClick={() => this.handleClick( index )}
+                  handleClick={() => this.handleClick(index)}
                   handlePurposeChange={this.handlePurposeChange}
                   handleLenderChange={this.handleLenderChange}
                   handleInputChange={this.handleInputChange}
                   onDateChange={this.onDateChange}
                   handleCommentsChange={this.handleCommentsChange}
                   handleRadioButton={this.handleRadioButton}
-
                 />
-              </Col> )
-          }
-
-          )}
+              </Col>
+            );
+          })}
 
           <Col lg={24}>
             <h6 className="h61">
@@ -353,7 +355,9 @@ class BankDetails extends Component {
             <div
               onClick={this.clickRadio}
               className={
-                questions.q3 === "b" ? " radio-container container_malta" : "radio-container"
+                questions.q3 === "b"
+                  ? " radio-container container_malta"
+                  : "radio-container"
               }
             >
               <input
@@ -371,22 +375,33 @@ class BankDetails extends Component {
           {questions.q3 == "a" && this.renderAcount()}
 
           <Col style={{ marginTop: "50px" }} lg={24}>
-            {questions.q3 !== "b" && <h6 className="heading1">
-              OK, lets get these acount details from you
-            </h6>}
+            {questions.q3 !== "b" && (
+              <h6 className="heading1">
+                OK, lets get these acount details from you
+              </h6>
+            )}
           </Col>
 
           <Col lg={10} offset={0}>
             <div className="btn-div">
               <Button
                 style={{ height: "40px" }}
-                onClick={() => this.props.changeProfRout( 6 )}
+                onClick={() => {
+                  // this.props.changeProfRoute(4);
+                  this.props.setProgress(0);
+                  this.props.changeForm(1)
+
+                }}
                 className="btn1"
               >
                 Back
               </Button>
               <Button
-                onClick={() => this.handleSubmit()}
+                onClick={() => {
+                  this.handleSubmit();
+                  this.props.changeProfRoute(6);
+                  this.props.setProgress(0);
+                }}
                 className="btn2"
               >
                 Save & Continue
@@ -399,19 +414,18 @@ class BankDetails extends Component {
   }
 }
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = state => {
   return {
     userId: state.userReducer.user._id,
     newProps: state.detailsReducer,
     loading: state.detailsReducer.loading,
     error: state.detailsReducer.error,
     loanOrOverdraftCosts: state.detailsReducer.loanOrOverdraftCosts
-  }
-}
+  };
+};
 
-
-const mapDispatchToProps = dispacth => ( {
-  bankDetailsPost: ( props, callback ) =>
-    dispacth( Api.bankDetailsPost( props, callback ) )
-} );
-export default connect( mapStateToProps, mapDispatchToProps )( BankDetails );
+const mapDispatchToProps = dispacth => ({
+  bankDetailsPost: (props, callback) =>
+    dispacth(Api.bankDetailsPost(props, callback))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(BankDetails);

@@ -289,7 +289,7 @@ function SwitcherThree(props) {
               style={{ height: "40px" }}
               onClick={() => {
                 props.changeProfRoute(0);
-                props.isMortgageFrom(2);
+                props.isMortgageFrom(3);
                 props.setProgress(50);
               }}
               className="btn1"
@@ -298,9 +298,20 @@ function SwitcherThree(props) {
             </Button>
             <Button
               onClick={() => {
-                props.changeProfRoute(1);
-                // props.isMortgageFrom(1)
-                props.setProgress(0)
+                console.log(questions)
+                if (questions.q3 == 'a') {
+                  // props.changeProfRoute(1);
+                  props.getData(questions.q3,addP)
+                  props.isMortgageFrom(4);
+
+                  props.setProgress(60);
+                } else {
+                  props.isMortgageFrom(5);
+
+                  // props.isMortgageFrom(3);
+
+                  props.setProgress(80);
+                }
               }}
               // onClick={onsubmitForm}
               className="btn2"

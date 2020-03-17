@@ -6,7 +6,7 @@ const { Option } = Select;
 function MortgageDetailsStep1(props) {
   const [q4, setQ4] = useState(false);
   const [questions, setQuestions] = useState({
-    address1: "",
+    propAddress: "",
     city: "",
     eircode: ""
   });
@@ -92,12 +92,33 @@ function MortgageDetailsStep1(props) {
   function handleInput(e) {
     setQuestions({ ...questions, [e.target.name]: e.target.value });
   }
+
   function handleChange(value) {
     console.log(`selected ${value}`);
+    setQuestions({ ...questions, county: value });
   }
   const handleRoute = route => {
     props.history.push(route);
   };
+
+  const onsubmitForm = () => {
+    console.log(questions);
+    // props.getData(questions)
+    props.MortgageFrom(questions.situation);
+    props.isMortgageFrom(1);
+    props.setProgress(
+      questions.situation == "First time Borrower"
+        ? 50
+        : questions.situation === "Mortgage Switcher"
+        ? 33
+        : questions.situation == "House Mover"
+        ? 25
+        : 0
+    );
+
+    props.submitData(questions)
+  };
+
   return (
     <div className="MortgageDetailsStep1">
       {console.log(questions)}
@@ -120,7 +141,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="ApplicationType"
+              name="appType"
               id="q11"
               className=""
               // checked={questions.peopleOnMortgage === "one"}
@@ -139,7 +160,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="ApplicationType"
+              name="appType"
               id="q12"
               className=""
               value="Joint"
@@ -249,7 +270,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="kindOfProperty"
+              name="kindOfProp"
               id="q31"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -268,7 +289,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="kindOfProperty"
+              name="kindOfProp"
               id="q32"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -292,7 +313,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="natureOfConstruction"
+              name="constructionNature"
               id="q41"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -311,7 +332,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="natureOfConstruction"
+              name="constructionNature"
               id="q42"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -330,7 +351,7 @@ function MortgageDetailsStep1(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="natureOfConstruction"
+              name="constructionNature"
               id="q43"
               // checked={
               //   questions.purposeOfMortgage === "Switcher"
@@ -349,7 +370,8 @@ function MortgageDetailsStep1(props) {
             <Select
               className="select-option1"
               defaultValue="Select from options"
-              onChange={handleChange}
+              onChange={(value) => setQuestions({ ...questions, bedrooms: value })}
+              name="bedrooms"
             >
               {bedrooms.map((value, index) => {
                 return (
@@ -368,11 +390,11 @@ function MortgageDetailsStep1(props) {
           </h6>
         </Col>
         <Col lg={24}>
-          <div className={questions.address1 ? "input bg-orange" : "input"}>
+          <div className={questions.propAddress ? "input bg-orange" : "input"}>
             <input
               type="text"
               onChange={e => handleInput(e)}
-              name="address1"
+              name="propAddress"
               placeholder="Address Line 1"
             />
           </div>
@@ -389,7 +411,9 @@ function MortgageDetailsStep1(props) {
             <Select
               className="select-option1 select-option-big"
               defaultValue="County"
-              onChange={handleChange}
+              onChange={e => handleInput(e)}
+              name="county"
+              onChange={value => setQuestions({ ...questions, county: value })}
             >
               {county.map((value, index) => {
                 return (
@@ -425,22 +449,10 @@ function MortgageDetailsStep1(props) {
             </Button>
             <Button
               // onClick={() => handleRoute("/home/details/s2")}
-              // onClick={onsubmitForm}
-              onClick={() => {
-                // props.changeProfRoute(1)
-                console.log(questions);
-                props.MortgageFrom(questions.situation);
-                props.isMortgageFrom(1);
-                props.setProgress(
-                  questions.situation == "First time Borrower"
-                    ? 50
-                    : questions.situation === "Mortgage Switcher"
-                    ? 33
-                    : questions.situation == "House Mover"
-                    ? 25
-                    : 0
-                );
-              }}
+              onClick={onsubmitForm}
+              // onClick={() => {
+              //   // props.changeProfRoute(1)
+              // }}
               className="btn2"
               // loading={props.financial_data.loading}
               // disabled={

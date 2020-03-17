@@ -52,7 +52,11 @@ function MortgageDetailsFTB1p1(props) {
   const handleRoute = route => {
     props.history.push(route);
   };
-
+ const onsubmitForm = () => {
+    props.submitData(questions,'step1')
+    props.changeProfRoute(1);
+    props.setProgress(0);
+  };
   return (
     <div className="MortgageDetailsFTB1p1">
       <Row className="d-row-s1">
@@ -65,7 +69,7 @@ function MortgageDetailsFTB1p1(props) {
         <Col lg={24}>
           <div className="input2">
             <span className="pre">€</span>
-            <input type="text" name="value" placeholder="########" />
+            <input type="text" name="propValue" placeholder="########" />
           </div>
         </Col>
         <Col lg={24}>
@@ -76,7 +80,7 @@ function MortgageDetailsFTB1p1(props) {
         <Col lg={24} className="q1">
           <div className="input2">
             <span className="pre">€</span>
-            <input type="text" name="value" placeholder="########" />
+            <input type="text" name="depositOrSavings" placeholder="########" />
           </div>
         </Col>
 
@@ -88,7 +92,9 @@ function MortgageDetailsFTB1p1(props) {
             <Select
               className="select-option1"
               defaultValue="Select from options"
-              onChange={handleChange}
+              onChange={value =>
+                setQuestions({ ...questions, depositSource: value })
+              }
             >
               {sourcesOfDeposit.map((value, index) => {
                 return (
@@ -136,7 +142,7 @@ function MortgageDetailsFTB1p1(props) {
             <input
               type="text"
               disabled={disRegistrationFee}
-              name="registrationSurvayFee"
+              name="surveyFees"
               placeholder="########"
             />
           </div>
@@ -158,7 +164,7 @@ function MortgageDetailsFTB1p1(props) {
             <input
               type="text"
               disabled={disLoanAmount}
-              name="loanAmount"
+              name="loanOf"
               placeholder="########"
             />
           </div>
@@ -179,7 +185,9 @@ function MortgageDetailsFTB1p1(props) {
             <Select
               className="select-option1"
               defaultValue="Select Year"
-              onChange={handleChange}
+              onChange={(value) =>
+                setQuestions({ ...questions, borrowingYears: value })
+              }
             >
               {years.map((value, index) => {
                 return (
@@ -205,18 +213,18 @@ function MortgageDetailsFTB1p1(props) {
             <Button
               style={{ height: "40px" }}
               onClick={() => {
-                props.isMortgageFrom(0)
-                props.setProgress(0)
+                props.isMortgageFrom(0);
+                props.setProgress(0);
               }}
               className="btn1"
             >
               Back
             </Button>
             <Button
-              onClick={() => {props.changeProfRoute(1)
-                props.setProgress(0)
-              }}
-              // onClick={onsubmitForm}
+              // onClick={() => {props.changeProfRoute(1)
+              //   props.setProgress(0)
+              // }}
+              onClick={onsubmitForm}
               className="btn2"
               // loading={props.financial_data.loading}
               // disabled={

@@ -7,6 +7,13 @@ import "../style.css";
 import "./styles.css";
 import BorrowIcon from "../../../assets/oth_icon.png";
 import FileUploadIcon from "../../../assets/icon-file-upload.png";
+import axios from "axios";
+import Api from "../../../redux/api/financialHealthCheck";
+
+export const baseurl =
+  window.location.origin === "http://localhost:3000"
+    ? "http://localhost:8080"
+    : window.location.origin;
 
 class StepFive extends Component {
   constructor(props) {
@@ -16,6 +23,8 @@ class StepFive extends Component {
       tab2: false,
       uploadApplicant1: false,
       uploadApplicant2: false,
+      applicant1User: this.props.userFirstName,
+      applicant2User: this.props.financial_data.firstNameSecondApplicant,
       isEdit: false,
       currentList: null,
       selectedOption: null,
@@ -27,47 +36,13 @@ class StepFive extends Component {
         "Passport back",
         "Passport front"
       ],
-      app1FileList: [],
-      app2FileList: []
+      appsFileList: {
+        tile: "borrowAndOverdrafts",
+        1: [],
+        2: []
+      }
     };
   }
-
-  generateKey = pre => {
-    const uniqueTime = new Date().getTime();
-    return pre + "_" + uniqueTime;
-  };
-
-  onChangeApplicant1 = event => {
-    const { app1FileList } = this.state;
-
-    if (event.target.files[0].type === "application/pdf") {
-      app1FileList.push({
-        id: this.generateKey("app1"),
-        title: event.target.files[0].name,
-        bckAct: "8967657645",
-        year: "March",
-        files: "Passport back"
-      });
-    }
-
-    this.setState({ app1FileList });
-  };
-
-  onChangeApplicant2 = event => {
-    const { app2FileList } = this.state;
-
-    if (event.target.files[0].type === "application/pdf") {
-      app2FileList.push({
-        id: this.generateKey("app2"),
-        title: event.target.files[0].name,
-        bckAct: "8967657645",
-        year: "March",
-        files: "Passport back"
-      });
-    }
-
-    this.setState({ app2FileList });
-  };
 
   handleRoute = route => {
     this.props.history.push(route);
@@ -75,15 +50,18 @@ class StepFive extends Component {
 
   applicant1Updates = item => {
     const { isEdit, selectedOption, selectedYear } = this.state;
-    let items = [...this.state.app1FileList];
+    let app1Items = this.state.appsFileList;
 
-    let index = items.indexOf(item);
+    let items = [...app1Items[1]];
+    let index = items.findIndex(obj => obj.id === item.id);
     let itm = { ...items[index] };
-    itm.bckAct = selectedOption;
-    itm.year = selectedYear;
+    itm.fileTags.accountNumber = selectedOption;
+    itm.fileTags.fileMonth = selectedYear;
     items[index] = itm;
+    app1Items[1] = items;
+
     this.setState({
-      app1FileList: items,
+      appsFileList: app1Items,
       isEdit: !isEdit,
       currentList: item.id
     });
@@ -91,18 +69,26 @@ class StepFive extends Component {
 
   applicant2Updates = item => {
     const { isEdit, selectedOption, selectedYear } = this.state;
-    let items = [...this.state.app2FileList];
+    let app2Items = this.state.appsFileList;
 
-    let index = items.indexOf(item);
+    let items = [...app2Items[2]];
+    let index = items.findIndex(obj => obj.id === item.id);
     let itm = { ...items[index] };
-    itm.bckAct = selectedOption;
-    itm.year = selectedYear;
+    itm.fileTags.accountNumber = selectedOption;
+    itm.fileTags.fileMonth = selectedYear;
     items[index] = itm;
+    app2Items[2] = items;
+
     this.setState({
-      app2FileList: items,
+      appsFileList: app2Items,
       isEdit: !isEdit,
       currentList: item.id
     });
+  };
+
+  generateKey = pre => {
+    const uniqueTime = new Date().getTime();
+    return pre + "_" + uniqueTime;
   };
 
   handleTabClasses = applicant => {
@@ -112,29 +98,32 @@ class StepFive extends Component {
   };
 
   handleRemove = (item, applicant) => {
-    const { app1FileList, app2FileList } = this.state;
-    const files = (applicant === 1 ? app1FileList : app2FileList).filter(
-      file => file.id !== item
+    const { appsFileList } = this.state;
+    let filteredList = appsFileList;
+
+    filteredList[applicant] = filteredList[applicant].filter(
+      f => f.id !== item
     );
-    applicant === 1
-      ? this.setState({ app1FileList: files })
-      : this.setState({ app2FileList: files });
+    this.setState({ appsFileList: filteredList });
   };
 
   getFilesList = applicant => {
-    const { app1FileList, isEdit, currentList, app2FileList } = this.state;
+    const { isEdit, currentList, appsFileList } = this.state;
 
-    let filesList = (applicant === 1 ? app1FileList : app2FileList).map(f => (
+    let filesList = Object.entries(appsFileList[applicant]).map(([key, f]) => (
       <li className="row pt-4 mb-2" key={f.id}>
+        {console.log("FILES", f)}
         <i className="fa fa-pdf fa-file-pdf fa-2x pl-0 col-md-1 text-right"></i>
-        <span className="col-md-4 text-left">{f.title}</span>
+        <span className="col-md-4 text-left">{f.fileName}</span>
         {isEdit && currentList === f.id ? (
           <>
             <select
               className="col-md-3 filesOptions"
               onChange={e => this.setState({ selectedOption: e.target.value })}
               value={
-                this.state.selectedOption ? this.state.selectedOption : f.bckAct
+                this.state.selectedOption
+                  ? this.state.selectedOption
+                  : f.fileTags.accountNumber
               }
             >
               {this.state.bckAcctList.map(ft => (
@@ -144,7 +133,11 @@ class StepFive extends Component {
             <select
               className="col-md-2 filesOptions ml-1"
               onChange={e => this.setState({ selectedYear: e.target.value })}
-              value={this.state.selectedYear ? this.state.selectedYear : f.year}
+              value={
+                this.state.selectedYear
+                  ? this.state.selectedYear
+                  : f.fileTags.fileMonth
+              }
             >
               <option value="January">January</option>
               <option value="Feburary">Feburary</option>
@@ -172,8 +165,8 @@ class StepFive extends Component {
           </>
         ) : (
           <>
-            <span className="col-md-3">{f.bckAct}</span>
-            <span className="col-md-2">{f.year}</span>
+            <span className="col-md-3">{f.fileTags.accountNumber}</span>
+            <span className="col-md-2">{f.fileTags.fileMonth}</span>
             <i
               className="fa fa-edit col-md-1 text-right fa-cus-2x"
               onClick={() =>
@@ -192,8 +185,62 @@ class StepFive extends Component {
     return filesList;
   };
 
+  onUploadFiles = applicant => {
+    const { appsFileList } = this.state;
+    const count = appsFileList[applicant].length;
+
+    for (let i = 0; i < count; i++) {
+      // console.log(appsFileList[applicant][i]);
+
+      const data = new FormData();
+      data.append("applicantTile", "borrowAndOverdrafts");
+      data.append("applicants", JSON.stringify(appsFileList[applicant][i]));
+      data.append("applicant1File", appsFileList[applicant][i].file);
+
+      axios
+        .post(baseurl + "/documentation/uploadDocument", data, {})
+        .then(res => {
+          console.log("CHECK UPLOAD STATUS", res);
+        });
+    }
+  };
+
+  onChangeApplicant1 = event => {
+    const { appsFileList } = this.state;
+
+    appsFileList[1].push({
+      id: this.generateKey("app1"),
+      fileType: "Passport back",
+      fileName: event.target.files[0].name,
+      file: event.target.files[0],
+      fileTags: {
+        accountNumber: 38678592,
+        fileMonth: "June"
+      }
+    });
+
+    this.setState({ appsFileList });
+  };
+
+  onChangeApplicant2 = event => {
+    const { appsFileList } = this.state;
+
+    appsFileList[2].push({
+      id: this.generateKey("app1"),
+      fileType: "Passport back",
+      fileName: event.target.files[0].name,
+      file: event.target.files[0],
+      fileTags: {
+        accountNumber: 38678592,
+        fileMonth: "June"
+      }
+    });
+
+    this.setState({ appsFileList });
+  };
+
   render() {
-    const { tab1, tab2 } = this.state;
+    const { tab1, tab2, applicant1User, applicant2User } = this.state;
 
     return (
       <div class="ant-col ant-col-lg-24">
@@ -276,29 +323,33 @@ class StepFive extends Component {
                       <div>
                         <i className="fas fa-user-alt fa-1x"></i>
                         <br />
-                        <span>Applicant 1</span>
+                        <span>{applicant1User}</span>
                       </div>
                     </a>
-                    <a
-                      className={this.handleTabClasses(tab2)}
-                      id="nav-home-tab"
-                      data-toggle="tab"
-                      role="tab"
-                      aria-controls="nav-home"
-                      aria-selected="true"
-                      onClick={() =>
-                        this.setState({
-                          tab1: false,
-                          tab2: true
-                        })
-                      }
-                    >
-                      <div>
-                        <i className="fas fa-user-alt fa-1x"></i>
-                        <br />
-                        <span>Applicant 2</span>
-                      </div>
-                    </a>
+                    {applicant2User ? (
+                      <a
+                        className={this.handleTabClasses(tab2)}
+                        id="nav-home-tab"
+                        data-toggle="tab"
+                        role="tab"
+                        aria-controls="nav-home"
+                        aria-selected="true"
+                        onClick={() =>
+                          this.setState({
+                            tab1: false,
+                            tab2: true
+                          })
+                        }
+                      >
+                        <div>
+                          <i className="fas fa-user-alt fa-1x"></i>
+                          <br />
+                          <span>{applicant2User}</span>
+                        </div>
+                      </a>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -311,7 +362,7 @@ class StepFive extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for Applicant 1</h1>
+                        <h1>Upload document for {applicant1User}</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant1 ? (
@@ -335,8 +386,8 @@ class StepFive extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-5">
                               <span className="pl-2">
-                                {this.state.app1FileList.length} files ready to
-                                upload
+                                {this.state.appsFileList[1].length} files ready
+                                to upload
                               </span>
                             </div>
                             <div className="col-md-3">
@@ -360,9 +411,7 @@ class StepFive extends Component {
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() =>
-                                  this.setState({ uploadApplicant1: true })
-                                }
+                                onClick={() => this.onUploadFiles(1)}
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -405,7 +454,7 @@ class StepFive extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for Applicant 2</h1>
+                        <h1>Upload document for {applicant2User}</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant2 ? (
@@ -429,8 +478,8 @@ class StepFive extends Component {
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-5">
                               <span className="pl-2">
-                                {this.state.app2FileList.length} files ready to
-                                upload
+                                {this.state.appsFileList[2].length} files ready
+                                to upload
                               </span>
                             </div>
                             <div className="col-md-3">
@@ -453,9 +502,7 @@ class StepFive extends Component {
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() =>
-                                  this.setState({ uploadApplicant1: true })
-                                }
+                                onClick={() => this.onUploadFiles(2)}
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -499,4 +546,18 @@ class StepFive extends Component {
   }
 }
 
-export default StepFive;
+const mapStateToProps = ({
+  userReducer: {
+    user: { _id, firstName }
+  },
+  Financial_data: { financial_Health_Check }
+}) => ({
+  financial_data: financial_Health_Check,
+  userId: _id,
+  userFirstName: firstName
+});
+
+const mapDispatchToProps = dispatch => ({
+  Get_Financial_data: props => dispatch(Api.financialDataGet(props))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(StepFive);

@@ -54,7 +54,7 @@ function StepThree(props) {
           </h6>
         </Col>
 
-        {/* <Col lg={24} className="q1 q3">
+        <Col lg={24} className="q1 q3">
           <div
             onClick={e => clickRadio(e)}
             className={
@@ -110,11 +110,11 @@ function StepThree(props) {
               <Option value="4">4</Option>
             </Select>
           </div>
-        </Col> */}
+        </Col>
 
-        {/* <Col lg={24}>
+        <Col lg={24}>
           <h6 className="h61">What year did you buy the property?</h6>
-        </Col> */}
+        </Col>
         <Col lg={24}>
           <div className="input3">
             <input type="text" placeholder="What year" />

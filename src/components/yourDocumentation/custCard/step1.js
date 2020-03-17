@@ -8,14 +8,19 @@ import "./styles.css";
 import CustIcon from "../../../assets/cust_icon.png";
 import FileUploadIcon from "../../../assets/icon-file-upload.png";
 import axios from "axios";
-import _ from "lodash";
+// import _ from "lodash";
 import Api from "../../../redux/api/financialHealthCheck";
-// import Api from "../../../redux/api/documentationApi";
+import { BallBeat } from "react-pure-loaders";
+
+export const baseurl =
+  window.location.origin === "http://localhost:3000"
+    ? "http://localhost:8080"
+    : window.location.origin;
 
 class StepOne extends Component {
   constructor(props) {
     super(props);
-
+    console.log("PROPS 1", props);
     this.state = {
       tab1: true,
       tab2: false,
@@ -24,6 +29,11 @@ class StepOne extends Component {
       applicant1User: this.props.userFirstName,
       applicant2User: this.props.financial_data.firstNameSecondApplicant,
       isEdit: false,
+      isLoadingApplicant1: false,
+      isLoadingApplicant2: false,
+      isdisabled1: false,
+      isdisabled2: false,
+      isUploadError: false,
       currentList: null,
       selectedOption: null,
       filesType: [
@@ -34,53 +44,9 @@ class StepOne extends Component {
       ],
       appsFileList: {
         tile: "customerId",
-        1: [
-          // {
-          //   id: 234234,
-          //   fileType: "Passport back",
-          //   fileName: "Sample",
-          //   file: null,
-          //   fileTags: {
-          //     accountNumber: 2345734891,
-          //     fileMonth: "March"
-          //   }
-          // },
-          // {
-          //   id: 4365796,
-          //   fileType: "Licence",
-          //   fileName: "Sample 92",
-          //   file: null,
-          //   fileTags: {
-          //     accountNumber: 245762435,
-          //     fileMonth: "April"
-          //   }
-          // }
-        ],
-        2: [
-          // {
-          //   id: 99908,
-          //   fileType: "Passport front",
-          //   fileName: "Sample 2",
-          //   file: null,
-          //   fileTags: {
-          //     accountNumber: 8934758345,
-          //     fileMonth: "June"
-          //   }
-          // },
-          // {
-          //   id: 8947982,
-          //   fileType: "Passport back",
-          //   fileName: "Sample 25",
-          //   file: null,
-          //   fileTags: {
-          //     accountNumber: 3452445,
-          //     fileMonth: "Dec"
-          //   }
-          // }
-        ]
+        1: [],
+        2: []
       }
-      // app1FileList: [],
-      // app2FileList: []
     };
   }
 
@@ -88,9 +54,15 @@ class StepOne extends Component {
     this.props.history.push(route);
   };
 
+  handleLoading = applicant => {
+    applicant === 1
+      ? this.setState({ isLoadingApplicant1: !this.state.isLoadingApplicant1 })
+      : this.setState({ isLoadingApplicant2: !this.state.isLoadingApplicant2 });
+  };
+
   applicant1Updates = item => {
     const { isEdit, selectedOption } = this.state;
-    let app1Items = JSON.parse(JSON.stringify(this.state.appsFileList));
+    let app1Items = this.state.appsFileList;
 
     let items = [...app1Items[1]];
     let index = items.findIndex(obj => obj.id === item.id);
@@ -108,7 +80,7 @@ class StepOne extends Component {
 
   applicant2Updates = item => {
     const { isEdit, selectedOption } = this.state;
-    let app2Items = JSON.parse(JSON.stringify(this.state.appsFileList));
+    let app2Items = this.state.appsFileList;
 
     let items = [...app2Items[2]];
     let index = items.findIndex(obj => obj.id === item.id);
@@ -137,7 +109,6 @@ class StepOne extends Component {
 
   handleRemove = (item, applicant) => {
     const { appsFileList } = this.state;
-    // console.log("CHECK REMOVE", appsFileList);
     let filteredList = appsFileList;
 
     filteredList[applicant] = filteredList[applicant].filter(
@@ -205,22 +176,18 @@ class StepOne extends Component {
     const count = appsFileList[applicant].length;
 
     for (let i = 0; i < count; i++) {
-      console.log(appsFileList[applicant][i]);
+      // console.log(appsFileList[applicant][i]);
 
       const data = new FormData();
-      data.append("applicants", appsFileList[applicant][i]);
+      data.append("applicantTile", "customerId");
+      data.append("applicants", JSON.stringify(appsFileList[applicant][i]));
       data.append("applicant1File", appsFileList[applicant][i].file);
 
       axios
-        .post("http://localhost:8080/documentation/uploadDocument", data, {
-          headers: {
-            // Authorization
-            //   "YOUR_API_AUTHORIZATION_KEY_SHOULD_GOES_HERE_IF_HAVE",
-            // "Content-type": "multipart/form-data"
-          }
-        })
+        .post(baseurl + "/documentation/uploadDocument", data, {})
         .then(res => {
-          console.log("CHECK UPLOAD STATUS", res.statusText);
+          this.handleLoading(applicant);
+          console.log("CHECK UPLOAD STATUS", res);
         });
     }
   };
@@ -228,7 +195,6 @@ class StepOne extends Component {
   onChangeApplicant1 = event => {
     const { appsFileList } = this.state;
 
-    // if (event.target.files[0].type === "application/pdf") {
     appsFileList[1].push({
       id: this.generateKey("app1"),
       fileType: "Passport back",
@@ -239,7 +205,6 @@ class StepOne extends Component {
         fileMonth: "June"
       }
     });
-    // }
 
     this.setState({ appsFileList });
   };
@@ -247,7 +212,6 @@ class StepOne extends Component {
   onChangeApplicant2 = event => {
     const { appsFileList } = this.state;
 
-    // if (event.target.files[0].type === "application/pdf") {
     appsFileList[2].push({
       id: this.generateKey("app1"),
       fileType: "Passport back",
@@ -258,7 +222,6 @@ class StepOne extends Component {
         fileMonth: "June"
       }
     });
-    // }
 
     this.setState({ appsFileList });
   };
@@ -269,9 +232,12 @@ class StepOne extends Component {
       tab2,
       applicant1User,
       applicant2User,
-      appsFileList
+      isLoadingApplicant1,
+      isLoadingApplicant2,
+      isdisabled1,
+      isdisabled2
     } = this.state;
-    console.log("APPLICANT", appsFileList);
+
     return (
       <div class="ant-col ant-col-lg-24">
         <div class="obord m-4">
@@ -287,8 +253,6 @@ class StepOne extends Component {
             {/* Section 1 */}
             <div className="row p-3">
               <div className="col-md-6 text-right">
-                {/* <i className="fas fa-address-card fac fa-6x"></i> */}
-
                 <img className="" src={CustIcon} width={75} alt="" />
               </div>
               <div className="col-md-4 text-left pt-1">
@@ -354,26 +318,30 @@ class StepOne extends Component {
                         <span>{applicant1User}</span>
                       </div>
                     </a>
-                    <a
-                      className={this.handleTabClasses(tab2)}
-                      id="nav-home-tab"
-                      data-toggle="tab"
-                      role="tab"
-                      aria-controls="nav-home"
-                      aria-selected="true"
-                      onClick={() =>
-                        this.setState({
-                          tab1: false,
-                          tab2: true
-                        })
-                      }
-                    >
-                      <div>
-                        <i className="fas fa-user-alt fa-1x"></i>
-                        <br />
-                        <span>{applicant2User}</span>
-                      </div>
-                    </a>
+                    {applicant2User ? (
+                      <a
+                        className={this.handleTabClasses(tab2)}
+                        id="nav-home-tab"
+                        data-toggle="tab"
+                        role="tab"
+                        aria-controls="nav-home"
+                        aria-selected="true"
+                        onClick={() =>
+                          this.setState({
+                            tab1: false,
+                            tab2: true
+                          })
+                        }
+                      >
+                        <div>
+                          <i className="fas fa-user-alt fa-1x"></i>
+                          <br />
+                          <span>{applicant2User}</span>
+                        </div>
+                      </a>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
@@ -386,7 +354,7 @@ class StepOne extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for Applicant 1</h1>
+                        <h1>Upload document for {applicant1User}</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant1 ? (
@@ -418,6 +386,14 @@ class StepOne extends Component {
                         </div>
                       ) : (
                         <div>
+                          {this.state.isUploadError ? (
+                            <div class="alert alert-danger" role="alert">
+                              Please select a file before upload
+                            </div>
+                          ) : (
+                            <></>
+                          )}
+
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
@@ -436,9 +412,24 @@ class StepOne extends Component {
                             isShadow={false}
                             scrollWidth={4}
                           >
-                            <ul className="filesContainer">
-                              {this.getFilesList(1)}
-                            </ul>
+                            {isLoadingApplicant1 ? (
+                              <div
+                                style={{
+                                  paddingTop: 50,
+                                  paddingBottom: 50,
+                                  paddingLeft: 320
+                                }}
+                              >
+                                <BallBeat
+                                  color={"#d3d0d0"}
+                                  loading={isLoadingApplicant1}
+                                />
+                              </div>
+                            ) : (
+                              <ul className="filesContainer">
+                                {this.getFilesList(1)}
+                              </ul>
+                            )}
                           </ReactShadowScroll>
 
                           <div className="row p-3">
@@ -446,8 +437,15 @@ class StepOne extends Component {
                               <button
                                 className="upload-btn uploadApp1"
                                 onClick={() =>
-                                  // this.setState({ uploadApplicant1: true })
-                                  this.onUploadFiles(1)
+                                  this.getFilesList(1).length !== 0
+                                    ? (this.handleLoading(1),
+                                      this.onUploadFiles(1),
+                                      this.setState({
+                                        isUploadError: false
+                                      }))
+                                    : this.setState({
+                                        isUploadError: !this.state.isUploadError
+                                      })
                                 }
                               >
                                 Upload
@@ -474,7 +472,6 @@ class StepOne extends Component {
                                     width={22}
                                     alt=""
                                   />
-                                  {/* <i className="fa fa-cloud-upload fa-1x pl-2"></i> */}
                                 </label>
                               </div>
                             </div>
@@ -492,7 +489,7 @@ class StepOne extends Component {
                   >
                     <div className="p-2 m-4">
                       <div className="col-md-12 text-center pb-3">
-                        <h1>Upload document for Applicant 2</h1>
+                        <h1>Upload document for {applicant2User}</h1>
                         <br />
                       </div>
                       {!this.state.uploadApplicant2 ? (
@@ -550,9 +547,7 @@ class StepOne extends Component {
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() =>
-                                  this.setState({ uploadApplicant1: true })
-                                }
+                                onClick={() => this.onUploadFiles(2)}
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -609,6 +604,5 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   Get_Financial_data: props => dispatch(Api.financialDataGet(props))
-  // DocData: props => dispatch(Api.docFiles(props))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(StepOne);

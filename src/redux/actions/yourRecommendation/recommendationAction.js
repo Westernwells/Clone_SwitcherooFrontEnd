@@ -1,10 +1,11 @@
-import * as actions from "./RecommendationTypes";
-import axios from "axios";
-import { baseurl } from "../../../redux/api/index";
-const setText = () => async dispatch => {
+import * as actions from './RecommendationTypes';
+import { baseurl } from '../../../redux/api/index';
+import axios from 'axios';
+
+const setText = userId => async dispatch => {
   try {
     const res = await axios.get(
-      baseurl + `/recommendation/getRecommendation/${this.props.userId}`
+      baseurl + `/recommendation/getRecommendation/${userId}`
     );
     const { data } = res;
 

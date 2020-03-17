@@ -34,7 +34,7 @@ import KbcForm from "../yourApplication/kbcForm/index";
 import AdditionalPropertyIndex from "../details/Additional Properties/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import ExpertChat from "../expertChat/expertChat";
-import Details from "../details";
+import Details from "../details"; 
 // import NewForm from "../yourApplication/newForm/newForm";
 import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
 // import Declarations from "../personalDetails/Declaration/Declaration";

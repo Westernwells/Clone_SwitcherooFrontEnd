@@ -27,10 +27,10 @@ const text = `
 //   />
 // );
 const customPanelStyle = {
-  background: "#62635d",
+  background: '#62635d',
   marginBottom: 24,
   border: "none",
-  overflow: "hidden"
+  overflow: 'hidden',
 };
 
 class AdditionalPropertyIndex extends React.Component {
@@ -40,15 +40,15 @@ class AdditionalPropertyIndex extends React.Component {
     key: -1
   };
   componentDidMount() {
-    if (this.props.match.params.number) {
-      const properties = this.props.match.params.number;
+    // if (this.props.match.params.number) {
+      const properties = this.props.number;
       var array = [];
       for (var i = 0; i < properties; i++) {
         array.push(i);
         if (i === properties - 1) {
           this.setState({ array });
         }
-      }
+      // }
     }
   }
   onPositionChange = expandIconPosition => {
@@ -56,17 +56,17 @@ class AdditionalPropertyIndex extends React.Component {
   };
 
   callback = key => {
-    this.setState({ key });
+    this.setState({ key })
   };
   render() {
-    console.log(this.state);
+    console.log(this.state)
     return (
       <div className="add-p-index">
         <Row>
           <Col lg={24}>
             <h1 className="heading1">
               Let's get the details on your additional properties
-            </h1>
+          </h1>
           </Col>
         </Row>
         {/* {this.state.array.map(() => {
@@ -83,17 +83,15 @@ class AdditionalPropertyIndex extends React.Component {
           expandIconPosition={"right"}
         >
           {this.state.array.map((value, index) => {
-            return (
-              <Panel
-                style={customPanelStyle}
-                showArrow={this.state.key !== index}
-                header={`Additional Property ${index + 1}`}
-                key={index}
-                // className="ant-collapse-header"
-              >
-                <AdditionalProperty />
-              </Panel>
-            );
+            return <Panel
+              style={customPanelStyle}
+              showArrow={this.state.key !== index}
+              header={`Additional Property ${index + 1}`}
+              key={index}
+            // className="ant-collapse-header"
+            >
+              <AdditionalProperty />
+            </Panel>;
           })}
           {/* <Panel header="This is panel header 2" key="2">
             <p>{text}</p>
@@ -107,17 +105,40 @@ class AdditionalPropertyIndex extends React.Component {
             <div className="btn-div">
               <Button
                 style={{ height: "40px" }}
-                onClick={() => window.history.back()}
+                onClick={() => {
+                  // this.props.changeProfRoute(0)
+                  if(this.props.MortgageFrom == "House Mover" ){
+
+                    this.props.setProgress(60)
+                    this.props.isMortgageFrom(3)
+                  }else{
+                    this.props.setProgress(60)
+                    this.props.isMortgageFrom(2)
+                  }
+                }}
                 className="btn1"
               >
                 Back
-              </Button>
+            </Button>
               <Button
-                // onClick={() => handleRoute("/home/details/switcher3")}
+                onClick={() => {
+                  // this.props.changeProfRoute(1)
+                  if(this.props.MortgageFrom == "House Mover" ){
+
+                  this.props.isMortgageFrom(5)
+
+                  this.props.setProgress(80)
+                  }else{
+                    
+                  this.props.isMortgageFrom(4)
+
+                  this.props.setProgress(70)
+                  }
+                }}
                 className="btn2"
               >
                 Countinue
-              </Button>
+            </Button>
             </div>
           </Col>
         </Row>

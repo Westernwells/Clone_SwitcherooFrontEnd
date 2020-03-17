@@ -24,21 +24,55 @@ class RecommendationButtons extends Component {
         'recommendation-thirdpage'
       )[0];
 
-      html2canvas(input1).then(canvas1 => {
-        html2canvas(input2).then(canvas2 => {
-          html2canvas(input3).then(canvas3 => {
+      // html2canvas(input1, {
+      //   windowWidth: window.innerWidth,
+      //   windowHeight: window.innerHeight
+      // }).then(canvas1 => {
+      //   html2canvas(input2, {
+      //     windowWidth: window.innerWidth,
+      //     windowHeight: window.innerHeight
+      //   }).then(canvas2 => {
+      //     html2canvas(input3, {
+      //       windowWidth: window.innerWidth,
+      //       windowHeight: window.innerHeight
+      //     }).then(canvas3 => {
+      //       const imgData1 = canvas1.toDataURL('image/png');
+      //       const imgData2 = canvas2.toDataURL('image/png');
+      //       const imgData3 = canvas3.toDataURL('image/png');
+      //       const pdf = new jsPDF('p', 'pt', 'a4');
+      //       let pdfWidth = pdf.internal.pageSize.getWidth();
+      //       let pdfHeight = pdf.internal.pageSize.getHeight();
+      //       pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      //       pdf.addPage();
+      //       pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      //       pdf.addPage();
+      //       pdf.addImage(imgData3, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+      //       setTimeout(() => {
+      //         pdf.save('Switcheroo-Recommendation.pdf');
+      //         resolve('resolved');
+      //       }, 4000);
+      //     });
+      //   });
+      // });
+
+      html2canvas(input1, { scale: 2 }).then(canvas1 => {
+        html2canvas(input2, { scale: 2 }).then(canvas2 => {
+          html2canvas(input3, { scale: 2 }).then(canvas3 => {
             const imgData1 = canvas1.toDataURL('image/png');
             const imgData2 = canvas2.toDataURL('image/png');
             const imgData3 = canvas3.toDataURL('image/png');
-            const pdf = new jsPDF();
-            pdf.addImage(imgData1, 'PNG', 0, 0);
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            let pdfWidth = pdf.internal.pageSize.getWidth();
+            let pdfHeight = pdf.internal.pageSize.getHeight();
+            pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
-            pdf.addImage(imgData2, 'PNG', 0, 0);
+            pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
-            pdf.addImage(imgData3, 'PNG', 0, 0);
+            pdf.addImage(imgData3, 'PNG', 0, 0, pdfWidth, pdfHeight);
             // pdf.output('dataurlnewwindow');
             setTimeout(() => {
-              pdf.save('download.pdf');
+              pdf.save('Switcheroo-Recommendation.pdf');
               resolve('resolved');
             }, 4000);
           });
@@ -70,23 +104,26 @@ class RecommendationButtons extends Component {
         'recommendation-thirdpage'
       )[0];
 
-      html2canvas(input1).then(canvas1 => {
-        html2canvas(input2).then(canvas2 => {
-          html2canvas(input3).then(canvas3 => {
+      html2canvas(input1, { scale: 2 }).then(canvas1 => {
+        html2canvas(input2, { scale: 2 }).then(canvas2 => {
+          html2canvas(input3, { scale: 2 }).then(canvas3 => {
             const imgData1 = canvas1.toDataURL('image/png');
             const imgData2 = canvas2.toDataURL('image/png');
             const imgData3 = canvas3.toDataURL('image/png');
-            const pdf = new jsPDF();
-            pdf.addImage(imgData1, 'PNG', 0, 0);
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            let pdfWidth = pdf.internal.pageSize.getWidth();
+            let pdfHeight = pdf.internal.pageSize.getHeight();
+            pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
-            pdf.addImage(imgData2, 'PNG', 0, 0);
+            pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
-            pdf.addImage(imgData3, 'PNG', 0, 0);
+            pdf.addImage(imgData3, 'PNG', 0, 0, pdfWidth, pdfHeight);
             // pdf.output('dataurlnewwindow');
             // pdf.save('download.pdf');
             // pdf.autoPrint({ variant: 'non-conform' });
             setTimeout(() => {
-              window.open(pdf.output('bloburl'), '_blank');
+              // window.open(pdf.output('bloburl'), '_blank');
+              window.open(URL.createObjectURL(pdf.output("blob")))
               resolve('resolved');
             }, 4000);
           });
