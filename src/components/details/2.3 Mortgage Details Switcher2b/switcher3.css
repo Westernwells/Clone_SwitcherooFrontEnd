@@ -190,10 +190,79 @@
 .switcher-three .input input::placeholder {
   color: white;
 }
+.switcher-three .selectPRo{
+  width: 30% !important;
+  float: left;
+  margin: 0 70px 0 0 ;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid gray;
+ background: #cccccc !important ;
+ line-height: 36px !important;
+ overflow: hidden;
+}
+.property_conpe .q1 .radio-container:last-child {
+  margin: 0 0 0 0;
+}
+.switcher-three .maltaback .ant-select-selection{
+  background-color:#fb9500 !important;
+  height:  40px !important;
+  border: none !important;
 
+
+}
+.switcher-three .selectPRo .ant-select-selection{
+    border: 0 !important;
+    background: #cccccc;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+.switcher-three .selectPRo .ant-select-selection__placeholder{
+    color: white !important;
+}
 .switcher-three .input2 {
   margin: 0 0 0 0;
+  border-radius: 20px;
+  border: 2px solid  gray !important;
+  width: 30%;
+  height: 40px;
+  padding: 0 0 0 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  background: #ccc !important
+}
+.switcher-three .input2 .pre {
+  line-height: 36px;
   float: left;
+}
+
+.switcher-three .input2 input {
+  width: 90%;
+  height: 36px;
+  border: none;
+  outline: none;
+  background: #cccc !important;
+  padding: 0 15px;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+}
+.switcher-three .inputMalta {
+  background-color: rgb(251, 149, 0) !important;
+  border: none !important;
+}
+.switcher-three .inputMalta input {
+  background-color: rgb(251, 149, 0) !important;
+}
+.switcher-three .input2 input::placeholder {
+  color: white;
+}
+.switcher-three .input2post {
+  margin: 0 0 0 0;
   border-radius: 20px;
   border: 2px solid rgb(251, 149, 0);
   width: 30%;
@@ -203,6 +272,16 @@
   font-weight: 600;
   font-size: 20px;
   background: rgb(251, 149, 0);
+}
+.switcher-three .input2post .pre {
+  line-height: 36px;
+  float: left;
+}
+.switcher-three .inputMalta {
+  background-color: rgb(251, 149, 0) !important;
+}
+.switcher-three .inputMalta input {
+  background-color: rgb(251, 149, 0) !important;
 }
 .switcher-three .input2disabled{
   background: #cccccc;
@@ -237,7 +316,7 @@ padding: 0 8px 0 0;
 }
 
 .switcher-three .input2 input {
-  width: 85%;
+  width: 30%;
   height: 36px;
   border: none;
   outline: none;

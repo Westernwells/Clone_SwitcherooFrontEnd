@@ -328,7 +328,7 @@ class BankDetails extends Component {
 
           <Col lg={24}>
             <h6 className="h61">
-              Do you have any monthly loan/overdraft/credit card costs?
+              Do you have any other monthly borrowing costs?
             </h6>
           </Col>
 

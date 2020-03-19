@@ -126,9 +126,9 @@
   width: 17%;
   margin: 0 15px 0 0;
 }
-.personal-details2p1s  .ant-select-selection--single {
+.personal-details2p1s .ant-select-selection--single {
   background: #cccccc;
-  border:2px solid gray;
+  border: 2px solid gray;
   border-radius: 20px;
   height: 41px;
 }
@@ -140,23 +140,21 @@
   border: 2px solid gray;
   box-shadow: none;
 }
-.personal-details2p1s .ant-select-selection-selected-value{
-  
+.personal-details2p1s .ant-select-selection-selected-value {
 }
-
 
 .personal-details2p1s .bg-o .ant-select-selection--single {
   background: rgb(251, 149, 0);
-  border:2px solid rgb(251, 149, 0);
+  border: 2px solid rgb(251, 149, 0);
   border-radius: 20px;
   height: 41px;
 }
 .personal-details2p1s .bg-o .ant-select-selection--single:active {
-  border:2px solid rgb(251, 149, 0);
+  border: 2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
 .personal-details2p1s .bg-o .ant-select-selection--single:focus {
-  border:2px solid rgb(251, 149, 0);
+  border: 2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
 .personal-details2p1s .ant-select-selection__rendered {
@@ -164,6 +162,13 @@
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
+}
+.personal-details2p1s .county .ant-select-selection__rendered {
+  line-height: 37px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 0px 0 0 30px;
 }
 .personal-details2p1s .ant-select-arrow {
   color: white;

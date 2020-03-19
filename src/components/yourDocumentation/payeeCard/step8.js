@@ -10,6 +10,7 @@ import FileUploadIcon from "../../../assets/icon-file-upload.png";
 import HandRightIcon from "../../../assets/icon-hand-right.png";
 import axios from "axios";
 import Api from "../../../redux/api/financialHealthCheck";
+import { BallBeat } from "react-pure-loaders";
 
 export const baseurl =
   window.location.origin === "http://localhost:3000"
@@ -27,10 +28,17 @@ class StepEight extends Component {
       applicant1User: this.props.userFirstName,
       applicant2User: this.props.financial_data.firstNameSecondApplicant,
       isEdit: false,
+      isLoadingApplicant1: false,
+      isLoadingApplicant2: false,
+      isdisabled1: false,
+      isdisabled2: false,
+      isUploadError: false,
       currentList: null,
       selectedOption: null,
-      selectedYear: null,
-      bckAcctList: ["65454354357", "78756476545", "56342423567", "31342453464"],
+      selectedYear: "January",
+      applicant1BankAccounts: [],
+      applicant2BankAccounts: [],
+      otherBankAccount: "",
       filesType: [
         "Drivers license back",
         "Drivers license front",
@@ -49,14 +57,27 @@ class StepEight extends Component {
     this.props.history.push(route);
   };
 
+  handleLoading = applicant => {
+    applicant === 1
+      ? this.setState({ isLoadingApplicant1: !this.state.isLoadingApplicant1 })
+      : this.setState({ isLoadingApplicant2: !this.state.isLoadingApplicant2 });
+  };
+
   applicant1Updates = item => {
-    const { isEdit, selectedOption, selectedYear } = this.state;
+    const {
+      isEdit,
+      selectedOption,
+      selectedYear,
+      otherBankAccount
+    } = this.state;
     let app1Items = this.state.appsFileList;
 
     let items = [...app1Items[1]];
     let index = items.findIndex(obj => obj.id === item.id);
     let itm = { ...items[index] };
-    itm.fileTags.accountNumber = selectedOption;
+    itm.fileTags.accountNumber = otherBankAccount
+      ? otherBankAccount
+      : selectedOption;
     itm.fileTags.fileMonth = selectedYear;
     items[index] = itm;
     app1Items[1] = items;
@@ -64,18 +85,27 @@ class StepEight extends Component {
     this.setState({
       appsFileList: app1Items,
       isEdit: !isEdit,
-      currentList: item.id
+      currentList: item.id,
+      otherBankAccount: "",
+      selectedOption: null
     });
   };
 
   applicant2Updates = item => {
-    const { isEdit, selectedOption, selectedYear } = this.state;
+    const {
+      isEdit,
+      selectedOption,
+      selectedYear,
+      otherBankAccount
+    } = this.state;
     let app2Items = this.state.appsFileList;
 
     let items = [...app2Items[2]];
     let index = items.findIndex(obj => obj.id === item.id);
     let itm = { ...items[index] };
-    itm.fileTags.accountNumber = selectedOption;
+    itm.fileTags.accountNumber = otherBankAccount
+      ? otherBankAccount
+      : selectedOption;
     itm.fileTags.fileMonth = selectedYear;
     items[index] = itm;
     app2Items[2] = items;
@@ -83,7 +113,9 @@ class StepEight extends Component {
     this.setState({
       appsFileList: app2Items,
       isEdit: !isEdit,
-      currentList: item.id
+      currentList: item.id,
+      otherBankAccount: "",
+      selectedOption: null
     });
   };
 
@@ -109,7 +141,13 @@ class StepEight extends Component {
   };
 
   getFilesList = applicant => {
-    const { isEdit, currentList, appsFileList } = this.state;
+    const {
+      isEdit,
+      currentList,
+      appsFileList,
+      applicant1BankAccounts,
+      applicant2BankAccounts
+    } = this.state;
 
     let filesList = Object.entries(appsFileList[applicant]).map(([key, f]) => (
       <li className="row pt-4 mb-2" key={f.id}>
@@ -118,19 +156,39 @@ class StepEight extends Component {
         <span className="col-md-4 text-left">{f.fileName}</span>
         {isEdit && currentList === f.id ? (
           <>
-            <select
-              className="col-md-3 filesOptions"
-              onChange={e => this.setState({ selectedOption: e.target.value })}
-              value={
-                this.state.selectedOption
-                  ? this.state.selectedOption
-                  : f.fileTags.accountNumber
-              }
-            >
-              {this.state.bckAcctList.map(ft => (
-                <option value={ft}>{ft}</option>
-              ))}
-            </select>
+            {this.state.selectedOption !== "Other" ? (
+              <select
+                className="col-md-3 filesOptions"
+                onChange={e =>
+                  this.setState({ selectedOption: e.target.value })
+                }
+                value={
+                  this.state.selectedOption
+                    ? this.state.selectedOption
+                    : f.fileTags.accountNumber
+                }
+              >
+                {(applicant === 1
+                  ? applicant1BankAccounts
+                  : applicant2BankAccounts
+                ).map(ft => (
+                  <option value={ft}>{ft}</option>
+                ))}
+                <option value="Other">Other</option>
+              </select>
+            ) : (
+              <input
+                type="number"
+                name="bankAccount"
+                className="col-md-3 filesOptions"
+                onChange={e =>
+                  this.setState({ otherBankAccount: e.target.value })
+                }
+                value={
+                  this.state.otherBankAccount ? this.state.otherBankAccount : ""
+                }
+              />
+            )}
             <select
               className="col-md-2 filesOptions ml-1"
               onChange={e => this.setState({ selectedYear: e.target.value })}
@@ -195,12 +253,14 @@ class StepEight extends Component {
 
       const data = new FormData();
       data.append("applicantTile", "payeeIncome");
-      data.append("applicants", JSON.stringify(appsFileList[applicant][i]));
-      data.append("applicant1File", appsFileList[applicant][i].file);
+      data.append("applicantNumber", applicant);
+      data.append("applicantData", JSON.stringify(appsFileList[applicant][i]));
+      data.append("applicantFile", appsFileList[applicant][i].file);
 
       axios
         .post(baseurl + "/documentation/uploadDocument", data, {})
         .then(res => {
+          this.handleLoading(applicant);
           console.log("CHECK UPLOAD STATUS", res);
         });
     }
@@ -240,8 +300,41 @@ class StepEight extends Component {
     this.setState({ appsFileList });
   };
 
+  componentDidMount() {
+    const options = {
+      method: "GET"
+    };
+
+    fetch(
+      baseurl + `/documentation/accNumbers/5e39814edbebc641e42ebefa`,
+      options
+    )
+      .then(res => {
+        if (res.status === 200)
+          res.json().then(res => {
+            this.setState({
+              applicant1BankAccounts: res.app1AccNumbers,
+              applicant2BankAccounts: res.app2AccNumbers
+            });
+          });
+      })
+      .catch(err => {
+        console.log(err);
+        this.error("some thing going wrong testing");
+      });
+  }
+
   render() {
-    const { tab1, tab2, applicant1User, applicant2User } = this.state;
+    const {
+      tab1,
+      tab2,
+      applicant1User,
+      applicant2User,
+      isLoadingApplicant1,
+      isLoadingApplicant2,
+      isdisabled1,
+      isdisabled2
+    } = this.state;
 
     return (
       <div class="ant-col ant-col-lg-24">
@@ -412,6 +505,14 @@ class StepEight extends Component {
                         </div>
                       ) : (
                         <div>
+                          {this.state.isUploadError ? (
+                            <div class="alert alert-danger" role="alert">
+                              Please select a file before upload
+                            </div>
+                          ) : (
+                            <></>
+                          )}
+
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-5">
                               <span className="pl-2">
@@ -431,16 +532,41 @@ class StepEight extends Component {
                             isShadow={false}
                             scrollWidth={4}
                           >
-                            <ul className="filesContainer">
-                              {this.getFilesList(1)}
-                            </ul>
+                            {isLoadingApplicant1 ? (
+                              <div
+                                style={{
+                                  paddingTop: 50,
+                                  paddingBottom: 50,
+                                  paddingLeft: 320
+                                }}
+                              >
+                                <BallBeat
+                                  color={"#d3d0d0"}
+                                  loading={isLoadingApplicant1}
+                                />
+                              </div>
+                            ) : (
+                              <ul className="filesContainer">
+                                {this.getFilesList(1)}
+                              </ul>
+                            )}
                           </ReactShadowScroll>
 
                           <div className="row p-3">
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() => this.onUploadFiles(1)}
+                                onClick={() =>
+                                  this.getFilesList(1).length !== 0
+                                    ? (this.handleLoading(1),
+                                      this.onUploadFiles(1),
+                                      this.setState({
+                                        isUploadError: false
+                                      }))
+                                    : this.setState({
+                                        isUploadError: true
+                                      })
+                                }
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -454,6 +580,7 @@ class StepEight extends Component {
                                   className="km-btn-file"
                                   onChange={this.onChangeApplicant1}
                                   style={{ display: "none " }}
+                                  disabled={isLoadingApplicant1}
                                 ></input>
                                 <label
                                   htmlFor={1}
@@ -515,6 +642,14 @@ class StepEight extends Component {
                         </div>
                       ) : (
                         <div>
+                          {this.state.isUploadError ? (
+                            <div class="alert alert-danger" role="alert">
+                              Please select a file before upload
+                            </div>
+                          ) : (
+                            <></>
+                          )}
+
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-5">
                               <span className="pl-2">
@@ -534,15 +669,40 @@ class StepEight extends Component {
                             isShadow={false}
                             scrollWidth={4}
                           >
-                            <ul className="filesContainer">
-                              {this.getFilesList(2)}
-                            </ul>
+                            {isLoadingApplicant2 ? (
+                              <div
+                                style={{
+                                  paddingTop: 50,
+                                  paddingBottom: 50,
+                                  paddingLeft: 320
+                                }}
+                              >
+                                <BallBeat
+                                  color={"#d3d0d0"}
+                                  loading={isLoadingApplicant2}
+                                />
+                              </div>
+                            ) : (
+                              <ul className="filesContainer">
+                                {this.getFilesList(2)}
+                              </ul>
+                            )}
                           </ReactShadowScroll>
                           <div className="row p-3">
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() => this.onUploadFiles(2)}
+                                onClick={() =>
+                                  this.getFilesList(2).length !== 0
+                                    ? (this.handleLoading(2),
+                                      this.onUploadFiles(2),
+                                      this.setState({
+                                        isUploadError: false
+                                      }))
+                                    : this.setState({
+                                        isUploadError: true
+                                      })
+                                }
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -556,6 +716,7 @@ class StepEight extends Component {
                                   className="km-btn-file"
                                   onChange={this.onChangeApplicant2}
                                   style={{ display: "none " }}
+                                  disabled={isLoadingApplicant2}
                                 ></input>
                                 <label
                                   htmlFor={2}

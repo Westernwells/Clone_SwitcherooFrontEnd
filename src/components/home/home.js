@@ -1,10 +1,10 @@
 import React from "react";
 import { Row, Col, Collapse } from "antd";
 import "./home.css";
-import Chat from "../chat/chat";
+// import Chat from "../chat/chat";
 import LeftBar from "./leftbar/leftbar";
 import SearchBar from "./searchbar/searchbar";
-import RightBar from "./rightbar/rightbar";
+// import RightBar from "./rightbar/rightbar";
 import UserSettings from "../userSettings/userSettings";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
@@ -23,7 +23,10 @@ import MonthlyOutgoing from "../details/monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "../details/creditCommittments/CreditCommittments";
 import BankDetails from "../details/bankDetails/BankDetails";
 // import AdditionalProperty from "../details/additionalProperty/AdditionalProperty";
-import YourApplication from "../yourApplication/intro/docMain";
+import Application from "../yourApplication/Landing/Application/Application";
+import Courier from "../yourApplication/Landing/Courier/Courier";
+import Documents from "../yourApplication/Landing/Documents/Documents";
+import PdfForms from "../yourApplication/intro/docMain";
 import YourRecommendation from "../yourRecommendation/YourRecommendation";
 import PtsbForm from "../yourApplication/ptsbForm/Main";
 import fOne from "../yourApplication/threeForms/fOne/First";
@@ -34,7 +37,19 @@ import KbcForm from "../yourApplication/kbcForm/index";
 import AdditionalPropertyIndex from "../details/Additional Properties/additionalPropertyIndex";
 import FinalPage from "../details/FinalPage/FinalPage";
 import ExpertChat from "../expertChat/expertChat";
-import Details from "../details"; 
+import Details from "../details";
+// import YourApplication from '../yourApplication/intro/docMain';
+// import YourRecommendation from "../yourRecommendation/YourRecommendation";
+// import PtsbForm from "../yourApplication/ptsbForm/Main";
+// import fOne from "../yourApplication/threeForms/fOne/First";
+// import fTwo from "../yourApplication/threeForms/fTwo/Second";
+// import fThree from "../yourApplication/threeForms/fThree/Third";
+// import IcsForm from "../yourApplication/icsForm/src/App";
+// import KbcForm from "../yourApplication/kbcForm/index";
+// import AdditionalPropertyIndex from "../details/Additional Properties/additionalPropertyIndex";
+// import FinalPage from "../details/FinalPage/FinalPage";
+// import ExpertChat from "../expertChat/expertChat";
+// import Details from "../details";
 // import NewForm from "../yourApplication/newForm/newForm";
 import MonthlyOutgoings from "../details/monthlyOutgoings/MonthlyOutgoings";
 // import Declarations from "../personalDetails/Declaration/Declaration";
@@ -63,10 +78,7 @@ const { Panel } = Collapse;
 function Home(props) {
   return (
     <>
-      {
-        // !props.UserState.user.isVerified&&
-        // <Redirect to="/verifymail" />||
-
+      {(!props.UserState.user.isVerified && <Redirect to="/verifymail" />) || (
         <div>
           <Row gutter={0}>
             <Col className="gutter-row" lg={5}>
@@ -301,7 +313,22 @@ function Home(props) {
                     <Route
                       exact
                       path="/home/yourApplication"
-                      component={YourApplication}
+                      component={Application}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/courier"
+                      component={Courier}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/documents"
+                      component={Documents}
+                    />
+                    <Route
+                      exact
+                      path="/home/yourApplication/Pdf-forms"
+                      component={PdfForms}
                     />
 
                     <Route path="/home" component={Feed} />
@@ -311,7 +338,7 @@ function Home(props) {
             </Col>
           </Row>
         </div>
-      }
+      )}
     </>
   );
 }

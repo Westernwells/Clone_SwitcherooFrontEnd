@@ -135,11 +135,11 @@ export class KForm extends Component {
         return (
             <>
             <div className="print">
-            <Container className="contain mg bg">
+            <Container className="contain mg bg scale">
             
             <Just className="blink" />
             <div style={{position:'relative'}}className="pg">
-          <HeaderX className="headX">
+          <HeaderX style={{position:"relative"}} className="headX">
           <img className="logo-sm" src={logo1} alt=""/>
             <img className="logox-sm" src={logo2} alt=""/>
         
@@ -678,7 +678,7 @@ export class KForm extends Component {
              
               </AppA>
               </FormArea>
-              <FormAreaX style={{marginTop:'5px',marginBottom:'25px'}}>
+              <FormAreaX style={{marginLeft:'15px',marginTop:'5px',marginBottom:'25px'}}>
               <AppA> <p className="text-small p-show">KBC Bank Ireland plc is registered by central bank of Ireland</p>
               <p className="text-small p-show">The registered number is 40537 and registered office is SandwithStreet, Dublin 2.</p></AppA>
               <AppA>
@@ -686,23 +686,28 @@ export class KForm extends Component {
               <p className="text-link p-show"><a style={{textDecoration:'none', color:'#003A65', fontWeight:'bold',fontFamily: 'Neue Haas Grotesk Text Pro'}} href="http://www.revenue.ie/en/business/aeoi/index.html">http://www.revenue.ie/en/business/aeoi/index.html</a></p>
               </AppA>
               </FormAreaX>
+              <div style={{
+                position:"relative",
+                bottom:"-60px"
+              }} className="">
+              <Bank src={bank} style={{marginTop:"30px"}} className="p-show" />
+              <p style={{marginLeft:'15px',marginTop:'20px',fontSize:'12px'}} className="p-show">KBC/0256-6(04/18)</p>
+              <p className="p-no p-show">1</p>
+              </div>
               </HeaderX>
-              <Bank src={bank} className="p-show" />
-                <p style={{marginLeft:'15px',marginTop:'20px',fontSize:'12px'}} className="p-show">KBC/0256-6(04/18)</p>
-                <p className="p-no p-show">1</p>
                 <div className="page-break"></div>
                 {/**page 1 ends here */}
                 {/**page 2 starts here */}
-                <HeaderX className="head">
+                <HeaderX style={{position:"relative"}} className="head">
                 <div className="awo">
                 <div className="security"style={{width:'97%',margin:'0 auto'}} >
                 <SqRow>
-                <HeaderImg  style={{height:'32px'}}src={SQ}/>
+                <HeaderImg   className="img-height"src={SQ}/>
                 <p>(Required for telephone/email account enquiries) Note: this section must be completed in full by each applicant.</p>
                 </SqRow>
                 </div>
                 </div>
-                <FormArea style={{width:'97%', margin:'0 auto'}}>
+                <FormArea className="shenk"style={{width:'97%', margin:'0 auto'}}>
                 <AppA>
                 <InputFieldY>
                 <label htmlFor="" className="txt">1. Mother's Maiden Name*</label>
@@ -823,24 +828,30 @@ export class KForm extends Component {
                 
                 </AppA>
                 </FormArea>
-                    <img src={pg2b} />
-                </HeaderX>
-                <p className="p-no p-show">2</p>
+                    <img className="pics" src={pg2b} />
+                    <p style={{
+                      position:"relative",
+                      bottom:"-70px"
+                    }} className="p-no p-show">2</p>
+                    </HeaderX>
                 <div className="page-break"></div>
 
-                {/**page ends here */}
+                {/**page 2 ends here */}
                     {/**page 3 starts here */}
-                <HeaderX className="head3">
-                <img src={pg3x} className='awo' />
+                <HeaderX style={{position:"relative"}} className="head3">
+                <img src={pg3x} className='awo pics' />
+                <p style={{
+                  position:"relative",
+                  bottom:"-70px"
+                }} className="p-no p-show">3</p>
                 </HeaderX>
-                <p className="p-no p-show">3</p>
                 <div className="page-break"></div>
                 {/**Page break here */}
                 {/**page 3 ends here */}
                 {/**page 4 starts here */}
-               <HeaderX className="head4">
+               <HeaderX style={{position:"relative"}} className="head4">
                
-                <img src={pg4a} className='awo' alt="" srcset=""/>
+                <img src={pg4a} className='awo pics' alt="" srcset=""/>
                 <Applicants style={{width:'97%', margin:'0 auto'}}>
                 <AppaX>
                 <HeaderImg src={A1}/>
@@ -914,19 +925,23 @@ export class KForm extends Component {
                 </AppaY>
                 
                 </Applicants>
-                <img src={pg4c} />
+                <img className="pics" src={pg4c} />
+                <p style={{
+                  position:"relative",
+                
+                  bottom:"-80px"
+                }} className="p-no p-show">4</p>
            </HeaderX>
-                <p className="p-no p-show">4</p>
                 {/**Page break here */}
                 {/**page 4 ends here */}
 
                 {/**Page 5 satrts here */}
                 <div className="page-break"></div>
-                <HeaderX className="head5">
+                <HeaderX style={{position:"relative"}}className="head5">
                 {/**
                     <img src={pg5_} className="p-show" />
                 */}
-                <img src={pg5a} className="awo"/>
+                <img src={pg5a} className="pics awo"/>
                 
                  <FormAreaX style={{width:'97%', margin:'0 auto'}}>
                  
@@ -982,7 +997,7 @@ export class KForm extends Component {
                   </FormAreaX>
                   
                   <div className="sec">
-                  <img style={{margin:'0'}} src={pg5c}  />
+                  <img style={{margin:'0'}} src={pg5c} className="pics" />
                         <FormAreaX style={{width:'97%', margin:'0 auto'}}>
                         
                         <div >
@@ -1038,8 +1053,13 @@ export class KForm extends Component {
                           </div>
                           </FormAreaX>
                           </div>
-                          </HeaderX>
+                          <p style={{
+                            position:"relative",
+                            bottom:"-70px"
+                          }} className="p-no p-show">5</p>
 
+                          </HeaderX>
+                            {/**Page 5 end here */}
             </div>
             </Container>
             </div>

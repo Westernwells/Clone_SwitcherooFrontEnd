@@ -122,6 +122,9 @@
 .emp-details .select-option-big {
   width: 47%;
 }
+.emp-details .select-option-full {
+  width: 100%;
+}
 .emp-details .select-option2 {
   width: 17%;
   margin: 0 15px 0 0;
@@ -164,6 +167,13 @@
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
+}
+.emp-details .county .ant-select-selection__rendered {
+  line-height: 37px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 0px 0 0 30px;
 }
 .emp-details .ant-select-arrow {
   color: white;

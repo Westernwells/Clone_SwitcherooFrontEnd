@@ -20,7 +20,7 @@ export const baseurl =
 class StepOne extends Component {
   constructor(props) {
     super(props);
-    console.log("PROPS 1", props);
+
     this.state = {
       tab1: true,
       tab2: false,
@@ -31,8 +31,6 @@ class StepOne extends Component {
       isEdit: false,
       isLoadingApplicant1: false,
       isLoadingApplicant2: false,
-      isdisabled1: false,
-      isdisabled2: false,
       isUploadError: false,
       currentList: null,
       selectedOption: null,
@@ -176,12 +174,11 @@ class StepOne extends Component {
     const count = appsFileList[applicant].length;
 
     for (let i = 0; i < count; i++) {
-      // console.log(appsFileList[applicant][i]);
-
       const data = new FormData();
       data.append("applicantTile", "customerId");
-      data.append("applicants", JSON.stringify(appsFileList[applicant][i]));
-      data.append("applicant1File", appsFileList[applicant][i].file);
+      data.append("applicantNumber", applicant);
+      data.append("applicantData", JSON.stringify(appsFileList[applicant][i]));
+      data.append("applicantFile", appsFileList[applicant][i].file);
 
       axios
         .post(baseurl + "/documentation/uploadDocument", data, {})
@@ -233,9 +230,7 @@ class StepOne extends Component {
       applicant1User,
       applicant2User,
       isLoadingApplicant1,
-      isLoadingApplicant2,
-      isdisabled1,
-      isdisabled2
+      isLoadingApplicant2
     } = this.state;
 
     return (
@@ -444,7 +439,7 @@ class StepOne extends Component {
                                         isUploadError: false
                                       }))
                                     : this.setState({
-                                        isUploadError: !this.state.isUploadError
+                                        isUploadError: true
                                       })
                                 }
                               >
@@ -460,6 +455,7 @@ class StepOne extends Component {
                                   className="km-btn-file"
                                   onChange={this.onChangeApplicant1}
                                   style={{ display: "none " }}
+                                  disabled={isLoadingApplicant1}
                                 ></input>
                                 <label
                                   htmlFor={1}
@@ -521,6 +517,14 @@ class StepOne extends Component {
                         </div>
                       ) : (
                         <div>
+                          {this.state.isUploadError ? (
+                            <div class="alert alert-danger" role="alert">
+                              Please select a file before upload
+                            </div>
+                          ) : (
+                            <></>
+                          )}
+
                           <div className="row filesLabel ml-2 mr-2 p-1">
                             <div className="col-md-7">
                               <span className="pl-2">
@@ -539,15 +543,40 @@ class StepOne extends Component {
                             isShadow={false}
                             scrollWidth={4}
                           >
-                            <ul className="filesContainer">
-                              {this.getFilesList(2)}
-                            </ul>
+                            {isLoadingApplicant2 ? (
+                              <div
+                                style={{
+                                  paddingTop: 50,
+                                  paddingBottom: 50,
+                                  paddingLeft: 320
+                                }}
+                              >
+                                <BallBeat
+                                  color={"#d3d0d0"}
+                                  loading={isLoadingApplicant2}
+                                />
+                              </div>
+                            ) : (
+                              <ul className="filesContainer">
+                                {this.getFilesList(2)}
+                              </ul>
+                            )}
                           </ReactShadowScroll>
                           <div className="row p-3">
                             <div className="col-md-6 text-left">
                               <button
                                 className="upload-btn uploadApp1"
-                                onClick={() => this.onUploadFiles(2)}
+                                onClick={() =>
+                                  this.getFilesList(2).length !== 0
+                                    ? (this.handleLoading(2),
+                                      this.onUploadFiles(2),
+                                      this.setState({
+                                        isUploadError: false
+                                      }))
+                                    : this.setState({
+                                        isUploadError: true
+                                      })
+                                }
                               >
                                 Upload
                                 <i className="fa fa-cloud-upload fa-1x pl-2"></i>
@@ -561,6 +590,7 @@ class StepOne extends Component {
                                   className="km-btn-file"
                                   onChange={this.onChangeApplicant2}
                                   style={{ display: "none " }}
+                                  disabled={isLoadingApplicant2}
                                 ></input>
                                 <label
                                   htmlFor={2}

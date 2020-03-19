@@ -100,50 +100,50 @@ class CreditCommittments extends Component {
         firstPaymentAcc: "",
 
     }
-    handleDurChange = ( value ) => {
-        this.setState( {
+    handleDurChange = (value) => {
+        this.setState({
             accDuration: value
-        } )
+        })
     }
 
-    clickRadio = ( e ) => {
+    clickRadio = (e) => {
         var label = e.target.childNodes[1];
-        if ( label ) {
+        if (label) {
             label.click();
         }
     }
-    handleInputChange = ( e ) => {
+    handleInputChange = (e) => {
         const name = e.target.name;
-        this.setState( {
+        this.setState({
             [name]: e.target.value
-        } )
+        })
     }
-    handleComments = ( e ) => {
-        this.setState( {
+    handleComments = (e) => {
+        this.setState({
             comments: e.target.value
-        } )
+        })
     }
 
-    handleSortChange = ( e ) => {
-        this.setState( {
+    handleSortChange = (e) => {
+        this.setState({
             sortCode: e.target.value
-        } )
+        })
     }
     handleQ = e => {
         const { questions } = this.state
         var radioContainers = e.target.parentNode.parentNode.childNodes;
         var qs = questions;
         qs[e.target.name] = e.target.value;
-        console.log( qs );
-        this.setState( {
+        console.log(qs);
+        this.setState({
             firstPaymentAcc: e.target.value,
             q4: !this.state.q4
-        } )
+        })
         // validateRadio(e.target.name, e.target.value);
-        for ( var i = 0; i < radioContainers.length; i++ ) {
+        for (var i = 0; i < radioContainers.length; i++) {
             var input = radioContainers[i].childNodes[0];
-            console.log( "input status===>", input.checked );
-            if ( input.checked ) {
+            console.log("input status===>", input.checked);
+            if (input.checked) {
                 input.parentNode.style.background = "#fb9500";
                 input.parentNode.style.border = "2px solid #fb9500";
             } else {
@@ -152,23 +152,23 @@ class CreditCommittments extends Component {
             }
         }
     };
-    handleChange = ( value ) => {
-        this.setState( {
+    handleChange = (value) => {
+        this.setState({
             currentAccIns: value
-        } )
+        })
     }
-    handlebranchCounty = ( value ) => {
-        this.setState( {
+    handlebranchCounty = (value) => {
+        this.setState({
             branchCounty: value
-        } )
+        })
     }
 
     handleRoute = route => {
         console.log()
-        this.props.changeProfRout( 7 );
+        this.props.changeProfRout(7);
     };
     handleSubmit = () => {
-        console.log( "monthly monthlyOutgoings====>", this.props.monthlyOutgoings )
+        console.log("monthly monthlyOutgoings====>", this.props.monthlyOutgoings)
         let { currentAccIns,
             sortCode,
             credUnionLoc,
@@ -196,7 +196,7 @@ class CreditCommittments extends Component {
             comments,
             firstPaymentAcc
         }
-        this.props.setCreditCommentments( {
+        this.props.setCreditCommentments({
             userId: this.props.userId,
             monthlyOutgoings: {
                 ...this.props.monthlyOutgoings,
@@ -204,11 +204,11 @@ class CreditCommittments extends Component {
             creditCommitments: {
                 ...data
             }
-        } )
-        console.log( this.props.loading );
+        })
+        console.log(this.props.loading);
         let self = this
         // if ( !this.props.loading ) {
-           
+
         // }
 
     }
@@ -268,9 +268,9 @@ class CreditCommittments extends Component {
     //             alert( err.msg );
     //         } );
     // }
-    renderCommentsBox = ( q ) => {
+    renderCommentsBox = (q) => {
         const { comments } = this.state
-        if ( q == "b" ) {
+        if (q == "b") {
             return <>
                 <Col lg={24}>
                     <h6 className="h61">
@@ -292,7 +292,7 @@ class CreditCommittments extends Component {
     }
     currentAccInsConditional = () => {
         const { currentAccIns, credUnionLoc, institutionName } = this.state;
-        if ( currentAccIns === "Credit Union" ) {
+        if (currentAccIns === "Credit Union") {
             return <React.Fragment><Col lg={24}>
                 <h6 className="h61">please provide Location</h6>
             </Col>
@@ -308,7 +308,7 @@ class CreditCommittments extends Component {
                         />
                     </div>
                 </Col></React.Fragment>
-        } else if ( currentAccIns === "Other" ) {
+        } else if (currentAccIns === "Other") {
             return <React.Fragment><Col lg={24}>
                 <h6 className="h61">please provide name</h6>
             </Col>
@@ -343,7 +343,7 @@ class CreditCommittments extends Component {
                 <Row className="d-row-s1">
                     <Col lg={24}>
                         <h1 className="heading1">
-                            Details of your credit commitments
+                            Firstly, lets get the details of your primary banking relationship
                         </h1>
                     </Col>
                     <Col lg={24}>
@@ -357,7 +357,7 @@ class CreditCommittments extends Component {
 
                                 onChange={this.handleChange}
                             >
-                                {banks.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
+                                {banks.map((rec, key) => <Option key={key} value={rec}>{rec}</Option>)}
                             </Select>
                         </div>
                     </Col>
@@ -392,7 +392,7 @@ class CreditCommittments extends Component {
                             onChange={this.handlebranchCounty}
 
                         >
-                            {counties.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
+                            {counties.map((rec, key) => <Option key={key} value={rec}>{rec}</Option>)}
                         </Select>
                     </Col>
                     <Col lg={24}>
@@ -434,7 +434,7 @@ class CreditCommittments extends Component {
                         </div>
                     </Col>
                     <Col lg={24}>
-                        <h6 className="h61">How long have you had this account (years)?</h6>
+                        <h6 className="h61">How many years have you had this account ?</h6>
                     </Col>
                     <Col className="colomn_8" lg={6} style={{ width: "27%" }}>
                         <div>
@@ -443,7 +443,7 @@ class CreditCommittments extends Component {
                                 value={this.state.accDuration == "" ? "Select from options" : this.state.accDuration}
                                 onChange={this.handleDurChange}
                             >
-                                {years.map( ( rec, key ) => <Option key={key} value={rec}>{rec}</Option> )}
+                                {years.map((rec, key) => <Option key={key} value={rec}>{rec}</Option>)}
                             </Select>
                         </div>
                     </Col>
@@ -492,11 +492,11 @@ class CreditCommittments extends Component {
                             <label for="q32">No</label>
                         </div>
                     </Col>
-                    {questions.firstPaymentAcc && this.renderCommentsBox( questions.firstPaymentAcc )}
+                    {questions.firstPaymentAcc && this.renderCommentsBox(questions.firstPaymentAcc)}
                     <Col lg={24}>
                         <h6 className="heading1">
-                            OK, lets add loan/overdraft/credit card details
-                    </h6>
+                            Ok, now lets see what borrowing obligations you have
+                        </h6>
                     </Col>
                     <Col lg={10} offset={0}>
                         <div className="btn-div">
@@ -510,17 +510,17 @@ class CreditCommittments extends Component {
                             <Button
                                 onClick={() => {
                                     // if(questions.firstPaymentAcc == 'a'){
-                                        console.log(questions)
-                                        this.handleSubmit()
-                                        // this.props.changeProfRoute(6);
-                                        this.props.changeForm(2)
-                                        this.props.setProgress(50)
-                                        this.props.getData(questions.firstPaymentAcc)
+                                    console.log(questions)
+                                    this.handleSubmit()
+                                    // this.props.changeProfRoute(6);
+                                    this.props.changeForm(2)
+                                    this.props.setProgress(50)
+                                    this.props.getData(questions.firstPaymentAcc)
                                     // }else {
-                                        // this.props.changeProfRoute(6);
+                                    // this.props.changeProfRoute(6);
 
                                     // }
-                                   
+
                                 }}
                                 className="btn2"
                                 loading={this.props.loading}
@@ -535,7 +535,7 @@ class CreditCommittments extends Component {
         );
     }
 }
-const mapStateToProps = ( state ) => {
+const mapStateToProps = (state) => {
     return {
         userId: state.userReducer.user._id,
         monthlyOutgoings: state.detailsReducer.monthlyOutgoings,
@@ -545,9 +545,9 @@ const mapStateToProps = ( state ) => {
 }
 
 
-const mapDispatchToProps = dispatch => ( {
-    setCreditCommentments: ( props, callback ) =>
-        dispatch( Api.detailsCreditDataPost( props, callback ) ),
-    setBanks: ( data ) => dispatch( actions.setBanks( data ) ),
-} );
-export default connect( mapStateToProps, mapDispatchToProps )( CreditCommittments );
+const mapDispatchToProps = dispatch => ({
+    setCreditCommentments: (props, callback) =>
+        dispatch(Api.detailsCreditDataPost(props, callback)),
+    setBanks: (data) => dispatch(actions.setBanks(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CreditCommittments);

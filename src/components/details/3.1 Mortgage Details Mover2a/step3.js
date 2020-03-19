@@ -53,12 +53,12 @@ function StepThree(props) {
           <h1 className="heading1">
             Let's get some details on your current property and mortgage
           </h1>
-          <h6 className="h61">
+          {/* <h6 className="h61">
             What type of property are you currently in?
-          </h6>
+          </h6> */}
         </Col>
 
-        <Col lg={24} className="q1 q3">
+        {/* <Col lg={24} className="q1 q3">
           <div
             onClick={e => clickRadio(e)}
             className={
@@ -97,7 +97,7 @@ function StepThree(props) {
             />
             <label for="r12">Appartment</label>
           </div>
-        </Col>
+        </Col> */}
 
         <Col lg={24}>
           <h6 className="h61">How many bedrooms does it have?</h6>

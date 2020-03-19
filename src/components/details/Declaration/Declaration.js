@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Select, Button, DatePicker } from "antd";
+import { Row, Col, Select, Button, Modal, DatePicker } from "antd";
 import "./Declaration.css";
 import { countries } from "./Countries"
 
@@ -124,54 +124,14 @@ function Declaration(props) {
       }
     }
   };
-  function handleAdditionalP(value) {
-    setAddP(value);
-  }
   function handleInput(e) {
     setQuestions({ ...questions, [e.target.name]: e.target.value });
-  }
-  function handleCounty(value, name) {
-    // console.log(`${name} ${value}`);
-    setQuestions({ ...questions, county: value });
-  }
-  function handlePreCounty(value, name) {
-    // console.log(`${name} ${value}`);
-    setQuestions({ ...questions, previous_county: value });
-  }
-  function handleChange(value, name) {
-    console.log(`${name} ${value}`);
-    // setQuestions({ ...questions, county: value });
-  }
-  function handleSource(value) {
-    setQuestions({ ...questions, source: value });
   }
   function handleBirthPlace(value) {
     setQuestions({ ...questions, birthPlace: value });
   }
   function handleResidentCountry(value) {
     setQuestions({ ...questions, residentCountry: value });
-  }
-  function handleMaritalS(value) {
-    setQuestions({ ...questions, maritalStatus: value });
-  }
-  function handleRelationWith(value) {
-    setQuestions({ ...questions, relationWithApplicant: value });
-  }
-  function handleOccuoyers(value) {
-    setQuestions({ ...questions, numberOfOccupyer: value });
-    var arr = [];
-    for (var i = 1; i <= value; i++) {
-      arr = [...arr, i];
-      if (i === value) setCountO(arr);
-    }
-  }
-  function handleChilds(value) {
-    setQuestions({ ...questions, numberOfChilds: value });
-    var arr = [];
-    for (var i = 1; i <= value; i++) {
-      arr = [...arr, i];
-      if (i === value) setCount(arr);
-    }
   }
   function onChange(e, person) {
     if (e) {
@@ -181,18 +141,49 @@ function Declaration(props) {
       setQuestions({ ...questions, [person]: "" });
     }
   }
-  function handlePurpose(value) {
-    setQuestions({ ...questions, purpose: value });
-  }
   const handleRoute = route => {
     if (addP && addP > 0) props.history.push(route + "/" + addP);
     else props.history.push("/home/details/final_page");
   };
 
+  const [visible, setVisible] = useState(false)
+  const handleOk = e => {
+    console.log(e);
+    setVisible(false);
+  };
+
+  const handleCancel = e => {
+    console.log(e);
+    setVisible(false);
+  };
+  function SavePopup() {
+
+    return (
+      <div>
+        <Modal
+          title="Notification"
+          visible={visible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          // footer={[
+
+          //   <Button key="submit" type="primary" onClick={handleOk}>
+          //     Ok
+          //   </Button>,
+          // ]}
+        >
+          <h5>Thanks for all these details, lets now proceed to Your Documentation section where you can upload  the required documents for your application </h5>
+
+        </Modal>
+      </div>
+    );
+  }
   console.log(questions);
+
 
   return (
     <div className="declarations">
+      <SavePopup />
       <Row className="d-row-s1">
         <Col lg={24}>
           <h1 className="heading1">Details of your declarations</h1>
@@ -218,127 +209,138 @@ function Declaration(props) {
             </Select>
           </div>
         </Col>
+        {questions.birthPlace && questions.birthPlace === "Ireland" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">What is your Irish PPS number?</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.irishPPSNum
+                    ? "input2 input2simple bg-o"
+                    : "input2 input2simple"
+                }
+              >
+                <input
+                  type="text"
+                  name="irishPPSNum"
+                  onChange={handleInput}
+                  placeholder="########"
+                />
+              </div>
+            </Col>
+          </>
+        }
+        {questions.birthPlace && questions.birthPlace !== "Ireland" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">How long have you lived in Ireland?</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.yearsLivedInIreland
+                    ? "input2 input2simple bg-o"
+                    : "input2 input2simple"
+                }
+              >
+                <input
+                  type="text"
+                  name="yearsLivedInIreland"
+                  onChange={handleInput}
+                  placeholder="Years"
+                />
+              </div>
+            </Col>
 
-        <Col lg={24}>
-          <h6 className="h61">What is your Irish PPS number?</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            className={
-              questions.irishPPSNum
-                ? "input2 input2simple bg-o"
-                : "input2 input2simple"
-            }
-          >
-            <input
-              type="text"
-              name="irishPPSNum"
-              onChange={handleInput}
-              placeholder="########"
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h6 className="h61">How long have you lived in Ireland?</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            className={
-              questions.yearsLivedInIreland
-                ? "input2 input2simple bg-o"
-                : "input2 input2simple"
-            }
-          >
-            <input
-              type="text"
-              name="yearsLivedInIreland"
-              onChange={handleInput}
-              placeholder="Years"
-            />
-          </div>
-        </Col>
-        <Col lg={24}>
-          <h6 className="h61">Do you require a visa to work in ireland ?</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            onClick={e => clickRadio(e)}
-            className={
-              questions.visaRequired === "Yes"
-                ? "radio-container container_malta"
-                : "radio-container"
-            }
-          >
-            <input
-              onChange={e => handleQ(e)}
-              type="radio"
-              name="visaRequired"
-              id="visaRequired1"
-              className=""
-              // checked={questions.purposeOfMortgage === "a"}
-              value="Yes"
-            />
-            <label for="visaRequired1">Yes</label>
-          </div>
-          <div
-            onClick={clickRadio}
-            className={
-              questions.visaRequired === "No"
-                ? "radio-container container_malta"
-                : "radio-container"
-            }
-          >
-            <input
-              onChange={e => handleQ(e)}
-              type="radio"
-              name="visaRequired"
-              id="visaRequired2"
-              // checked={questions.purposeOfMortgage === "House Mover"}
-              className=""
-              value="No"
-            />
-            <label for="visaRequired2">No</label>
-          </div>
-        </Col>
+            <Col lg={24}>
+              <h6 className="h61">Do you require a visa to work in ireland ?</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                onClick={e => clickRadio(e)}
+                className={
+                  questions.visaRequired === "Yes"
+                    ? "radio-container container_malta"
+                    : "radio-container"
+                }
+              >
+                <input
+                  onChange={e => handleQ(e)}
+                  type="radio"
+                  name="visaRequired"
+                  id="visaRequired1"
+                  className=""
+                  // checked={questions.purposeOfMortgage === "a"}
+                  value="Yes"
+                />
+                <label for="visaRequired1">Yes</label>
+              </div>
+              <div
+                onClick={clickRadio}
+                className={
+                  questions.visaRequired === "No"
+                    ? "radio-container container_malta"
+                    : "radio-container"
+                }
+              >
+                <input
+                  onChange={e => handleQ(e)}
+                  type="radio"
+                  name="visaRequired"
+                  id="visaRequired2"
+                  // checked={questions.purposeOfMortgage === "House Mover"}
+                  className=""
+                  value="No"
+                />
+                <label for="visaRequired2">No</label>
+              </div>
+            </Col>
+          </>}
+        {questions.visaRequired && questions.visaRequired === "Yes" &&
 
-        <Col lg={24}>
-          <h6 className="h61">What type of Visa do you have?</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            className={
-              questions.visaType
-                ? "input2 input2simple bg-o"
-                : "input2 input2simple"
-            }
-          >
-            <input
-              type="text"
-              name="visaType"
-              onChange={handleInput}
-              placeholder="White here"
-            />
-          </div>
-        </Col>
+          <>
+            <Col lg={24}>
+              <h6 className="h61">What type of Visa do you have?</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.visaType
+                    ? "input2 input2simple bg-o"
+                    : "input2 input2simple"
+                }
+              >
+                <input
+                  type="text"
+                  name="visaType"
+                  onChange={handleInput}
+                  placeholder="White here"
+                />
+              </div>
+            </Col>
 
-        <Col lg={24}>
-          <h6 className="h61"> What is the expiry date of your visa?</h6>
-        </Col>
+            <Col lg={24}>
+              <h6 className="h61"> What is the expiry date of your visa?</h6>
+            </Col>
 
-        <Col lg={24} className="q1">
-          <div
-            className={
-              questions.visaExpiryDate
-                ? "input2 input2simple bg-o"
-                : "input2 input2simple"
-            }
-          >
-            <DatePicker
-              className="date-picker"
-              onChange={e => onChange(e, "visaExpiryDate")}
-            />
-          </div>
-        </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.visaExpiryDate
+                    ? "input2 input2simple bg-o"
+                    : "input2 input2simple"
+                }
+              >
+                <DatePicker
+                  className="date-picker"
+                  onChange={e => onChange(e, "visaExpiryDate")}
+                />
+              </div>
+            </Col>
+          </>
+        }
 
         <Col lg={24}>
           <h6 className="h61">Are you a US citizen?</h6>
@@ -427,24 +429,29 @@ function Declaration(props) {
             <label for="USTaxResident2">No</label>
           </div>
         </Col>
+        {
+          questions.USTaxResident && questions.USTaxResident === "Yes" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">Please proive your TIN</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.TIN ? "input2 input2simple bg-o" : "input2 input2simple"
+                }
+              >
+                <input
+                  type="number"
+                  name="TIN"
+                  onChange={handleInput}
+                  placeholder="XXX-XX-XXX"
+                />
+              </div>
+            </Col>
+          </>
+        }
 
-        <Col lg={24}>
-          <h6 className="h61">Please proive your TIN</h6>
-        </Col>
-        <Col lg={24} className="q1">
-          <div
-            className={
-              questions.TIN ? "input2 input2simple bg-o" : "input2 input2simple"
-            }
-          >
-            <input
-              type="number"
-              name="TIN"
-              onChange={handleInput}
-              placeholder="XXX-XX-XXX"
-            />
-          </div>
-        </Col>
 
         <Col lg={24}>
           <h6 className="h61">Are you resident in a foreign country?</h6>
@@ -558,17 +565,20 @@ function Declaration(props) {
             <label for="awareOfFuture2">No</label>
           </div>
         </Col>
-
-        <Col lg={24}>
-          <h6 className="h61">Please provide details</h6>
-        </Col>
-        <Col lg={24}>
-          <div className={questions.futureDetails ? "textarea-input bg-o" : "textarea-input"}>
-            <textarea
-              name="futureDetails"
-              onChange={handleInput} placeholder="Please provide details"></textarea>
-          </div>
-        </Col>
+        {questions.awareOfFuture && questions.awareOfFuture === "Yes" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">Please provide details</h6>
+            </Col>
+            <Col lg={24}>
+              <div className={questions.futureDetails ? "textarea-input bg-o" : "textarea-input"}>
+                <textarea
+                  name="futureDetails"
+                  onChange={handleInput} placeholder="Please provide details"></textarea>
+              </div>
+            </Col>
+          </>
+        }
 
         <Col lg={24}>
           <h6 className="h61">
@@ -615,16 +625,20 @@ function Declaration(props) {
             <label for="awareOfFutureHealth2">No</label>
           </div>
         </Col>
-        <Col lg={24}>
-          <h6 className="h61">Please provide details</h6>
-        </Col>
-        <Col lg={24}>
-          <div className={questions.futureHealthDetails ? "textarea-input bg-o" : "textarea-input"}>
-            <textarea
-              name="futureHealthDetails"
-              onChange={handleInput} placeholder="Please provide details"></textarea>
-          </div>
-        </Col>
+        {questions.awareOfFutureHealth && questions.awareOfFutureHealth === "Yes" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">Please provide details</h6>
+            </Col>
+            <Col lg={24}>
+              <div className={questions.futureHealthDetails ? "textarea-input bg-o" : "textarea-input"}>
+                <textarea
+                  name="futureHealthDetails"
+                  onChange={handleInput} placeholder="Please provide details"></textarea>
+              </div>
+            </Col>
+          </>
+        }
 
         <Col lg={24}>
           <h6 className="h61">
@@ -671,17 +685,20 @@ function Declaration(props) {
             <label for="everMadeBankrupt2">No</label>
           </div>
         </Col>
-
-        <Col lg={24}>
-          <h6 className="h61">Please provide details</h6>
-        </Col>
-        <Col lg={24}>
-          <div className={questions.bankrupDetails ? "textarea-input bg-o" : "textarea-input"}>
-            <textarea
-              name="bankrupDetails"
-              onChange={handleInput} placeholder="Please provide details"></textarea>
-          </div>
-        </Col>
+        {questions.everMadeBankrupt && questions.everMadeBankrupt === "Yes" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">Please provide details</h6>
+            </Col>
+            <Col lg={24}>
+              <div className={questions.bankrupDetails ? "textarea-input bg-o" : "textarea-input"}>
+                <textarea
+                  name="bankrupDetails"
+                  onChange={handleInput} placeholder="Please provide details"></textarea>
+              </div>
+            </Col>
+          </>
+        }
 
 
         <Col lg={24}>
@@ -729,17 +746,20 @@ function Declaration(props) {
             <label for="refusedMortgage2">No</label>
           </div>
         </Col>
-
-        <Col lg={24}>
-          <h6 className="h61">Please provide details</h6>
-        </Col>
-        <Col lg={24}>
-          <div className={questions.refusedMortgageDetails ? "textarea-input bg-o" : "textarea-input"}>
-            <textarea
-              name="refusedMortgageDetails"
-              onChange={handleInput} placeholder="Please provide details"></textarea>
-          </div>
-        </Col>
+        {questions.refusedMortgage && questions.refusedMortgage === "Yes" &&
+          <>
+            <Col lg={24}>
+              <h6 className="h61">Please provide details</h6>
+            </Col>
+            <Col lg={24}>
+              <div className={questions.refusedMortgageDetails ? "textarea-input bg-o" : "textarea-input"}>
+                <textarea
+                  name="refusedMortgageDetails"
+                  onChange={handleInput} placeholder="Please provide details"></textarea>
+              </div>
+            </Col>
+          </>
+        }
 
 
 
@@ -754,30 +774,7 @@ function Declaration(props) {
             >
               Back
             </Button>
-            <Button
-              // onClick={() => handleRoute("/home/details/additional_p")}
-              // onClick={onsubmitForm}
-              className="btn2"
-            // loading={props.financial_data.loading}
-            // disabled={
-            //   (questions.filedBankruptcy &&
-            //     questions.failedToPayLoan &&
-            //     questions.purposeOfMortgage &&
-            //     questions.peopleOnMortgage === "one") ||
-            //     (questions.filedBankruptcy &&
-            //       questions.failedToPayLoan &&
-            //       questions.purposeOfMortgage &&
-            //       questions.peopleOnMortgage === "two" &&
-            //       questions.firstNameSecondApplicant &&
-            //       questions.lastNameSecondApplicant &&
-            //       questions.emailSecondApplicantValidation &&
-            //       questions.emailSecondApplicantreValidation)
-            //     ? false
-            //     : true
-            // }
-            >
-              Save & Countinue
-            </Button>
+            <Button className="btn2" onClick={() => setVisible(true)}>Save</Button>
           </div>
         </Col>
       </Row>

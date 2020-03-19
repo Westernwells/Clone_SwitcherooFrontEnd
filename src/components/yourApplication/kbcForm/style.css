@@ -1,22 +1,81 @@
 @media print {
   .print {
-    zoom: 0.85;
+    width: 1340px;
+    /* a width: 1340px; */
+    /* Work fine */
+    /* width: 1300px; */
+    height: 1640;
+    /* zoom: 0.5; */
     margin-top: 0;
     -webkit-print-color-adjust: exact;
+    padding: 0;
+    margin: 0;
   }
 
-  .c-text,
-  .text,
-  .d-text,
-  .m-text {
-    /* perfect scale */
-    zoom: 0.927;
-    line-height: 1.2;
-    /* zoom: 0.928; */
+
+  .picx {
+    width: 1180px;
+    /* height: 1640; */
+
+    transform-origin: 0 0;
+
   }
+
+  .pics {
+    width: 1220px;
+    /* height: 1640; */
+
+    transform-origin: 0 0;
+
+  }
+
+  .headX {
+    width: 100%;
+    /* height: 1640; */
+
+    transform-origin: 0 0;
+    /* close */
+    /* transform: scale(1.05, 1); */
+
+    /* a transform: scale(1.125, 1); */
+    /* working */
+    /* transform: scale(1.155, 1.2); */
+    /* transform: scale(1.125, 1.2); */
+
+    /* width: 100%; */
+    /* transform-origin: 0 0; */
+    /* transform: scale(1.2); */
+
+  }
+
+  .head,
+  .headX,
+  .head3,
+  .head4,
+  .head5 {
+    width: 100%;
+    /* height: 1620; */
+
+    transform-origin: 0 0;
+    /* close */
+    /* transform: scale(1.05, 1); */
+
+    /* a transform: scale(1.125, 1); */
+
+    /* transform: scale(1.125, 1.150); */
+    /* transform: scale(1.125, 1.050); */
+    transform: scale(1.010, 1.050);
+
+    /* width: 100%; */
+    /* transform-origin: 0 0; */
+    /* transform: scale(1.2); */
+
+  }
+
+
 
   .head {
-    padding: 0 30px;
+    /* padding: 0 20px; */
   }
 
   .page-break {
@@ -37,9 +96,62 @@
 
 @media screen {
 
+
+  .pics {
+    width: 1100px;
+    /* height: 1640; */
+
+    transform-origin: 0 0;
+
+  }
+
   .print {
-    zoom: 0.85;
-    margin-top: 120px;
+    width: 1180px;
+    /* a width: 1340px; */
+    /* Work fine */
+    /* width: 1300px; */
+    /* height: 1640; */
+    /* zoom: 0.5; */
+    margin-top: 0;
+    -webkit-print-color-adjust: exact;
+    padding: 0;
+    margin: 0;
+  }
+
+  .headX {
+    width: 100%;
+    /* height: 1640; */
+    transform-origin: 0 0;
+    transform: scale(0.99, 1);
+  }
+
+  .shenk {
+    width: 1320px;
+    /* height: 1640; */
+    transform-origin: 0 0;
+    transform: scale(1.025, 1);
+  }
+
+  .head3,
+  .head4,
+  .head5 {
+    width: 100%;
+    /* height: 1620; */
+
+    transform-origin: 0 0;
+    /* close */
+    /* transform: scale(1.05, 1); */
+
+    /* a transform: scale(1.125, 1); */
+
+    /* transform: scale(1.125, 1.150); */
+    /* transform: scale(1.125, 1.050); */
+    transform: scale(0.98, 1.050);
+
+    /* width: 100%; */
+    /* transform-origin: 0 0; */
+    /* transform: scale(1.2); */
+
   }
 
   .contain {
@@ -50,11 +162,6 @@
 }
 
 
-
-/* @page: first {
-            margin-top: 100px;
-            border-top: red;
-        } */
 .contain {
   margin-top: -30px;
 }

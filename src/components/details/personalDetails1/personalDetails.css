@@ -17,6 +17,9 @@
   border-radius: 20px;
   border: 2px solid gray;
 }
+.personal-details1 .q1 .radio-container.date {
+  width: 30%;
+}
 .personal-details1 .q1 .radio-container:last-child {
   margin: 0 0 0 0;
 }
@@ -342,4 +345,7 @@ padding: 0 8px 0 0;
 }
 .personal-details1 .textarea-input textarea:focus {
   border: none;
+}
+.personal-details1 .react-tel-input {
+  width: 30% !important;
 }

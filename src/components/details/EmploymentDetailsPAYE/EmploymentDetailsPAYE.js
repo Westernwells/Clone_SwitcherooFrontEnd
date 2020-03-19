@@ -129,6 +129,9 @@ function Declaration(props) {
   const goBy = ["Mr", "Mrs", "Miss", "Dr.", "Other"];
   const relations = ["Son", "Daughter", "Father", "Friend", "Other"];
   const years = [];
+  const year = ["<1", 1, 2, 3, 4, 5, "5+"];
+  const year1 = ["<1", 1, 2, 3, 4, 5,6,7,8,9,10,"10+"];
+  const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   for (var i = 1; i <= 35; i++) {
     years.push(i);
   }
@@ -518,8 +521,8 @@ function Declaration(props) {
                   name="employersCounty"
                   className={
                     questions.employersCounty
-                      ? "select-option1 select-option-big bg-o"
-                      : "select-option1 select-option-big"
+                      ? "select-option1 county select-option-big bg-o"
+                      : "select-option1 county select-option-big"
                   }
                   defaultValue="County"
                   onChange={handleEmployersCounty}
@@ -548,154 +551,36 @@ function Declaration(props) {
             </Col>
 
             <Col lg={24} className="q1">
-              <div
-                className={
-                  questions.yearsWorkingWithEmp
-                    ? "input2 input2simple bg-o"
-                    : "input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
-                  name="yearsWorkingWithEmp"
-                  onChange={handleInput}
-                  placeholder="Years"
-                />
-              </div>
-              <div
-                className={
-                  questions.MonthsWorkingWithEmp
-                    ? "ml-4 input2 input2simple bg-o"
-                    : "ml-4 input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
-                  name="MonthsWorkingWithEmp"
-                  onChange={handleInput}
-                  placeholder="Months"
-                />
-              </div>
-
-            </Col>
-
-
-            <Col lg={24}>
-              <h6 className="h61">What is the name of your previous employer?</h6>
-            </Col>
-            <Col lg={24} className="q1">
-              <div
-                className={
-                  questions.nameOfPrevEmployer
-                    ? "input2 input2simple bg-o"
-                    : "input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
-                  name="nameOfPrevEmployer"
-                  onChange={handleInput}
-                  placeholder="name"
-                />
-              </div>
-            </Col>
-
-            <Col lg={24}>
-              <h6 className="h61">What type of position is this?</h6>
-            </Col>
-            <Col lg={24} className="q1 q3">
-              <div
-                onClick={e => clickRadio(e)}
-                className={
-                  questions.prevPositionType === "Permanent"
-                    ? "radio-container container_malta"
-                    : "radio-container"
-                }
-              >
-                <input
-                  onChange={e => handleQ(e)}
-                  type="radio"
-                  name="prevPositionType"
-                  id="prevPositionType1"
-                  className=""
-                  // checked={questions.purposeOfMortgage === "a"}
-                  value="Permanent"
-                />
-                <label for="prevPositionType1">Permanent</label>
-              </div>
-              <div
-                onClick={clickRadio}
-                className={
-                  questions.prevPositionType === "Temporary"
-                    ? "radio-container container_malta"
-                    : "radio-container"
-                }
-              >
-                <input
-                  onChange={e => handleQ(e)}
-                  type="radio"
-                  name="prevPositionType"
-                  id="prevPositionType2"
-                  // checked={questions.purposeOfMortgage === "House Mover"}
-                  className=""
-                  value="Temporary"
-                />
-                <label for="prevPositionType2">Temporary</label>
-              </div>
-              <div
-                onClick={clickRadio}
-                className={
-                  questions.prevPositionType === "Contract"
-                    ? "radio-container container_malta"
-                    : "radio-container"
-                }
-              >
-                <input
-                  onChange={e => handleQ(e)}
-                  type="radio"
-                  name="prevPositionType"
-                  id="prevPositionType3"
-                  // checked={questions.purposeOfMortgage === "House Mover"}
-                  className=""
-                  value="Contract"
-                />
-                <label for="prevPositionType3">Contract</label>
-              </div>
-            </Col>
-
-            <Col lg={24}>
-              <h6 className="h61">What is your previous employer's address?</h6>
-            </Col>
-            <Col lg={24}>
-              <div className={questions.prevEmployersAddress ? "input bg-orange" : "input"}>
-                <input
-                  type="text"
-                  onChange={e => handleInput(e)}
-                  name="prevEmployersAddress"
-                  placeholder="Address Line 1"
-                />
-              </div>
-              <div className={questions.prevEmployersCity ? "input bg-orange" : "input"}>
-                <input
-                  type="text"
-                  onChange={e => handleInput(e)}
-                  name="prevEmployersCity"
-                  placeholder="City"
-                />
-              </div>
-              <div className="input">
-                {/* <input type="text" name="Country" placeholder="County" /> */}
+              <div className="input1">
                 <Select
-                  name="prevEmployersCounty"
+                  name="employersCounty"
                   className={
-                    questions.prevEmployersCounty
-                      ? "select-option1 select-option-big bg-o"
-                      : "select-option1 select-option-big"
+                    questions.yearsWorkingWithEmp
+                      ? "select-option1 full bg-o"
+                      : "select-option1 full"
                   }
-                  defaultValue="County"
-                  onChange={handlePrevEmployersCounty}
+                  defaultValue="Select years"
+                  onChange={(value) => { setQuestions({ ...questions, yearsWorkingWithEmp: value }) }}
                 >
-                  {county.map((value, index) => {
+                  {year.map((value, index) => {
+                    return (
+                      <Option key={index} value={value}>
+                        {value}
+                      </Option>
+                    );
+                  })}
+                </Select>
+                <Select
+                  name="MonthsWorkingWithEmp"
+                  className={
+                    questions.MonthsWorkingWithEmp
+                      ? "ml-4 select-option1 full bg-o"
+                      : "ml-4 select-option1 full"
+                  }
+                  defaultValue="Select months"
+                  onChange={(value) => { setQuestions({ ...questions, MonthsWorkingWithEmp: value }) }}
+                >
+                  {months.map((value, index) => {
                     return (
                       <Option key={index} value={value}>
                         {value}
@@ -704,51 +589,220 @@ function Declaration(props) {
                   })}
                 </Select>
               </div>
-              <div className={questions.prevEmployersEircode ? "input bg-orange" : "input"}>
-                <input
-                  type="text"
-                  onChange={e => handleInput(e)}
-                  name="prevEmployersEircode"
-                  placeholder="Eircode"
-                />
-              </div>
             </Col>
+            {
+              questions.yearsWorkingWithEmp && (questions.yearsWorkingWithEmp < 3 || questions.yearsWorkingWithEmp === "<1") &&
+              <>
+                <Col lg={24}>
+                  <h6 className="h61">What is the name of your previous employer?</h6>
+                </Col>
+                <Col lg={24} className="q1">
+                  <div
+                    className={
+                      questions.nameOfPrevEmployer
+                        ? "input2 input2simple bg-o"
+                        : "input2 input2simple"
+                    }
+                  >
+                    <input
+                      type="text"
+                      name="nameOfPrevEmployer"
+                      onChange={handleInput}
+                      placeholder="name"
+                    />
+                  </div>
+                </Col>
 
-            <Col lg={24}>
-              <h6 className="h61">How long were you with this previous employer?</h6>
-            </Col>
+                <Col lg={24}>
+                  <h6 className="h61">What type of position is this?</h6>
+                </Col>
+                <Col lg={24} className="q1 q3">
+                  <div
+                    onClick={e => clickRadio(e)}
+                    className={
+                      questions.prevPositionType === "Permanent"
+                        ? "radio-container container_malta"
+                        : "radio-container"
+                    }
+                  >
+                    <input
+                      onChange={e => handleQ(e)}
+                      type="radio"
+                      name="prevPositionType"
+                      id="prevPositionType1"
+                      className=""
+                      // checked={questions.purposeOfMortgage === "a"}
+                      value="Permanent"
+                    />
+                    <label for="prevPositionType1">Permanent</label>
+                  </div>
+                  <div
+                    onClick={clickRadio}
+                    className={
+                      questions.prevPositionType === "Temporary"
+                        ? "radio-container container_malta"
+                        : "radio-container"
+                    }
+                  >
+                    <input
+                      onChange={e => handleQ(e)}
+                      type="radio"
+                      name="prevPositionType"
+                      id="prevPositionType2"
+                      // checked={questions.purposeOfMortgage === "House Mover"}
+                      className=""
+                      value="Temporary"
+                    />
+                    <label for="prevPositionType2">Temporary</label>
+                  </div>
+                  <div
+                    onClick={clickRadio}
+                    className={
+                      questions.prevPositionType === "Contract"
+                        ? "radio-container container_malta"
+                        : "radio-container"
+                    }
+                  >
+                    <input
+                      onChange={e => handleQ(e)}
+                      type="radio"
+                      name="prevPositionType"
+                      id="prevPositionType3"
+                      // checked={questions.purposeOfMortgage === "House Mover"}
+                      className=""
+                      value="Contract"
+                    />
+                    <label for="prevPositionType3">Contract</label>
+                  </div>
+                </Col>
 
-            <Col lg={24} className="q1">
-              <div
-                className={
-                  questions.yearsWorkedWithPrevEmp
-                    ? "input2 input2simple bg-o"
-                    : "input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
-                  name="yearsWorkedWithPrevEmp"
-                  onChange={handleInput}
-                  placeholder="Years"
-                />
-              </div>
-              <div
-                className={
-                  questions.monthsWorkedWithPrevEmp
-                    ? "ml-4 input2 input2simple bg-o"
-                    : "ml-4 input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
-                  name="monthsWorkedWithPrevEmp"
-                  onChange={handleInput}
-                  placeholder="Months"
-                />
-              </div>
+                <Col lg={24}>
+                  <h6 className="h61">What is your previous employer's address?</h6>
+                </Col>
+                <Col lg={24}>
+                  <div className={questions.prevEmployersAddress ? "input bg-orange" : "input"}>
+                    <input
+                      type="text"
+                      onChange={e => handleInput(e)}
+                      name="prevEmployersAddress"
+                      placeholder="Address Line 1"
+                    />
+                  </div>
+                  <div className={questions.prevEmployersCity ? "input bg-orange" : "input"}>
+                    <input
+                      type="text"
+                      onChange={e => handleInput(e)}
+                      name="prevEmployersCity"
+                      placeholder="City"
+                    />
+                  </div>
+                  <div className="input">
+                    {/* <input type="text" name="Country" placeholder="County" /> */}
+                    <Select
+                      name="prevEmployersCounty"
+                      className={
+                        questions.prevEmployersCounty
+                          ? "select-option1 county select-option-big bg-o"
+                          : "select-option1 county select-option-big"
+                      }
+                      defaultValue="County"
+                      onChange={handlePrevEmployersCounty}
+                    >
+                      {county.map((value, index) => {
+                        return (
+                          <Option key={index} value={value}>
+                            {value}
+                          </Option>
+                        );
+                      })}
+                    </Select>
+                  </div>
+                  <div className={questions.prevEmployersEircode ? "input bg-orange" : "input"}>
+                    <input
+                      type="text"
+                      onChange={e => handleInput(e)}
+                      name="prevEmployersEircode"
+                      placeholder="Eircode"
+                    />
+                  </div>
+                </Col>
 
-            </Col>
+                <Col lg={24}>
+                  <h6 className="h61">How many years did you work iwith previous employer?</h6>
+                </Col>
+
+                <Col lg={24} className="q1">
+                  <div className="input1">
+                    <Select
+                      name="yearsWorkedWithPrevEmp"
+                      className={
+                        questions.yearsWorkedWithPrevEmp
+                          ? "select-option1 full bg-o"
+                          : "select-option1 full"
+                      }
+                      defaultValue="Select years"
+                      onChange={(value) => { setQuestions({ ...questions, yearsWorkedWithPrevEmp: value }) }}
+                    >
+                      {year1.map((value, index) => {
+                        return (
+                          <Option key={index} value={value}>
+                            {value}
+                          </Option>
+                        );
+                      })}
+                    </Select>
+                    <Select
+                      name="monthsWorkedWithPrevEmp"
+                      className={
+                        questions.monthsWorkedWithPrevEmp
+                          ? "ml-4 select-option1 full bg-o"
+                          : "ml-4 select-option1 full"
+                      }
+                      defaultValue="Select months"
+                      onChange={(value) => { setQuestions({ ...questions, monthsWorkedWithPrevEmp: value }) }}
+                    >
+                      {months.map((value, index) => {
+                        return (
+                          <Option key={index} value={value}>
+                            {value}
+                          </Option>
+                        );
+                      })}
+                    </Select>
+                  </div>
+                  {/* <div
+                    className={
+                      questions.yearsWorkedWithPrevEmp
+                        ? "input2 input2simple bg-o"
+                        : "input2 input2simple"
+                    }
+                  >
+                    <input
+                      type="text"
+                      name="yearsWorkedWithPrevEmp"
+                      onChange={handleInput}
+                      placeholder="Years"
+                    />
+                  </div>
+                  <div
+                    className={
+                      questions.monthsWorkedWithPrevEmp
+                        ? "ml-4 input2 input2simple bg-o"
+                        : "ml-4 input2 input2simple"
+                    }
+                  >
+                    <input
+                      type="text"
+                      name="monthsWorkedWithPrevEmp"
+                      onChange={handleInput}
+                      placeholder="Months"
+                    />
+                  </div>
+ */}
+                </Col>
+              </>
+            }
+
           </>}
 
         {questions.employmentType && questions.employmentType === "Self Employed" &&
@@ -895,6 +949,25 @@ function Declaration(props) {
               </div>
             </Col>
 
+            <Col lg={24}>
+              <h6 className="h61">Please add your companies registration office number</h6>
+            </Col>
+            <Col lg={24} className="q1">
+              <div
+                className={
+                  questions.regOfficeNo
+                    ? "input2 input2simple bg-o"
+                    : "input2 input2simple"
+                }
+              >
+                <input
+                  type="number"
+                  name="regOfficeNo"
+                  onChange={handleInput}
+                  placeholder="write year"
+                />
+              </div>
+            </Col>
 
             <Col lg={24}>
               <h6 className="h61">What is the address of your business ?</h6>
@@ -923,8 +996,8 @@ function Declaration(props) {
                   name="businessCounty"
                   className={
                     questions.businessCounty
-                      ? "select-option1 select-option-big bg-o"
-                      : "select-option1 select-option-big"
+                      ? "select-option1 county select-option-big bg-o"
+                      : "select-option1 county select-option-big"
                   }
                   defaultValue="County"
                   onChange={handleBusinessCounty}
@@ -1023,13 +1096,12 @@ function Declaration(props) {
                 />
               </div>
               <div className="input">
-                {/* <input type="text" name="Country" placeholder="County" /> */}
                 <Select
                   name="accountantCounty"
                   className={
                     questions.accountantCounty
-                      ? "select-option1 select-option-big bg-o"
-                      : "select-option1 select-option-big"
+                      ? "select-option1 county select-option-big bg-o"
+                      : "select-option1 county select-option-big"
                   }
                   defaultValue="County"
                   onChange={handleAccountantCounty}
@@ -1162,37 +1234,47 @@ function Declaration(props) {
             </Col>
 
             <Col lg={24}>
-              <h6 className="h61">How long have you worked in this business?</h6>
+              <h6 className="h61">How many years have you worked in this business?</h6>
             </Col>
 
             <Col lg={24} className="q1">
-              <div
-                className={
-                  questions.yearWorkedInBusiness
-                    ? "input2 input2simple bg-o"
-                    : "input2 input2simple"
-                }
-              >
-                <input
-                  type="number"
+              <div className="input1">
+                <Select
                   name="yearWorkedInBusiness"
-                  onChange={handleInput}
-                  placeholder="years"
-                />
-              </div>
-              <div
-                className={
-                  questions.monthsWorkedInBusiness
-                    ? "ml-4 input2 input2simple bg-o"
-                    : "ml-4 input2 input2simple"
-                }
-              >
-                <input
-                  type="number"
+                  className={
+                    questions.yearWorkedInBusiness
+                      ? "select-option1 full bg-o"
+                      : "select-option1 full"
+                  }
+                  defaultValue="Select years"
+                  onChange={(value) => { setQuestions({ ...questions, yearWorkedInBusiness: value }) }}
+                >
+                  {year1.map((value, index) => {
+                    return (
+                      <Option key={index} value={value}>
+                        {value}
+                      </Option>
+                    );
+                  })}
+                </Select>
+                <Select
                   name="monthsWorkedInBusiness"
-                  onChange={handleInput}
-                  placeholder="months"
-                />
+                  className={
+                    questions.monthsWorkedInBusiness
+                      ? "ml-4 select-option1 full bg-o"
+                      : "ml-4 select-option1 full"
+                  }
+                  defaultValue="Select months"
+                  onChange={(value) => { setQuestions({ ...questions, monthsWorkedInBusiness: value }) }}
+                >
+                  {months.map((value, index) => {
+                    return (
+                      <Option key={index} value={value}>
+                        {value}
+                      </Option>
+                    );
+                  })}
+                </Select>
               </div>
             </Col>
 
@@ -1306,8 +1388,8 @@ function Declaration(props) {
                   name="prevEmployersCounty"
                   className={
                     questions.prevEmployersCounty
-                      ? "select-option1 select-option-big bg-o"
-                      : "select-option1 select-option-big"
+                      ? "select-option1 county select-option-big bg-o"
+                      : "select-option1 county select-option-big"
                   }
                   defaultValue="County"
                   onChange={handlePrevEmployersCounty}
@@ -1332,39 +1414,48 @@ function Declaration(props) {
             </Col>
 
             <Col lg={24}>
-              <h6 className="h61">How long were you with this previous employer?</h6>
+              <h6 className="h61">How many years did you work with previous employer?</h6>
             </Col>
 
             <Col lg={24} className="q1">
-              <div
-                className={
-                  questions.yearsWorkedWithPrevEmp
-                    ? "input2 input2simple bg-o"
-                    : "input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
+              <div className="input1">
+                <Select
                   name="yearsWorkedWithPrevEmp"
-                  onChange={handleInput}
-                  placeholder="Years"
-                />
-              </div>
-              <div
-                className={
-                  questions.monthsWorkedWithPrevEmp
-                    ? "ml-4 input2 input2simple bg-o"
-                    : "ml-4 input2 input2simple"
-                }
-              >
-                <input
-                  type="text"
+                  className={
+                    questions.yearsWorkedWithPrevEmp
+                      ? "select-option1 full bg-o"
+                      : "select-option1 full"
+                  }
+                  defaultValue="Select years"
+                  onChange={(value) => { setQuestions({ ...questions, yearsWorkedWithPrevEmp: value }) }}
+                >
+                  {year1.map((value, index) => {
+                    return (
+                      <Option key={index} value={value}>
+                        {value}
+                      </Option>
+                    );
+                  })}
+                </Select>
+                <Select
                   name="monthsWorkedWithPrevEmp"
-                  onChange={handleInput}
-                  placeholder="Months"
-                />
+                  className={
+                    questions.monthsWorkedWithPrevEmp
+                      ? "ml-4 select-option1 full bg-o"
+                      : "ml-4 select-option1 full"
+                  }
+                  defaultValue="Select months"
+                  onChange={(value) => { setQuestions({ ...questions, monthsWorkedWithPrevEmp: value }) }}
+                >
+                  {months.map((value, index) => {
+                    return (
+                      <Option key={index} value={value}>
+                        {value}
+                      </Option>
+                    );
+                  })}
+                </Select>
               </div>
-
             </Col>
           </>
         }

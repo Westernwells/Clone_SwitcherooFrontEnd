@@ -8,7 +8,7 @@ function PersonalDetails2p1a(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-   
+
   });
   const purposes = [
     "Extension",
@@ -90,8 +90,9 @@ function PersonalDetails2p1a(props) {
     "Remarried"
   ];
   const additionaProperties = [1, 2, 3, 4, "4+"];
-  const numberOfChilds = [1, 2, 3, 4, 5, 6];
-  const occupyers = [1, 2, 3, 4, 5];
+  const numberOfChilds = [0, 1, 2, 3, 4, 5, 6];
+  const occupyers = [0, 1, 2, 3, 4, 5];
+  const year = ["<1", 1, 2, 3, 4, 5,6,7,8,9,10];
   const [count, setCount] = useState([]);
   const [countO, setCountO] = useState([]);
   const goBy = ["Mr", "Mrs", "Miss", "Dr.", "Other"];
@@ -216,8 +217,8 @@ function PersonalDetails2p1a(props) {
               name="county"
               className={
                 questions.county
-                  ? "select-option1 select-option-big bg-o"
-                  : "select-option1 select-option-big"
+                  ? "select-option1 county select-option-big bg-o"
+                  : "select-option1 county select-option-big"
               }
               defaultValue="County"
               onChange={handleCounty}
@@ -240,10 +241,10 @@ function PersonalDetails2p1a(props) {
             />
           </div>
         </Col>
-        <Col lg={24}>
+        {/* <Col lg={24}>
           <h6 className="h61">Are you ?</h6>
         </Col>
-        <Col lg={24} className="q1">
+        <Col lg={24} className="q1 q4">
           <div
             onClick={e => clickRadio(e)}
             className={
@@ -296,33 +297,40 @@ function PersonalDetails2p1a(props) {
               placeholder="########"
             />
           </div>
-        </Col>
+        </Col> */}
 
         <Col lg={24}>
-          <h6 className="h61">How long have you lived there?</h6>
+          <h6 className="h61">How many years have you lived there?</h6>
         </Col>
         <Col lg={24} className="q1">
-          <div
-            className={
-              questions.year
-                ? "input2 input2simple bg-o"
-                : "input2 input2simple"
-            }
-          >
-            <input
-              type="number"
-              name="year"
-              onChange={handleInput}
-              placeholder="years"
-            />
+          <div className="input">
+            <Select
+              name="previous_county"
+              className={
+                questions.years
+                  ? "select-option1  bg-o"
+                  : "select-option1"
+              }
+              defaultValue="Select years"
+              onChange={(value)=>{setQuestions({...questions,years:value})}}
+            >
+              {year.map((value, index) => {
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
+              })}
+            </Select>
           </div>
+
         </Col>
-        {questions.year && questions.year < 3 && (
+        {questions.years && (questions.years < 3 || questions.years==="<1") && (
           <Col lg={24}>
             <h6 className="h61">What was your previous address?</h6>
           </Col>
         )}
-        {questions.year && questions.year < 3 && (
+        {questions.years && (questions.years < 3 || questions.years==="<1") && (
           <Col lg={24}>
             <div
               className={
@@ -352,8 +360,8 @@ function PersonalDetails2p1a(props) {
                 name="previous_county"
                 className={
                   questions.previous_county
-                    ? "select-option1 select-option-big bg-o"
-                    : "select-option1 select-option-big"
+                    ? "select-option1 county select-option-big bg-o"
+                    : "select-option1 county select-option-big"
                 }
                 defaultValue="County"
                 onChange={handlePreCounty}
@@ -492,11 +500,11 @@ function PersonalDetails2p1a(props) {
             </Select>
           </div>
         </Col>
-        {countO.length!==0 &&
-        <Col lg={24}>
-          <h6 className="h61">Please Provide their details</h6>
-        </Col>
-        } 
+        {countO.length !== 0 &&
+          <Col lg={24}>
+            <h6 className="h61">Please Provide their details</h6>
+          </Col>
+        }
         {countO.map((value, index) => {
           return (
             <>
@@ -578,7 +586,8 @@ function PersonalDetails2p1a(props) {
               onClick={() => {
                 props.secPageMethod(false)
                 props.changeProfRout(1)
-                props.setProgress(0)}
+                props.setProgress(0)
+              }
               }
               className="btn1"
             >
@@ -587,23 +596,23 @@ function PersonalDetails2p1a(props) {
             <Button
               onClick={onsubmitForm}
               className="btn2"
-              // loading={props.financial_data.loading}
-              // disabled={
-              //   (questions.filedBankruptcy &&
-              //     questions.failedToPayLoan &&
-              //     questions.purposeOfMortgage &&
-              //     questions.peopleOnMortgage === "one") ||
-              //     (questions.filedBankruptcy &&
-              //       questions.failedToPayLoan &&
-              //       questions.purposeOfMortgage &&
-              //       questions.peopleOnMortgage === "two" &&
-              //       questions.firstNameSecondApplicant &&
-              //       questions.lastNameSecondApplicant &&
-              //       questions.emailSecondApplicantValidation &&
-              //       questions.emailSecondApplicantreValidation)
-              //     ? false
-              //     : true
-              // }
+            // loading={props.financial_data.loading}
+            // disabled={
+            //   (questions.filedBankruptcy &&
+            //     questions.failedToPayLoan &&
+            //     questions.purposeOfMortgage &&
+            //     questions.peopleOnMortgage === "one") ||
+            //     (questions.filedBankruptcy &&
+            //       questions.failedToPayLoan &&
+            //       questions.purposeOfMortgage &&
+            //       questions.peopleOnMortgage === "two" &&
+            //       questions.firstNameSecondApplicant &&
+            //       questions.lastNameSecondApplicant &&
+            //       questions.emailSecondApplicantValidation &&
+            //       questions.emailSecondApplicantreValidation)
+            //     ? false
+            //     : true
+            // }
             >
               Save & Countinue
             </Button>

@@ -1,0 +1,61 @@
+.courier-container {
+  box-shadow: 4px 4px 14px 8px rgba(230, 230, 230, 1);
+  border: 1px solid #b6b6b6;
+  border-radius: 8px;
+  padding: 20px 45px;
+  margin: 0px 30px 0px 0px;
+  min-height: calc(100vh - 100px);
+}
+.courier-container-text {
+  text-align: center;
+  font-size: 0.84rem;
+  color: #62635d;
+}
+.courier-middle {
+  display: grid;
+  padding: 50px 90px 50px 80px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.courier-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.courier-back {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.courier-back input {
+  background-color: #727272;
+  margin: 60px 0 0 0;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.84rem;
+  width: 157px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.courier-continue {
+  width: 100%;
+  padding-left: 20px;
+}
+.courier-continue input {
+  background-color: #fb9500;
+  margin: 60px 0 0 0;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.84rem;
+  width: 157px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.courier-address-text {
+  padding: 40px 30px;
+  color: #62635d;
+}
+.courier-address-text p {
+  font-size: 1.1rem;
+}

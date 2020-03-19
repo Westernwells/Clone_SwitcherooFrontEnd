@@ -1,13 +1,14 @@
-.saving-acc {
-  min-height: 80vh;
+.saving-acc-p {
   margin: 0 0 20px 0;
   padding: 20px 20px 20px 80px;
   clear: both;
   font-family: Montserrat;
-  /* border-radius: 10px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05); */
 }
-.saving-acc .q1 .radio-container {
+.saving-acc-p.index {
+  padding: 20px 20px 20px 80px;
+}
+
+.saving-acc-p .q1 .radio-container {
   width: 40%;
   float: left;
   margin: 0 40px 0 0;
@@ -17,16 +18,16 @@
   border-radius: 20px;
   border: 2px solid gray;
 }
-.saving-acc .q1 .radio-container:last-child {
+.saving-acc-p .q1 .radio-container:last-child {
   margin: 0 0 0 0;
 }
-.saving-acc .q1 input[type="radio"]:checked,
-.saving-acc .q1 input[type="radio"]:not(:checked) {
+.saving-acc-p .q1 input[type="radio"]:checked,
+.saving-acc-p .q1 input[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-.saving-acc .q1 input[type="radio"]:checked + label,
-.saving-acc .q1 input[type="radio"]:not(:checked) + label {
+.saving-acc-p .q1 input[type="radio"]:checked + label,
+.saving-acc-p .q1 input[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 40px;
   cursor: pointer;
@@ -38,8 +39,8 @@
   margin: 9px 0 0 30px;
 }
 
-.saving-acc .q1 input[type="radio"]:checked + label:before,
-.saving-acc .q1 input[type="radio"]:not(:checked) + label:before {
+.saving-acc-p .q1 input[type="radio"]:checked + label:before,
+.saving-acc-p .q1 input[type="radio"]:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -51,8 +52,8 @@
   background: #fff;
 }
 
-.saving-acc .q1 input[type="radio"]:checked + label:after,
-.saving-acc .q1 input[type="radio"]:not(:checked) + label:after {
+.saving-acc-p .q1 input[type="radio"]:checked + label:after,
+.saving-acc-p .q1 input[type="radio"]:not(:checked) + label:after {
   content: "";
   width: 12px;
   height: 12px;
@@ -65,114 +66,114 @@
   transition: all 0.2s ease;
 }
 
-.saving-acc .q1 input[type="radio"]:not(:checked) + label:after {
+.saving-acc-p .q1 input[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-.saving-acc .q1 input[type="radio"]:checked + label:after {
+.saving-acc-p .q1 input[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.saving-acc .q3 .radio-container {
+.saving-acc-p .q3 .radio-container {
   float: none;
   width: 40%;
   margin: 0 0 10px 0;
 }
-.saving-acc .q4 .radio-container {
+.saving-acc-p .q4 .radio-container {
   float: left;
   width: 30%;
   margin: 0 25px 0 0;
 }
-.saving-acc .heading1 {
+.saving-acc-p .heading1 {
   font-size: 22px;
   color: #62635d;
   font-weight: 600;
   margin: 17px 0 40px 0;
   /* font-style: italic; */
 }
-.saving-acc .heading2 {
+.saving-acc-p .heading2 {
   margin: 35px 0 10px 0;
 }
-.saving-acc .h61 {
+.saving-acc-p .h61 {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 15px 0;
   padding: 0 0 0 4px;
 }
-.saving-acc .h61.mm {
+.saving-acc-p .h61.mm {
   font-size: 16px;
   color: #62635d;
   margin: 35px 0 0px 0;
   padding: 0 0 0 4px;
 }
-.saving-acc .mini-msg {
+.saving-acc-p .mini-msg {
   font-size: 14px;
   color: #62635d;
   margin: 0 0 15px 0;
   padding: 0 0 0 4px;
 }
 
-.saving-acc .select-option1 {
+.saving-acc-p .select-option1 {
   width: 40%;
   /* height: 50px; */
 }
-.saving-acc .select-option-big {
+.saving-acc-p .select-option-big {
   width: 47%;
 }
-.saving-acc .select-option2 {
+.saving-acc-p .select-option2 {
   width: 17%;
   margin: 0 15px 0 0;
 }
-.saving-acc .ant-select-selection--single {
+.saving-acc-p .ant-select-selection--single {
   background: #cccccc;
   border: 2px solid gray;
   border-radius: 20px;
   height: 41px;
 }
-.saving-acc .ant-select-selection--single:active {
+.saving-acc-p .ant-select-selection--single:active {
   border: 2px solid gray;
   box-shadow: none;
 }
-.saving-acc .ant-select-selection--single:focus {
+.saving-acc-p .ant-select-selection--single:focus {
   border: 2px solid gray;
   box-shadow: none;
 }
-.saving-acc .ant-select-selection-selected-value {
+.saving-acc-p .ant-select-selection-selected-value {
 }
 
-.saving-acc .bg-o .ant-select-selection--single {
+.saving-acc-p .bg-o .ant-select-selection--single {
   background: rgb(251, 149, 0);
   border: 2px solid rgb(251, 149, 0);
   border-radius: 20px;
   height: 41px;
 }
-.saving-acc .bg-o .ant-select-selection--single:active {
+.saving-acc-p .bg-o .ant-select-selection--single:active {
   border: 2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
-.saving-acc .bg-o .ant-select-selection--single:focus {
+.saving-acc-p .bg-o .ant-select-selection--single:focus {
   border: 2px solid rgb(251, 149, 0);
   box-shadow: none;
 }
-.saving-acc .ant-select-selection__rendered {
+.saving-acc-p .ant-select-selection__rendered {
   line-height: 37px;
   color: white;
   font-weight: 600;
   padding: 0 0 0 12px;
 }
-.saving-acc .ant-select-arrow {
+.saving-acc-p .ant-select-arrow {
   color: white;
   padding: 0 10px 0 0;
 }
 
-.saving-acc .ant-select-arrow path {
+.saving-acc-p .ant-select-arrow path {
   stroke-width: 161px;
   stroke: white;
 }
-.saving-acc .btn-div button {
+.saving-acc-p .btn-div button {
   margin: 0 20px 0 0;
   padding: 10px 35px;
   border: none;
@@ -180,7 +181,7 @@
   font-weight: 600;
   color: white;
 }
-.saving-acc .account-btns button {
+.saving-acc-p .account-btns button {
   margin: 30px 20px 0 0;
   /* padding: 10px 35px; */
   border: none;
@@ -190,31 +191,31 @@
   font-weight: 600;
   color: white;
 }
-.saving-acc .account-btns .btn1 b {
+.saving-acc-p .account-btns .btn1 b {
   font-size: 2rem;
   float: left;
   /* display: inline; */
   font-weight: 500;
 }
-.saving-acc .account-btns .btn1 {
+.saving-acc-p .account-btns .btn1 {
   background: gray;
 }
-.saving-acc .btn-div {
+.saving-acc-p .btn-div {
   margin: 20px 0 40px 0;
 }
-.saving-acc .btn-div .btn1 {
+.saving-acc-p .btn-div .btn1 {
   background: gray;
 }
-.saving-acc .btn-div .btn2 {
+.saving-acc-p .btn-div .btn2 {
   background: #fb9500;
   height: 40px;
 }
-/* .saving-acc .btn-div .btn2 {
+/* .saving-acc-p .btn-div .btn2 {
 } */
-.saving-acc .input {
+.saving-acc-p .input {
   margin: 0 0 14px 0;
 }
-.saving-acc .input input {
+.saving-acc-p .input input {
   width: 60%;
   height: 40px;
   background: #cccccc;
@@ -225,16 +226,16 @@
   font-weight: 600;
   color: white;
 }
-.saving-acc .bg-orange input {
+.saving-acc-p .bg-orange input {
   background: rgb(251, 149, 0);
   border: 2px solid rgb(251, 149, 0);
 }
 
-.saving-acc .input input::placeholder {
+.saving-acc-p .input input::placeholder {
   color: white;
 }
 
-.saving-acc .input2 {
+.saving-acc-p .input2 {
   margin: 0 0 0 0;
   border-radius: 20px;
   border: 2px solid gray;
@@ -246,7 +247,7 @@
   font-size: 20px;
   background: #cccccc;
 }
-.saving-acc .input2.bg-o {
+.saving-acc-p .input2.bg-o {
   margin: 0 0 0 0;
   float: left;
   border-radius: 20px;
@@ -259,16 +260,16 @@
   font-size: 20px;
   background: rgb(251, 149, 0);
 }
-.saving-acc .input2 .pre {
+.saving-acc-p .input2 .pre {
   line-height: 36px;
   float: left;
 }
-.saving-acc .input2 .post {
+.saving-acc-p .input2 .post {
   line-height: 36px;
   float: right;
 }
 
-.saving-acc .input2 input {
+.saving-acc-p .input2 input {
   width: 85%;
   height: 36px;
   border: none;
@@ -279,7 +280,7 @@
   color: white;
   font-size: 16px;
 }
-.saving-acc .input2.bg-o input {
+.saving-acc-p .input2.bg-o input {
   width: 85%;
   height: 36px;
   border: none;
@@ -291,11 +292,11 @@
   font-size: 16px;
 }
 
-.saving-acc .input2 input::placeholder {
+.saving-acc-p .input2 input::placeholder {
   color: white;
 }
 
-.saving-acc .input2post {
+.saving-acc-p .input2post {
   margin: 0 0 0 0;
   border-radius: 20px;
   border: 2px solid rgb(251, 149, 0);
@@ -307,17 +308,17 @@
   font-size: 20px;
   background: rgb(251, 149, 0);
 }
-.saving-acc .input2post .pre {
+.saving-acc-p .input2post .pre {
   line-height: 36px;
   float: left;
 }
-.saving-acc .input2post .post {
+.saving-acc-p .input2post .post {
   line-height: 36px;
   float: right;
   padding: 0 45px 0 0;
 }
 
-.saving-acc .input2post input {
+.saving-acc-p .input2post input {
   width: 70%;
   height: 36px;
   border: none;
@@ -329,14 +330,14 @@
   font-size: 16px;
 }
 
-.saving-acc .input2post input::placeholder {
+.saving-acc-p .input2post input::placeholder {
   color: white;
 }
 
-.saving-acc .input3 {
+.saving-acc-p .input3 {
   margin: 0 0 0px 0;
 }
-.saving-acc .input3 input {
+.saving-acc-p .input3 input {
   width: 40%;
   height: 40px;
   background: rgb(251, 149, 0);
@@ -348,11 +349,11 @@
   color: white;
 }
 
-.saving-acc .input3 input::placeholder {
+.saving-acc-p .input3 input::placeholder {
   color: white;
 }
 
-.saving-acc {
+.saving-acc-p-index {
   min-height: 80vh;
   margin: 20px 20px 20px 20px;
   padding: 20px 120px 20px 80px;

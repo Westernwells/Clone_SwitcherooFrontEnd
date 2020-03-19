@@ -512,8 +512,8 @@ function PersonalDetails1(props) {
               format={dateFormatList}
               className={
                 questions.dateOfBirth !== ""
-                  ? "radio-container container_malta"
-                  : "radio-container"
+                  ? "radio-container date container_malta"
+                  : "radio-container date" 
               }
               onChange={onChangeDate}
               defaultValue={moment(

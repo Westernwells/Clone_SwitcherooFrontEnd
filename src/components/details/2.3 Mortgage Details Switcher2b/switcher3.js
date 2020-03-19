@@ -8,7 +8,14 @@ function SwitcherThree(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    q1: ""
+    additionalBorrowings: "",
+    borrowingPurpose: "",
+    additionalSavings: "",
+    sourceOfSavings: "",
+    estimatedLoan: "",
+    borrowingYears: "",
+    additionalProps: "",
+    numOfAddProps: "",
   });
   const purposes = [
     "Extension",
@@ -56,8 +63,8 @@ function SwitcherThree(props) {
   function handleAdditionalP(value) {
     setAddP(value);
   }
-  function handleChange(value) {
-    console.log(`selected ${value}`);
+  function handleChange(e) {
+    setQuestions({...questions,[e.target.name]:e.target.value})
   }
   function handleSource(value) {
     setQuestions({ ...questions, source: value });
@@ -77,9 +84,13 @@ function SwitcherThree(props) {
           <h6 className="h61">Additional borrowing beyond current balance?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div className={questions.additionalBorrowings !=='' ?'input2 inputMalta':'input2'}>
             <span className="pre">€</span>
-            <input type="text" placeholder="########" />
+            <input 
+            name = "additionalBorrowings"
+            type="text" placeholder="########"
+            onChange = {handleChange}
+            />
           </div>
         </Col>
 
@@ -89,9 +100,16 @@ function SwitcherThree(props) {
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+            name = "borrowingPurpose"
+            className={
+              questions.borrowingPurpose !== ""
+                ? "selectPRo maltaback" 
+                : "selectPRo "
+            }
               defaultValue="Select from options"
-              onChange={handlePurpose}
+              onChange={value =>
+                setQuestions({ ...questions, borrowingPurpose: value })
+              }
             >
               {purposes.map((value, index) => {
                 return (
@@ -122,9 +140,13 @@ function SwitcherThree(props) {
           </h6>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div className={questions.additionalSavings !=='' ?'input2 inputMalta':'input2'}>
             <span className="pre">€</span>
-            <input type="text" placeholder="########" />
+            <input 
+            name = 'additionalSavings'
+            type="text" placeholder="########" 
+            onChange = {handleChange}
+            />
           </div>
         </Col>
 
@@ -134,9 +156,16 @@ function SwitcherThree(props) {
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+            name = "sourceOfSavings"
+            className={
+              questions.sourceOfSavings !== ""
+                ? "selectPRo maltaback" 
+                : "selectPRo "
+            }
               defaultValue="Select from options"
-              onChange={handleSource}
+              onChange={value =>
+                setQuestions({ ...questions, sourceOfSavings: value })
+              }
             >
               {sources.map((value, index) => {
                 return (
@@ -165,12 +194,13 @@ function SwitcherThree(props) {
           <h6 className="h61">So we estimate you require a loan of :</h6>
         </Col>
         <Col lg={24} className="q1">
-          <div className={disEstimate ? "input2 input2disabled" : "input2"}>
+          <div className={questions.estimatedLoan !=='' ?'input2 inputMalta':'input2'}>
             <span className="pre">€</span>
             <input
               type="text"
+              onChange = {handleChange}
               disabled={disEstimate}
-              name="dutyTaxes"
+              name="estimatedLoan"
               placeholder="########"
             />
           </div>
@@ -186,15 +216,21 @@ function SwitcherThree(props) {
           </div>
         </Col> */}
 
-        <Col lg={24}>
+        {/* <Col lg={24}>
           <h6 className="h61"> </h6>
         </Col>
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+             className={
+              questions.sourceOfSavings !== ""
+                ? "selectPRo maltaback" 
+                : "selectPRo "
+            }
               defaultValue="Select from options"
-              onChange={handleChange}
+              onChange={value =>
+                setQuestions({ ...questions, sourceOfSavings: value })
+              }
             >
               {years.map((value, index) => {
                 return (
@@ -205,7 +241,7 @@ function SwitcherThree(props) {
               })}
             </Select>
           </div>
-        </Col>
+        </Col> */}
 
         <Col lg={24}>
           <h6 className="h61">
@@ -224,7 +260,7 @@ function SwitcherThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q3"
+              name="additionalProps"
               id="q31"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -243,7 +279,7 @@ function SwitcherThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q3"
+              name="additionalProps"
               id="q32"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -266,9 +302,17 @@ function SwitcherThree(props) {
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+            className={
+              questions.numOfAddProps !== ""
+                ? "selectPRo maltaback" 
+                : "selectPRo "
+            }
+            name = 'numOfAddProps'
+              // className="select-option1"
               defaultValue="Select from options"
-              onChange={handleAdditionalP}
+              onChange={value =>
+                setQuestions({ ...questions, numOfAddProps: value })
+              }
             >
               {additionaProperties.map((value, index) => {
                 return (
@@ -298,19 +342,19 @@ function SwitcherThree(props) {
             </Button>
             <Button
               onClick={() => {
-                console.log(addP)
-                if (questions.q3 == 'a') {
+                console.log(questions.numOfAddProps)
+                // if (questions.q3 == 'a') {
                   // props.changeProfRoute(1);
-                  props.getData(questions.q3,addP)
+                  props.getData(questions.numOfAddProps)
                   props.isMortgageFrom(3);
 
                   props.setProgress(80);
-                } else {
-                  props.changeProfRoute(1);
-                  // props.isMortgageFrom(3);
+                // } else {
+                //   props.changeProfRoute(1);
+                //   // props.isMortgageFrom(3);
 
-                  props.setProgress(0);
-                }
+                //   props.setProgress(0);
+                // }
               }}
               // onClick={onsubmitForm}
               className="btn2"

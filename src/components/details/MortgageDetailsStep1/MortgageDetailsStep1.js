@@ -1,14 +1,28 @@
 import React, { useState } from "react";
-import { Row, Col, Select, Button } from "antd";
+import { Row, Col, Select, Button, Modal } from "antd";
 import "./MortgageDetailsStep1.css";
 
 const { Option } = Select;
 function MortgageDetailsStep1(props) {
   const [q4, setQ4] = useState(false);
+  const [visible, setVisible] = useState(false)
+  const handleOk = e => {
+    console.log(e);
+    setVisible(false);
+  };
+
+  const handleCancel = e => {
+    console.log(e);
+    setVisible(false);
+  };
   const [questions, setQuestions] = useState({
+    situation: "",
     propAddress: "",
+    appType: "",
     city: "",
-    eircode: ""
+    eircode: "",
+    bedrooms:'',
+    county:''
   });
   const county = [
     "Carlow",
@@ -77,6 +91,9 @@ function MortgageDetailsStep1(props) {
 
     setQ4(!q4);
     setQuestions({ ...questions, [e.target.name]: e.target.value });
+    if (e.target.name === "constructionNature" && e.target.value === "Self build") {
+      setVisible(true);
+    }
     // validateRadio(e.target.name, e.target.value);
     for (var i = 0; i < radioContainers.length; i++) {
       var input = radioContainers[i].childNodes[0];
@@ -102,25 +119,60 @@ function MortgageDetailsStep1(props) {
   };
 
   const onsubmitForm = () => {
+    let { set_Personal_Details, user } = props.data;
     console.log(questions);
-    // props.getData(questions)
-    props.MortgageFrom(questions.situation);
-    props.isMortgageFrom(1);
-    props.setProgress(
-      questions.situation == "First time Borrower"
-        ? 50
-        : questions.situation === "Mortgage Switcher"
-        ? 33
-        : questions.situation == "House Mover"
-        ? 25
-        : 0
-    );
-
-    props.submitData(questions)
+    if (questions.situation != "" && questions.appType != "") {
+      // props.getData(questions)
+      props.MortgageFrom(questions.situation);
+      props.isMortgageFrom(1);
+      props.setProgress(
+        questions.situation == "First time Borrower"
+          ? 50
+          : questions.situation === "Mortgage Switcher"
+          ? 33
+          : questions.situation == "House Mover"
+          ? 25
+          : 0
+      );
+      // console.log("! form data", {
+      //   userId: user._id,
+      //   ...questions
+      // });
+      // props.submitData(questions)
+      set_Personal_Details({
+        userId:user._id,
+        ...questions
+      })
+    } else {
+      alert("Please Enter Atleast one User Type!");
+    }
   };
+  function SelfBuildPopup() {
+
+    return (
+      <div>
+        <Modal
+          title="Notification"
+          visible={visible}
+          onOk={handleOk}
+          // onCancel={handleCancel}
+          footer={[
+
+            <Button key="submit" type="primary" onClick={handleOk}>
+              Ok
+            </Button>,
+          ]}
+        >
+          <h5>sorry we don’t do self build properties yet – check back with us later</h5>
+
+        </Modal>
+      </div>
+    );
+  }
 
   return (
     <div className="MortgageDetailsStep1">
+      <SelfBuildPopup />
       {console.log(questions)}
       <Row className="d-row-s1">
         <Col lg={24}>
@@ -305,7 +357,7 @@ function MortgageDetailsStep1(props) {
           <div
             onClick={e => clickRadio(e)}
             className={
-              questions.purposeOfMortgage === "First Time Buyer"
+              questions.constructionNature === "First Time Buyer"
                 ? "radio-container container_malta"
                 : "radio-container"
             }
@@ -324,7 +376,7 @@ function MortgageDetailsStep1(props) {
           <div
             onClick={clickRadio}
             className={
-              questions.purposeOfMortgage === "House Mover"
+              questions.constructionNature === "House Mover"
                 ? "radio-container container_malta"
                 : "radio-container"
             }
@@ -343,7 +395,7 @@ function MortgageDetailsStep1(props) {
           <div
             onClick={clickRadio}
             className={
-              questions.purposeOfMortgage === "Switcher"
+              questions.constructionNature === "Switcher"
                 ? "radio-container container_malta"
                 : "radio-container"
             }
@@ -363,14 +415,16 @@ function MortgageDetailsStep1(props) {
           </div>
         </Col>
         <Col lg={24}>
-          <h6 className="h61">How many bed rooms?</h6>
+          <h6 className="h61">How many bedrooms?</h6>
         </Col>
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+              className={questions.bedrooms != '' ? "select-option1 selectPro malta" : " select-option1 selectPro "}
               defaultValue="Select from options"
-              onChange={(value) => setQuestions({ ...questions, bedrooms: value })}
+              onChange={value =>
+                setQuestions({ ...questions, bedrooms: value })
+              }
               name="bedrooms"
             >
               {bedrooms.map((value, index) => {
@@ -409,7 +463,9 @@ function MortgageDetailsStep1(props) {
           <div className="input">
             {/* <input type="text" name="Country" placeholder="County" /> */}
             <Select
-              className="select-option1 select-option-big"
+              // className="select-option1 select-option-big"
+              className={questions.county != '' ? "select-option1 selectPro select-option-big malta" : " select-option1 selectPro select-option-big "}
+
               defaultValue="County"
               onChange={e => handleInput(e)}
               name="county"
@@ -454,25 +510,25 @@ function MortgageDetailsStep1(props) {
               //   // props.changeProfRoute(1)
               // }}
               className="btn2"
-              // loading={props.financial_data.loading}
-              // disabled={
-              //   (questions.filedBankruptcy &&
-              //     questions.failedToPayLoan &&
-              //     questions.purposeOfMortgage &&
-              //     questions.peopleOnMortgage === "one") ||
-              //     (questions.filedBankruptcy &&
-              //       questions.failedToPayLoan &&
-              //       questions.purposeOfMortgage &&
-              //       questions.peopleOnMortgage === "two" &&
-              //       questions.firstNameSecondApplicant &&
-              //       questions.lastNameSecondApplicant &&
-              //       questions.emailSecondApplicantValidation &&
-              //       questions.emailSecondApplicantreValidation)
-              //     ? false
-              //     : true
-              // }
+            // loading={props.financial_data.loading}
+            // disabled={
+            //   (questions.filedBankruptcy &&
+            //     questions.failedToPayLoan &&
+            //     questions.purposeOfMortgage &&
+            //     questions.peopleOnMortgage === "one") ||
+            //     (questions.filedBankruptcy &&
+            //       questions.failedToPayLoan &&
+            //       questions.purposeOfMortgage &&
+            //       questions.peopleOnMortgage === "two" &&
+            //       questions.firstNameSecondApplicant &&
+            //       questions.lastNameSecondApplicant &&
+            //       questions.emailSecondApplicantValidation &&
+            //       questions.emailSecondApplicantreValidation)
+            //     ? false
+            //     : true
+            // }
             >
-              Countinue
+              Save & Continue
             </Button>
           </div>
         </Col>
@@ -481,3 +537,5 @@ function MortgageDetailsStep1(props) {
   );
 }
 export default MortgageDetailsStep1;
+
+

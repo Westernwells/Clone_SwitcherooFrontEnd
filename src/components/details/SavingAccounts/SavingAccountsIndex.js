@@ -71,18 +71,6 @@ function AdditionalPropertyIndex(props) {
       }
     }
   };
-  // componentDidMount() {
-  //   if (this.props.match.params.number) {
-  //     const properties = this.props.match.params.number;
-  //     var array = [];
-  //     for (var i = 0; i < properties; i++) {
-  //       array.push(i);
-  //       if (i === properties - 1) {
-  //         this.setState({ array });
-  //       }
-  //     }
-  //   }
-  // }
   const onPositionChange = expandIconPosition => {
     setExpandIconPosition(expandIconPosition);
   };
@@ -99,7 +87,7 @@ function AdditionalPropertyIndex(props) {
 
   console.log(state);
   return (
-    <div className="saving-acc">
+    <div className="saving-acc-p index">
       <Row>
         <Col lg={24}>
           <h1 className="heading1">Details of your saving accounts</h1>
@@ -113,7 +101,6 @@ function AdditionalPropertyIndex(props) {
               showArrow={state.key !== index}
               header={`${value} Account ${index + 1}`}
               key={index}
-            // className="ant-collapse-header"
             >
               <SavingAccounts />
             </Panel>
@@ -124,7 +111,7 @@ function AdditionalPropertyIndex(props) {
         <Col lg={24}>
           <h6 className="h61">Do you have any {array.length !== 0 && "other"} saving/investment account?</h6>
         </Col>
-        <Col lg={24} className="q1 q4">
+        <Col lg={24} className="q1 q4" style={{clear:"both"}}>
           <div
             onClick={e => clickRadio(e)}
             className={
@@ -164,49 +151,6 @@ function AdditionalPropertyIndex(props) {
             <label for="haveAccount2">No</label>
           </div>
         </Col>
-        {/* <Col lg={24}>
-          <h6 className="h61">Do you have any other saving/investment account?</h6>
-        </Col>
-        <Col lg={24} className="q1 q4">
-          <div
-            onClick={e => clickRadio(e)}
-            className={
-              questions.haveOtherAccount === "Yes"
-                ? "radio-container container_malta"
-                : "radio-container"
-            }
-          >
-            <input
-              onChange={e => handleQ(e)}
-              type="radio"
-              name="haveOtherAccount"
-              id="haveOtherAccount1"
-              className=""
-              // checked={questions.purposeOfMortgage === "a"}
-              value="Yes"
-            />
-            <label for="haveOtherAccount1">Yes</label>
-          </div>
-          <div
-            onClick={clickRadio}
-            className={
-              questions.haveOtherAccount === "No"
-                ? "radio-container container_malta"
-                : "radio-container"
-            }
-          >
-            <input
-              onChange={e => handleQ(e)}
-              type="radio"
-              name="haveOtherAccount"
-              id="haveOtherAccount2"
-              // checked={questions.purposeOfMortgage === "House Mover"}
-              className=""
-              value="No"
-            />
-            <label for="haveOtherAccount2">No</label>
-          </div>
-        </Col> */}
         {toggleBtn && (
           <Col lg={24}>
             <div className="account-btns">

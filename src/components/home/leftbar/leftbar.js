@@ -50,11 +50,7 @@ class LeftBar extends React.Component {
             <span className="menu-icon">
               <img src="images/home/icons/financial_icon.png" />
             </span>
-            <p className="lb">
-              Your Financial
-              <br />
-              Health Check
-            </p>
+            <p className="lb">Your Financial Health Check</p>
             {/* </Link> */}
           </Menu.Item>
           <span className="connector"></span>
@@ -67,13 +63,11 @@ class LeftBar extends React.Component {
             <span className="menu-icon">
               <img src="images/home/icons/details_icon.png" />
             </span>
-            <p className="lb">
-              Details on <br /> what you need
-            </p>
+            <p className="lb">Details on what you need</p>
           </Menu.Item>
           <span className="connector"></span>
           <Menu.Item
-            key="4"
+            key="/home/yourDocumentation"
             onClick={() => {
               this.handleRoute("/home/yourDocumentation");
             }}
@@ -117,9 +111,7 @@ class LeftBar extends React.Component {
             <span className="menu-icon">
               <img src="images/home/icons/mortgage_icon.png" />
             </span>
-            <p className="lb">
-              Your Mortgage <br /> Application
-            </p>
+            <p className="lb">Your Mortgage Application</p>
           </Menu.Item>
           <span className="connector"></span>
           <Menu.Item key="8">
@@ -127,6 +119,25 @@ class LeftBar extends React.Component {
               <img src="images/home/icons/Group757.svg" />
             </span>
             <p>Your Life insurance</p>
+          </Menu.Item>
+          <span className="connector"></span>
+          <Menu.Item key="9">
+            <span className="menu-icon">
+              <img src="images/home/icons/Group757.svg" />
+            </span>
+            <p>Check list dashboard</p>
+          </Menu.Item>
+          <span className="connector"></span>
+          <Menu.Item
+            key="/home/yourApplication/Pdf-forms"
+            onClick={() => {
+              this.handleRoute("/home/yourApplication/Pdf-forms");
+            }}
+          >
+            <span className="menu-icon">
+              <img src="images/home/icons/Group757.svg" />
+            </span>
+            <p>View All PDF Forms</p>
           </Menu.Item>
         </Menu>
       </div>

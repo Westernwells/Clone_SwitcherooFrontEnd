@@ -8,7 +8,7 @@ function IncomeDetailsSE(props) {
   const [disEstimate, setDisEstimate] = useState(true);
   const [addP, setAddP] = useState(undefined);
   const [questions, setQuestions] = useState({
-    currency:"€ Euro"
+    currency: "€ Euro"
   });
   const purposes = [
     "Extension",
@@ -96,12 +96,12 @@ function IncomeDetailsSE(props) {
   const [countO, setCountO] = useState([]);
   const goBy = ["Mr", "Mrs", "Miss", "Dr.", "Other"];
   const currency = [
-    {name:"€ Euro",sign:"€"},
-    {name:"£ GBP",sign:"£"},
-    {name:"$ US Dollar",sign:"$"},
-    {name:"other",sign:" "},
+    { name: "€ Euro", sign: "€" },
+    { name: "£ GBP", sign: "£" },
+    { name: "$ US Dollar", sign: "$" },
+    { name: "other", sign: " " },
 
-   ];
+  ];
   const relations = ["Son", "Daughter", "Father", "Friend", "Other"];
   const years = [];
   for (var i = 1; i <= 35; i++) {
@@ -277,7 +277,7 @@ function IncomeDetailsSE(props) {
         <Col lg={24}>
           <Row className="details-row">
             <Col className="" lg={6}>
-              <h6 className="h6-d dl">
+              <h6 className="h6-d ">
                 Any debt interest paid
               </h6>
             </Col>
@@ -320,7 +320,7 @@ function IncomeDetailsSE(props) {
         <Col lg={24}>
           <Row className="details-row">
             <Col className="" lg={6}>
-              <h6 className="h6-d dl">
+              <h6 className="h6-d">
                 Depreciation
               </h6>
             </Col>
@@ -363,7 +363,7 @@ function IncomeDetailsSE(props) {
         <Col lg={24}>
           <Row className="details-row">
             <Col className="" lg={6}>
-              <h6 className="h6-d dl">
+              <h6 className="h6-d ">
                 Your renumeration
               </h6>
             </Col>
@@ -495,7 +495,7 @@ function IncomeDetailsSE(props) {
           <Row className="details-row">
             <Col className="" lg={6}>
               <h6 className="h6-d dl">
-                Texable Income pre Form 11 Tax Return  
+                Taxable income per Form 11 Tax Return
               </h6>
             </Col>
             <Col className="" lg={6}>
@@ -538,7 +538,7 @@ function IncomeDetailsSE(props) {
           <Row className="details-row">
             <Col className="" lg={6}>
               <h6 className="h6-d dl">
-                Average Taxable Income Last 3 Years  
+                Average Taxable Income Last 3 Years
               </h6>
             </Col>
             <Col className="" lg={6}>

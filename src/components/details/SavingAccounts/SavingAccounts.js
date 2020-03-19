@@ -125,7 +125,7 @@ function SavingAccounts(props) {
   }
 
   return (
-    <div className="details-additional-p">
+    <div className="saving-acc-p">
       <Row className="d-row-s1">
         <Col lg={24}>
           <div>

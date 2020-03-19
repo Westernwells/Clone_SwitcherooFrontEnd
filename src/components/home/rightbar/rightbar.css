@@ -6,23 +6,29 @@
   /* background-color: red; */
   position: relative;
   display: block;
+  border: solid;
 }
 .InnerContainer {
-  background-color: rgb(250, 250, 250);
- 
+  /* background-color: rgb(250, 250, 250); */
+  background-color: #62635d;
+
   margin: 20px 25px 0px 0px;
-  -webkit-box-shadow: 4px 8px 20px 10px rgba(230,230,230,1);
-  -moz-box-shadow: 4px 4px 8px 20px rgba(230,230,230,1);
-  box-shadow: 4px 4px 14px 8px rgba(230,230,230,1);
-  
+  -webkit-box-shadow: 4px 8px 20px 10px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 4px 4px 8px 20px rgba(230, 230, 230, 1);
+  /* box-shadow: 4px 4px 14px 8px rgba(230, 230, 230, 1); */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
   /* height: 30vh; */
   border-radius: 20px;
   text-align: center;
   height: auto;
+  /* width: 290vh; */
 }
 .imageStyle {
-  width: 60%;
-  margin: 50px 0px 30px 0px;
+  width: 100%;
+  /* margin: 50px 0px 30px 0px; */
+  resize: "contain";
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 #num {
@@ -32,10 +38,9 @@
   height: auto;
   padding: 10px 10px 10px 10px;
   border-radius: 10px !important;
-
 }
 #num p {
-  color: white;
+  color: white !important;
   display: inline;
 }
 .SecondInnerContainer {
@@ -47,19 +52,18 @@
   margin: 20px 25px 0px 0px;
   justify-content: center;
   border-radius: 20px;
-  -webkit-box-shadow: 4px 8px 20px 10px rgba(230,230,230,1);
--moz-box-shadow: 4px 4px 8px 20px rgba(230,230,230,1);
-box-shadow: 4px 4px 14px 8px rgba(230,230,230,1);
+  -webkit-box-shadow: 4px 8px 20px 10px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 4px 4px 8px 20px rgba(230, 230, 230, 1);
+  box-shadow: 4px 4px 14px 8px rgba(230, 230, 230, 1);
 }
 .handelButtonStyle {
   background-color: #fb9500;
   color: white;
   width: 50%;
 }
-.handelButtonStyle:hover{
+.handelButtonStyle:hover {
   background-color: #fb9500 !important;
   color: white;
-
 }
 .react-calendar__navigation {
   background-color: #fb9500 !important;
@@ -76,13 +80,13 @@ box-shadow: 4px 4px 14px 8px rgba(230,230,230,1);
 .react-calendar {
   border: none !important;
 }
-.cal-text{
+.cal-text {
   margin: 12px 12px;
   width: 60%;
   text-align: center;
   font-size: 12px;
 }
-.cal-tx-bn{
+.cal-tx-bn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,42 +94,35 @@ box-shadow: 4px 4px 14px 8px rgba(230,230,230,1);
 }
 
 .react-calendar__month-view__days .react-calendar button {
-border: 1px solid rgb(216, 205, 205) !important;
-box-sizing: border-box;
+  border: 1px solid rgb(216, 205, 205) !important;
+  box-sizing: border-box;
 }
 
-.react-calendar__viewContainer{
+.react-calendar__viewContainer {
   position: relative;
   top: -14px;
   box-sizing: border-box;
   height: 227px;
 }
 
-.react-calendar__viewContainer button{
-  border: .2px solid rgb(216, 205, 205) !important;
+.react-calendar__viewContainer button {
+  border: 0.2px solid rgb(216, 205, 205) !important;
   color: black !important;
 }
-.react-calendar__viewContainer button:hover, .react-calendar__navigation button:hover{
+.react-calendar__viewContainer button:hover,
+.react-calendar__navigation button:hover {
   border: 0px;
-  background-color:  #fb9500 !important;
+  background-color: #fb9500 !important;
   color: white !important;
-
 }
 
-
-.react-calendar__viewContainer button:active{
+.react-calendar__viewContainer button:active {
   border: 0px;
-  background-color:  #fb9500 !important;
+  background-color: #fb9500 !important;
   color: white !important;
-
 }
 
 .react-calendar__tile--active:enabled:focus {
-  background:  #fb9500 !important;
+  background: #fb9500 !important;
   color: white !important;
-
 }
-
-
-
- 

@@ -6,9 +6,84 @@ const { Option } = Select;
 function StepThree(props) {
   const [q4, setQ4] = useState(false);
   const [questions, setQuestions] = useState({
-    q1: ""
+    bedrooms: "",
+    howOldProp: "",
+    propYear: "",
+    currentValue: "",
+    purchasePrice: "",
+    lenderName: "",
+    accNumber: "",
+    outstandingBal: "",
+    startingYear: "",
+    rateType: "",
+    yearsLeftOnMortgage: "",
+    interestRate: "",
+    monthlyRepay: "",
+    missedPayments: ""
   });
-  const lenders = ["KBC", "Ulster Bank", "AIB", "Bank of Ireland", "ICS", "PTSB", "EBS", "Other"]
+  const lenders = [
+    "KBC",
+    "Ulster Bank",
+    "AIB",
+    "Bank of Ireland",
+    "ICS",
+    "PTSB",
+    "EBS",
+    "Other"
+  ];
+  const whatYears = [
+    1970,
+    1971,
+    1972,
+    1973,
+    1974,
+    1975,
+    1976,
+    1977,
+    1978,
+    1979,
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ];
   const years = [];
   for (var i = 1; i <= 35; i++) {
     years.push(i);
@@ -20,6 +95,7 @@ function StepThree(props) {
     }
   }
   var handleQ = e => {
+    console.log(e.target.value)
     var radioContainers = e.target.parentNode.parentNode.childNodes;
     var qs = questions;
     qs[e.target.name] = e.target.value;
@@ -36,9 +112,10 @@ function StepThree(props) {
       }
     }
   };
-  function handleChange(value) {
-    console.log(`selected ${value}`);
+  function onChange(e) {
+    setQuestions({ ...questions, [e.target.name]: e.target.value });
   }
+  function handleChange(value) {}
   const handleRoute = route => {
     props.history.push(route);
   };
@@ -49,10 +126,11 @@ function StepThree(props) {
           <h1 className="heading1">
             Let's get some details on your current property and mortgage
           </h1>
+        </Col>
+        {/*
           <h6 className="h61">
             What year did you buy the property?
           </h6>
-        </Col>
 
         <Col lg={24} className="q1 q3">
           <div
@@ -93,7 +171,7 @@ function StepThree(props) {
             />
             <label for="r12">Appartment</label>
           </div>
-        </Col>
+        </Col> */}
 
         <Col lg={24}>
           <h6 className="h61">How many bedrooms does it have?</h6>
@@ -101,9 +179,17 @@ function StepThree(props) {
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+              className={
+                questions.bedrooms !== ""
+                  ? "selectPRo maltaback" + " " + questions.bedrooms
+                  : "selectPRo "
+              }
+              // className = "selectPRo maltaback"
               defaultValue="Select from options"
-              onChange={handleChange}
+              // value = {questions.}
+              onChange={value =>
+                setQuestions({ ...questions, bedrooms: value })
+              }
             >
               <Option value="2">2</Option>
               <Option value="3">3</Option>
@@ -116,8 +202,28 @@ function StepThree(props) {
           <h6 className="h61">What year did you buy the property?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input3">
-            <input type="text" placeholder="What year" />
+          <div>
+            <Select
+              className={
+                questions.propYear !== ""
+                  ? "selectPRo maltaback" + " " + questions.propYear
+                  : "selectPRo "
+              }
+              // className = "selectPRo maltaback"
+              defaultValue="Select from options"
+              // value = {questions.}
+              onChange={value =>
+                setQuestions({ ...questions, propYear: value })
+              }
+            >
+              {whatYears.map((value, index) => {
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
+              })}
+            </Select>
           </div>
         </Col>
 
@@ -125,30 +231,73 @@ function StepThree(props) {
           <h6 className="h61">How old is the property?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input3">
-            <input type="text" placeholder="Years" />
+          <div>
+            <Select
+              className={
+                questions.howOldProp !== ""
+                  ? "selectPRo maltaback" + " " + questions.howOldProp
+                  : "selectPRo "
+              }
+              // className = "selectPRo maltaback"
+              defaultValue="Select from options"
+              // value = {questions.}
+              onChange={value =>
+                setQuestions({ ...questions, howOldProp: value })
+              }
+            >
+              <Option value="2">2</Option>
+              <Option value="3">3</Option>
+              <Option value="4">4</Option>
+            </Select>
           </div>
         </Col>
 
-
         <Col lg={24}>
-          <h6 className="h61">What was the purchase price when you bought the property?</h6>
+          <h6 className="h61">
+            What was the purchase price when you bought the property?
+          </h6>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div
+             className={
+              questions.purchasePrice !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }
+          >
             <span className="pre">€</span>
-            <input type="text" placeholder="########" />
+            <input 
+            
+              onChange={onChange}
+              name="purchasePrice"
+              type="text"
+              placeholder="########"
+            />
           </div>
         </Col>
 
         <Col lg={24}>
-          <h6 className="h61 mm" >What is the current value of the property?</h6>
-          <p className="mini-msg">(if you don't know an estimate is fine for now)</p>
+          <h6 className="h61 mm">What is the current value of the property?</h6>
+          <p className="mini-msg">
+            (if you don't know an estimate is fine for now)
+          </p>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div
+            className={
+              questions.currentValue !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }
+          >
             <span className="pre">€</span>
-            <input type="text" name="value" placeholder="########" />
+            <input
+              name="currentValue"
+              onChange={onChange}
+              type="text"
+              // name="value"
+              placeholder="########"
+            />
           </div>
         </Col>
 
@@ -158,12 +307,22 @@ function StepThree(props) {
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
+              className={  questions.lenderName !== ""
+              ? "selectPRo maltaback" 
+              : "selectPRo "
+          }
               defaultValue="Select from options"
-              onChange={handleChange}
+              onChange={value =>
+                setQuestions({ ...questions, lenderName: value })
+              }
+              name="lenderName"
             >
               {lenders.map((value, index) => {
-                return <Option key={index} value={value}>{value}</Option>
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
               })}
             </Select>
           </div>
@@ -173,8 +332,14 @@ function StepThree(props) {
           <h6 className="h61">Mortgage account number?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input3">
-            <input type="text" placeholder="#######" />
+          <div   className={
+              questions.accNumber !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }>
+            <input 
+            onChange={onChange}
+            name="accNumber" type="text" placeholder="#######" />
           </div>
         </Col>
 
@@ -182,18 +347,44 @@ function StepThree(props) {
           <h6 className="h61">What is the current outstading balance?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div  className={
+              questions.outstandingBal !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }>
             <span className="pre">€</span>
-            <input type="text" placeholder="########" />
+            <input
+            onChange={onChange}
+            name="outstandingBal" type="text" placeholder="########" />
           </div>
         </Col>
 
         <Col lg={24}>
           <h6 className="h61">What year did you start the mortgate?</h6>
         </Col>
-        <Col lg={24}>
-          <div className="input3">
-            <input type="text" placeholder="Write year" />
+         <Col lg={24}>
+          <div>
+            <Select
+              className={
+                questions.startingYear !== ""
+                  ? "selectPRo maltaback" + " " + questions.startingYear
+                  : "selectPRo "
+              }
+              // className = "selectPRo maltaback"
+              defaultValue="Select from options"
+              // value = {questions.}
+              onChange={value =>
+                setQuestions({ ...questions, startingYear: value })
+              }
+            >
+              {whatYears.map((value, index) => {
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
+              })}
+            </Select>
           </div>
         </Col>
 
@@ -212,7 +403,7 @@ function StepThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q2"
+              name="rateType"
               id="q21"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -231,7 +422,7 @@ function StepThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q2"
+              name="rateType"
               id="q22"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -250,7 +441,7 @@ function StepThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q2"
+              name="rateType"
               id="q23"
               // checked={
               //   questions.purposeOfMortgage === "Switcher"
@@ -262,7 +453,8 @@ function StepThree(props) {
           </div>
         </Col>
 
-        <Col lg={24}>
+     {questions.rateType == "a" ?    <div>
+     <Col lg={24}>
           <h6 className="h61">How long is left on the fixed rate?</h6>
         </Col>
         <Col lg={24}>
@@ -272,16 +464,14 @@ function StepThree(props) {
               defaultValue="Select Years"
               onChange={handleChange}
             >
+              <Option value="<1">&lt;1</Option>
               <Option value="1">1</Option>
               <Option value="2">2</Option>
               <Option value="3">3</Option>
               <Option value="4">4</Option>
               <Option value="5">5</Option>
-              <Option value="6">6</Option>
-              <Option value="7">7</Option>
-              <Option value="8">8</Option>
-              <Option value="9">9</Option>
-              <Option value="10">10</Option>
+              <Option value="5+">5+</Option>
+              
             </Select>
             <Select
               className="select-option2"
@@ -303,22 +493,32 @@ function StepThree(props) {
             </Select>
           </div>
         </Col>
-
+     </div>
+ : null}
         <Col lg={24}>
           <h6 className="h61">How long is left on the mortgage?</h6>
         </Col>
         <Col lg={24}>
           <div>
             <Select
-              className="select-option1"
-              defaultValue="Select Years"
-              onChange={handleChange}
-            >
-              {
-                years.map((value, index) => {
-                  return (<Option key={index} value={value}>{value}</Option>)
-                })
+              name="yearsLeftOnMortgage"
+              className={
+                questions.yearsLeftOnMortgage !== ""
+                  ? "selectPRo maltaback" 
+                  : "selectPRo "
               }
+              defaultValue="Select Years"
+              onChange={value =>
+                setQuestions({ ...questions, yearsLeftOnMortgage: value })
+              }
+            >
+              {years.map((value, index) => {
+                return (
+                  <Option key={index} value={value}>
+                    {value}
+                  </Option>
+                );
+              })}
             </Select>
           </div>
         </Col>
@@ -327,9 +527,14 @@ function StepThree(props) {
           <h6 className="h61">What interest rate are you paying??</h6>
         </Col>
         <Col lg={24}>
-          <div className="input2post">
+          <div className={
+              questions.interestRate !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }>
             <span className="post">%</span>
-            <input type="text" placeholder="" />
+            <input name="interestRate" type="text" placeholder=""
+            onChange = {onChange} />
           </div>
         </Col>
 
@@ -337,14 +542,19 @@ function StepThree(props) {
           <h6 className="h61">What is your monthly repayment?</h6>
         </Col>
         <Col lg={24}>
-          <div className="input2">
+          <div className={  questions.monthlyRepay !== ""
+                ? "input2 inputMalta "
+                : "input2 "
+            }>
             <span className="pre">€</span>
-            <input type="text" placeholder="########" />
+            <input  onChange = {onChange} name="monthlyRepay" type="text" placeholder="########" />
           </div>
         </Col>
 
         <Col lg={24}>
-          <h6 className="h61">Have you missed any payment over the last two years?</h6>
+          <h6 className="h61">
+            Have you missed any payment over the last two years?
+          </h6>
         </Col>
         <Col lg={24} className="q1 q4">
           <div
@@ -358,7 +568,7 @@ function StepThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q3"
+              name="missedPayments"
               id="q31"
               className=""
               // checked={questions.purposeOfMortgage === "a"}
@@ -377,7 +587,7 @@ function StepThree(props) {
             <input
               onChange={e => handleQ(e)}
               type="radio"
-              name="q3"
+              name="missedPayments"
               id="q32"
               // checked={questions.purposeOfMortgage === "House Mover"}
               className=""
@@ -385,7 +595,6 @@ function StepThree(props) {
             />
             <label for="q32">No</label>
           </div>
-
         </Col>
 
         <Col lg={10} offset={0}>
@@ -394,9 +603,9 @@ function StepThree(props) {
           <div className="btn-div">
             <Button
               style={{ height: "40px" }}
-              onClick={() =>{ 
-                props.isMortgageFrom(0)
-                props.setProgress(0)
+              onClick={() => {
+                props.isMortgageFrom(0);
+                props.setProgress(0);
               }}
               className="btn1"
             >
@@ -404,29 +613,28 @@ function StepThree(props) {
             </Button>
             <Button
               onClick={() => {
-                props.setProgress(66)
-                props.isMortgageFrom(2)
+                props.setProgress(66);
+                props.isMortgageFrom(2);
               }}
-            
               // onClick={onsubmitForm}
               className="btn2"
-            // loading={props.financial_data.loading}
-            // disabled={
-            //   (questions.filedBankruptcy &&
-            //     questions.failedToPayLoan &&
-            //     questions.purposeOfMortgage &&
-            //     questions.peopleOnMortgage === "one") ||
-            //     (questions.filedBankruptcy &&
-            //       questions.failedToPayLoan &&
-            //       questions.purposeOfMortgage &&
-            //       questions.peopleOnMortgage === "two" &&
-            //       questions.firstNameSecondApplicant &&
-            //       questions.lastNameSecondApplicant &&
-            //       questions.emailSecondApplicantValidation &&
-            //       questions.emailSecondApplicantreValidation)
-            //     ? false
-            //     : true
-            // }
+              // loading={props.financial_data.loading}
+              // disabled={
+              //   (questions.filedBankruptcy &&
+              //     questions.failedToPayLoan &&
+              //     questions.purposeOfMortgage &&
+              //     questions.peopleOnMortgage === "one") ||
+              //     (questions.filedBankruptcy &&
+              //       questions.failedToPayLoan &&
+              //       questions.purposeOfMortgage &&
+              //       questions.peopleOnMortgage === "two" &&
+              //       questions.firstNameSecondApplicant &&
+              //       questions.lastNameSecondApplicant &&
+              //       questions.emailSecondApplicantValidation &&
+              //       questions.emailSecondApplicantreValidation)
+              //     ? false
+              //     : true
+              // }
             >
               Countinue
             </Button>

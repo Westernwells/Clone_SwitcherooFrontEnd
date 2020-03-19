@@ -62,9 +62,10 @@ class RecommendationButtons extends Component {
             const imgData1 = canvas1.toDataURL('image/png');
             const imgData2 = canvas2.toDataURL('image/png');
             const imgData3 = canvas3.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'pt', 'a4');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgData1);
             let pdfWidth = pdf.internal.pageSize.getWidth();
-            let pdfHeight = pdf.internal.pageSize.getHeight();
+            let pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
             pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
             pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
@@ -110,9 +111,10 @@ class RecommendationButtons extends Component {
             const imgData1 = canvas1.toDataURL('image/png');
             const imgData2 = canvas2.toDataURL('image/png');
             const imgData3 = canvas3.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'pt', 'a4');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgData1);
             let pdfWidth = pdf.internal.pageSize.getWidth();
-            let pdfHeight = pdf.internal.pageSize.getHeight();
+            let pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
             pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.addPage();
             pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
@@ -123,7 +125,7 @@ class RecommendationButtons extends Component {
             // pdf.autoPrint({ variant: 'non-conform' });
             setTimeout(() => {
               // window.open(pdf.output('bloburl'), '_blank');
-              window.open(URL.createObjectURL(pdf.output("blob")))
+              window.open(URL.createObjectURL(pdf.output('blob')));
               resolve('resolved');
             }, 4000);
           });

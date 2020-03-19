@@ -38,7 +38,7 @@ import AdditionsProperty from "./Additional Properties/additionalPropertyIndex";
 import { connect } from "react-redux";
 import Api from "../../redux/api/detailsApi";
 
-import FinalPage from './FinalPage/FinalPage'
+import FinalPage from "./FinalPage/FinalPage";
 import MonthlyOutgoing from "./monthlyOutgoings/MonthlyOutgoings";
 import CreditCommittments from "./creditCommittments/CreditCommittments";
 import BankDetails from "./bankDetails/BankDetails";
@@ -63,34 +63,34 @@ export class index extends Component {
     isAddtionProperty: "",
     isAddAccount: "",
     creditform: 1,
-    numberOfForm:0
+    numberOfForm: 0
   };
 
-  onSubmitData = (data, type) => {
-    console.log("submited", {
-      userId: this.props.user._id,
-      ...data,
-      mortDetailsFtb: {
-        ...data
-      },
-      applicant2: {
-        ...this.state.user1Data
-      }
-      // applicant2: {
-      //   ...this.state.user2Data
-      // }
-    });
-    this.props.set_Personal_Details({
-      userId: this.props.user._id,
-      ...data,
-      applicant2: {
-        ...this.state.user1Data
-      }
-      // applicant2: {
-      //   ...this.state.user2Data
-      // }
-    });
-  };
+  // onSubmitData = (data, type) => {
+  //   console.log("submited", {
+  //     userId: this.props.user._id,
+  //     ...data,
+  //     mortDetailsFtb: {
+  //       ...data
+  //     },
+  //     applicant2: {
+  //       ...this.state.user1Data
+  //     }
+  //     // applicant2: {
+  //     //   ...this.state.user2Data
+  //     // }
+  //   });
+  //   this.props.set_Personal_Details({
+  //     userId: this.props.user._id,
+  //     ...data,
+  //     applicant2: {
+  //       ...this.state.user1Data
+  //     }
+  //     // applicant2: {
+  //     //   ...this.state.user2Data
+  //     // }
+  //   });
+  // };
 
   // changeProfRoute = key => this.setState({ selectedKey: key });
 
@@ -110,6 +110,8 @@ export class index extends Component {
     if (selectedKeyUser1 === 0 && isMortgageFrom == 0) {
       return (
         <MortgageFrom1
+          data={this.props}
+          userType={MortgageFrom}
           submitData={this.onSubmitData}
           isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
           MortgageFrom={value => this.setState({ MortgageFrom: value })}
@@ -155,7 +157,9 @@ export class index extends Component {
       return (
         <MortgageFromSwitcherB
           isAddtionProperty={this.state.isAddtionProperty}
-          getData={(value,number) => this.setState({ isAddtionProperty: value ,numberOfForm:number})}
+          getData={( number) =>
+            this.setState({  numberOfForm: number })
+          }
           isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
           setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
@@ -163,7 +167,7 @@ export class index extends Component {
       );
     }
     //  Start Additions Property
-    if (this.state.isAddtionProperty == "a"&& this.state.numberOfForm != 0) {
+    if ( this.state.numberOfForm != 0) {
       if (
         selectedKeyUser1 === 0 &&
         MortgageFrom == "Mortgage Switcher" &&
@@ -171,9 +175,8 @@ export class index extends Component {
       ) {
         return (
           <AdditionsProperty
-        MortgageFrom = {MortgageFrom}
-
-            number = {this.state.numberOfForm}
+            MortgageFrom={MortgageFrom}
+            number={this.state.numberOfForm}
             isAddtionProperty={this.state.isAddtionProperty}
             getData={value => this.setState({ isAddtionProperty: value })}
             isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
@@ -191,10 +194,11 @@ export class index extends Component {
     ) {
       return (
         <FinalPage
-        MortgageFrom = {MortgageFrom}
-        numberOfForm = {this.state.numberOfForm}
-
-        getData={(value,number) => this.setState({ isAddtionProperty: value ,numberOfForm:number})}
+          MortgageFrom={MortgageFrom}
+          numberOfForm={this.state.numberOfForm}
+          getData={(value, number) =>
+            this.setState({ isAddtionProperty: value, numberOfForm: number })
+          }
           isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
           setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
@@ -234,14 +238,16 @@ export class index extends Component {
     ) {
       return (
         <MortgageFromMoverC
-        getData={(value,number) => this.setState({ isAddtionProperty: value ,numberOfForm:number})}
+          getData={(value, number) =>
+            this.setState({  numberOfForm: number })
+          }
           isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
           setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
         />
       );
     }
-    if (this.state.isAddtionProperty == "a"&& this.state.numberOfForm != 0) {
+    if (this.state.numberOfForm != 0) {
       if (
         selectedKeyUser1 === 0 &&
         MortgageFrom == "House Mover" &&
@@ -249,8 +255,8 @@ export class index extends Component {
       ) {
         return (
           <AdditionsProperty
-          MortgageFrom = {MortgageFrom}
-            number = {this.state.numberOfForm}
+            MortgageFrom={MortgageFrom}
+            number={this.state.numberOfForm}
             isAddtionProperty={this.state.isAddtionProperty}
             getData={value => this.setState({ isAddtionProperty: value })}
             isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
@@ -268,10 +274,11 @@ export class index extends Component {
     ) {
       return (
         <FinalPage
-        MortgageFrom = {MortgageFrom}
-
-        numberOfForm = {this.state.numberOfForm}
-        getData={(value,number) => this.setState({ isAddtionProperty: value ,numberOfForm:number})}
+          MortgageFrom={MortgageFrom}
+          numberOfForm={this.state.numberOfForm}
+          getData={(value, number) =>
+            this.setState({ isAddtionProperty: value, numberOfForm: number })
+          }
           isMortgageFrom={value => this.setState({ isMortgageFrom: value })}
           setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
@@ -616,7 +623,7 @@ export class index extends Component {
     if (selectedKeyUser1 === 5 && defalutClient == "user1" && creditform == 1) {
       return (
         <CreditCommentments
-        setProgress={arg => this.setState({ progressUser1: arg })}
+          setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
           changeForm={key => this.setState({ creditform: key })}
           getData={value => this.setState({ isAddAccount: value })}
@@ -625,11 +632,9 @@ export class index extends Component {
     }
     // if (this.state.isAddAccount == "a" && this.state.creditform == 2) {
     if (selectedKeyUser1 === 5 && defalutClient == "user1" && creditform == 2) {
-
       return (
         <BankDetails
-        setProgress={arg => this.setState({ progressUser1: arg })}
-
+          setProgress={arg => this.setState({ progressUser1: arg })}
           changeProfRoute={key => this.setState({ selectedKeyUser1: key })}
           changeForm={key => this.setState({ creditform: key })}
           getData={value => this.setState({ isAddAccount: value })}

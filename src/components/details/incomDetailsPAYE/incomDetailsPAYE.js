@@ -279,7 +279,7 @@ function IncomeDetailsPAYE(props) {
           <Row className="details-row">
             <Col className="" lg={6}>
               <h6 className="h6-d dl">
-                How much bonus do you ear in a year?
+              How much bonus do you earn in a year? 
               </h6>
             </Col>
             <Col className="" lg={6}>

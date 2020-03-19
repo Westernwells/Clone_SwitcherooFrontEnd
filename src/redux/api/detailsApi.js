@@ -6,6 +6,7 @@ let timeoutGlobel = 10000;
 
 const token = localStorage.getItem("tokenas");
 const personalDetailsDataPost = (data, callback) => dispatch => {
+  debugger
   console.log(data)
   dispatch(actions.LoadingDetailsData(true));
   console.log("data json=====>", data);
