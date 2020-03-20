@@ -29,7 +29,9 @@ class RightBar extends Component {
         <Row type="flex" justify="center">
           <Col className="InnerContainer" span={24}>
             <img className="imageStyle" src={LogoIcon} />
-            <p>If you want to speak to someone call as</p>
+            <p style={{ color: "#ffffff", padding: "5px" }}>
+              If you want to speak to someone call as
+            </p>
             <Col span="24">
               <span id="num">
                 <Icon

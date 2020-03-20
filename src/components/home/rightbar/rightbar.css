@@ -40,7 +40,7 @@
   border-radius: 10px !important;
 }
 #num p {
-  color: white !important;
+  color: white;
   display: inline;
 }
 .SecondInnerContainer {
