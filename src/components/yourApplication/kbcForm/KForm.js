@@ -707,7 +707,7 @@ export class KForm extends Component {
                 </SqRow>
                 </div>
                 </div>
-                <FormArea className="shenk"style={{width:'97%', margin:'0 auto'}}>
+                <FormArea className=""style={{width:'97%', margin:'0 auto'}}>
                 <AppA>
                 <InputFieldY>
                 <label htmlFor="" className="txt">1. Mother's Maiden Name*</label>
