@@ -20,7 +20,7 @@ import pg4c from './images/ripped/pg4xc.png'
 import pg5a from './images/ripped/pg5xa.png'
 import pg5c from './images/ripped/pg5xc.png'
 import svg from './images/loader/oval.svg'
-import './style.css'
+import './stylex.css'
 import ReactToPrint from 'react-to-print';
 
 export class KForm extends Component {
@@ -134,7 +134,7 @@ export class KForm extends Component {
             const { bSur,bFirst,bMaiden,bSex,bAddress1,bAddress2,bPostcode,bDOB,bMobile,bEmail,bCOB,bCOR,bEmp,bEmpDet,bEmpCon,bEmpConDet,bFutCha,bFutChaDet,bOp,bOpDet,bCit,bTr,bTin,bOc,bOcName,bOcTin,bMMName,bPOB,bFavCol,bMPE,bMPS,bMPP,bMPL,bDS,bDD,bCS,bCD} = this.state
         return (
             <>
-            <div className="print">
+            <div className="printX">
             <Container className="contain mg bg scale">
             
             <Just className="blink" />
@@ -690,7 +690,7 @@ export class KForm extends Component {
                 position:"relative",
                 bottom:"-60px"
               }} className="">
-              <Bank src={bank} style={{marginTop:"30px"}} className="p-show" />
+              <Bank src={bank} style={{marginTop:"20px"}} className="p-show" />
               <p style={{marginLeft:'15px',marginTop:'20px',fontSize:'12px'}} className="p-show">KBC/0256-6(04/18)</p>
               <p className="p-no p-show">1</p>
               </div>
