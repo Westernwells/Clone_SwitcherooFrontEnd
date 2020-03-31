@@ -700,14 +700,14 @@ export class KForm extends Component {
                 {/**page 2 starts here */}
                 <HeaderX style={{position:"relative"}} className="head">
                 <div className="awo">
-                <div className="security"style={{width:'97%',margin:'0 auto'}} >
+                <div className="security"style={{width:'99%',margin:'0 auto'}} >
                 <SqRow>
                 <HeaderImg   className="img-height"src={SQ}/>
                 <p>(Required for telephone/email account enquiries) Note: this section must be completed in full by each applicant.</p>
                 </SqRow>
                 </div>
                 </div>
-                <FormArea className=""style={{width:'97%', margin:'0 auto'}}>
+                <FormArea className=""style={{width:'99%', margin:'0 auto'}}>
                 <AppA>
                 <InputFieldY>
                 <label htmlFor="" className="txt">1. Mother's Maiden Name*</label>

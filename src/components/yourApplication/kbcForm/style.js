@@ -138,7 +138,9 @@ input{
 }
 `;
 const InputFieldT = styled(InputField)`
-grid-template-columns:1fr 45%;
+/* grid-template-columns:1fr 45%; */
+grid-template-columns:1fr 30%;
+
 grid-column-gap:5px;
 
 `;
@@ -317,7 +319,7 @@ grid-template-columns:65% 35%;
 const InputRowGroup = styled.div``;
 const Arow = styled.div`
 display:grid;
-grid-template-columns:60% 15% 1fr;
+grid-template-columns:1fr 15% 260px;
 justify-content:space-between;
 /* grid-column-gap:; */
 align-items:center;
@@ -579,7 +581,7 @@ font-family: 'Neue Haas Grotesk Text Pro';
     height:26px;
   }
   @media print{
-height:34px;
+height:32px;
   }
 }
 .txt{
