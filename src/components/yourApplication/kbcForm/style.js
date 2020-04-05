@@ -737,7 +737,7 @@ height:32px;
 
 .headX{
   background-image:url(${img});
-height:1600px;
+height:1620px;
 width:100%;
 margin-top:-20px;
 margin-bottom:10px;
@@ -749,7 +749,7 @@ padding:0 20px 10px 20px;
 }
 .head{
   background-image:url(${img});
-height:1700px;
+height:1660px;
 /* width:1380px; */
 width:100%;
 margin:0 auto;
@@ -761,7 +761,7 @@ size:0.65%;
 }
 .head3{
   background-image:url(${img});
-height:1720px;
+height:1660px;
 width:100%;
 
 margin:0 auto;
