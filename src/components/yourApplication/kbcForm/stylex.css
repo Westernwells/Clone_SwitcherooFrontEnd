@@ -2,7 +2,7 @@
   .printX {
     /* width: 1240px !important; */
 
-    /* width: 1180px !important; */
+    width: 1140 !important;
     /* height: 1600px !important; */
     /* width: 1140px !important; */
     margin-top: 0;
@@ -35,8 +35,8 @@
     /* width: 100%; */
     /* width: 100% !important; */
     margin-top: 20px;
-    /* width: 1180px !important; */
-    width: 1240px !important;
+    width: 100% !important;
+    /* width: 1240px !important; */
 
     /* height: 1600px !important; */
 
@@ -64,8 +64,8 @@
     -webkit-transform: scale(0.93, 0.85) !important; */
 
     transform-origin: 0 0 !important;
-    transform: scale(1, 0.95) !important;
-    -webkit-transform: scale(1, 0.95) !important;
+    transform: scale(1, 0.9) !important;
+    -webkit-transform: scale(1, 0.9) !important;
 
     /* transform-origin: 0 0 !important;
     transform: scale(0.945, 0.89) !important;
