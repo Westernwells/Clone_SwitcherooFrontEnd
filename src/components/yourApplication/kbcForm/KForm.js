@@ -133,8 +133,7 @@ export class KForm extends Component {
             const {test, aSur,aFirst,aMaiden,aSex,aAddress1,aAddress2,aPostcode,aDOB,aMobile,aEmail,aCOB,aCOR,aEmp,aEmpDet,aEmpCon,aEmpConDet,aFutCha,aFutChaDet,aOp,aOpDet,rel,aCit,aTr,aTin,aOc,aOcName,aOcTin,aMMName,aPOB,aFavCol,aMPE,aMPS,aMPP,aMPL,aDS,aDD,aCS,aCD} = this.state
             const { bSur,bFirst,bMaiden,bSex,bAddress1,bAddress2,bPostcode,bDOB,bMobile,bEmail,bCOB,bCOR,bEmp,bEmpDet,bEmpCon,bEmpConDet,bFutCha,bFutChaDet,bOp,bOpDet,bCit,bTr,bTin,bOc,bOcName,bOcTin,bMMName,bPOB,bFavCol,bMPE,bMPS,bMPP,bMPL,bDS,bDD,bCS,bCD} = this.state
         return (
-            <>
-            <div className="printX">
+            
             <Container className="contain mg bg scale">
             
             <Just className="blink" />
@@ -1062,8 +1061,6 @@ export class KForm extends Component {
                             {/**Page 5 end here */}
             </div>
             </Container>
-            </div>
-            </>
         )
     }
 }

@@ -505,7 +505,10 @@ const Container = styled.div`
   color:#003A65;
   margin:0 auto;
   padding:0 1%;
-  position:relative;
+  position:relative; 
+  width:1300px;
+  -webkit-print-color-adjust: exact;
+
 .psuedo{
   height:100px;
   display:block;
@@ -731,9 +734,7 @@ height:32px;
 
   margin:0 auto;
 }
-.bg{
-  color:green;
-}
+
 
 .headX{
   background-image:url(${img});
@@ -745,7 +746,14 @@ margin:0 auto;
 background-repeat: no-repeat;
 background-size:100% 100%;
 padding:0 20px 10px 20px;
-/* size:0.65%; */
+
+@media print {
+  margin-top: 20px;
+    transform-origin: 0 0 !important;
+    transform: scaleY(0.95) !important;
+    -webkit-transform: scaleY(0.95) !important;
+}
+/*  */
 }
 .head{
   background-image:url(${img});
@@ -757,7 +765,14 @@ background-repeat: no-repeat;
 background-size:100% 100%;
 border-top:solid 10px transparent;
 padding:10px 20px;
-size:0.65%;
+
+
+@media print {
+  margin-top: 20px;
+    transform-origin: 0 0 !important;
+    transform: scaleY(0.95) !important;
+    -webkit-transform: scaleY(0.95) !important;
+}
 }
 .head3{
   background-image:url(${img});
@@ -769,7 +784,13 @@ background-repeat: no-repeat;
 background-size:100% 100%;
 border-top:solid 10px transparent;
 padding:10px 20px;
-size:0.65%;
+
+@media print {
+  margin-top: 20px;
+    transform-origin: 0 0 !important;
+    transform: scaleY(0.95) !important;
+    -webkit-transform: scaleY(0.95) !important;
+}
 }
 .head4{
   background-image:url(${img});
@@ -781,7 +802,13 @@ background-repeat: no-repeat;
 background-size:100% 100%;
 border-top:solid 10px transparent;
 padding:10px 20px;
-size:0.65%;
+
+@media print {
+  margin-top: 20px;
+    transform-origin: 0 0 !important;
+    transform: scaleY(0.95) !important;
+    -webkit-transform: scaleY(0.95) !important;
+}
 }
 .head5{
   background-image:url(${img});
@@ -793,7 +820,14 @@ background-repeat: no-repeat;
 background-size:100% 100%;
 border-top:solid 10px transparent;
 padding:10px 20px;
-size:0.65%;
+
+
+@media print {
+  margin-top: 20px;
+    transform-origin: 0 0 !important;
+    transform: scaleY(0.95) !important;
+    -webkit-transform: scaleY(0.95) !important;
+}
 }
 .awo{
   margin-top:80px;
