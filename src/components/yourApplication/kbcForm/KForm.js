@@ -134,7 +134,7 @@ export class KForm extends Component {
             const { bSur,bFirst,bMaiden,bSex,bAddress1,bAddress2,bPostcode,bDOB,bMobile,bEmail,bCOB,bCOR,bEmp,bEmpDet,bEmpCon,bEmpConDet,bFutCha,bFutChaDet,bOp,bOpDet,bCit,bTr,bTin,bOc,bOcName,bOcTin,bMMName,bPOB,bFavCol,bMPE,bMPS,bMPP,bMPL,bDS,bDD,bCS,bCD} = this.state
         return (
             
-            <Container className="contain mg bg scale">
+            <Container className="contain mg bg scale printer">
             
             <Just className="blink" />
             <div style={{position:'relative'}}className="pg">

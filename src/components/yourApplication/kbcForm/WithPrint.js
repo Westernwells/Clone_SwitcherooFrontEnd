@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactToPrint from 'react-to-print';
  import Print, {KForm} from './KForm'
- import print  from  './print.css'
  
 export default class WithPrint extends React.Component {
   render() {
